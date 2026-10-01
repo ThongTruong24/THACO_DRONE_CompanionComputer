@@ -1,0 +1,371 @@
+{
+  "batchIndex": 26,
+  "nodes": [
+    {
+      "id": "file:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "type": "file",
+      "name": "parameter_store.cpp",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "summary": "ROS 2 telemetry publishing node broadcasting companion metrics over ROS 2 topics.",
+      "tags": [
+        "cpp",
+        "code",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:ParameterStore",
+      "type": "function",
+      "name": "ParameterStore",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "summary": "Function ParameterStore() declared or defined in parameter_store.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 9,
+      "endLine": 9
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "summary": "Function add() declared or defined in parameter_store.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 10,
+      "endLine": 15
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:active",
+      "type": "function",
+      "name": "active",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "summary": "Function active() declared or defined in parameter_store.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 20,
+      "endLine": 20
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:persist",
+      "type": "function",
+      "name": "persist",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "summary": "Function persist() declared or defined in parameter_store.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 21,
+      "endLine": 40
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:set",
+      "type": "function",
+      "name": "set",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "summary": "Function set() declared or defined in parameter_store.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 41,
+      "endLine": 56
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:load",
+      "type": "function",
+      "name": "load",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "summary": "Function load() declared or defined in parameter_store.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 57,
+      "endLine": 70
+    },
+    {
+      "id": "file:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "type": "file",
+      "name": "system_metrics.cpp",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "summary": "ROS 2 telemetry publishing node broadcasting companion metrics over ROS 2 topics.",
+      "tags": [
+        "cpp",
+        "code",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:SystemMetrics",
+      "type": "function",
+      "name": "SystemMetrics",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "summary": "Function SystemMetrics() declared or defined in system_metrics.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 9,
+      "endLine": 12
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:read_cpu_raw",
+      "type": "function",
+      "name": "read_cpu_raw",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "summary": "Function read_cpu_raw() declared or defined in system_metrics.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 14,
+      "endLine": 32
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:read_temperature",
+      "type": "function",
+      "name": "read_temperature",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "summary": "Function read_temperature() declared or defined in system_metrics.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 34,
+      "endLine": 48
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:read_memory",
+      "type": "function",
+      "name": "read_memory",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "summary": "Function read_memory() declared or defined in system_metrics.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 50,
+      "endLine": 70
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "summary": "Function update() declared or defined in system_metrics.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 72,
+      "endLine": 104
+    },
+    {
+      "id": "file:src/mavros/ros2ws/cc_telemetry/test/core_test.cpp",
+      "type": "file",
+      "name": "core_test.cpp",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/test/core_test.cpp",
+      "summary": "ROS 2 telemetry publishing node broadcasting companion metrics over ROS 2 topics.",
+      "tags": [
+        "cpp",
+        "code",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/test/core_test.cpp:TEST",
+      "type": "function",
+      "name": "TEST",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/test/core_test.cpp",
+      "summary": "Function TEST() declared or defined in core_test.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 5,
+      "endLine": 26
+    },
+    {
+      "id": "function:src/mavros/ros2ws/cc_telemetry/test/core_test.cpp:TEST",
+      "type": "function",
+      "name": "TEST",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/test/core_test.cpp",
+      "summary": "Function TEST() declared or defined in core_test.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 27,
+      "endLine": 32
+    },
+    {
+      "id": "file:src/mavros/telemetry_demo.py",
+      "type": "file",
+      "name": "telemetry_demo.py",
+      "filePath": "src/mavros/telemetry_demo.py",
+      "summary": "ROS 2 MAVROS subsystem (telemetry_demo.py) integrating companion telemetry with ROS 2.",
+      "tags": [
+        "python",
+        "code",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/mavros/telemetry_demo.py:TelemetrySnapshot",
+      "type": "class",
+      "name": "TelemetrySnapshot",
+      "filePath": "src/mavros/telemetry_demo.py",
+      "summary": "Class TelemetrySnapshot defined in telemetry_demo.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 19,
+      "endLine": 24
+    },
+    {
+      "id": "class:src/mavros/telemetry_demo.py:TelemetryDemo",
+      "type": "class",
+      "name": "TelemetryDemo",
+      "filePath": "src/mavros/telemetry_demo.py",
+      "summary": "Class TelemetryDemo defined in telemetry_demo.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 32,
+      "endLine": 104
+    },
+    {
+      "id": "function:src/mavros/telemetry_demo.py:format_number",
+      "type": "function",
+      "name": "format_number",
+      "filePath": "src/mavros/telemetry_demo.py",
+      "summary": "Function format_number() declared or defined in telemetry_demo.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 27,
+      "endLine": 29
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:ParameterStore",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:add",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:active",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:persist",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:set",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp:load",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:SystemMetrics",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:read_cpu_raw",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:read_temperature",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:read_memory",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp:update",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/test/core_test.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/test/core_test.cpp:TEST",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/ros2ws/cc_telemetry/test/core_test.cpp",
+      "target": "function:src/mavros/ros2ws/cc_telemetry/test/core_test.cpp:TEST",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/telemetry_demo.py",
+      "target": "class:src/mavros/telemetry_demo.py:TelemetrySnapshot",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/telemetry_demo.py",
+      "target": "class:src/mavros/telemetry_demo.py:TelemetryDemo",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/mavros/telemetry_demo.py",
+      "target": "function:src/mavros/telemetry_demo.py:format_number",
+      "type": "contains"
+    }
+  ]
+}

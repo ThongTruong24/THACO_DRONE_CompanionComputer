@@ -1,0 +1,66 @@
+# ==============================================================================
+# DRONE CAMERA & RTSP STREAMING CONFIGURATION (SOLID PRODUCTION DESIGN)
+# ==============================================================================
+
+# Loại camera sử dụng: "realsense" | "v4l2" | "csi" | "mock"
+camera_type: "realsense"
+
+# Cấu hình chi tiết cho từng loại thiết bị phần cứng
+device_settings:
+  realsense:
+    serial_number: ""          # Để trống để tự động nhận thiết bị D435i/D455 đầu tiên
+    profile_mode: "rgb_only"
+    enable_emitter: false      # Không cần emitter khi chỉ stream RGB
+    depth_width: 640
+    depth_height: 480
+    depth_fps: 30
+
+  v4l2:
+    device_path: "/dev/video0"
+    pixel_format: "YUYV"       # "YUYV" | "MJPG" | "RGB3"
+    num_buffers: 4
+
+  csi:
+    camera_index: 0
+    sensor_mode: 0
+
+# Thông số video stream
+video:
+  width: 1280                  # 1920 (1080p) | 1280 (720p) | 640 (480p)
+  height: 720                  # 1080         | 720         | 480
+  fps: 30                      # 30 | 60
+  rotation: 180                # 0 | 90 | 180 | 270 (Xoay phần cứng SIMD NEON)
+
+# Cấu hình nén video & hàng đợi chống tràn
+encoder:
+  codec: "h264"
+  mode: "software"             # Pi 5 dùng 4 core Cortex-A76 x264enc
+  bitrate_kbps: 1300           # Bitrate CBR cố định mượt mà cho FPV Wi-Fi
+  bitrate_min_kbps: 1300
+  bitrate_max_kbps: 1300
+  vbv_buffer_kb: 1300          # VBV buffer size (1s)
+  tune: "zerolatency"
+  speed_preset: "ultrafast"
+  threads: 4                   # 4 cores ARM Cortex-A76 trên Pi 5
+  intra_refresh: false          # Bật Periodic Intra-Refresh (phẳng hoá luồng gói tin, không spike I-frame)
+  adaptive_rate: false         # Tắt AIMD adaptive rate để triệt tiêu chu kỳ đứng hình 15 giây
+  key_int_max: 30              # Chu kỳ làm mới macroblock intra (1 giây @ 30fps)
+  leaky_queue_buffers: 6       # Hàng đợi 6 buffers (~200ms headroom) chống tràn giả
+
+# Cấu hình mạng & máy chủ RTSP
+network:
+  sink_type: "rtmp"            # "rtmp" (MediaMTX) hoặc "rtsp_direct"
+  target_url: "rtmp://127.0.0.1:1935/camera"
+  reconnect_interval_ms: 1000  # Thời gian chờ tự kết nối lại nếu mất mạng
+  timeout_seconds: 5
+
+ros2_rgbd:
+  enabled: false
+  color_topic: /camera/color/image_raw
+  aligned_depth_topic: /camera/aligned_depth_to_color/image_raw
+  camera_info_topic: /camera/color/camera_info
+  color_frame: camera_color_optical_frame
+  base_frame: base_link
+  depth_encoding: 32FC1
+  publish_fps: 10
+  extrinsics_file: /app/config/camera-extrinsics.yaml

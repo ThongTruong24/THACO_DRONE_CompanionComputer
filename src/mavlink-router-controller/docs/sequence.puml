@@ -1,0 +1,49 @@
+@startuml router-controller-sequence
+title MAVLink Router Controller: Startup, Standby Mode & IPC Reload Sequence
+
+participant "Docker / Systemd" as Init
+participant "RouterSupervisor\n(Daemon / IPC Server)" as Sup
+participant "HardwareManager\n(/run/drone/hw_manager.sock)" as HW
+participant "Linux Process\n(mavlink-routerd)" as RouterD
+participant "Flight Controller\n(UART /dev/ttyAMA4)" as FC
+participant "QGC / Operator\n(UDP :14550)" as QGC
+participant "MAVROS\n(UDP :14541)" as MAVROS
+participant "CC Agent\n(UDP :14600)" as Agent
+
+== Startup & Standby Check ==
+Init -> Sup : main() starts
+Sup -> HW : VALIDATE_PORT("/dev/ttyAMA4")
+alt FC UART Available
+  HW --> Sup : {"status": "OK", "valid": true}
+  Sup -> Sup : generate_config_content(fc_valid=true)
+  Sup -> RouterD : fork() & execvp("mavlink-routerd", "-c", "/etc/mavlink-router/main.conf")
+  note right of RouterD: [UartEndpoint FC] active\n[UdpEndpoint QGC] active :14550\n[UdpEndpoint MAVROS] active :14541\n[UdpEndpoint CC_Agent] active :14600
+else FC UART Absent (Standby Mode)
+  HW --> Sup : {"status": "OK", "valid": false}
+  Sup -> Sup : generate_config_content(fc_valid=false)\n[Graceful Standby Mode]
+  Sup -> RouterD : fork() & execvp("mavlink-routerd", "-c", "/etc/mavlink-router/main.conf")
+  note right of RouterD: Runs UDP-only endpoints (:14550, :14600, :14541)\nPrevents exit code 1 crash!
+end
+
+== Steady-State Telemetry Routing ==
+FC -> RouterD : MAVLink frames (UART4 921600)
+RouterD -> QGC : UDP :14550 (GCS Telemetry)
+RouterD -> MAVROS : UDP :14541 (ROS 2 Bridge)
+RouterD -> Agent : UDP :14600 (Companion Agent)
+
+== Dynamic Configuration Reload via IPC ==
+Agent -> Sup : NDJSON: {"cmd": "APPLY_CONFIG", "fc_baud": 921600, "gcs_ip": "192.168.10.50"}
+Sup -> Sup : generate_config_file(new_cfg)
+Sup -> RouterD : kill(SIGTERM) & waitpid()
+Sup -> RouterD : fork() & execvp("mavlink-routerd")
+Sup -> Agent : NDJSON: {"status": "OK", "message": "Router configuration applied and process reloaded"}
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+
+@enduml

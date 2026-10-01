@@ -1,0 +1,28 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/drone-networking/50-drone.yaml",
+      "language": "yaml",
+      "sizeLines": 25,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/drone-networking/README.md",
+      "language": "markdown",
+      "sizeLines": 95,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/drone-networking/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 289,
+      "fileCategory": "script"
+    }
+  ],
+  "batchImportData": {
+    "src/drone-networking/50-drone.yaml": [],
+    "src/drone-networking/README.md": [],
+    "src/drone-networking/entrypoint.sh": []
+  }
+}

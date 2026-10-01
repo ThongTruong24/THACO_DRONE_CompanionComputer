@@ -1,0 +1,54 @@
+{
+  "batchIndex": 12,
+  "nodes": [
+    {
+      "id": "config:config/camera-extrinsics.example.yaml",
+      "type": "config",
+      "name": "camera-extrinsics.example.yaml",
+      "filePath": "config/camera-extrinsics.example.yaml",
+      "summary": "System configuration file (camera-extrinsics.example.yaml) defining runtime parameters and services.",
+      "tags": [
+        "yaml",
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:config/qgc_telemetry.yaml",
+      "type": "config",
+      "name": "qgc_telemetry.yaml",
+      "filePath": "config/qgc_telemetry.yaml",
+      "summary": "System configuration file (qgc_telemetry.yaml) defining runtime parameters and services.",
+      "tags": [
+        "yaml",
+        "config"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:config/rpi-config.txt",
+      "type": "document",
+      "name": "rpi-config.txt",
+      "filePath": "config/rpi-config.txt",
+      "summary": "System configuration file (rpi-config.txt) defining runtime parameters and services.",
+      "tags": [
+        "txt",
+        "docs"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:config/wifi.example.json",
+      "type": "config",
+      "name": "wifi.example.json",
+      "filePath": "config/wifi.example.json",
+      "summary": "System configuration file (wifi.example.json) defining runtime parameters and services.",
+      "tags": [
+        "json",
+        "config"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

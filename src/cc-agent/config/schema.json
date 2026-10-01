@@ -1,0 +1,236 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "THACO Drone Configuration Schema",
+  "type": "object",
+  "definitions": {
+    "key_metadata": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["string", "integer", "boolean", "enum", "cidr", "ipv4", "list"] },
+        "default": {},
+        "apply_type": { "type": "string", "enum": ["HOT", "SERVICE_RESTART", "NETWORK_RESTART", "REBOOT"] },
+        "sensitive": { "type": "boolean" },
+        "reboot_required": { "type": "boolean" },
+        "backend": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["type", "apply_type", "backend"]
+    }
+  },
+  "keys": {
+    "network.eth0.mode": {
+      "type": "enum",
+      "enum": ["static", "dhcp"],
+      "default": "static",
+      "apply_type": "NETWORK_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "netplan",
+      "description": "Ethernet interface IP assignment mode"
+    },
+    "network.eth0.address": {
+      "type": "cidr",
+      "default": "192.168.144.150/24",
+      "apply_type": "NETWORK_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "netplan",
+      "description": "Static IPv4 CIDR address for eth0"
+    },
+    "network.eth0.gateway": {
+      "type": "ipv4",
+      "default": "",
+      "apply_type": "NETWORK_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "netplan",
+      "description": "Default IPv4 Gateway for eth0"
+    },
+    "network.eth0.dns": {
+      "type": "list",
+      "default": ["1.1.1.1", "8.8.8.8"],
+      "apply_type": "NETWORK_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "netplan",
+      "description": "DNS resolver servers"
+    },
+    "network.eth0.mtu": {
+      "type": "integer",
+      "minimum": 576,
+      "maximum": 9000,
+      "default": 1500,
+      "apply_type": "NETWORK_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "netplan",
+      "description": "Ethernet Maximum Transmission Unit"
+    },
+    "network.wlan0.enabled": {
+      "type": "boolean",
+      "default": true,
+      "apply_type": "NETWORK_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "netplan",
+      "description": "Enable or disable Wi-Fi station interface"
+    },
+    "network.wlan0.ssid": {
+      "type": "string",
+      "default": "",
+      "apply_type": "NETWORK_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "netplan",
+      "description": "Target Wi-Fi SSID for client connection"
+    },
+    "network.wlan0.password": {
+      "type": "string",
+      "default": "",
+      "apply_type": "NETWORK_RESTART",
+      "sensitive": true,
+      "reboot_required": false,
+      "backend": "netplan",
+      "description": "WPA2 passphrase for Wi-Fi client"
+    },
+    "network.hotspot.enabled": {
+      "type": "boolean",
+      "default": true,
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Enable autonomous Drone AP Hotspot"
+    },
+    "network.hotspot.ssid": {
+      "type": "string",
+      "default": "AP_DRONE",
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Hotspot broadcast SSID"
+    },
+    "network.hotspot.password": {
+      "type": "string",
+      "minLength": 8,
+      "default": "12345678",
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": true,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Hotspot WPA2 passphrase"
+    },
+    "hardware.uart0.enabled": {
+      "type": "boolean",
+      "default": true,
+      "apply_type": "REBOOT",
+      "sensitive": false,
+      "reboot_required": true,
+      "backend": "rpi_hardware",
+      "description": "Enable /dev/ttyAMA0 PL011 UART"
+    },
+    "hardware.uart0.baudrate": {
+      "type": "integer",
+      "enum": [9600, 57600, 115200, 230400, 460800, 921600],
+      "default": 115200,
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Baudrate for SIYI UART0"
+    },
+    "hardware.uart4.enabled": {
+      "type": "boolean",
+      "default": true,
+      "apply_type": "REBOOT",
+      "sensitive": false,
+      "reboot_required": true,
+      "backend": "rpi_hardware",
+      "description": "Enable /dev/ttyAMA4 PL011 UART for Flight Controller"
+    },
+    "hardware.uart4.baudrate": {
+      "type": "integer",
+      "enum": [9600, 57600, 115200, 230400, 460800, 921600],
+      "default": 921600,
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Baudrate for FC UART4"
+    },
+    "hardware.i2c.enabled": {
+      "type": "boolean",
+      "default": true,
+      "apply_type": "REBOOT",
+      "sensitive": false,
+      "reboot_required": true,
+      "backend": "rpi_hardware",
+      "description": "Enable hardware I2C interface"
+    },
+    "hardware.spi.enabled": {
+      "type": "boolean",
+      "default": false,
+      "apply_type": "REBOOT",
+      "sensitive": false,
+      "reboot_required": true,
+      "backend": "rpi_hardware",
+      "description": "Enable hardware SPI interface"
+    },
+    "services.mavros.enabled": {
+      "type": "boolean",
+      "default": true,
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Enable ROS 2 MAVROS bridge daemon"
+    },
+    "services.camera.enabled": {
+      "type": "boolean",
+      "default": true,
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Enable MediaMTX and camera streamer"
+    },
+    "services.vision.enabled": {
+      "type": "boolean",
+      "default": true,
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Enable AI YOLO Vision inference service"
+    },
+    "system.hostname": {
+      "type": "string",
+      "default": "drone-thaco",
+      "apply_type": "HOT",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Linux system hostname"
+    },
+    "camera.realsense.enabled": {
+      "type": "boolean",
+      "default": true,
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Enable Intel RealSense camera"
+    },
+    "camera.realsense.fps": {
+      "type": "integer",
+      "enum": [15, 30, 60],
+      "default": 30,
+      "apply_type": "SERVICE_RESTART",
+      "sensitive": false,
+      "reboot_required": false,
+      "backend": "systemd",
+      "description": "Camera streaming FPS"
+    }
+  }
+}

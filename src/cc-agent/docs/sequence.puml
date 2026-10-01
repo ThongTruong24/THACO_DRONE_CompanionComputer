@@ -1,0 +1,63 @@
+@startuml cc-agent-sequence
+title Companion Agent: C++ Transaction Engine & Rollback Guard Sequence
+
+actor Operator as QGC
+participant "mavlink-routerd\n(UDP :14600)" as Router
+participant "drone-companion-agent\n(C++ Native Binary)" as Agent
+participant "ConfigEngine\n(Transaction Manager)" as Engine
+participant "RollbackGuard\n(30s Heartbeat Watchdog)" as Guard
+participant "Flight Controller\n(MAVLink Heartbeat)" as FC
+participant "System Backends\n(env / hostapd / netplan)" as Backends
+
+== Telemetry Broadcast (Steady State) ==
+Agent -> Agent : SystemMetricsCollector::read_stats()
+Agent -> Router : MAVLink: CC_TELEMETRY_SYSTEM (ID 42014)
+Router -> QGC : Forward to GCS
+
+== Transaction Configuration Update ==
+QGC -> Router : MAVLink: CC_CONFIG_BEGIN (ID 42010, tid=123)
+Router -> Agent : Parse MAVLink UDP :14600
+Agent -> Engine : begin_transaction(tid=123)
+Engine --> Agent : OK
+Agent -> Router : CC_CONFIG_ACK (tid=123, status=OK)
+
+QGC -> Router : MAVLink: CC_CONFIG_SET (ID 42011, key="wifi.ssid", val="DRONE_NEW")
+Router -> Agent : Parse MAVLink
+Agent -> Engine : set_value(tid=123, key, val)
+Engine --> Agent : Staged
+Agent -> Router : CC_CONFIG_ACK (tid=123, status=OK)
+
+QGC -> Router : MAVLink: CC_CONFIG_APPLY (ID 42012, tid=123)
+Router -> Agent : Parse MAVLink
+Agent -> Engine : apply_transaction(tid=123)
+Engine -> Backends : Write staged config & reload services
+Agent -> Guard : start_trial(timeout=30s)
+note right of Guard: Starts 30s watchdog trial.\nRequires active Heartbeat from FC to commit.
+
+alt Heartbeat Received within 30s
+  FC -> Router : MAVLink: HEARTBEAT
+  Router -> Agent : Heartbeat received
+  Agent -> Guard : on_heartbeat_received()
+  Guard -> Engine : commit_transaction(tid=123)
+  Agent -> Router : CC_CONFIG_CONFIRM (tid=123, status=COMMITTED)
+else Heartbeat Lost / Timeout Exceeded
+  Guard -> Guard : Watchdog expires (30s)
+  Guard -> Engine : rollback_transaction(tid=123)
+  Engine -> Backends : Revert to original backup config
+  Agent -> Router : CC_CONFIG_ROLLBACK (tid=123, status=ROLLED_BACK)
+end
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+note as AgentArtifacts
+  Binary inside cc-agent image; no host binary mount
+  cc-agent-state persists /var/lib/cc-agent
+  Private telemetry.env is mounted rw at /app/.env
+end note
+
+@enduml

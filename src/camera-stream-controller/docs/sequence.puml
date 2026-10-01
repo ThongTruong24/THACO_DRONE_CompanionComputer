@@ -1,0 +1,67 @@
+@startuml drone-camera-rtsp-sequence
+title drone-camera-rtsp: Startup & Streaming Sequence
+
+participant "Docker Engine" as Docker
+participant "entrypoint.sh" as EP
+participant "mediamtx" as MTX
+participant "drone_camera_streamer\n(C++ native)" as Streamer
+participant "RealSense D435i\n(USB)" as Camera
+participant "Standby Pattern\n(test card)" as Standby
+participant "RTMP internal\n(:1935/camera)" as RTMP
+participant "RTSP output\n(:8554/camera)" as RTSP
+participant "Clients\n(QGC / VLC)" as Client
+
+== Container Startup ==
+Docker -> EP : start (env: RTMP_URL, STREAM_WIDTH,\nSTREAM_HEIGHT, STREAM_FPS, STREAM_BITRATE)
+EP -> MTX : [1/2] /usr/local/bin/mediamtx /app/mediamtx.yml &
+MTX -> RTMP : Open RTMP listener :1935
+MTX -> RTSP : Open RTSP listener :8554
+MTX --> EP : MEDIAMTX_PID
+
+EP -> EP : Wait for port :1935 to be ready\n(poll ss -tln every 200ms, timeout 6s)
+EP -> EP : kill -0 MEDIAMTX_PID (sanity check)
+
+EP -> Streamer : [2/2] loop: /usr/local/bin/drone_camera_streamer /app/camera.yaml
+
+== Steady State: Camera Available ==
+Streamer -> Camera : Open RealSense D435i via pyrealsense2\n(or V4L2 fallback)
+Camera --> Streamer : color frames (640x480@30fps)
+
+Streamer -> Streamer : H.264 encode via GStreamer pipeline\n(leaky=downstream - drop old frames on overflow)
+Streamer -> RTMP : Push RTMP stream to rtmp://127.0.0.1:1935/camera
+MTX -> RTSP : Re-publish as rtsp://0.0.0.0:8554/camera
+
+Client -> RTSP : RTSP PLAY request
+RTSP --> Client : H.264 stream (low-latency)
+
+== Anti-Overflow & Auto-Recovery ==
+Streamer -> Streamer : Watchdog: detect pipeline stall\n(frame_count unchanged for N seconds)
+Streamer -> Streamer : Re-init GStreamer pipeline\n(recovery < 1s)
+
+== Standby Mode: Camera Not Available ==
+Streamer -> Standby : Camera absent or /run/drone/camera_stats.json\nreports is_standby=true
+Standby -> RTMP : Push test pattern (color bars / black frame)
+MTX -> RTSP : Re-publish standby stream
+note over Standby : Clients receive a live stream placeholder;\nnot a connection error.
+
+== Camera Crash & Restart ==
+Streamer -> EP : drone_camera_streamer exits (non-zero)
+EP -> EP : Log error: "Streamer exited; restarting after 2s"
+EP -> Streamer : sleep 2; re-exec drone_camera_streamer
+
+== Shutdown ==
+Docker -> EP : SIGTERM
+EP -> Streamer : loop exits (shell trap)
+EP -> MTX : kill MEDIAMTX_PID
+MTX --> EP : exit
+EP -> EP : exit 0
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+
+@enduml

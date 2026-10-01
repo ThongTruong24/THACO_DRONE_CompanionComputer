@@ -1,0 +1,21 @@
+{
+  "batchIndex": 4,
+  "nodes": [
+    {
+      "id": "service:src/cc-agent/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "src/cc-agent/Dockerfile",
+      "summary": "Companion computer agent component (Dockerfile) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

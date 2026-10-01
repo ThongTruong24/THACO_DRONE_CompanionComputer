@@ -1,0 +1,14 @@
+build/
+build-*/
+install/
+log/
+.git
+.env
+.env.*
+wifi.json
+__pycache__/
+*.pyc
+*.o
+*.a
+*.tar
+*.gz

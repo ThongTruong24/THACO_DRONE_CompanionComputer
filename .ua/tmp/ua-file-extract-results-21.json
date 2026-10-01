@@ -1,0 +1,83 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [
+    "src/mavros/ros2ws/cc_telemetry/CMakeLists.txt",
+    "src/mavros/ros2ws/cc_telemetry/package.xml"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 134,
+      "nonEmptyLines": 102,
+      "sections": [
+        {
+          "heading": "CC telemetry (C++ / ROS 2 Jazzy)",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Modules",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Start and observe",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "QGroundControl connection",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "Inspect CC telemetry",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "Edit CC parameters",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "View logs",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "Data provenance and unavailable values",
+          "level": 2,
+          "line": 112
+        },
+        {
+          "heading": "Verification status",
+          "level": 2,
+          "line": 131
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+add_test([=[CameraConfigManagerTest.LoadValidYamlConfig]=]  /home/lnh/Drone/src/camera-stream-controller/build/tests/test_camera_stream [==[--gtest_filter=CameraConfigManagerTest.LoadValidYamlConfig]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[CameraConfigManagerTest.LoadValidYamlConfig]=]  PROPERTIES WORKING_DIRECTORY /home/lnh/Drone/src/camera-stream-controller/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[CameraConfigManagerTest.NonExistentYamlFailsGracefully]=]  /home/lnh/Drone/src/camera-stream-controller/build/tests/test_camera_stream [==[--gtest_filter=CameraConfigManagerTest.NonExistentYamlFailsGracefully]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[CameraConfigManagerTest.NonExistentYamlFailsGracefully]=]  PROPERTIES WORKING_DIRECTORY /home/lnh/Drone/src/camera-stream-controller/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[CameraFrameProcessorTest.NeonProcessorDummyFrame]=]  /home/lnh/Drone/src/camera-stream-controller/build/tests/test_camera_stream [==[--gtest_filter=CameraFrameProcessorTest.NeonProcessorDummyFrame]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[CameraFrameProcessorTest.NeonProcessorDummyFrame]=]  PROPERTIES WORKING_DIRECTORY /home/lnh/Drone/src/camera-stream-controller/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  test_camera_stream_TESTS CameraConfigManagerTest.LoadValidYamlConfig CameraConfigManagerTest.NonExistentYamlFailsGracefully CameraFrameProcessorTest.NeonProcessorDummyFrame)

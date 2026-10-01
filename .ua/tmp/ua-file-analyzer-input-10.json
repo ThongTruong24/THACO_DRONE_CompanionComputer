@@ -1,0 +1,49 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": ".agents/rules/00-core.md",
+      "language": "markdown",
+      "sizeLines": 25,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/01-networking.md",
+      "language": "markdown",
+      "sizeLines": 8,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/02-mavlink.md",
+      "language": "markdown",
+      "sizeLines": 26,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/03-camera-rtsp.md",
+      "language": "markdown",
+      "sizeLines": 6,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/04-vision.md",
+      "language": "markdown",
+      "sizeLines": 7,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/05-doctor.md",
+      "language": "markdown",
+      "sizeLines": 17,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    ".agents/rules/00-core.md": [],
+    ".agents/rules/01-networking.md": [],
+    ".agents/rules/02-mavlink.md": [],
+    ".agents/rules/03-camera-rtsp.md": [],
+    ".agents/rules/04-vision.md": [],
+    ".agents/rules/05-doctor.md": []
+  }
+}

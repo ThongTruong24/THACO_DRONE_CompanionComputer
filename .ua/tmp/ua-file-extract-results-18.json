@@ -1,0 +1,80 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [
+    "src/mavlink-router-controller/CMakeLists.txt"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 2,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 2
+    }
+  },
+  "results": [
+    {
+      "path": "src/mavlink-router-controller/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 88,
+      "nonEmptyLines": 64,
+      "sections": [
+        {
+          "heading": "MAVLink Router Container",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Active paths",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "QGroundControl",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "Operations",
+          "level": 2,
+          "line": 38
+        },
+        {
+          "heading": "Diagrams",
+          "level": 2,
+          "line": 57
+        },
+        {
+          "heading": "MAVLink Message Definitions & Single Source of Truth (SSOT)",
+          "level": 2,
+          "line": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "src/mavlink-router-controller/entrypoint.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 72,
+      "nonEmptyLines": 59,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

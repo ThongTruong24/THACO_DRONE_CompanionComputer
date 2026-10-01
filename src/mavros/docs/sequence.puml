@@ -1,0 +1,74 @@
+@startuml drone-mavros-sequence
+title drone-mavros: Startup & Telemetry Broadcast Sequence
+
+participant "Docker Engine" as Docker
+participant "entrypoint.sh" as EP
+participant "ROS 2 Jazzy\n(/opt/ros/jazzy)" as ROS
+participant "mavros_node\n(drone_mavros)" as MAVROS
+participant "cc_telemetry_node" as CCTel
+participant "mavros-telemetry-demo" as Demo
+participant "mavlink-router\n(UDP 14541)" as Router
+participant "FC (via Router)" as FC
+participant "QGC / GCS" as QGC
+participant "/run/drone/log.sock" as LogSock
+
+== Container Startup ==
+Docker -> EP : start (env: MAVROS_FCU_URL, ROS_DOMAIN_ID)
+EP -> EP : Validate MAVROS_FCU_URL == udp://:14542@127.0.0.1:14541\n(reject other values with exit 20)
+EP -> ROS : source /opt/ros/jazzy/setup.bash
+EP -> ROS : source /opt/cc_ws/setup.bash
+EP -> EP : export LD_PRELOAD=libagridrone_plugins.so\n(intercept custom MAVLink v2 CRC)
+
+EP -> Demo : /usr/local/bin/mavros-telemetry-demo &
+Demo --> EP : telemetry_pid
+
+EP -> MAVROS : ros2 run mavros mavros_node --ros-args\n-p fcu_url:=udp://:14542@127.0.0.1:14541\n-p tgt_system:=1 tgt_component:=1
+MAVROS --> EP : mavros_pid
+
+EP -> CCTel : cc_telemetry_node &\n(looks in /opt/cc_ws/lib/ first)
+CCTel --> EP : cc_pid
+
+EP -> EP : trap cleanup EXIT INT TERM\nwait -n mavros_pid cc_pid
+
+
+== Steady State: FC Telemetry Flow ==
+FC -> Router : MAVLink frames (UART ttyAMA4)
+Router -> MAVROS : UDP :14541 -> :14542\n(agridrone plugin decodes custom msg IDs)
+MAVROS -> ROS : Publish /mavros/state, /battery, /imu, etc.
+MAVROS -> QGC : Custom MAVLink msgs (42012, 42013) via Router
+
+== Steady State: cc_telemetry Broadcast ==
+CCTel -> ROS : Subscribe ROS topics (/mavros/*)
+CCTel -> QGC : MAVLink heartbeat + CC_CONFIG_STATUS (42012)\n+ CC_CONFIG_DATA (42013) via mavros router
+CCTel -> LogSock : Write structured log JSON\n(/run/drone/log.sock)
+
+== Steady State: GCS Command ==
+QGC -> Router : MAVLink command (UDP :14550)
+Router -> MAVROS : UDP :14542
+MAVROS -> ROS : Publish /mavros/cmd/*
+MAVROS -> FC : Forward arm/mode commands (UART)
+
+== Config Change Notification ==
+note over CCTel : When cc-config-agent applies a new\nnetwork/telemetry config, cc_telemetry_node\nbroadcasts updated CC_CONFIG_STATUS to QGC.
+
+== Shutdown ==
+Docker -> EP : SIGTERM / EXIT
+EP -> MAVROS : kill -TERM mavros_pid
+EP -> Demo : kill -TERM telemetry_pid
+EP -> CCTel : kill -TERM cc_pid
+EP -> EP : wait all pids; exit
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+note as MavrosMapping
+  Compose: mavros
+  Image: drone-mavros
+  Context: src/mavros
+end note
+
+@enduml

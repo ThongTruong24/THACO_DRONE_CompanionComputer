@@ -1,0 +1,28 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/mavros/Dockerfile.update",
+      "language": "dockerfile",
+      "sizeLines": 15,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/mavros/README.md",
+      "language": "markdown",
+      "sizeLines": 106,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 54,
+      "fileCategory": "script"
+    }
+  ],
+  "batchImportData": {
+    "src/mavros/Dockerfile.update": [],
+    "src/mavros/README.md": [],
+    "src/mavros/entrypoint.sh": []
+  }
+}

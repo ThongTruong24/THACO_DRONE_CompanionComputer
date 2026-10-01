@@ -1,0 +1,5 @@
+if(EXISTS "/home/lnh/Drone/src/camera-stream-controller/build/tests/test_camera_stream[1]_tests.cmake")
+  include("/home/lnh/Drone/src/camera-stream-controller/build/tests/test_camera_stream[1]_tests.cmake")
+else()
+  add_test(test_camera_stream_NOT_BUILT test_camera_stream_NOT_BUILT)
+endif()

@@ -1,0 +1,24 @@
+# syntax=docker/dockerfile:1
+FROM --platform=linux/arm64 ubuntu:24.04 AS builder
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    cmake build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY include/ /app/include/
+COPY src/     /app/src/
+COPY CMakeLists.txt /app/CMakeLists.txt
+COPY mavlink/ /app/mavlink/
+
+# Adjust CMakeLists.txt in docker to find mavlink in /app/mavlink
+RUN sed -i 's|../../mavros/mavlink/agridrone-thaco-mavlink/generated/c_library|/app/mavlink|g' /app/CMakeLists.txt
+
+RUN mkdir -p /app/build && cd /app/build && \
+    cmake .. -DCMAKE_BUILD_TYPE=Release && \
+    make -j$(nproc)
+
+FROM scratch AS export
+COPY --from=builder /app/build/drone-companion-agent /

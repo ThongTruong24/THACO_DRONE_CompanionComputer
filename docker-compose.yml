@@ -1,0 +1,217 @@
+services:
+  mavlink-router-controller:
+    image: ${REGISTRY:-ghcr.io}/${IMAGE_NAMESPACE:?Set IMAGE_NAMESPACE to your GitHub owner or org}/mavlink-router-controller:${IMAGE_TAG:-dev-ai-tracking-flow}
+    platform: linux/arm64
+    pull_policy: missing
+    restart: always
+    network_mode: host
+    privileged: true
+    environment:
+    - DRONE_SERIAL_PORT=${DRONE_SERIAL_PORT:-/dev/ttyAMA4}
+    - DRONE_BAUD_RATE=${DRONE_BAUD_RATE:-921600}
+    - GCS_IP=${GCS_IP:-}
+    - SIYI_ENABLED=${SIYI_ENABLED:-true}
+    - SIYI_SERIAL_PORT=${SIYI_SERIAL_PORT:-/dev/ttyAMA0}
+    - SIYI_BAUD=${SIYI_BAUD:-115200}
+    - TCP_SERVER_PORT=${TCP_SERVER_PORT:-5760}
+    volumes:
+    - /dev:/dev
+    - mavlink-logs:/var/log/mavlink-router
+    - /run/drone:/run/drone:rw
+    - /etc/localtime:/etc/localtime:ro
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '3'
+  cc-agent:
+    image: ${REGISTRY:-ghcr.io}/${IMAGE_NAMESPACE:?Set IMAGE_NAMESPACE to your GitHub owner or org}/cc-agent:${IMAGE_TAG:-dev-ai-tracking-flow}
+    platform: linux/arm64
+    pull_policy: missing
+    restart: always
+    network_mode: host
+    privileged: true
+    depends_on:
+    - mavlink-router-controller
+    volumes:
+    - /dev:/dev
+    - /run/drone:/run/drone:rw
+    - /sys:/sys:ro
+    - /proc:/proc:ro
+    - ${DRONE_RUNTIME_DIR:-./runtime}/agent/telemetry.env:/app/.env:rw
+    - cc-agent-state:/var/lib/cc-agent:rw
+    - ${CAMERA_CONFIG_FILE:-./src/camera-stream-controller/camera.yaml}:/app/camera.yaml:ro
+    - /etc/localtime:/etc/localtime:ro
+    environment:
+    - DRONE_ROOT=/app
+    - DRONE_RUN_DIR=/run/drone
+    - DRONE_CONFIG_DIR=/var/lib/cc-agent
+    entrypoint: ["/usr/local/bin/drone-companion-agent"]
+    command: ["127.0.0.1", "14600"]
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '2'
+  drone-networking:
+    image: ${REGISTRY:-ghcr.io}/${IMAGE_NAMESPACE:?Set IMAGE_NAMESPACE to your GitHub owner or org}/drone-networking:${IMAGE_TAG:-dev-ai-tracking-flow}
+    platform: linux/arm64
+    pull_policy: missing
+    restart: always
+    network_mode: host
+    privileged: true
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+    environment:
+    - MDNS_HOSTNAME=${MDNS_HOSTNAME:-drone}
+    volumes:
+    - ${DRONE_RUNTIME_DIR:-./runtime}/networking:/app/config:rw
+    - ${HOSTAPD_CONFIG_FILE:-./src/drone-networking/hostapd.conf}:/etc/hostapd/hostapd.conf:ro
+    - ./src/drone-networking/dnsmasq.conf:/etc/dnsmasq.d/drone.conf:ro
+    - ./src/drone-networking/50-drone.yaml:/etc/netplan/50-drone.yaml:ro
+    - ./src/drone-networking/entrypoint.sh:/app/entrypoint.sh:ro
+    - ./deploy/monitor/drone_log.py:/tmp/drone_log.py:ro
+    - ./deploy/monitor/drone_log.sh:/tmp/drone_log.sh:ro
+    - /run/drone:/run/drone:rw
+    - /etc/localtime:/etc/localtime:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '2'
+  camera-stream-controller:
+    image: ${REGISTRY:-ghcr.io}/${IMAGE_NAMESPACE:?Set IMAGE_NAMESPACE to your GitHub owner or org}/camera-stream-controller:${IMAGE_TAG:-dev-ai-tracking-flow}
+    platform: linux/arm64
+    pull_policy: missing
+    restart: always
+    network_mode: host
+    privileged: true
+    volumes:
+    - /dev:/dev
+    - ./src/camera-stream-controller/scripts:/app/scripts:ro
+    - ./src/camera-stream-controller/entrypoint.sh:/app/entrypoint.sh:ro
+    - ${CAMERA_CONFIG_FILE:-./src/camera-stream-controller/camera.yaml}:/app/camera.yaml:ro
+    - ./deploy/monitor/drone_log.py:/tmp/drone_log.py:ro
+    - ./deploy/monitor/drone_log.sh:/tmp/drone_log.sh:ro
+    - ./src/camera-stream-controller/mediamtx.yml:/app/mediamtx.yml:ro
+    - /run/drone:/run/drone:rw
+    - /etc/localtime:/etc/localtime:ro
+    environment:
+    - ROS_DOMAIN_ID=0
+    - RTMP_URL=rtmp://127.0.0.1:1935/camera
+    - STREAM_WIDTH=640
+    - STREAM_HEIGHT=480
+    - STREAM_FPS=30
+    - STREAM_BITRATE=1500
+    - CAMERA_ENCODER=${CAMERA_ENCODER:-sw_neon}
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '3'
+  mavros:
+    profiles:
+    - mavros
+    - telemetry
+    image: ${REGISTRY:-ghcr.io}/${IMAGE_NAMESPACE:?Set IMAGE_NAMESPACE to your GitHub owner or org}/drone-mavros:${IMAGE_TAG:-dev-ai-tracking-flow}
+    platform: linux/arm64
+    pull_policy: missing
+    restart: unless-stopped
+    network_mode: host
+    init: true
+    cpus: ${MAVROS_CPUS:-1.0}
+    mem_limit: ${MAVROS_MEMORY:-768m}
+    depends_on:
+    - mavlink-router-controller
+    environment:
+    - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+    - MAVROS_FCU_URL=udp://:14542@127.0.0.1:14541
+    - DRONE_SERIAL_PORT=${DRONE_SERIAL_PORT:-/dev/ttyAMA4}
+    - DRONE_BAUD_RATE=${DRONE_BAUD_RATE:-921600}
+    - SIYI_SERIAL_PORT=${SIYI_SERIAL_PORT:-/dev/ttyAMA0}
+    - SIYI_BAUD=${SIYI_BAUD:-115200}
+    - TCP_SERVER_PORT=${TCP_SERVER_PORT:-5760}
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - ./src/mavros/entrypoint.sh:/entrypoint.sh:ro
+    - ./src/mavros/ros2ws/cc_telemetry/config/cc_telemetry.yaml:/etc/cc-telemetry/cc_telemetry.yaml:ro
+    - ${CAMERA_CONFIG_FILE:-./src/camera-stream-controller/camera.yaml}:/etc/cc-sources/camera.yaml:ro
+    - ${VISION_CONFIG_FILE:-./src/drone-vision/drone.yaml}:/etc/cc-sources/vision.yaml:ro
+    - ${HOSTAPD_CONFIG_FILE:-./src/drone-networking/hostapd.conf}:/etc/cc-sources/hostapd.conf:ro
+    - /run/drone:/run/drone:rw
+    - cc-telemetry-state:/var/lib/cc-telemetry
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '2'
+  drone-vision:
+    profiles:
+    - vision
+    init: true
+    cpus: ${VISION_CPUS:-2.0}
+    mem_limit: ${VISION_MEMORY:-1536m}
+    stop_grace_period: 20s
+    image: ${REGISTRY:-ghcr.io}/${IMAGE_NAMESPACE:?Set IMAGE_NAMESPACE to your GitHub owner or org}/drone-vision:${IMAGE_TAG:-dev-ai-tracking-flow}
+    platform: linux/arm64
+    pull_policy: missing
+    restart: always
+    network_mode: host
+    depends_on:
+    - mavlink-router-controller
+    - camera-stream-controller
+    volumes:
+    - ./src/drone-vision/scripts:/app/scripts:ro
+    - ./src/drone-vision/entrypoint.sh:/app/entrypoint.sh:ro
+    - ${VISION_CONFIG_FILE:-./src/drone-vision/drone.yaml}:/app/config/drone.yaml:ro
+    - ./deploy/monitor/drone_log.py:/tmp/drone_log.py:ro
+    - ./deploy/monitor/drone_log.sh:/tmp/drone_log.sh:ro
+    - ${VISION_MODEL_FILE:-./src/drone-vision/yolo26n.pt}:/app/models/yolo26n.pt:ro
+    - /run/drone:/run/drone:rw
+    - /etc/localtime:/etc/localtime:ro
+    environment:
+    - ROS_DOMAIN_ID=0
+    - VISION_INFERENCE_BACKEND=${VISION_INFERENCE_BACKEND:-cpu_neon}
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: '3'
+  drone-tailscale:
+    profiles:
+    - tailscale
+    # MANUAL / UNRESOLVED: supply a known ARM64 image before enabling tailscale.
+    image: ${TAILSCALE_IMAGE:-drone-tailscale:stable}
+    platform: linux/arm64
+    pull_policy: never
+    restart: unless-stopped
+    network_mode: host
+    hostname: ${TS_HOSTNAME:-drone-edge}
+    environment:
+    - TS_STATE=/var/lib/tailscale/tailscaled.state
+    - TS_AUTHKEY=${TS_AUTHKEY:-}
+    - TS_HOSTNAME=${TS_HOSTNAME:-drone-edge}
+    - TS_USERSPACE=false
+    - TS_ACCEPT_DNS=false
+    devices:
+    - /dev/net/tun:/dev/net/tun
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+    volumes:
+    - tailscale-state:/var/lib/tailscale
+    - /dev/net/tun:/dev/net/tun
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m
+        max-file: '2'
+volumes:
+  cc-agent-state: null
+  cc-telemetry-state: null
+  mavlink-logs: null
+  tailscale-state: null

@@ -1,0 +1,1217 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "files": [
+    {
+      "path": ".agents/rules/00-core.md",
+      "language": "markdown",
+      "sizeLines": 25,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/01-networking.md",
+      "language": "markdown",
+      "sizeLines": 8,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/02-mavlink.md",
+      "language": "markdown",
+      "sizeLines": 26,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/03-camera-rtsp.md",
+      "language": "markdown",
+      "sizeLines": 6,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/04-vision.md",
+      "language": "markdown",
+      "sizeLines": 7,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/rules/05-doctor.md",
+      "language": "markdown",
+      "sizeLines": 17,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".dockerignore",
+      "language": "unknown",
+      "sizeLines": 10,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".env",
+      "language": "config",
+      "sizeLines": 14,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".env.example",
+      "language": "config",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "AGENTS.md",
+      "language": "markdown",
+      "sizeLines": 13,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "Makefile",
+      "language": "makefile",
+      "sizeLines": 346,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 262,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "config/camera-extrinsics.example.yaml",
+      "language": "yaml",
+      "sizeLines": 10,
+      "fileCategory": "config"
+    },
+    {
+      "path": "config/drone-boot-tracker.service",
+      "language": "service",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/drone-edge.service",
+      "language": "service",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/qgc_telemetry.yaml",
+      "language": "yaml",
+      "sizeLines": 80,
+      "fileCategory": "config"
+    },
+    {
+      "path": "config/rpi-config.txt",
+      "language": "txt",
+      "sizeLines": 86,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "config/wifi.example.json",
+      "language": "json",
+      "sizeLines": 10,
+      "fileCategory": "config"
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "sizeLines": 254,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "docs/architecture.md",
+      "language": "markdown",
+      "sizeLines": 76,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/deployment_handoff.tex",
+      "language": "tex",
+      "sizeLines": 396,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/configure-rpi.sh",
+      "language": "shell",
+      "sizeLines": 157,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/cross_build.sh",
+      "language": "shell",
+      "sizeLines": 37,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/deploy.sh",
+      "language": "shell",
+      "sizeLines": 305,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/deploy_depth.sh",
+      "language": "shell",
+      "sizeLines": 8,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/docker_pi_ctl.sh",
+      "language": "shell",
+      "sizeLines": 78,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/doctor.sh",
+      "language": "shell",
+      "sizeLines": 355,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/drone-boot-tracker.py",
+      "language": "python",
+      "sizeLines": 176,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/drone_log.py",
+      "language": "python",
+      "sizeLines": 125,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/drone_log.sh",
+      "language": "shell",
+      "sizeLines": 43,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/drone_log_view.py",
+      "language": "python",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/drone_param.py",
+      "language": "python",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/drone_uart_status.sh",
+      "language": "shell",
+      "sizeLines": 108,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/install_docker_wsl.sh",
+      "language": "shell",
+      "sizeLines": 106,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/mavlink-status.sh",
+      "language": "shell",
+      "sizeLines": 126,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/package_release.sh",
+      "language": "shell",
+      "sizeLines": 59,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/perf.sh",
+      "language": "shell",
+      "sizeLines": 42,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/setup-ssh.sh",
+      "language": "shell",
+      "sizeLines": 98,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/update_mavlink.sh",
+      "language": "shell",
+      "sizeLines": 58,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/verify-deployment.sh",
+      "language": "shell",
+      "sizeLines": 44,
+      "fileCategory": "script"
+    },
+    {
+      "path": "src/camera-stream-controller/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 72,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/camera-stream-controller/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 87,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/camera-stream-controller/Dockerfile.cross",
+      "language": "dockerfile",
+      "sizeLines": 28,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/camera-stream-controller/README.md",
+      "language": "markdown",
+      "sizeLines": 112,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/camera-stream-controller/camera.yaml",
+      "language": "yaml",
+      "sizeLines": 66,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/camera-stream-controller/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 40,
+      "fileCategory": "script"
+    },
+    {
+      "path": "src/camera-stream-controller/include/camera_interface.hpp",
+      "language": "cpp",
+      "sizeLines": 175,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/config_manager.hpp",
+      "language": "cpp",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/gst_stream_sink.hpp",
+      "language": "cpp",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/neon_processor.hpp",
+      "language": "cpp",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/realsense_camera.hpp",
+      "language": "cpp",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "language": "cpp",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/standby_generator.hpp",
+      "language": "cpp",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/v4l2_camera.hpp",
+      "language": "cpp",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/mediamtx.yml",
+      "language": "yaml",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/camera-stream-controller/scripts/rtsp_streamer.py",
+      "language": "python",
+      "sizeLines": 284,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/config_manager.cpp",
+      "language": "cpp",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/gst_stream_sink.cpp",
+      "language": "cpp",
+      "sizeLines": 366,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/main.cpp",
+      "language": "cpp",
+      "sizeLines": 348,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/neon_processor.cpp",
+      "language": "cpp",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/realsense_camera.cpp",
+      "language": "cpp",
+      "sizeLines": 217,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/standby_generator.cpp",
+      "language": "cpp",
+      "sizeLines": 278,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "language": "cpp",
+      "sizeLines": 204,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 29,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/cc-agent/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 26,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/cc-agent/Dockerfile.cross",
+      "language": "dockerfile",
+      "sizeLines": 24,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/cc-agent/README.md",
+      "language": "markdown",
+      "sizeLines": 65,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/cc-agent/config/default.yaml",
+      "language": "yaml",
+      "sizeLines": 56,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/cc-agent/config/schema.json",
+      "language": "json",
+      "sizeLines": 236,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/cc-agent/config/templates/10-drone-netplan.yaml.j2",
+      "language": "j2",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/camera.yaml.j2",
+      "language": "j2",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/cc_telemetry.yaml.j2",
+      "language": "j2",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/dnsmasq.conf.j2",
+      "language": "j2",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/hostapd.conf.j2",
+      "language": "j2",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/mavlink-router.conf.j2",
+      "language": "j2",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/mediamtx.yml.j2",
+      "language": "j2",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/config_engine.hpp",
+      "language": "cpp",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/mavlink_core.hpp",
+      "language": "cpp",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/network_monitor.hpp",
+      "language": "cpp",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/nlohmann/json.hpp",
+      "language": "cpp",
+      "sizeLines": 5258,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/rollback_guard.hpp",
+      "language": "cpp",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/serial_enumerator.hpp",
+      "language": "cpp",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/system_metrics.hpp",
+      "language": "cpp",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/gtestsuite.hpp",
+      "language": "cpp",
+      "sizeLines": 1341,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink.h",
+      "language": "c",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.h",
+      "language": "c",
+      "sizeLines": 390,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "language": "cpp",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.h",
+      "language": "c",
+      "sizeLines": 288,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.h",
+      "language": "c",
+      "sizeLines": 288,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.h",
+      "language": "c",
+      "sizeLines": 288,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.h",
+      "language": "c",
+      "sizeLines": 278,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.h",
+      "language": "c",
+      "sizeLines": 288,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.h",
+      "language": "c",
+      "sizeLines": 335,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "language": "cpp",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.h",
+      "language": "c",
+      "sizeLines": 362,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "language": "cpp",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.h",
+      "language": "c",
+      "sizeLines": 307,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "language": "cpp",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.h",
+      "language": "c",
+      "sizeLines": 986,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "language": "cpp",
+      "sizeLines": 164,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.h",
+      "language": "c",
+      "sizeLines": 896,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "language": "cpp",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.h",
+      "language": "c",
+      "sizeLines": 1044,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "language": "cpp",
+      "sizeLines": 172,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.h",
+      "language": "c",
+      "sizeLines": 400,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "language": "cpp",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.h",
+      "language": "c",
+      "sizeLines": 475,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "language": "cpp",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.h",
+      "language": "c",
+      "sizeLines": 288,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/testsuite.h",
+      "language": "c",
+      "sizeLines": 1045,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/thaco_common.h",
+      "language": "c",
+      "sizeLines": 470,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "language": "cpp",
+      "sizeLines": 437,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/version.h",
+      "language": "c",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/config_engine.cpp",
+      "language": "cpp",
+      "sizeLines": 611,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/main.cpp",
+      "language": "cpp",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/mavlink_core.cpp",
+      "language": "cpp",
+      "sizeLines": 607,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/network_monitor.cpp",
+      "language": "cpp",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/rollback_guard.cpp",
+      "language": "cpp",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/serial_enumerator.cpp",
+      "language": "cpp",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/system_metrics.cpp",
+      "language": "cpp",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/systemd/cc-config-agent.service",
+      "language": "service",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/tests/test_cc_config.py",
+      "language": "python",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/tests/test_e2e_mavlink.py",
+      "language": "python",
+      "sizeLines": 148,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-networking/50-drone.yaml",
+      "language": "yaml",
+      "sizeLines": 25,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/drone-networking/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 25,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/drone-networking/README.md",
+      "language": "markdown",
+      "sizeLines": 95,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/drone-networking/dnsmasq.conf",
+      "language": "conf",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-networking/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-networking/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 289,
+      "fileCategory": "script"
+    },
+    {
+      "path": "src/drone-networking/hostapd.conf",
+      "language": "conf",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-networking/wifi_manager.py",
+      "language": "python",
+      "sizeLines": 173,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 11,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/drone-vision/Dockerfile.base",
+      "language": "dockerfile",
+      "sizeLines": 30,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/drone-vision/README.md",
+      "language": "markdown",
+      "sizeLines": 133,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/drone-vision/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/drone.yaml",
+      "language": "yaml",
+      "sizeLines": 68,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/drone-vision/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 28,
+      "fileCategory": "script"
+    },
+    {
+      "path": "src/drone-vision/object-localization.example.yaml",
+      "language": "yaml",
+      "sizeLines": 20,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/drone-vision/scripts/object_geometry.py",
+      "language": "python",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/scripts/vision_processor.py",
+      "language": "python",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/scripts/yolo_streamer.py",
+      "language": "python",
+      "sizeLines": 418,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/tests/test_object_geometry.py",
+      "language": "python",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/tests/test_yolo_streamer.py",
+      "language": "python",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/yolo26n.pt",
+      "language": "pt",
+      "sizeLines": 13267,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 20,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/hardware-manager/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 24,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/hardware-manager/include/hw_manager.hpp",
+      "language": "cpp",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/include/nlohmann/json.hpp",
+      "language": "cpp",
+      "sizeLines": 5258,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/include/serial_scanner.hpp",
+      "language": "cpp",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/src/hw_manager.cpp",
+      "language": "cpp",
+      "sizeLines": 206,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/src/main.cpp",
+      "language": "cpp",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/src/serial_scanner.cpp",
+      "language": "cpp",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 19,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavlink-router-controller/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 48,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/mavlink-router-controller/README.md",
+      "language": "markdown",
+      "sizeLines": 88,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavlink-router-controller/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 72,
+      "fileCategory": "script"
+    },
+    {
+      "path": "src/mavlink-router-controller/include/nlohmann/json.hpp",
+      "language": "cpp",
+      "sizeLines": 5258,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/include/router_supervisor.hpp",
+      "language": "cpp",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/mavlink-router.conf",
+      "language": "conf",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/mavlink-tcp-proxy.py",
+      "language": "python",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/src/main.cpp",
+      "language": "cpp",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/src/router_supervisor.cpp",
+      "language": "cpp",
+      "sizeLines": 368,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 43,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/mavros/Dockerfile.update",
+      "language": "dockerfile",
+      "sizeLines": 15,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/mavros/README.md",
+      "language": "markdown",
+      "sizeLines": 106,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 54,
+      "fileCategory": "script"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 91,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/agridrone_plugins.xml",
+      "language": "xml",
+      "sizeLines": 5,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/include/plugin_agridrone/agridrone_plugin.hpp",
+      "language": "cpp",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/include/plugin_agridrone/telemetry_codec.hpp",
+      "language": "cpp",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/package.xml",
+      "language": "xml",
+      "sizeLines": 32,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/src/agridrone_plugin.cpp",
+      "language": "cpp",
+      "sizeLines": 454,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 8,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/msg/Event.msg",
+      "language": "msg",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/msg/ParameterRequest.msg",
+      "language": "msg",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/msg/ParameterResponse.msg",
+      "language": "msg",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/msg/TelemetrySnapshot.msg",
+      "language": "msg",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/package.xml",
+      "language": "xml",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/srv/Command.srv",
+      "language": "srv",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 31,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/README.md",
+      "language": "markdown",
+      "sizeLines": 134,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/config/cc_telemetry.yaml",
+      "language": "yaml",
+      "sizeLines": 28,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/include/cc_telemetry/collectors.hpp",
+      "language": "cpp",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/include/cc_telemetry/parameter_store.hpp",
+      "language": "cpp",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/include/cc_telemetry/system_metrics.hpp",
+      "language": "cpp",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/package.xml",
+      "language": "xml",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/collectors.cpp",
+      "language": "cpp",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/node.cpp",
+      "language": "cpp",
+      "sizeLines": 899,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "language": "cpp",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "language": "cpp",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/test/core_test.cpp",
+      "language": "cpp",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/telemetry_demo.py",
+      "language": "python",
+      "sizeLines": 120,
+      "fileCategory": "code"
+    }
+  ]
+}

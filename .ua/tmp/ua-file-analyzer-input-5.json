@@ -1,0 +1,14 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/drone-networking/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 25,
+      "fileCategory": "infra"
+    }
+  ],
+  "batchImportData": {
+    "src/drone-networking/Dockerfile": []
+  }
+}

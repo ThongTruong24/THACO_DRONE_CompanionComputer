@@ -1,0 +1,118 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "src/drone-networking/50-drone.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 25,
+      "nonEmptyLines": 23,
+      "sections": [
+        {
+          "heading": "network",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "src/drone-networking/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 95,
+      "nonEmptyLines": 72,
+      "sections": [
+        {
+          "heading": "Networking Container",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Configuration",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "Stable hostname",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Operation",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "Troubleshooting",
+          "level": 2,
+          "line": 61
+        },
+        {
+          "heading": "Diagrams",
+          "level": 2,
+          "line": 80
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "src/drone-networking/entrypoint.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 289,
+      "nonEmptyLines": 248,
+      "functions": [
+        {
+          "name": "watch_wifi_contract",
+          "startLine": 230,
+          "endLine": 272,
+          "params": []
+        },
+        {
+          "name": "cleanup",
+          "startLine": 277,
+          "endLine": 285,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

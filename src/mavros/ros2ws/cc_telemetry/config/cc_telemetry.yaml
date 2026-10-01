@@ -1,0 +1,28 @@
+# Never enables FC control. Remote writes require an explicit trusted-link decision.
+allow_remote_writes: true
+state_directory: /var/lib/cc-telemetry
+camera_config: /etc/cc-sources/camera.yaml
+vision_config: /etc/cc-sources/vision.yaml
+hostapd_config: /etc/cc-sources/hostapd.conf
+rtsp_url: rtsp://192.168.10.1:8554/camera
+rates:
+  links: 1.0
+  camera: 0.2
+  network: 0.2
+  vision: 1.0
+# Camera/vision requests are saved as desired-only, NOT automatically applied.
+# Runtime metrics without a trusted producer remain unavailable, see diagnostics.
+
+# ── QGC Log Aggregation (via /run/drone/log.sock) ────────────────────────────
+# cc_telemetry_node listen UNIX datagram socket nay.
+# Moi container gui JSON datagram: {"t":..., "src":"...", "sev":N, "msg":"..."}
+# Node forward len QGC qua MAVLink STATUSTEXT.
+qgc_log:
+  socket_path: /run/drone/log.sock
+  # Max messages gui len QGC moi giay (tranh flood MAVLink link)
+  max_msg_per_sec: 5
+  # Do dai toi da cua message (MAVLink STATUSTEXT gioi han 50 chars)
+  max_msg_len: 50
+  # Chi gui log co severity <= gia tri nay (2=CRITICAL, 3=ERROR, 4=WARNING, 6=INFO)
+  # Mac dinh WARNING (4): giam spam khi production. Doi thanh 6 de xem INFO.
+  min_severity: 6

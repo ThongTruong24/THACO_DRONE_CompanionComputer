@@ -1,0 +1,10 @@
+{
+  "hotspot": {
+    "ssid": "AP_DRONE",
+    "password": "change-this-hotspot-password"
+  },
+  "client": {
+    "ssid": "YOUR_WIFI_SSID",
+    "password": "change-this-client-password"
+  }
+}

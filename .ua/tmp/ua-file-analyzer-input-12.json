@@ -1,0 +1,35 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "config/camera-extrinsics.example.yaml",
+      "language": "yaml",
+      "sizeLines": 10,
+      "fileCategory": "config"
+    },
+    {
+      "path": "config/qgc_telemetry.yaml",
+      "language": "yaml",
+      "sizeLines": 80,
+      "fileCategory": "config"
+    },
+    {
+      "path": "config/rpi-config.txt",
+      "language": "txt",
+      "sizeLines": 86,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "config/wifi.example.json",
+      "language": "json",
+      "sizeLines": 10,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "config/camera-extrinsics.example.yaml": [],
+    "config/qgc_telemetry.yaml": [],
+    "config/rpi-config.txt": [],
+    "config/wifi.example.json": []
+  }
+}

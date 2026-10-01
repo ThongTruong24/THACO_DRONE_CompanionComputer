@@ -1,0 +1,9 @@
+uint64 request_id
+bool extended
+bool acknowledgement
+uint8 result
+string param_id
+uint16 param_count
+uint16 param_index
+uint8 param_type
+string value

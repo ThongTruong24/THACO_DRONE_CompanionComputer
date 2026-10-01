@@ -1,0 +1,5 @@
+<library path="agridrone_plugins">
+  <class name="agridrone" type="mavros::plugin::PluginFactoryTemplate<mavros::extra_plugins::AgridronePlugin>" base_class_type="mavros::plugin::PluginFactory">
+    <description>THACO AgriDrone companion telemetry and external control plugin</description>
+  </class>
+</library>

@@ -1,0 +1,62 @@
+@startuml drone-networking-sequence
+title drone-networking: Startup & Hot-Reload Sequence
+
+actor Operator
+participant "Docker Engine" as Docker
+participant "entrypoint.sh" as EP
+participant "netplan/networkd" as Netplan
+participant "hostapd" as HAP
+participant "dnsmasq" as DNS
+participant "avahi-daemon" as Avahi
+participant "Watcher" as Watcher
+participant "wifi.json" as Config
+
+== Container Startup ==
+Docker -> EP : start (env: AP_SSID, AP_PASS, MDNS_HOSTNAME)
+EP -> EP : [1/7] Load drone_log.sh, read envs
+EP -> Netplan : [2/7] Apply /etc/netplan/50-drone.yaml
+Netplan --> EP : Ethernet static IPs + wlan0 DHCP configured
+EP -> EP : [3/7] rfkill unblock wifi; ip link set wlan0 up
+EP -> Netplan : [4/7] Read wlan0 DHCP IP (station managed by networkd)
+Netplan --> EP : WIFI_IP (or empty if disconnected)
+EP -> EP : [5/7] "iw dev wlan0 link" detect freq\nAuto-select channel + hw_mode (2.4/5 GHz)
+EP -> EP : Create virtual AP iface uap0\nip addr add AP_IP dev uap0
+EP -> EP : Generate /tmp/hostapd.conf (SSID/band/channel)
+EP -> DNS : [6/7] dnsmasq -C /tmp/dnsmasq.conf -d
+DNS --> EP : DNSMASQ_PID
+EP -> Avahi : configure avahi-daemon.conf (no D-Bus)\npublish MDNS_HOSTNAME.local
+Avahi --> EP : AVAHI_PID
+EP -> HAP : hostapd -d /tmp/hostapd.conf
+HAP --> EP : HOSTAPD_PID
+EP -> Watcher : [7/7] watch_wifi_contract() background loop\npoll wifi.json every 3s
+EP -> EP : trap cleanup SIGTERM/SIGINT; wait HOSTAPD_PID
+
+== Hot-Reload: Hotspot Config Change ==
+Operator -> Config : Edit wifi.json (hotspot.ssid / hotspot.password)
+Watcher -> Config : detect mtime change
+Watcher -> Watcher : parse new AP_SSID/AP_PASS via python3 json
+Watcher -> HAP : killall -9 hostapd
+HAP --> Watcher : terminated
+Watcher -> EP : sed -i update /tmp/hostapd.conf
+Watcher -> HAP : restart hostapd -d /tmp/hostapd.conf
+HAP --> Watcher : new HOSTAPD_PID
+
+note over Watcher : STA credentials owned by netplan/networkd.\nWatcher logs warning only; does NOT touch wpa_supplicant.
+
+== Graceful Shutdown ==
+Docker -> EP : SIGTERM
+EP -> Watcher : kill -9 WATCHER_PID
+EP -> DNS : kill -9 DNSMASQ_PID
+EP -> Avahi : kill -9 AVAHI_PID
+EP -> HAP : killall -9 hostapd
+EP -> EP : iw dev uap0 del; exit 0
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+
+@enduml

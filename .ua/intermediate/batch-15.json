@@ -1,0 +1,51 @@
+{
+  "batchIndex": 15,
+  "nodes": [
+    {
+      "id": "document:src/cc-agent/CMakeLists.txt",
+      "type": "document",
+      "name": "CMakeLists.txt",
+      "filePath": "src/cc-agent/CMakeLists.txt",
+      "summary": "Companion computer agent component (CMakeLists.txt) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "txt",
+        "docs",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:src/cc-agent/Dockerfile.cross",
+      "type": "service",
+      "name": "Dockerfile.cross",
+      "filePath": "src/cc-agent/Dockerfile.cross",
+      "summary": "Companion computer agent component (Dockerfile.cross) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/cc-agent/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/cc-agent/README.md",
+      "summary": "Companion computer agent component (README.md) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "markdown",
+        "docs",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

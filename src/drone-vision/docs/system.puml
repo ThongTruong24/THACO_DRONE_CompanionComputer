@@ -1,0 +1,44 @@
+@startuml vision-system
+title Drone Vision: System Component & Pipeline Diagram
+
+package "MediaMTX RTSP Server" {
+  interface "RTSP Ingest\n(:8554/camera)" as RawCam
+  interface "RTSP Stream\n(:8554/yolo)" as YoloStream
+}
+
+package "Drone Vision Container (Profile: vision)" {
+  component "entrypoint.sh" as EP
+  component "yolo_streamer.py\n(Ingest & Decode)" as Ingest
+  component "YOLOv8 Engine\n(PyTorch / TorchScript)" as YOLO
+  component "Annotator & Drawing" as Annotator
+  component "GStreamer RTSP Sink" as Sink
+
+  EP --> Ingest : Starts pipeline
+  Ingest --> YOLO : Passes decoded frames
+  YOLO --> Annotator : Bounding boxes & confidence
+  Annotator --> Sink : Annotated frames
+}
+
+package "AI Models & Config" {
+  file "/app/models/yolo26n.pt" as ModelWeights
+  file "/app/config/drone.yaml" as ConfigYaml
+}
+
+RawCam --> Ingest : RTSP stream input
+ModelWeights --> YOLO : Loads weights
+ConfigYaml --> Ingest : Confidence threshold & classes
+Sink --> YoloStream : RTMP / RTSP push
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+note as VisionBase
+  Publish ARM64 base to GHCR first
+  App FROM GHCR base SHA via VISION_BASE_IMAGE
+end note
+
+@enduml

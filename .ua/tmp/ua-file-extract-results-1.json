@@ -1,0 +1,1113 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 8,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/camera-stream-controller/include/camera_interface.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 175,
+      "nonEmptyLines": 157,
+      "functions": [
+        {
+          "name": "~ICameraDevice",
+          "startLine": 134,
+          "endLine": 134,
+          "params": []
+        },
+        {
+          "name": "isAvailable",
+          "startLine": 143,
+          "endLine": 143,
+          "params": []
+        },
+        {
+          "name": "getCurrentBitrate",
+          "startLine": 144,
+          "endLine": 144,
+          "params": []
+        },
+        {
+          "name": "getDroppedFrames",
+          "startLine": 145,
+          "endLine": 145,
+          "params": []
+        },
+        {
+          "name": "forceKeyframe",
+          "startLine": 146,
+          "endLine": 146,
+          "params": []
+        },
+        {
+          "name": "setBitrate",
+          "startLine": 147,
+          "endLine": 147,
+          "params": [
+            "bitrate_kbps"
+          ]
+        },
+        {
+          "name": "~IFrameProcessor",
+          "startLine": 153,
+          "endLine": 153,
+          "params": []
+        },
+        {
+          "name": "setRotation",
+          "startLine": 155,
+          "endLine": 155,
+          "params": [
+            "rotation"
+          ]
+        },
+        {
+          "name": "getRotation",
+          "startLine": 156,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "~IGstStreamSink",
+          "startLine": 162,
+          "endLine": 162,
+          "params": []
+        },
+        {
+          "name": "isAvailable",
+          "startLine": 168,
+          "endLine": 168,
+          "params": []
+        },
+        {
+          "name": "getCurrentBitrate",
+          "startLine": 169,
+          "endLine": 169,
+          "params": []
+        },
+        {
+          "name": "getDroppedFrames",
+          "startLine": 170,
+          "endLine": 170,
+          "params": []
+        },
+        {
+          "name": "forceKeyframe",
+          "startLine": 171,
+          "endLine": 171,
+          "params": []
+        },
+        {
+          "name": "setBitrate",
+          "startLine": 172,
+          "endLine": 172,
+          "params": [
+            "bitrate_kbps"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FrameData",
+          "startLine": 56,
+          "endLine": 63,
+          "methods": [],
+          "properties": [
+            "data",
+            "width",
+            "height",
+            "format",
+            "timestamp_us",
+            "frame_number"
+          ]
+        },
+        {
+          "name": "RealSenseSettings",
+          "startLine": 68,
+          "endLine": 75,
+          "methods": [],
+          "properties": [
+            "serial_number",
+            "profile_mode",
+            "enable_emitter",
+            "depth_width",
+            "depth_height",
+            "depth_fps"
+          ]
+        },
+        {
+          "name": "V4L2Settings",
+          "startLine": 77,
+          "endLine": 81,
+          "methods": [],
+          "properties": [
+            "device_path",
+            "pixel_format",
+            "num_buffers"
+          ]
+        },
+        {
+          "name": "CSISettings",
+          "startLine": 83,
+          "endLine": 86,
+          "methods": [],
+          "properties": [
+            "camera_index",
+            "sensor_mode"
+          ]
+        },
+        {
+          "name": "VideoConfig",
+          "startLine": 88,
+          "endLine": 93,
+          "methods": [],
+          "properties": [
+            "width",
+            "height",
+            "fps",
+            "rotation"
+          ]
+        },
+        {
+          "name": "EncoderConfig",
+          "startLine": 95,
+          "endLine": 110,
+          "methods": [],
+          "properties": [
+            "codec",
+            "mode",
+            "bitrate_kbps",
+            "bitrate_min_kbps",
+            "bitrate_max_kbps",
+            "vbv_buffer_kb",
+            "tune",
+            "speed_preset",
+            "threads",
+            "intra_refresh",
+            "adaptive_rate",
+            "key_int_max",
+            "leaky_queue_buffers"
+          ]
+        },
+        {
+          "name": "NetworkConfig",
+          "startLine": 112,
+          "endLine": 117,
+          "methods": [],
+          "properties": [
+            "sink_type",
+            "target_url",
+            "reconnect_interval_ms",
+            "timeout_seconds"
+          ]
+        },
+        {
+          "name": "CameraConfig",
+          "startLine": 119,
+          "endLine": 127,
+          "methods": [],
+          "properties": [
+            "camera_type",
+            "realsense",
+            "v4l2",
+            "csi",
+            "video",
+            "encoder",
+            "network"
+          ]
+        },
+        {
+          "name": "ICameraDevice",
+          "startLine": 132,
+          "endLine": 148,
+          "methods": [
+            "~ICameraDevice",
+            "initialize",
+            "startStream",
+            "stopStream",
+            "captureFrame",
+            "isHealthy",
+            "getDeviceName",
+            "getLastErrorCode",
+            "isAvailable",
+            "getCurrentBitrate",
+            "getDroppedFrames",
+            "forceKeyframe",
+            "setBitrate"
+          ],
+          "properties": []
+        },
+        {
+          "name": "IFrameProcessor",
+          "startLine": 151,
+          "endLine": 157,
+          "methods": [
+            "~IFrameProcessor",
+            "process",
+            "setRotation",
+            "getRotation"
+          ],
+          "properties": []
+        },
+        {
+          "name": "IGstStreamSink",
+          "startLine": 160,
+          "endLine": 173,
+          "methods": [
+            "~IGstStreamSink",
+            "start",
+            "pushFrame",
+            "stop",
+            "isConnected",
+            "getLastErrorCode",
+            "isAvailable",
+            "getCurrentBitrate",
+            "getDroppedFrames",
+            "forceKeyframe",
+            "setBitrate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FrameData",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "RealSenseSettings",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "V4L2Settings",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "CSISettings",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "VideoConfig",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "EncoderConfig",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "NetworkConfig",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "CameraConfig",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "~ICameraDevice",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "startStream",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "stopStream",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "captureFrame",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "isHealthy",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "getDeviceName",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "getLastErrorCode",
+          "line": 142,
+          "isDefault": false
+        },
+        {
+          "name": "isAvailable",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "getCurrentBitrate",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "getDroppedFrames",
+          "line": 145,
+          "isDefault": false
+        },
+        {
+          "name": "forceKeyframe",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "setBitrate",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "ICameraDevice",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "~IFrameProcessor",
+          "line": 153,
+          "isDefault": false
+        },
+        {
+          "name": "process",
+          "line": 154,
+          "isDefault": false
+        },
+        {
+          "name": "setRotation",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "getRotation",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "IFrameProcessor",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "~IGstStreamSink",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "pushFrame",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "stop",
+          "line": 165,
+          "isDefault": false
+        },
+        {
+          "name": "isConnected",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "getLastErrorCode",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "isAvailable",
+          "line": 168,
+          "isDefault": false
+        },
+        {
+          "name": "getCurrentBitrate",
+          "line": 169,
+          "isDefault": false
+        },
+        {
+          "name": "getDroppedFrames",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "forceKeyframe",
+          "line": 171,
+          "isDefault": false
+        },
+        {
+          "name": "setBitrate",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "IGstStreamSink",
+          "line": 160,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 39,
+        "functionCount": 15,
+        "classCount": 11
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/include/config_manager.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "ConfigManager",
+          "startLine": 8,
+          "endLine": 12,
+          "methods": [
+            "loadConfig",
+            "printConfig"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "loadConfig",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "printConfig",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "ConfigManager",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/include/gst_stream_sink.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 46,
+      "classes": [
+        {
+          "name": "GstStreamSink",
+          "startLine": 13,
+          "endLine": 55,
+          "methods": [
+            "start",
+            "pushFrame",
+            "stop",
+            "isConnected",
+            "getLastErrorCode",
+            "getCurrentBitrate",
+            "getDroppedFrames",
+            "forceKeyframe",
+            "setBitrate",
+            "buildPipeline",
+            "busCallback",
+            "onQueueOverrun",
+            "handleOverrun",
+            "checkAdaptiveRateRecovery"
+          ],
+          "properties": [
+            "m_config",
+            "m_pipeline",
+            "m_appsrc",
+            "m_queue",
+            "m_encoder",
+            "m_bus",
+            "m_bus_watch_id",
+            "m_is_connected",
+            "m_last_error",
+            "m_pushed_frames",
+            "m_pts_duration",
+            "m_current_bitrate",
+            "m_dropped_frames",
+            "m_last_overrun_time",
+            "m_last_increase_time",
+            "m_rate_mutex"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "start",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "pushFrame",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "stop",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "isConnected",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "getLastErrorCode",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "getCurrentBitrate",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "getDroppedFrames",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "forceKeyframe",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "setBitrate",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "GstStreamSink",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 10,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/include/neon_processor.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "NeonFrameProcessor",
+          "startLine": 10,
+          "endLine": 10,
+          "params": []
+        },
+        {
+          "name": "setRotation",
+          "startLine": 13,
+          "endLine": 13,
+          "params": [
+            "rotation"
+          ]
+        },
+        {
+          "name": "getRotation",
+          "startLine": 14,
+          "endLine": 14,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "NeonFrameProcessor",
+          "startLine": 8,
+          "endLine": 19,
+          "methods": [
+            "NeonFrameProcessor",
+            "process",
+            "setRotation",
+            "getRotation",
+            "rotate180_inplace"
+          ],
+          "properties": [
+            "m_rotation"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NeonFrameProcessor",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "process",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "setRotation",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "getRotation",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "NeonFrameProcessor",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setRotation",
+          "callee": "store",
+          "lineNumber": 13
+        },
+        {
+          "caller": "getRotation",
+          "callee": "load",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/include/realsense_camera.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 33,
+      "classes": [
+        {
+          "name": "RealSenseCamera",
+          "startLine": 13,
+          "endLine": 38,
+          "methods": [
+            "initialize",
+            "startStream",
+            "stopStream",
+            "captureFrame",
+            "isHealthy",
+            "isAvailable",
+            "getDeviceName",
+            "getLastErrorCode"
+          ],
+          "properties": [
+            "m_config",
+            "m_is_streaming",
+            "m_is_healthy",
+            "m_last_error",
+            "m_device_name",
+            "m_frame_counter"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "initialize",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "startStream",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "stopStream",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "captureFrame",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "isHealthy",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "isAvailable",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "getDeviceName",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "getLastErrorCode",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "RealSenseCamera",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 9,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "SafeRingBuffer",
+          "startLine": 16,
+          "endLine": 16,
+          "params": []
+        },
+        {
+          "name": "push",
+          "startLine": 19,
+          "endLine": 35,
+          "params": [
+            "frame"
+          ]
+        },
+        {
+          "name": "pop",
+          "startLine": 38,
+          "endLine": 50,
+          "params": [
+            "out_frame"
+          ]
+        },
+        {
+          "name": "getDroppedCount",
+          "startLine": 52,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "clear",
+          "startLine": 56,
+          "endLine": 61,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SafeRingBuffer",
+          "startLine": 12,
+          "endLine": 71,
+          "methods": [
+            "SafeRingBuffer",
+            "push",
+            "pop",
+            "getDroppedCount",
+            "clear"
+          ],
+          "properties": [
+            "BUFFER_SIZE",
+            "m_buffer",
+            "m_write_idx",
+            "m_read_idx",
+            "m_count",
+            "m_dropped_count",
+            "m_mutex",
+            "m_cv"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SafeRingBuffer",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "push",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "pop",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getDroppedCount",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "SafeRingBuffer",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "push",
+          "callee": "fetch_add",
+          "lineNumber": 25
+        },
+        {
+          "caller": "push",
+          "callee": "std::move",
+          "lineNumber": 30
+        },
+        {
+          "caller": "push",
+          "callee": "unlock",
+          "lineNumber": 33
+        },
+        {
+          "caller": "push",
+          "callee": "notify_one",
+          "lineNumber": 34
+        },
+        {
+          "caller": "pop",
+          "callee": "std::chrono::milliseconds",
+          "lineNumber": 38
+        },
+        {
+          "caller": "pop",
+          "callee": "wait_for",
+          "lineNumber": 41
+        },
+        {
+          "caller": "pop",
+          "callee": "std::move",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getDroppedCount",
+          "callee": "load",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/include/standby_generator.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "~StandbyGenerator",
+          "startLine": 13,
+          "endLine": 13,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "StandbyGenerator",
+          "startLine": 10,
+          "endLine": 28,
+          "methods": [
+            "~StandbyGenerator",
+            "updateConfig",
+            "generateFrame",
+            "renderBackground",
+            "drawRect",
+            "drawText",
+            "drawChar"
+          ],
+          "properties": [
+            "m_width",
+            "m_height",
+            "m_fps",
+            "m_frame_count"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "~StandbyGenerator",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "updateConfig",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "generateFrame",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "StandbyGenerator",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/include/v4l2_camera.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "V4L2Camera",
+          "startLine": 9,
+          "endLine": 37,
+          "methods": [
+            "initialize",
+            "startStream",
+            "stopStream",
+            "captureFrame",
+            "isHealthy",
+            "isAvailable",
+            "getDeviceName",
+            "getLastErrorCode"
+          ],
+          "properties": [
+            "m_config",
+            "m_fd",
+            "m_buffers",
+            "m_is_streaming",
+            "m_is_healthy",
+            "m_last_error",
+            "m_device_name",
+            "m_frame_counter"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "initialize",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "startStream",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "stopStream",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "captureFrame",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "isHealthy",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "isAvailable",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "getDeviceName",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "getLastErrorCode",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "V4L2Camera",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 9,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

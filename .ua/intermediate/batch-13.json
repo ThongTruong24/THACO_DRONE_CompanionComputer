@@ -1,0 +1,669 @@
+{
+  "batchIndex": 13,
+  "nodes": [
+    {
+      "id": "file:scripts/configure-rpi.sh",
+      "type": "file",
+      "name": "configure-rpi.sh",
+      "filePath": "scripts/configure-rpi.sh",
+      "summary": "Operational script (configure-rpi.sh) for drone companion deployment and management.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/configure-rpi.sh:check_uart",
+      "type": "function",
+      "name": "check_uart",
+      "filePath": "scripts/configure-rpi.sh",
+      "summary": "Function check_uart() declared or defined in configure-rpi.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 110,
+      "endLine": 117
+    },
+    {
+      "id": "file:scripts/cross_build.sh",
+      "type": "file",
+      "name": "cross_build.sh",
+      "filePath": "scripts/cross_build.sh",
+      "summary": "Multi-arch Docker Buildx script building arm64 container images on WSL.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/deploy.sh",
+      "type": "file",
+      "name": "deploy.sh",
+      "filePath": "scripts/deploy.sh",
+      "summary": "Remote deployment automation script pushing containers and configs to the Raspberry Pi 5.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/deploy.sh:normalize_pi_host",
+      "type": "function",
+      "name": "normalize_pi_host",
+      "filePath": "scripts/deploy.sh",
+      "summary": "Function normalize_pi_host() declared or defined in deploy.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 29,
+      "endLine": 36
+    },
+    {
+      "id": "function:scripts/deploy.sh:sync_ssh_config",
+      "type": "function",
+      "name": "sync_ssh_config",
+      "filePath": "scripts/deploy.sh",
+      "summary": "Function sync_ssh_config() declared or defined in deploy.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 75,
+      "endLine": 100
+    },
+    {
+      "id": "function:scripts/deploy.sh:check_ssh",
+      "type": "function",
+      "name": "check_ssh",
+      "filePath": "scripts/deploy.sh",
+      "summary": "Function check_ssh() declared or defined in deploy.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 110,
+      "endLine": 112
+    },
+    {
+      "id": "function:scripts/deploy.sh:verify_release_checker_disabled",
+      "type": "function",
+      "name": "verify_release_checker_disabled",
+      "filePath": "scripts/deploy.sh",
+      "summary": "Function verify_release_checker_disabled() declared or defined in deploy.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 124,
+      "endLine": 129
+    },
+    {
+      "id": "file:scripts/deploy_depth.sh",
+      "type": "file",
+      "name": "deploy_depth.sh",
+      "filePath": "scripts/deploy_depth.sh",
+      "summary": "Remote deployment automation script pushing containers and configs to the Raspberry Pi 5.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/docker_pi_ctl.sh",
+      "type": "file",
+      "name": "docker_pi_ctl.sh",
+      "filePath": "scripts/docker_pi_ctl.sh",
+      "summary": "Operational script (docker_pi_ctl.sh) for drone companion deployment and management.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scripts/doctor.sh",
+      "type": "file",
+      "name": "doctor.sh",
+      "filePath": "scripts/doctor.sh",
+      "summary": "Comprehensive system diagnostic health check verifying hardware, network, and services.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scripts/doctor.sh:print_header",
+      "type": "function",
+      "name": "print_header",
+      "filePath": "scripts/doctor.sh",
+      "summary": "Function print_header() declared or defined in doctor.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 31,
+      "endLine": 38
+    },
+    {
+      "id": "function:scripts/doctor.sh:step_pass",
+      "type": "function",
+      "name": "step_pass",
+      "filePath": "scripts/doctor.sh",
+      "summary": "Function step_pass() declared or defined in doctor.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 40,
+      "endLine": 49
+    },
+    {
+      "id": "function:scripts/doctor.sh:step_fail",
+      "type": "function",
+      "name": "step_fail",
+      "filePath": "scripts/doctor.sh",
+      "summary": "Function step_fail() declared or defined in doctor.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 51,
+      "endLine": 66
+    },
+    {
+      "id": "function:scripts/doctor.sh:step_warn",
+      "type": "function",
+      "name": "step_warn",
+      "filePath": "scripts/doctor.sh",
+      "summary": "Function step_warn() declared or defined in doctor.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 68,
+      "endLine": 71
+    },
+    {
+      "id": "file:scripts/drone_log.sh",
+      "type": "file",
+      "name": "drone_log.sh",
+      "filePath": "scripts/drone_log.sh",
+      "summary": "Log management utility collecting, filtering, and displaying drone service logs.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/drone_log.sh:drone_log",
+      "type": "function",
+      "name": "drone_log",
+      "filePath": "scripts/drone_log.sh",
+      "summary": "Function drone_log() declared or defined in drone_log.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 6,
+      "endLine": 33
+    },
+    {
+      "id": "function:scripts/drone_log.sh:drone_info",
+      "type": "function",
+      "name": "drone_info",
+      "filePath": "scripts/drone_log.sh",
+      "summary": "Function drone_info() declared or defined in drone_log.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 35,
+      "endLine": 35
+    },
+    {
+      "id": "function:scripts/drone_log.sh:drone_warn",
+      "type": "function",
+      "name": "drone_warn",
+      "filePath": "scripts/drone_log.sh",
+      "summary": "Function drone_warn() declared or defined in drone_log.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 36,
+      "endLine": 36
+    },
+    {
+      "id": "function:scripts/drone_log.sh:drone_error",
+      "type": "function",
+      "name": "drone_error",
+      "filePath": "scripts/drone_log.sh",
+      "summary": "Function drone_error() declared or defined in drone_log.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 37,
+      "endLine": 37
+    },
+    {
+      "id": "function:scripts/drone_log.sh:drone_critical",
+      "type": "function",
+      "name": "drone_critical",
+      "filePath": "scripts/drone_log.sh",
+      "summary": "Function drone_critical() declared or defined in drone_log.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 38,
+      "endLine": 38
+    },
+    {
+      "id": "file:scripts/drone_uart_status.sh",
+      "type": "file",
+      "name": "drone_uart_status.sh",
+      "filePath": "scripts/drone_uart_status.sh",
+      "summary": "Operational script (drone_uart_status.sh) for drone companion deployment and management.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/drone_uart_status.sh:check_port",
+      "type": "function",
+      "name": "check_port",
+      "filePath": "scripts/drone_uart_status.sh",
+      "summary": "Function check_port() declared or defined in drone_uart_status.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 19,
+      "endLine": 87
+    },
+    {
+      "id": "file:scripts/install_docker_wsl.sh",
+      "type": "file",
+      "name": "install_docker_wsl.sh",
+      "filePath": "scripts/install_docker_wsl.sh",
+      "summary": "Operational script (install_docker_wsl.sh) for drone companion deployment and management.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/install_docker_wsl.sh:step",
+      "type": "function",
+      "name": "step",
+      "filePath": "scripts/install_docker_wsl.sh",
+      "summary": "Function step() declared or defined in install_docker_wsl.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 8,
+      "endLine": 8
+    },
+    {
+      "id": "function:scripts/install_docker_wsl.sh:ok",
+      "type": "function",
+      "name": "ok",
+      "filePath": "scripts/install_docker_wsl.sh",
+      "summary": "Function ok() declared or defined in install_docker_wsl.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 9,
+      "endLine": 9
+    },
+    {
+      "id": "function:scripts/install_docker_wsl.sh:err",
+      "type": "function",
+      "name": "err",
+      "filePath": "scripts/install_docker_wsl.sh",
+      "summary": "Function err() declared or defined in install_docker_wsl.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 10,
+      "endLine": 10
+    },
+    {
+      "id": "file:scripts/mavlink-status.sh",
+      "type": "file",
+      "name": "mavlink-status.sh",
+      "filePath": "scripts/mavlink-status.sh",
+      "summary": "Operational script (mavlink-status.sh) for drone companion deployment and management.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/mavlink-status.sh:show_ports",
+      "type": "function",
+      "name": "show_ports",
+      "filePath": "scripts/mavlink-status.sh",
+      "summary": "Function show_ports() declared or defined in mavlink-status.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 19,
+      "endLine": 95
+    },
+    {
+      "id": "function:scripts/mavlink-status.sh:show_stats",
+      "type": "function",
+      "name": "show_stats",
+      "filePath": "scripts/mavlink-status.sh",
+      "summary": "Function show_stats() declared or defined in mavlink-status.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 97,
+      "endLine": 103
+    },
+    {
+      "id": "file:scripts/package_release.sh",
+      "type": "file",
+      "name": "package_release.sh",
+      "filePath": "scripts/package_release.sh",
+      "summary": "Packaging utility creating release tarballs of the companion computer binaries.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/perf.sh",
+      "type": "file",
+      "name": "perf.sh",
+      "filePath": "scripts/perf.sh",
+      "summary": "Operational script (perf.sh) for drone companion deployment and management.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/perf.sh:section",
+      "type": "function",
+      "name": "section",
+      "filePath": "scripts/perf.sh",
+      "summary": "Function section() declared or defined in perf.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 6,
+      "endLine": 6
+    },
+    {
+      "id": "file:scripts/setup-ssh.sh",
+      "type": "file",
+      "name": "setup-ssh.sh",
+      "filePath": "scripts/setup-ssh.sh",
+      "summary": "Operational script (setup-ssh.sh) for drone companion deployment and management.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scripts/update_mavlink.sh",
+      "type": "file",
+      "name": "update_mavlink.sh",
+      "filePath": "scripts/update_mavlink.sh",
+      "summary": "Operational script (update_mavlink.sh) for drone companion deployment and management.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scripts/verify-deployment.sh",
+      "type": "file",
+      "name": "verify-deployment.sh",
+      "filePath": "scripts/verify-deployment.sh",
+      "summary": "Remote deployment automation script pushing containers and configs to the Raspberry Pi 5.",
+      "tags": [
+        "shell",
+        "script",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scripts/verify-deployment.sh:fail",
+      "type": "function",
+      "name": "fail",
+      "filePath": "scripts/verify-deployment.sh",
+      "summary": "Function fail() declared or defined in verify-deployment.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 9,
+      "endLine": 9
+    },
+    {
+      "id": "function:scripts/verify-deployment.sh:pass",
+      "type": "function",
+      "name": "pass",
+      "filePath": "scripts/verify-deployment.sh",
+      "summary": "Function pass() declared or defined in verify-deployment.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 10,
+      "endLine": 10
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scripts/configure-rpi.sh",
+      "target": "function:scripts/configure-rpi.sh:check_uart",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/deploy.sh",
+      "target": "function:scripts/deploy.sh:normalize_pi_host",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/deploy.sh",
+      "target": "function:scripts/deploy.sh:sync_ssh_config",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/deploy.sh",
+      "target": "function:scripts/deploy.sh:check_ssh",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/deploy.sh",
+      "target": "function:scripts/deploy.sh:verify_release_checker_disabled",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/doctor.sh",
+      "target": "function:scripts/doctor.sh:print_header",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/doctor.sh",
+      "target": "function:scripts/doctor.sh:step_pass",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/doctor.sh",
+      "target": "function:scripts/doctor.sh:step_fail",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/doctor.sh",
+      "target": "function:scripts/doctor.sh:step_warn",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_log.sh",
+      "target": "function:scripts/drone_log.sh:drone_log",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_log.sh",
+      "target": "function:scripts/drone_log.sh:drone_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_log.sh",
+      "target": "function:scripts/drone_log.sh:drone_warn",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_log.sh",
+      "target": "function:scripts/drone_log.sh:drone_error",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_log.sh",
+      "target": "function:scripts/drone_log.sh:drone_critical",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_uart_status.sh",
+      "target": "function:scripts/drone_uart_status.sh:check_port",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/install_docker_wsl.sh",
+      "target": "function:scripts/install_docker_wsl.sh:step",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/install_docker_wsl.sh",
+      "target": "function:scripts/install_docker_wsl.sh:ok",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/install_docker_wsl.sh",
+      "target": "function:scripts/install_docker_wsl.sh:err",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/mavlink-status.sh",
+      "target": "function:scripts/mavlink-status.sh:show_ports",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/mavlink-status.sh",
+      "target": "function:scripts/mavlink-status.sh:show_stats",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/perf.sh",
+      "target": "function:scripts/perf.sh:section",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/verify-deployment.sh",
+      "target": "function:scripts/verify-deployment.sh:fail",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/verify-deployment.sh",
+      "target": "function:scripts/verify-deployment.sh:pass",
+      "type": "contains"
+    }
+  ]
+}

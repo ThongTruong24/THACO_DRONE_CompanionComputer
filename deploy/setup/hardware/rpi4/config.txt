@@ -1,0 +1,44 @@
+# ============================================================
+# Raspberry Pi 4B Boot Configuration - Drone Edge Computing
+# File: /boot/firmware/config.txt
+# Target: Raspberry Pi 4 Model B (BCM2711)
+# ============================================================
+
+[all]
+arm_64bit=1
+
+# Direct kernel loading
+kernel=vmlinuz
+cmdline=cmdline.txt
+initramfs initrd.img followkernel
+
+# GPIO peripherals
+dtparam=i2c_arm=on
+dtparam=spi=on
+
+# GPU/Display: Full KMS mode
+dtoverlay=vc4-kms-v3d
+disable_fw_kms_setup=1
+disable_overscan=1
+
+# UART: Enable PL011 UART0 on GPIO 14/15 (/dev/ttyAMA0) for SIYI Telemetry
+enable_uart=1
+
+# Camera & Display auto-detect
+camera_auto_detect=1
+display_auto_detect=1
+
+# USB support
+dtoverlay=dwc2
+
+# UART4: Flight Controller (GPIO 8=TX, GPIO 9=RX) -> /dev/ttyAMA4 @ 921600 baud
+dtoverlay=uart4
+
+# ============================================================
+# Pi 4 specific tuning
+# ============================================================
+[pi4]
+max_framebuffers=2
+arm_boost=1
+
+[all]

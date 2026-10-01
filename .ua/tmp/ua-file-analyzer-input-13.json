@@ -1,0 +1,112 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "scripts/configure-rpi.sh",
+      "language": "shell",
+      "sizeLines": 157,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/cross_build.sh",
+      "language": "shell",
+      "sizeLines": 37,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/deploy.sh",
+      "language": "shell",
+      "sizeLines": 305,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/deploy_depth.sh",
+      "language": "shell",
+      "sizeLines": 8,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/docker_pi_ctl.sh",
+      "language": "shell",
+      "sizeLines": 78,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/doctor.sh",
+      "language": "shell",
+      "sizeLines": 355,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/drone_log.sh",
+      "language": "shell",
+      "sizeLines": 43,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/drone_uart_status.sh",
+      "language": "shell",
+      "sizeLines": 108,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/install_docker_wsl.sh",
+      "language": "shell",
+      "sizeLines": 106,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/mavlink-status.sh",
+      "language": "shell",
+      "sizeLines": 126,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/package_release.sh",
+      "language": "shell",
+      "sizeLines": 59,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/perf.sh",
+      "language": "shell",
+      "sizeLines": 42,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/setup-ssh.sh",
+      "language": "shell",
+      "sizeLines": 98,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/update_mavlink.sh",
+      "language": "shell",
+      "sizeLines": 58,
+      "fileCategory": "script"
+    },
+    {
+      "path": "scripts/verify-deployment.sh",
+      "language": "shell",
+      "sizeLines": 44,
+      "fileCategory": "script"
+    }
+  ],
+  "batchImportData": {
+    "scripts/configure-rpi.sh": [],
+    "scripts/cross_build.sh": [],
+    "scripts/deploy.sh": [],
+    "scripts/deploy_depth.sh": [],
+    "scripts/docker_pi_ctl.sh": [],
+    "scripts/doctor.sh": [],
+    "scripts/drone_log.sh": [],
+    "scripts/drone_uart_status.sh": [],
+    "scripts/install_docker_wsl.sh": [],
+    "scripts/mavlink-status.sh": [],
+    "scripts/package_release.sh": [],
+    "scripts/perf.sh": [],
+    "scripts/setup-ssh.sh": [],
+    "scripts/update_mavlink.sh": [],
+    "scripts/verify-deployment.sh": []
+  }
+}

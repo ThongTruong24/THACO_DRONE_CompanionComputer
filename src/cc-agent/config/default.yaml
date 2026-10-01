@@ -1,0 +1,56 @@
+network:
+  eth0:
+    mode: static
+    address: 192.168.144.150/24
+    gateway: ''
+    dns:
+    - 1.1.1.1
+    - 8.8.8.8
+    mtu: 1500
+  wlan0:
+    enabled: true
+    ssid: ''
+    password: ''
+  hotspot:
+    enabled: true
+    ssid: AP_DRONE
+    password: '12345678'
+    channel: 6
+    ip: 192.168.10.1/24
+hardware:
+  uart0:
+    enabled: true
+    baudrate: 115200
+  uart4:
+    enabled: true
+    baudrate: 921600
+  i2c:
+    enabled: true
+  spi:
+    enabled: false
+services:
+  mavlink_router:
+    enabled: true
+  mavros:
+    enabled: true
+  camera:
+    enabled: true
+  vision:
+    enabled: true
+system:
+  hostname: drone-thaco
+camera:
+  realsense:
+    enabled: true
+    fps: 30
+    profile_mode: rgb_only
+    serial: ''
+  type: realsense
+  v4l2:
+    device_path: /dev/video0
+  video:
+    width: 1280
+    height: 720
+    rotation: 180
+  encoder:
+    bitrate_kbps: 1300

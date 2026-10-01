@@ -1,0 +1,192 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [
+    "src/drone-vision/Dockerfile.base"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 4
+    }
+  },
+  "results": [
+    {
+      "path": "src/drone-vision/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 133,
+      "nonEmptyLines": 96,
+      "sections": [
+        {
+          "heading": "Vision Container",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Configuration",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "3D object-localization roadmap",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "Operation",
+          "level": 2,
+          "line": 62
+        },
+        {
+          "heading": "Verification",
+          "level": 2,
+          "line": 72
+        },
+        {
+          "heading": "Troubleshooting",
+          "level": 2,
+          "line": 86
+        },
+        {
+          "heading": "Fast local build",
+          "level": 2,
+          "line": 98
+        },
+        {
+          "heading": "CPU measurement",
+          "level": 2,
+          "line": 107
+        },
+        {
+          "heading": "Diagrams",
+          "level": 2,
+          "line": 118
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "src/drone-vision/drone.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 68,
+      "nonEmptyLines": 62,
+      "sections": [
+        {
+          "heading": "serial_port",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "baud_rate",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "camera_device",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "ros_domain_id",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "mavlink",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "logging",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "camera",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "mode",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "yolo",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "depth",
+          "level": 1,
+          "line": 39
+        },
+        {
+          "heading": "object_localization",
+          "level": 1,
+          "line": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 11
+      }
+    },
+    {
+      "path": "src/drone-vision/entrypoint.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 28,
+      "nonEmptyLines": 23,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/drone-vision/object-localization.example.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 20,
+      "sections": [
+        {
+          "heading": "object_localization",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    }
+  ]
+}

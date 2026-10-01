@@ -1,0 +1,14 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/hardware-manager/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 24,
+      "fileCategory": "infra"
+    }
+  ],
+  "batchImportData": {
+    "src/hardware-manager/Dockerfile": []
+  }
+}

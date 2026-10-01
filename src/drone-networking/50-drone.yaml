@@ -1,0 +1,25 @@
+network:
+  version: 2
+  renderer: networkd
+
+  ethernets:
+    # 1. Cổng Ethernet mặc định trên Raspberry Pi 5
+    eth0:
+      optional: true
+      # Bật DHCP Client để Pi cắm switch/mạng phòng Lab luôn nhận IP (10.14.80.x) để SSH
+      dhcp4: false
+      # Đồng thời luôn giữ IP tĩnh cố định cho SIYI Air Unit và RTSP Stream
+      addresses:
+        - 192.168.144.141/24
+
+  wifis:
+    # ============================================================
+    # WiFi Client (Station Mode) - Kết nối mạng nội bộ RD Industries
+    # AP-STA Concurrency: wlan0 vừa là Client (STA) vừa tạo AP ảo uap0
+    # ============================================================
+    wlan0:
+      optional: true
+      dhcp4: true
+      # Provide the station credentials at runtime through config/wifi.json
+      # (copied from config/wifi.example.json) or environment variables.
+      access-points: {}

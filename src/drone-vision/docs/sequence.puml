@@ -1,0 +1,80 @@
+@startuml drone-vision-sequence
+title drone-vision: Startup & AI Processing Sequence
+
+participant "Docker Engine" as Docker
+participant "entrypoint.sh" as EP
+participant "drone.yaml" as Config
+participant "yolo_streamer.py" as YOLO
+participant "RealSense D435i\n(pyrealsense2)" as Camera
+participant "RTSP input\n(fallback)" as RTSP_IN
+participant "YOLO Model\n(yolo26n.pt)" as Model
+participant "MediaMTX output\n(via drone-camera-rtsp)" as RTSP_OUT
+participant "/run/drone" as RunDir
+
+== Container Startup ==
+Docker -> EP : start (env: ROS_DOMAIN_ID, VISION_CONFIG)
+EP -> Config : Read VISION_CONFIG=/app/config/drone.yaml\npython3: yaml.safe_load -> mode field
+Config --> EP : mode = "yolo" (or "aruco" = legacy error)
+
+alt mode == "yolo"
+  EP -> YOLO : exec python3 /app/scripts/yolo_streamer.py
+else mode == "aruco"
+  EP -> EP : drone_error + exit 2\n(not packaged in this image)
+else mode == unknown
+  EP -> EP : drone_error + exit 1
+end
+
+== YOLO Startup ==
+YOLO -> Config : load_config(VISION_CONFIG)\nValidate: width/height/fps/bitrate/confidence\ncheck model file exists
+Config --> YOLO : validated config dict
+
+YOLO -> Model : Load YOLOv8 model (yolo26n.pt)\n(ultralytics, torch)
+Model --> YOLO : model ready
+
+alt input_source == "realsense"
+  YOLO -> Camera : pyrealsense2 pipeline.start()\ncolor stream + depth stream
+  Camera --> YOLO : ColorFrame + DepthFrame @ fps
+else input_source == "rtsp"
+  YOLO -> RTSP_IN : cv2.VideoCapture(rtsp_url)\nfallback: no depth data
+  RTSP_IN --> YOLO : BGR frames @ fps
+end
+
+== Steady State: Inference Loop ==
+Camera -> YOLO : ColorFrame (BGR numpy array)
+YOLO -> Model : model.predict(frame, conf=threshold)
+Model --> YOLO : BoundingBox list + class IDs + scores
+
+alt depth enabled && input_source == realsense
+  YOLO -> Camera : depth_frame.get_distance(cx, cy)
+  Camera --> YOLO : distance_meters
+  YOLO -> YOLO : Annotate bbox with "X.Xm" label
+end
+
+YOLO -> YOLO : cv2 draw bboxes + labels on frame
+YOLO -> YOLO : H.264 encode via GStreamer\n(RTMP push to 127.0.0.1:1935/vision)
+YOLO -> RunDir : Write /run/drone/vision_stats.json\n(detection count, fps, latency)
+
+RTSP_OUT --> YOLO : MediaMTX republishes as rtsp://:8554/vision
+
+== Stale Frame / Reconnect ==
+YOLO -> YOLO : Watchdog: frame_time > stale_seconds
+YOLO -> Camera : pipeline.stop(); pipeline.start()\n(auto-reconnect after reconnect_seconds)
+
+== Shutdown ==
+Docker -> YOLO : SIGTERM / SIGINT
+YOLO -> Camera : pipeline.stop()
+YOLO -> YOLO : Release cv2 writer; exit cleanly
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+note as VisionBase
+  Publish ARM64 base to GHCR first
+  App FROM GHCR base SHA via VISION_BASE_IMAGE
+end note
+
+@enduml

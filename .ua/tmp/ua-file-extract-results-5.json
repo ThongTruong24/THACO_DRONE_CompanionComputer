@@ -1,0 +1,90 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "src/drone-networking/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 25,
+      "nonEmptyLines": 20,
+      "services": [
+        {
+          "name": "alpine",
+          "image": "alpine:3.20",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 26
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM alpine:3.20",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "RUN apk add --no-cache \\",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "COPY hostapd.conf /etc/hostapd/hostapd.conf",
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "COPY dnsmasq.conf /etc/dnsmasq.d/drone.conf",
+          "startLine": 19,
+          "endLine": 19
+        },
+        {
+          "name": "COPY 50-drone.yaml /etc/netplan/50-drone.yaml",
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "COPY entrypoint.sh /app/entrypoint.sh",
+          "startLine": 21,
+          "endLine": 21
+        },
+        {
+          "name": "RUN chmod +x /app/entrypoint.sh",
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "ENTRYPOINT [\"/app/entrypoint.sh\"]",
+          "startLine": 25,
+          "endLine": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 9
+      }
+    }
+  ]
+}

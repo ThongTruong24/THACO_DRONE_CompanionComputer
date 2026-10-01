@@ -1,0 +1,28 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/cc-agent/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 29,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/cc-agent/Dockerfile.cross",
+      "language": "dockerfile",
+      "sizeLines": 24,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/cc-agent/README.md",
+      "language": "markdown",
+      "sizeLines": 65,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "src/cc-agent/CMakeLists.txt": [],
+    "src/cc-agent/Dockerfile.cross": [],
+    "src/cc-agent/README.md": []
+  }
+}

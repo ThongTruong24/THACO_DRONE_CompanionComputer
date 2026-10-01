@@ -1,0 +1,57 @@
+@startuml router-controller-system
+title MAVLink Router Controller: System Architecture Diagram
+
+package "MAVLink Router Controller Container" {
+  class RouterSupervisor {
+    - socket_path_: std::string
+    - hw_socket_path_: std::string
+    - config_path_: std::string
+    - routerd_pid_: pid_t
+    - current_config_: RouterConfig
+    + start(): bool
+    + stop(): void
+    + apply_config(cfg: RouterConfig, err: string): bool
+    + generate_config_file(cfg: RouterConfig): bool
+    + restart_mavlink_routerd_process(): bool
+  }
+
+  component "Child Process:\nmavlink-routerd" as RouterD
+
+  RouterSupervisor --> RouterD : Supervises / Forks / Signals
+}
+
+package "Unix Domain Sockets" {
+  file "/run/drone/router.sock" as RouterSock
+  file "/run/drone/hw_manager.sock" as HwSock
+}
+
+package "Network Endpoints" {
+  interface "UDP :14550\n(QGC GCS)" as Port14550
+  interface "UDP :14600\n(CC Agent)" as Port14600
+  interface "UDP :14541\n(MAVROS)" as Port14541
+  interface "TCP :5760\n(Telemetry Proxy)" as Port5760
+}
+
+package "Hardware UART Ports" {
+  file "/dev/ttyAMA4 (FC)" as UART_FC
+  file "/dev/ttyAMA0 (SIYI)" as UART_SIYI
+}
+
+RouterSupervisor --> RouterSock : Listens for IPC
+RouterSupervisor ..> HwSock : Queries port validity
+RouterD --> Port14550 : Serves GCS
+RouterD --> Port14600 : Serves CC Agent
+RouterD --> Port14541 : Serves MAVROS
+RouterD --> Port5760 : Serves TCP
+RouterD ..> UART_FC : Binds (if present)
+RouterD ..> UART_SIYI : Binds (if present)
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+
+@enduml

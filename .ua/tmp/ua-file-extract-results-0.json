@@ -1,0 +1,4381 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 17,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 17,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 17,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/gtestsuite.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 1341,
+      "nonEmptyLines": 1052,
+      "functions": [
+        {
+          "name": "TEST",
+          "startLine": 18,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 81,
+          "endLine": 150,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 232,
+          "endLine": 307,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 395,
+          "endLine": 474,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 566,
+          "endLine": 605,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 657,
+          "endLine": 690,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 736,
+          "endLine": 761,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 799,
+          "endLine": 828,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 870,
+          "endLine": 895,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 933,
+          "endLine": 958,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 996,
+          "endLine": 1021,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 1059,
+          "endLine": 1084,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 1122,
+          "endLine": 1155,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 1201,
+          "endLine": 1228,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 1268,
+          "endLine": 1299,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TEST",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 232,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 395,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 566,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 657,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 736,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 799,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 870,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 933,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 996,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 1059,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 1122,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 1201,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 1268,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 35
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 37
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 39
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 41
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 42
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 51
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_thaco_external_xyz_trigger_encode",
+          "lineNumber": 63
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 66
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 69
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 72
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 73
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 76
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 109
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 110
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 111
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 120
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 122
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 124
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 126
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 127
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 128
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 129
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 130
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 131
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 132
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 133
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 134
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 135
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 136
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 137
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 138
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 139
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 140
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 141
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 142
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 143
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 144
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 145
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 146
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 147
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 148
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 149
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 158
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 186
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 187
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 188
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_telemetry_links_encode",
+          "lineNumber": 192
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 195
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 198
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 201
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 202
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 203
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 204
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 205
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 206
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 207
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 208
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 209
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 210
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 211
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 212
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 213
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 214
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 215
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 216
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 217
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 218
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 219
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 220
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 221
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 222
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 223
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 224
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 227
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 257
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 258
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 259
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 260
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 261
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 262
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 263
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 264
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 265
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 274
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 276
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 278
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 280
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 281
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 282
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 283
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 284
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 285
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 286
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 287
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 288
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 289
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 290
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 291
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 292
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 293
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 294
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 295
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 296
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 297
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 298
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 299
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 300
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 301
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 302
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 303
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 304
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 305
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 306
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 315
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 340
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 341
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 342
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 343
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 344
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 345
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 346
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 347
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 348
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_telemetry_camera_encode",
+          "lineNumber": 352
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 355
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 358
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 361
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 362
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 363
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 364
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 365
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 366
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 367
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 368
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 369
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 370
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 371
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 372
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 373
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 374
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 375
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 376
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 377
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 378
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 379
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 380
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 381
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 382
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 383
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 384
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 385
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 386
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 387
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 390
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 420
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 421
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 422
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 423
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 424
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 425
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 426
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 427
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 428
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 429
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 430
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 439
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 441
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 443
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 445
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 446
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 447
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 448
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 449
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 450
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 451
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 452
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 453
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 454
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 455
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 456
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 457
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 458
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 459
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 460
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 461
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 462
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 463
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 464
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 465
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 466
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 467
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 468
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 469
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 470
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 471
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 472
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 473
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 482
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 507
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 508
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 509
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 510
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 511
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 512
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 513
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 514
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 515
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 516
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 517
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_telemetry_network_encode",
+          "lineNumber": 521
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 524
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 527
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 530
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 531
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 532
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 533
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 534
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 535
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 536
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 537
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 538
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 539
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 540
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 541
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 542
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 543
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 544
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 545
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 546
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 547
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 548
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 549
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 550
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 551
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 552
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 553
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 554
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 555
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 556
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 557
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 558
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 561
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 580
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 581
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 590
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 592
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 594
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 596
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 597
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 598
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 599
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 600
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 601
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 602
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 603
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 604
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 613
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 627
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 628
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_telemetry_vision_encode",
+          "lineNumber": 632
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 635
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 638
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 641
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 642
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 643
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 644
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 645
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 646
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 647
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 648
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 649
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 652
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 678
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 680
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 682
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 684
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 685
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 686
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 687
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 688
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 689
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 698
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_telemetry_system_encode",
+          "lineNumber": 714
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 717
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 720
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 723
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 724
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 725
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 726
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 727
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 728
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 731
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 753
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 755
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 757
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 759
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 760
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 769
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_config_begin_encode",
+          "lineNumber": 781
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 784
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 787
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 790
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 791
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 794
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 808
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 809
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 818
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 820
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 822
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 824
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 825
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 826
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 827
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 836
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 845
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 846
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_config_set_encode",
+          "lineNumber": 850
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 853
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 856
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 859
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 860
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 861
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 862
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 865
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 878
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 887
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 889
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 891
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 893
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 894
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 903
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 911
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_config_get_encode",
+          "lineNumber": 915
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 918
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 921
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 924
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 925
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 928
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 950
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 952
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 954
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 956
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 957
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 966
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_config_apply_encode",
+          "lineNumber": 978
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 981
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 984
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 987
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 988
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 991
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 1013
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 1015
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1017
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1019
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1020
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 1029
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_config_confirm_encode",
+          "lineNumber": 1041
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 1044
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1047
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1050
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1051
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 1054
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 1076
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 1078
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1080
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1082
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1083
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 1092
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_config_rollback_encode",
+          "lineNumber": 1104
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 1107
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1110
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1113
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1114
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 1117
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 1134
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 1143
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 1145
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1147
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1149
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1150
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1151
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1152
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1153
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1154
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 1163
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 1175
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_config_ack_encode",
+          "lineNumber": 1179
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 1182
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1185
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1188
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1189
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1190
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1191
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1192
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1193
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 1196
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 1209
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 1210
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 1219
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 1221
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1223
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1225
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1226
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1227
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 1236
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 1244
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 1245
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_config_value_encode",
+          "lineNumber": 1249
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 1252
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1255
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1258
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1259
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1260
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 1263
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 1279
+        },
+        {
+          "caller": "TEST",
+          "callee": "serialize",
+          "lineNumber": 1288
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink::mavlink_finalize_message",
+          "lineNumber": 1290
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1292
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1294
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1295
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1296
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1297
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1298
+        },
+        {
+          "caller": "TEST",
+          "callee": "memset",
+          "lineNumber": 1307
+        },
+        {
+          "caller": "TEST",
+          "callee": "to_char_array",
+          "lineNumber": 1318
+        },
+        {
+          "caller": "TEST",
+          "callee": "mavlink_msg_cc_config_status_encode",
+          "lineNumber": 1322
+        },
+        {
+          "caller": "TEST",
+          "callee": "[&packet2](const mavlink_message_t *cmsg) {\n        MsgMap map2(cmsg);\n\n        packet2.deserialize(map2);\n    }",
+          "lineNumber": 1325
+        },
+        {
+          "caller": "TEST",
+          "callee": "deserialize",
+          "lineNumber": 1328
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1331
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1332
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1333
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1334
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_EQ",
+          "lineNumber": 1335
+        },
+        {
+          "caller": "TEST",
+          "callee": "PRINT_MSG",
+          "lineNumber": 1338
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 15,
+        "functionCount": 15,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 30,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 35,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 40,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 55,
+          "endLine": 65,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 67,
+          "endLine": 75,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_CONFIG_ACK",
+          "startLine": 14,
+          "endLine": 76,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "request_id",
+            "transaction_id",
+            "result",
+            "apply_type",
+            "error_code",
+            "message"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "CC_CONFIG_ACK",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 50
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 52
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 26,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 31,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 36,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 47,
+          "endLine": 53,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 55,
+          "endLine": 59,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_CONFIG_APPLY",
+          "startLine": 14,
+          "endLine": 60,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "request_id",
+            "transaction_id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "CC_CONFIG_APPLY",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 44
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 26,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 31,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 36,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 47,
+          "endLine": 53,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 55,
+          "endLine": 59,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_CONFIG_BEGIN",
+          "startLine": 14,
+          "endLine": 60,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "request_id",
+            "timeout_s"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "CC_CONFIG_BEGIN",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 44
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 26,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 31,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 36,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 47,
+          "endLine": 53,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 55,
+          "endLine": 59,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_CONFIG_CONFIRM",
+          "startLine": 14,
+          "endLine": 60,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "request_id",
+            "transaction_id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "CC_CONFIG_CONFIRM",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 44
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 26,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 31,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 36,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 47,
+          "endLine": 53,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 55,
+          "endLine": 59,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_CONFIG_GET",
+          "startLine": 14,
+          "endLine": 60,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "request_id",
+            "key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "CC_CONFIG_GET",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 42
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 44
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 26,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 31,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 36,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 47,
+          "endLine": 53,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 55,
+          "endLine": 59,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_CONFIG_ROLLBACK",
+          "startLine": 14,
+          "endLine": 60,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "request_id",
+            "transaction_id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "CC_CONFIG_ROLLBACK",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 44
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 28,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 33,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 38,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 51,
+          "endLine": 59,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 61,
+          "endLine": 67,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_CONFIG_SET",
+          "startLine": 14,
+          "endLine": 68,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "request_id",
+            "transaction_id",
+            "key",
+            "value"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "CC_CONFIG_SET",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 45
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 46
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 48
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 61,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 29,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 34,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 39,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 53,
+          "endLine": 62,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 64,
+          "endLine": 71,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_CONFIG_STATUS",
+          "startLine": 14,
+          "endLine": 72,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "transaction_id",
+            "state",
+            "progress",
+            "error_code",
+            "message"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "CC_CONFIG_STATUS",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 48
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 50
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 27,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 32,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 37,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 49,
+          "endLine": 56,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 58,
+          "endLine": 63,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_CONFIG_VALUE",
+          "startLine": 14,
+          "endLine": 64,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "request_id",
+            "key",
+            "value"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "CC_CONFIG_VALUE",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 43
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 44
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 46
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 164,
+      "nonEmptyLines": 149,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 51,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 56,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 61,
+          "endLine": 95,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 97,
+          "endLine": 128,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 130,
+          "endLine": 159,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_TELEMETRY_CAMERA",
+          "startLine": 14,
+          "endLine": 160,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "video_width",
+            "video_height",
+            "depth_width",
+            "depth_height",
+            "rotation",
+            "bitrate_kbps",
+            "bitrate_max_kbps",
+            "vbv_buffer_kb",
+            "rtsp_port",
+            "video_fps",
+            "depth_fps",
+            "camera_id",
+            "is_default",
+            "profile_mode",
+            "enable_emitter",
+            "camera_status",
+            "error_code",
+            "usb_speed_mode",
+            "camera_name",
+            "camera_type",
+            "connection_port",
+            "serial_number",
+            "codec",
+            "encoder_mode",
+            "rtsp_url_qgc",
+            "rtsp_url_controller",
+            "rtsp_url_laptop"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "CC_TELEMETRY_CAMERA",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 84
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 85
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 86
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 87
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 88
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 89
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 90
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 91
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 92
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 94
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 152,
+      "nonEmptyLines": 137,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 48,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 53,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 58,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 91,
+          "endLine": 119,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 121,
+          "endLine": 147,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_TELEMETRY_LINKS",
+          "startLine": 14,
+          "endLine": 148,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "fc_tx_rate",
+            "fc_rx_rate",
+            "fc_tx_rate_max",
+            "fc_tx_rate_multi",
+            "fc_rx_loss",
+            "fc_tx_err",
+            "fc_bytes_rx",
+            "fc_bytes_tx",
+            "fc_baudrate",
+            "siyi_tx_rate",
+            "siyi_rx_rate",
+            "siyi_tx_rate_max",
+            "siyi_tx_rate_multi",
+            "siyi_rx_loss",
+            "siyi_tx_err",
+            "siyi_bytes_rx",
+            "siyi_bytes_tx",
+            "siyi_baudrate",
+            "fc_status",
+            "siyi_status",
+            "transport_type",
+            "fc_port",
+            "siyi_port",
+            "available_ports"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "CC_TELEMETRY_LINKS",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 84
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 85
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 86
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 88
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 93
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 172,
+      "nonEmptyLines": 157,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 53,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 58,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 63,
+          "endLine": 99,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 101,
+          "endLine": 134,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 136,
+          "endLine": 167,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_TELEMETRY_NETWORK",
+          "startLine": 14,
+          "endLine": 168,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "uap0_rx_kb",
+            "uap0_tx_kb",
+            "wlan0_rx_kb",
+            "wlan0_tx_kb",
+            "eth0_rx_kb",
+            "eth0_tx_kb",
+            "ap_channel",
+            "ap_ieee80211n",
+            "ap_wmm_enabled",
+            "ap_wpa",
+            "ap_client_count",
+            "ap_status",
+            "wlan0_status",
+            "eth0_status",
+            "eth0_is_static",
+            "wlan0_dhcp",
+            "dnsmasq_status",
+            "wlan0_rssi",
+            "eth0_ip",
+            "eth0_netmask",
+            "wlan0_ip",
+            "wlan0_netmask",
+            "wlan0_ssid",
+            "ap_ip",
+            "ap_netmask",
+            "ap_ssid",
+            "ap_wpa_passphrase",
+            "ap_key_mgmt",
+            "ap_hw_mode"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "CC_TELEMETRY_NETWORK",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 86
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 87
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 88
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 89
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 90
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 91
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 92
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 93
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 94
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 95
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 96
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 98
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 103
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 30,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 35,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 40,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 55,
+          "endLine": 65,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 67,
+          "endLine": 75,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_TELEMETRY_SYSTEM",
+          "startLine": 14,
+          "endLine": 76,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "system_uptime_s",
+            "cpu_usage",
+            "ram_usage",
+            "disk_usage",
+            "cpu_temp",
+            "system_status"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "CC_TELEMETRY_SYSTEM",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 52
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 33,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 38,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 43,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 61,
+          "endLine": 74,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 76,
+          "endLine": 87,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CC_TELEMETRY_VISION",
+          "startLine": 14,
+          "endLine": 88,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "confidence_thresh",
+            "inference_fps",
+            "input_width",
+            "input_height",
+            "video_fps",
+            "detections_count",
+            "status_flags",
+            "model_name",
+            "input_source"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "CC_TELEMETRY_VISION",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 55
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "to_string",
+          "lineNumber": 56
+        },
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 58
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 63
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "get_name",
+          "startLine": 26,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "get_message_info",
+          "startLine": 31,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "to_yaml",
+          "startLine": 36,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "serialize",
+          "startLine": 47,
+          "endLine": 53,
+          "params": [
+            "map"
+          ]
+        },
+        {
+          "name": "deserialize",
+          "startLine": 55,
+          "endLine": 59,
+          "params": [
+            "map"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "THACO_EXTERNAL_XYZ_TRIGGER",
+          "startLine": 14,
+          "endLine": 60,
+          "methods": [
+            "get_name",
+            "get_message_info",
+            "to_yaml",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "MSG_ID",
+            "LENGTH",
+            "MIN_LENGTH",
+            "CRC_EXTRA",
+            "NAME",
+            "trigger_id",
+            "time_boot_ms"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_name",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "get_message_info",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "to_yaml",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "THACO_EXTERNAL_XYZ_TRIGGER",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_yaml",
+          "callee": "str",
+          "lineNumber": 44
+        },
+        {
+          "caller": "serialize",
+          "callee": "reset",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 437,
+      "nonEmptyLines": 394,
+      "metrics": {
+        "importCount": 15,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

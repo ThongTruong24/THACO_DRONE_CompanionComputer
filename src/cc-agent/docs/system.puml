@@ -1,0 +1,71 @@
+@startuml cc-agent-system
+title Companion Agent: System Architecture & Component Diagram
+
+package "Companion Agent Container / Binary (drone-companion-agent)" {
+  class ConfigEngine {
+    - staged_config_: map<string, string>
+    - backup_config_: map<string, string>
+    - active_tid_: uint32_t
+    + begin_transaction(tid: uint32_t): bool
+    + set_value(key: string, val: string): bool
+    + apply_transaction(): bool
+    + commit_transaction(): bool
+    + rollback_transaction(): bool
+  }
+
+  class RollbackGuard {
+    - in_trial_: atomic<bool>
+    - trial_deadline_: time_point
+    - fc_online_: atomic<bool>
+    + start_trial(timeout_sec: double): void
+    + on_heartbeat_received(): void
+    + is_trial_active(): bool
+    + has_expired(): bool
+  }
+
+  class SystemMetricsCollector {
+    + read_stats(): SystemStats
+  }
+
+  class SerialEnumerator {
+    + get_available_ports(): vector<string>
+  }
+
+  ConfigEngine --> RollbackGuard : guarded by
+}
+
+package "MAVLink Network Plane" {
+  interface "UDP :14600\n(Router Endpoint)" as Port14600
+}
+
+package "Unix Sockets" {
+  file "/run/drone/router.sock" as RouterSock
+  file "/run/drone/hw_manager.sock" as HwSock
+}
+
+package "Filesystem & State" {
+  file "/var/lib/cc-agent/active_config.yaml" as ConfigDir
+  file "/app/.env" as EnvFile
+}
+
+Port14600 --> ConfigEngine : CC_CONFIG_* MAVLink Messages
+Port14600 <-- SystemMetricsCollector : CC_TELEMETRY_SYSTEM (ID 42014)
+ConfigEngine ..> RouterSock : Reload router on config change
+ConfigEngine ..> HwSock : Validates serial ports
+ConfigEngine --> ConfigDir : Persists YAML
+ConfigEngine --> EnvFile : Updates private telemetry settings
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+note as AgentArtifacts
+  Binary inside cc-agent image; no host binary mount
+  cc-agent-state persists /var/lib/cc-agent
+  Private telemetry.env is mounted rw at /app/.env
+end note
+
+@enduml

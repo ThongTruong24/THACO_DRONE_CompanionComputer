@@ -1,0 +1,96 @@
+{
+  "batchIndex": 14,
+  "nodes": [
+    {
+      "id": "document:src/camera-stream-controller/CMakeLists.txt",
+      "type": "document",
+      "name": "CMakeLists.txt",
+      "filePath": "src/camera-stream-controller/CMakeLists.txt",
+      "summary": "Camera stream controller component (CMakeLists.txt) handling video acquisition and streaming.",
+      "tags": [
+        "txt",
+        "docs",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:src/camera-stream-controller/Dockerfile.cross",
+      "type": "service",
+      "name": "Dockerfile.cross",
+      "filePath": "src/camera-stream-controller/Dockerfile.cross",
+      "summary": "Camera stream controller component (Dockerfile.cross) handling video acquisition and streaming.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/camera-stream-controller/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/camera-stream-controller/README.md",
+      "summary": "Camera stream controller component (README.md) handling video acquisition and streaming.",
+      "tags": [
+        "markdown",
+        "docs",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/camera-stream-controller/camera.yaml",
+      "type": "config",
+      "name": "camera.yaml",
+      "filePath": "src/camera-stream-controller/camera.yaml",
+      "summary": "Camera streaming configuration defining resolutions, framerates, and RTSP stream paths.",
+      "tags": [
+        "yaml",
+        "config",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/camera-stream-controller/entrypoint.sh",
+      "type": "file",
+      "name": "entrypoint.sh",
+      "filePath": "src/camera-stream-controller/entrypoint.sh",
+      "summary": "Camera stream controller component (entrypoint.sh) handling video acquisition and streaming.",
+      "tags": [
+        "shell",
+        "script",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/camera-stream-controller/mediamtx.yml",
+      "type": "config",
+      "name": "mediamtx.yml",
+      "filePath": "src/camera-stream-controller/mediamtx.yml",
+      "summary": "MediaMTX RTSP/WebRTC server configuration for low-latency live camera streaming.",
+      "tags": [
+        "yaml",
+        "config",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,30 @@
+# Generated automatically by thaco-configd
+# DO NOT EDIT DIRECTLY. Source of truth is /etc/thaco/config.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: {% if eth0_mode == 'dhcp' %}true{% else %}false{% endif %}
+{% if eth0_mode == 'static' and eth0_address %}
+      addresses:
+        - {{ eth0_address }}
+{% if eth0_gateway %}
+      routes:
+        - to: default
+          via: {{ eth0_gateway }}
+{% endif %}
+{% if eth0_dns %}
+      nameservers:
+        addresses: [{{ eth0_dns }}]
+{% endif %}
+{% endif %}
+      mtu: {{ eth0_mtu | default(1500) }}
+{% if wlan0_enabled and wlan0_ssid %}
+  wifis:
+    wlan0:
+      dhcp4: true
+      access-points:
+        "{{ wlan0_ssid }}":
+          password: "{{ wlan0_password }}"
+{% endif %}

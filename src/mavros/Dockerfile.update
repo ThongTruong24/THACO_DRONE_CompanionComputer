@@ -1,0 +1,16 @@
+ARG MAVROS_BASE_IMAGE
+FROM ${MAVROS_BASE_IMAGE}
+
+# Install updated THACO AgriDrone MAVLink C++ headers
+COPY mavlink/agridrone-thaco-mavlink/include/mavlink/v2.0/thaco_common /opt/ros/jazzy/include/mavlink/v2.0/thaco_common
+
+# Build and install plugin_agridrone & cc_telemetry
+COPY ros2ws/cc_interfaces /ws/src/cc_interfaces
+COPY ros2ws/cc_telemetry /ws/src/cc_telemetry
+COPY mavlink/plugin_agridrone /ws/src/plugin_agridrone
+RUN . /opt/ros/jazzy/setup.sh \
+    && cd /ws \
+    && colcon build --merge-install --install-base /opt/cc_ws --packages-up-to cc_telemetry plugin_agridrone \
+    && mkdir -p /opt/cc_ws/lib/cc_telemetry \
+    && (test -f /opt/cc_ws/lib/cc_telemetry_node && ln -sf /opt/cc_ws/lib/cc_telemetry_node /opt/cc_ws/lib/cc_telemetry/cc_telemetry_node || true) \
+    && rm -rf /ws

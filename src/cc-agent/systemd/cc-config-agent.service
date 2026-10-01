@@ -1,0 +1,16 @@
+[Unit]
+Description=Companion Computer MAVLink Configuration & Central IPC Agent (Native C++20 Daemon)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Environment=DRONE_RUN_DIR=/run/drone
+ExecStart=/usr/local/bin/drone-companion-agent 127.0.0.1 14600
+Restart=always
+RestartSec=3
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

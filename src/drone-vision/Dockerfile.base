@@ -1,0 +1,31 @@
+# Heavy, versioned ARM64 Vision dependencies. Rebuild only when this file changes.
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PATH=/opt/vision/bin:${PATH}
+ENV YOLO_AUTOINSTALL=false
+ENV YOLO_CONFIG_DIR=/tmp/ultralytics
+
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    apt-get update && apt-get install -y --no-install-recommends \
+    python3 python3-venv python3-pip python3-yaml python3-opencv \
+    python3-gi gir1.2-gstreamer-1.0 \
+    gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-rtsp \
+    libusb-1.0-0 libssl3 ca-certificates bash \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m venv --system-site-packages /opt/vision
+RUN --mount=type=cache,target=/root/.cache/pip,sharing=locked \
+    pip install --no-cache-dir 'numpy<2' torch==2.6.0 torchvision==0.21.0 && \
+    pip install --no-cache-dir matplotlib requests scipy psutil polars 'ultralytics-thop>=2.0.18' && \
+    pip install --no-cache-dir --no-deps ultralytics==8.4.14 && \
+    (pip install --no-cache-dir pyrealsense2 || \
+        echo '[WARNING] pyrealsense2 wheel not available; RTSP fallback remains supported')
+
+RUN find /opt/vision -type d -name '__pycache__' -prune -exec rm -rf {} + && \
+    find /opt/vision -type d -name 'tests' -prune -exec rm -rf {} + && \
+    find /opt/vision -type f -name '*.pyc' -delete && \
+    python3 -c "from ultralytics import YOLO; import cv2; assert any('GStreamer' in s and 'YES' in s for s in cv2.getBuildInformation().splitlines()), 'OpenCV missing GStreamer'" && \
+    gst-inspect-1.0 x264enc >/dev/null

@@ -1,0 +1,40 @@
+@startuml mavros-system
+title MAVROS: System Architecture & ROS 2 Graph Diagram
+
+package "MAVLink Router Plane" {
+  interface "UDP :14541\n(Router Server Endpoint)" as RouterUDP
+}
+
+package "MAVROS Container (ROS 2 Jazzy)" {
+  component "mavros_node\n(ROS 2 Bridge)" as MavrosNode
+  component "plugin_agridrone\n(THACO Custom Telemetry Plugin)" as ThacoPlugin
+  component "cc_telemetry_node\n(Diagnostic Publisher)" as TelemNode
+
+  MavrosNode --> ThacoPlugin : Loads plugin
+  MavrosNode --> RouterUDP : Connects udp://:14542@127.0.0.1:14541
+}
+
+package "ROS 2 Topic Graph" {
+  queue "/mavros/state" as StateTopic
+  queue "/mavros/imu/data" as ImuTopic
+  queue "/cc/telemetry_snapshot" as SnapTopic
+}
+
+MavrosNode --> StateTopic : Publishes
+MavrosNode --> ImuTopic : Publishes
+TelemNode --> SnapTopic : Publishes
+
+
+note as DeploymentContract
+  Source/config: GitHub pull
+  Image: GHCR linux/arm64
+  Pi update: compose pull + up --no-build
+  Private runtime config/state stays outside Git
+end note
+note as MavrosMapping
+  Compose: mavros
+  Image: drone-mavros
+  Context: src/mavros
+end note
+
+@enduml

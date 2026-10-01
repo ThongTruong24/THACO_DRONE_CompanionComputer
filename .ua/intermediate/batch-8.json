@@ -1,0 +1,20 @@
+{
+  "batchIndex": 8,
+  "nodes": [
+    {
+      "id": "service:src/mavlink-router-controller/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "src/mavlink-router-controller/Dockerfile",
+      "summary": "MAVLink routing controller (Dockerfile) routing flight telemetry packets.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "mavlink",
+        "router"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

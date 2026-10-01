@@ -1,0 +1,1072 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "ParameterStore",
+          "startLine": 9,
+          "endLine": 9,
+          "params": [
+            "directory"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 10,
+          "endLine": 15,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "active",
+          "startLine": 20,
+          "endLine": 20,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "persist",
+          "startLine": 21,
+          "endLine": 40,
+          "params": [
+            "candidate"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 41,
+          "endLine": 56,
+          "params": [
+            "name",
+            "value",
+            "enabled"
+          ]
+        },
+        {
+          "name": "load",
+          "startLine": 57,
+          "endLine": 70,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParameterStore",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "active",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "persist",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "load",
+          "line": 57,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ParameterStore",
+          "callee": "std::move",
+          "lineNumber": 9
+        },
+        {
+          "caller": "add",
+          "callee": "empty",
+          "lineNumber": 11
+        },
+        {
+          "caller": "add",
+          "callee": "size",
+          "lineNumber": 11
+        },
+        {
+          "caller": "add",
+          "callee": "find",
+          "lineNumber": 11
+        },
+        {
+          "caller": "add",
+          "callee": "std::isfinite",
+          "lineNumber": 11
+        },
+        {
+          "caller": "add",
+          "callee": "std::invalid_argument",
+          "lineNumber": 13
+        },
+        {
+          "caller": "add",
+          "callee": "push_back",
+          "lineNumber": 14
+        },
+        {
+          "caller": "add",
+          "callee": "std::move",
+          "lineNumber": 14
+        },
+        {
+          "caller": "active",
+          "callee": "at",
+          "lineNumber": 20
+        },
+        {
+          "caller": "persist",
+          "callee": "std::filesystem::create_directories",
+          "lineNumber": 22
+        },
+        {
+          "caller": "persist",
+          "callee": "dump",
+          "lineNumber": 25
+        },
+        {
+          "caller": "persist",
+          "callee": "::open",
+          "lineNumber": 27
+        },
+        {
+          "caller": "persist",
+          "callee": "c_str",
+          "lineNumber": 27
+        },
+        {
+          "caller": "persist",
+          "callee": "std::runtime_error",
+          "lineNumber": 28
+        },
+        {
+          "caller": "persist",
+          "callee": "size",
+          "lineNumber": 30
+        },
+        {
+          "caller": "persist",
+          "callee": "::write",
+          "lineNumber": 31
+        },
+        {
+          "caller": "persist",
+          "callee": "data",
+          "lineNumber": 31
+        },
+        {
+          "caller": "persist",
+          "callee": "size",
+          "lineNumber": 31
+        },
+        {
+          "caller": "persist",
+          "callee": "::close",
+          "lineNumber": 32
+        },
+        {
+          "caller": "persist",
+          "callee": "::unlink",
+          "lineNumber": 32
+        },
+        {
+          "caller": "persist",
+          "callee": "c_str",
+          "lineNumber": 32
+        },
+        {
+          "caller": "persist",
+          "callee": "std::runtime_error",
+          "lineNumber": 32
+        },
+        {
+          "caller": "persist",
+          "callee": "static_cast<size_t>",
+          "lineNumber": 33
+        },
+        {
+          "caller": "persist",
+          "callee": "::fsync",
+          "lineNumber": 35
+        },
+        {
+          "caller": "persist",
+          "callee": "::close",
+          "lineNumber": 35
+        },
+        {
+          "caller": "persist",
+          "callee": "::unlink",
+          "lineNumber": 36
+        },
+        {
+          "caller": "persist",
+          "callee": "c_str",
+          "lineNumber": 36
+        },
+        {
+          "caller": "persist",
+          "callee": "std::runtime_error",
+          "lineNumber": 36
+        },
+        {
+          "caller": "persist",
+          "callee": "std::filesystem::rename",
+          "lineNumber": 37
+        },
+        {
+          "caller": "persist",
+          "callee": "::open",
+          "lineNumber": 38
+        },
+        {
+          "caller": "persist",
+          "callee": "c_str",
+          "lineNumber": 38
+        },
+        {
+          "caller": "persist",
+          "callee": "::fsync",
+          "lineNumber": 39
+        },
+        {
+          "caller": "persist",
+          "callee": "::close",
+          "lineNumber": 39
+        },
+        {
+          "caller": "set",
+          "callee": "std::isfinite",
+          "lineNumber": 45
+        },
+        {
+          "caller": "set",
+          "callee": "std::trunc",
+          "lineNumber": 45
+        },
+        {
+          "caller": "set",
+          "callee": "persist",
+          "lineNumber": 49
+        },
+        {
+          "caller": "set",
+          "callee": "std::move",
+          "lineNumber": 50
+        },
+        {
+          "caller": "set",
+          "callee": "find",
+          "lineNumber": 51
+        },
+        {
+          "caller": "load",
+          "callee": "std::filesystem::exists",
+          "lineNumber": 59
+        },
+        {
+          "caller": "load",
+          "callee": "nlohmann::json::parse",
+          "lineNumber": 60
+        },
+        {
+          "caller": "load",
+          "callee": "contains",
+          "lineNumber": 62
+        },
+        {
+          "caller": "load",
+          "callee": "get<double>",
+          "lineNumber": 63
+        },
+        {
+          "caller": "load",
+          "callee": "at",
+          "lineNumber": 63
+        },
+        {
+          "caller": "load",
+          "callee": "std::isfinite",
+          "lineNumber": 64
+        },
+        {
+          "caller": "load",
+          "callee": "std::trunc",
+          "lineNumber": 64
+        },
+        {
+          "caller": "load",
+          "callee": "std::runtime_error",
+          "lineNumber": 65
+        },
+        {
+          "caller": "load",
+          "callee": "std::move",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 89,
+      "functions": [
+        {
+          "name": "SystemMetrics",
+          "startLine": 9,
+          "endLine": 12,
+          "params": []
+        },
+        {
+          "name": "read_cpu_raw",
+          "startLine": 14,
+          "endLine": 32,
+          "params": [
+            "samples"
+          ]
+        },
+        {
+          "name": "read_temperature",
+          "startLine": 34,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "read_memory",
+          "startLine": 50,
+          "endLine": 70,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 72,
+          "endLine": 104,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SystemMetrics",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "read_cpu_raw",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "read_temperature",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "read_memory",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 72,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SystemMetrics",
+          "callee": "read_cpu_raw",
+          "lineNumber": 10
+        },
+        {
+          "caller": "SystemMetrics",
+          "callee": "update",
+          "lineNumber": 11
+        },
+        {
+          "caller": "read_cpu_raw",
+          "callee": "is_open",
+          "lineNumber": 16
+        },
+        {
+          "caller": "read_cpu_raw",
+          "callee": "std::getline",
+          "lineNumber": 19
+        },
+        {
+          "caller": "read_cpu_raw",
+          "callee": "rfind",
+          "lineNumber": 20
+        },
+        {
+          "caller": "read_temperature",
+          "callee": "is_open",
+          "lineNumber": 36
+        },
+        {
+          "caller": "read_temperature",
+          "callee": "open",
+          "lineNumber": 37
+        },
+        {
+          "caller": "read_temperature",
+          "callee": "is_open",
+          "lineNumber": 39
+        },
+        {
+          "caller": "read_memory",
+          "callee": "is_open",
+          "lineNumber": 52
+        },
+        {
+          "caller": "read_memory",
+          "callee": "static_cast<float>",
+          "lineNumber": 69
+        },
+        {
+          "caller": "read_memory",
+          "callee": "static_cast<float>",
+          "lineNumber": 69
+        },
+        {
+          "caller": "update",
+          "callee": "read_cpu_raw",
+          "lineNumber": 74
+        },
+        {
+          "caller": "update",
+          "callee": "find",
+          "lineNumber": 78
+        },
+        {
+          "caller": "update",
+          "callee": "end",
+          "lineNumber": 78
+        },
+        {
+          "caller": "update",
+          "callee": "static_cast<float>",
+          "lineNumber": 83
+        },
+        {
+          "caller": "update",
+          "callee": "static_cast<float>",
+          "lineNumber": 83
+        },
+        {
+          "caller": "update",
+          "callee": "std::max",
+          "lineNumber": 84
+        },
+        {
+          "caller": "update",
+          "callee": "std::min",
+          "lineNumber": 84
+        },
+        {
+          "caller": "update",
+          "callee": "find",
+          "lineNumber": 90
+        },
+        {
+          "caller": "update",
+          "callee": "end",
+          "lineNumber": 90
+        },
+        {
+          "caller": "update",
+          "callee": "clear",
+          "lineNumber": 94
+        },
+        {
+          "caller": "update",
+          "callee": "std::to_string",
+          "lineNumber": 96
+        },
+        {
+          "caller": "update",
+          "callee": "find",
+          "lineNumber": 97
+        },
+        {
+          "caller": "update",
+          "callee": "end",
+          "lineNumber": 97
+        },
+        {
+          "caller": "update",
+          "callee": "push_back",
+          "lineNumber": 98
+        },
+        {
+          "caller": "update",
+          "callee": "read_temperature",
+          "lineNumber": 102
+        },
+        {
+          "caller": "update",
+          "callee": "read_memory",
+          "lineNumber": 103
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/test/core_test.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "TEST",
+          "startLine": 5,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "TEST",
+          "startLine": 27,
+          "endLine": 32,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TEST",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "TEST",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TEST",
+          "callee": "std::filesystem::temp_directory_path",
+          "lineNumber": 6
+        },
+        {
+          "caller": "TEST",
+          "callee": "std::to_string",
+          "lineNumber": 6
+        },
+        {
+          "caller": "TEST",
+          "callee": "getpid",
+          "lineNumber": 6
+        },
+        {
+          "caller": "TEST",
+          "callee": "std::filesystem::remove_all",
+          "lineNumber": 7
+        },
+        {
+          "caller": "TEST",
+          "callee": "add",
+          "lineNumber": 9
+        },
+        {
+          "caller": "TEST",
+          "callee": "add",
+          "lineNumber": 10
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_FALSE",
+          "lineNumber": 11
+        },
+        {
+          "caller": "TEST",
+          "callee": "set",
+          "lineNumber": 11
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_FALSE",
+          "lineNumber": 12
+        },
+        {
+          "caller": "TEST",
+          "callee": "set",
+          "lineNumber": 12
+        },
+        {
+          "caller": "TEST",
+          "callee": "std::numeric_limits<double>::quiet_NaN",
+          "lineNumber": 12
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_FALSE",
+          "lineNumber": 13
+        },
+        {
+          "caller": "TEST",
+          "callee": "set",
+          "lineNumber": 13
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_FALSE",
+          "lineNumber": 14
+        },
+        {
+          "caller": "TEST",
+          "callee": "set",
+          "lineNumber": 14
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_TRUE",
+          "lineNumber": 15
+        },
+        {
+          "caller": "TEST",
+          "callee": "set",
+          "lineNumber": 15
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_DOUBLE_EQ",
+          "lineNumber": 16
+        },
+        {
+          "caller": "TEST",
+          "callee": "active",
+          "lineNumber": 16
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_TRUE",
+          "lineNumber": 17
+        },
+        {
+          "caller": "TEST",
+          "callee": "set",
+          "lineNumber": 17
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_DOUBLE_EQ",
+          "lineNumber": 18
+        },
+        {
+          "caller": "TEST",
+          "callee": "active",
+          "lineNumber": 18
+        },
+        {
+          "caller": "TEST",
+          "callee": "add",
+          "lineNumber": 20
+        },
+        {
+          "caller": "TEST",
+          "callee": "add",
+          "lineNumber": 21
+        },
+        {
+          "caller": "TEST",
+          "callee": "load",
+          "lineNumber": 21
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_DOUBLE_EQ",
+          "lineNumber": 22
+        },
+        {
+          "caller": "TEST",
+          "callee": "active",
+          "lineNumber": 22
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_DOUBLE_EQ",
+          "lineNumber": 23
+        },
+        {
+          "caller": "TEST",
+          "callee": "find",
+          "lineNumber": 23
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_DOUBLE_EQ",
+          "lineNumber": 24
+        },
+        {
+          "caller": "TEST",
+          "callee": "active",
+          "lineNumber": 24
+        },
+        {
+          "caller": "TEST",
+          "callee": "std::filesystem::remove_all",
+          "lineNumber": 25
+        },
+        {
+          "caller": "TEST",
+          "callee": "add",
+          "lineNumber": 28
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_FALSE",
+          "lineNumber": 29
+        },
+        {
+          "caller": "TEST",
+          "callee": "set",
+          "lineNumber": 29
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_DOUBLE_EQ",
+          "lineNumber": 30
+        },
+        {
+          "caller": "TEST",
+          "callee": "find",
+          "lineNumber": 30
+        },
+        {
+          "caller": "TEST",
+          "callee": "EXPECT_DOUBLE_EQ",
+          "lineNumber": 31
+        },
+        {
+          "caller": "TEST",
+          "callee": "active",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/mavros/telemetry_demo.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 121,
+      "nonEmptyLines": 97,
+      "functions": [
+        {
+          "name": "format_number",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "value",
+            "precision"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 108,
+          "endLine": 117,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TelemetrySnapshot",
+          "startLine": 19,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "state",
+            "imu",
+            "gps",
+            "battery",
+            "local_pose"
+          ]
+        },
+        {
+          "name": "TelemetryDemo",
+          "startLine": 32,
+          "endLine": 104,
+          "methods": [
+            "__init__",
+            "on_state",
+            "on_imu",
+            "on_gps",
+            "on_battery",
+            "on_local_pose",
+            "log_summary"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TelemetrySnapshot",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "format_number",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "TelemetryDemo",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 108,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "format_number",
+          "callee": "math.isfinite",
+          "lineNumber": 29
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 36
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 36
+        },
+        {
+          "caller": "__init__",
+          "callee": "TelemetrySnapshot",
+          "lineNumber": 37
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.create_subscription",
+          "lineNumber": 40
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.create_subscription",
+          "lineNumber": 41
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.create_subscription",
+          "lineNumber": 42
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.create_subscription",
+          "lineNumber": 43
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.create_subscription",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.create_timer",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.get_logger().info",
+          "lineNumber": 47
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.get_logger",
+          "lineNumber": 47
+        },
+        {
+          "caller": "on_state",
+          "callee": "self.get_logger().info",
+          "lineNumber": 56
+        },
+        {
+          "caller": "on_state",
+          "callee": "self.get_logger",
+          "lineNumber": 56
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 85
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 85
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 87
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 87
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 88
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 92
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 92
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 95
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 95
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 95
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 96
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 96
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 96
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 99
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 99
+        },
+        {
+          "caller": "log_summary",
+          "callee": "format_number",
+          "lineNumber": 99
+        },
+        {
+          "caller": "log_summary",
+          "callee": "self.get_logger().info",
+          "lineNumber": 101
+        },
+        {
+          "caller": "log_summary",
+          "callee": "self.get_logger",
+          "lineNumber": 101
+        },
+        {
+          "caller": "main",
+          "callee": "rclpy.init",
+          "lineNumber": 109
+        },
+        {
+          "caller": "main",
+          "callee": "TelemetryDemo",
+          "lineNumber": 110
+        },
+        {
+          "caller": "main",
+          "callee": "rclpy.spin",
+          "lineNumber": 112
+        },
+        {
+          "caller": "main",
+          "callee": "node.destroy_node",
+          "lineNumber": 116
+        },
+        {
+          "caller": "main",
+          "callee": "rclpy.shutdown",
+          "lineNumber": 117
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    }
+  ]
+}
