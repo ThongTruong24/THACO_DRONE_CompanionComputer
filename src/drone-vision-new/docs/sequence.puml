@@ -1,0 +1,71 @@
+@startuml
+title Vision and MAVLink concurrency / reconnect
+participant "Packaged Python main" as Main
+participant Capture
+participant Inference
+participant Publish
+participant "Python IPC worker" as IPC
+participant "Native MAVLink worker" as Native
+participant "Existing router :5760" as Router
+participant "Unchanged cc-agent" as Agent
+participant "Unchanged QGC camera UI" as QGC
+Main -> Main : Validate config + load packaged model
+Main -> IPC : Start helper + nonblocking pipes
+Main -> Capture : Start RTSP ingestion
+Main -> Inference : Start inference worker
+Main -> Publish : Start RTMP publication
+Native -> Router : Nonblocking TCP connect
+Native -> Router : HEARTBEAT (1/192 onboard +1/105 camera), every1s
+Native -> IPC : connected event
+loop Independent Vision workers
+  Capture -> Inference : latest frame only
+  Inference -> Publish : latest raw frame + detections only
+  Publish -> Publish : choose current bbox + render
+  Publish -> IPC : latest bbox + command generation
+  Inference -> IPC : enqueue latest Vision telemetry
+  IPC -> Native : bounded NDJSON
+  Native -> Router : generated MAVLink 2 telemetry
+end
+QGC -> Router : REQUEST_MESSAGE259 or REQUEST_CAMERA_INFORMATION, target 1/105
+Router -> Native : camera discovery command
+Native -> Router : ACK + CAMERA_INFORMATION, source 1/105; point capability only
+Router -> QGC : camera registered; manual RTSP unchanged
+QGC -> Router : TRACK_POINT 2004, target 1/105
+Router -> Native : COMMAND_LONG track point, target 1/105
+Native -> Native : Check target and normalized coordinates
+Native -> IPC : latest point event
+Native -> Router : COMMAND_ACK to source
+IPC -> Publish : current width-normalized point + generation
+Publish -> Publish : green normal / yellow selected boxes
+QGC -> Router : SET_MESSAGE_INTERVAL 511, message 275,500000us
+Router -> Native : request2 Hz status
+Native -> Router : ACK + periodic ACTIVE/POINT or IDLE/NONE status 275
+Router -> QGC : current selected bbox center/radius
+QGC -> Router : STOP_TRACKING 2010
+Router -> Native : STOP
+Native -> Native : clear snapshot; invalidate old generations
+Native -> IPC : clear_selection
+IPC -> Publish : remove selection on next published frame
+Native -> Router : ACK + next requested status IDLE/NONE
+group Read-only diagnostic integration
+  IPC -> Native : GET with fixed request_id
+  Native -> Router : CC_CONFIG_GET 42102
+  Router -> Agent : Forward over existing UDP endpoint
+  Agent -> Router : CC_CONFIG_VALUE 42107
+  Router -> Native : Forward response to TCP participant
+  Native -> IPC : validated response metadata + timestamp
+end
+alt TCP disconnect
+  Native -> Native : Reset parser; discard unsent packets
+  Native -> IPC : disconnected; clear selection
+  Native -> Native : Bounded exponential reconnect backoff
+  note over Capture,Publish : Vision keeps running
+else Shutdown
+  Main -> Capture : stop event
+  Main -> Inference : stop event
+  Main -> Publish : stop event
+  Main -> IPC : stop and terminate helper
+  Native -> Router : close TCP socket
+  Main -> Main : join workers; exit
+end
+@enduml

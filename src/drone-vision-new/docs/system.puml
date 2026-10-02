@@ -1,0 +1,36 @@
+@startuml
+title Isolated drone-vision-new runtime
+component "Existing mavlink-routerd\nTCP :5760" as Router
+component "Existing cc-agent\nUDP local :14601\nSys/Comp 1/191" as Agent
+component "Existing camera + MediaMTX\nRTSP :8554; RTMP :1935" as Camera
+component QGC
+package "New container: drone-vision-new (host network)" {
+  component "Capture worker" as Capture
+  component "YOLO inference worker" as Inference
+  component "Selection + renderer + RTMP publish worker" as Publish
+  component "Python nonblocking IPC worker" as IPC
+  component "Native C++ MAVLink TCP worker\nGenerated thaco_common\nONE TCP connection" as Native
+  component "Primary onboard identity\nSys/Comp 1/192" as Primary
+  component "CameraProtocol\nSys/Comp 1/105 (configurable100..105)" as Alias
+  database "Packaged YOLO model + YAML" as Files
+  queue "Latest raw frame" as Raw
+  queue "Latest frame + detections" as Annotated
+}
+Router <--> Agent : UDP :14600 / :14601
+Router <--> QGC : UDP :14550
+Router <--> Native : TCP; OS-assigned local source port
+Native <--> IPC : bounded NDJSON pipes
+Native --> Primary
+Native --> Alias
+IPC --> Publish : point / STOP / disconnect clear
+Publish --> IPC : latest selected bbox + command generation
+Inference --> IPC : latest telemetry
+Camera --> Capture : RTSP /camera
+Capture --> Raw
+Raw --> Inference
+Files --> Inference
+Inference --> Annotated
+Annotated --> Publish
+Publish --> Camera : RTMP /yolo
+Camera --> QGC : manual RTSP /yolo; no VIDEO_STREAM_INFORMATION
+@enduml

@@ -1,0 +1,26 @@
+mavlink:
+  router_host: 127.0.0.1
+  router_port: 5760
+  system_id: 1
+  component_id: 192
+  camera_component_id: 105
+  tracking_status_max_hz: 2
+  tracking_status_stale_seconds: 2
+  reconnect_min_ms: 100
+  reconnect_max_ms: 5000
+selection:
+  ttl_seconds: 5
+yolo:
+  model: /app/models/yolo26n.pt
+  input_url: rtsp://127.0.0.1:8554/camera
+  output_url: rtmp://127.0.0.1:1935/yolo
+  width: 640
+  height: 360
+  fps: 20
+  inference_fps: 5
+  imgsz: 320
+  confidence: 0.35
+  threads: 2
+  bitrate_kbps: 1000
+  stale_seconds: 2
+  reconnect_seconds: 1
