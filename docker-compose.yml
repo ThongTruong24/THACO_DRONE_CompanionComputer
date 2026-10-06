@@ -164,6 +164,38 @@ services:
       - /etc/localtime:/etc/localtime:ro
     logging: *logging
 
+  # 6. Decoupled Vision v1: RTSP drives video while FramePool independently drives YOLO inference.
+  # Run either edge-vision OR edge-vision-v1: both own ROS node `vision` and MediaMTX path /yolo.
+  edge-vision-v1:
+    build:
+      context: .
+      dockerfile: src/modules/vision_v1/Dockerfile
+    profiles:
+      - vision-v1
+    init: true
+    cpus: ${VISION_V1_CPUS:-1.5}
+    mem_limit: ${VISION_V1_MEMORY:-512m}
+    stop_grace_period: 20s
+    image: edge-vision-v1:latest
+    container_name: edge-vision-v1
+    pull_policy: never
+    restart: unless-stopped
+    network_mode: host
+    depends_on:
+      edge-camera:
+        condition: service_started
+    environment:
+      <<: *ros-env
+    command: ["--ros-args", "--params-file", "/app/config/vision_v1.yaml"]
+    volumes:
+      - frame_pool:/run/frame_pool:ro
+      - ./src/modules/vision_v1/config:/app/config:ro
+      - ./src/drivers/camera/config:/app/config/cameras:ro
+      - ./src/modules/vision_v1/entrypoint.sh:/app/entrypoint.sh:ro
+      - ./src/modules/vision/yolo26n.pt:/app/models/yolo26n.pt:ro
+      - /etc/localtime:/etc/localtime:ro
+    logging: *logging
+
 volumes:
   mavlink-logs:
     driver: local

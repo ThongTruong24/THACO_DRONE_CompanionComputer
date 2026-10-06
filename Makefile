@@ -5,7 +5,8 @@
 #   agent   -> edge-agent    (src/modules/cc_agent_legacy, thay bằng edge_agent ở T12)
 #   network -> edge-network  (src/modules/networking)
 #   camera  -> edge-camera   (src/modules/camera_streamer)
-#   vision  -> edge-vision   (src/modules/vision)
+#   vision    -> edge-vision     (src/modules/vision)
+#   vision-v1 -> edge-vision-v1  (src/modules/vision_v1)
 # Build context của mọi Dockerfile là thư mục gốc repo (.).
 # ============================================================
 
@@ -14,12 +15,13 @@
 PI_HOST := $(shell bash deploy/ship/resolve_target.sh --quiet)
 PI_USER ?= thong
 
-SERVICES := router agent network camera vision
+SERVICES := router agent network camera vision vision-v1
 MODULE_router  := src/modules/mavlink_router
 MODULE_agent   := platforms/linux/edge_agent
 MODULE_network := src/modules/networking
 MODULE_camera  := src/modules/camera_streamer
 MODULE_vision  := src/modules/vision
+MODULE_vision-v1 := src/modules/vision_v1
 
 BUILD_TARGETS   := $(addprefix build-,$(SERVICES))
 DEPLOY_TARGETS  := $(addprefix deploy-,$(SERVICES))
@@ -27,6 +29,8 @@ START_TARGETS   := $(addprefix start-,$(SERVICES))
 STOP_TARGETS    := $(addprefix stop-,$(SERVICES))
 RESTART_TARGETS := $(addprefix restart-,$(SERVICES))
 LOGS_TARGETS    := $(addprefix logs-,$(SERVICES))
+GENERIC_START_TARGETS := $(filter-out start-vision start-vision-v1,$(START_TARGETS))
+GENERIC_RESTART_TARGETS := $(filter-out restart-vision restart-vision-v1,$(RESTART_TARGETS))
 
 COMPOSE_REMOTE = ssh $(PI_USER)@$(PI_HOST) "docker compose -f ~/drone-edge/docker-compose.yml
 
@@ -54,7 +58,7 @@ help:
 	@echo "    make test               colcon test + colcon test-result"
 	@echo "    make update-mavlink     Sinh lại headers MAVLink vào src/lib/mavlink (../sync_mavlink.py từ Drone_MAVLink/thaco.xml)"
 	@echo ""
-	@echo "  📦 BUILD TỪNG CONTAINER (trên WSL ARM64), <svc> = router|agent|network|camera|vision:"
+	@echo "  📦 BUILD TỪNG CONTAINER (trên WSL ARM64), <svc> = router|agent|network|camera|vision|vision-v1:"
 	@echo "    make build-<svc>        Build ARM64 image edge-<svc>"
 	@echo "    make build-all          Build các container cốt lõi (router agent network camera)"
 	@echo ""
@@ -141,14 +145,24 @@ registry-stop:
 	@echo "✓ Local Docker Registry đã dừng"
 
 # ─── Bật / Tắt / Khởi động lại trên Pi ──────────────────────────────────
-$(START_TARGETS): start-%:
+$(GENERIC_START_TARGETS): start-%:
 	@$(COMPOSE_REMOTE) up -d edge-$*"
+
+start-vision:
+	@$(COMPOSE_REMOTE) stop edge-vision-v1 >/dev/null 2>&1 || true; docker compose -f ~/drone-edge/docker-compose.yml up -d edge-vision"
+
+start-vision-v1:
+	@$(COMPOSE_REMOTE) stop edge-vision >/dev/null 2>&1 || true; docker compose -f ~/drone-edge/docker-compose.yml up -d edge-vision-v1"
 
 $(STOP_TARGETS): stop-%:
 	@$(COMPOSE_REMOTE) stop edge-$*"
 
-$(RESTART_TARGETS): restart-%:
+$(GENERIC_RESTART_TARGETS): restart-%:
 	@$(COMPOSE_REMOTE) restart edge-$*"
+
+restart-vision: stop-vision start-vision
+
+restart-vision-v1: stop-vision-v1 start-vision-v1
 
 start-all:
 	@$(COMPOSE_REMOTE) up -d"

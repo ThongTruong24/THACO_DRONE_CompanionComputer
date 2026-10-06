@@ -30,7 +30,7 @@ section "top threads"
 ps -eLo pid,tid,psr,pcpu,pmem,comm --sort=-pcpu | head -n 30
 
 section "service state"
-docker compose -f "$COMPOSE_FILE" --profile vision ps
+docker compose -f "$COMPOSE_FILE" --profile vision --profile vision-v1 ps
 
 section "camera and vision indicators"
 docker compose -f "$COMPOSE_FILE" logs --tail=120 edge-camera 2>&1 |
@@ -39,5 +39,10 @@ if docker compose -f "$COMPOSE_FILE" --profile vision ps --status running edge-v
   docker compose -f "$COMPOSE_FILE" --profile vision logs --tail=120 edge-vision 2>&1 |
     grep -E 'Inference|Output|RTSP|YOLO' | tail -n 30 || true
 else
-  echo 'edge-vision is not running (expected when the optional profile is disabled).'
+  if docker compose -f "$COMPOSE_FILE" --profile vision-v1 ps --status running edge-vision-v1 2>/dev/null | grep -q edge-vision-v1; then
+    docker compose -f "$COMPOSE_FILE" --profile vision-v1 logs --tail=120 edge-vision-v1 2>&1 |
+      grep -E 'metrics|Inference|Output|RTSP|YOLO' | tail -n 30 || true
+  else
+    echo 'No vision service is running (expected when both optional profiles are disabled).'
+  fi
 fi

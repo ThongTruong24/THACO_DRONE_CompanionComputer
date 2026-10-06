@@ -80,3 +80,12 @@ target "vision" {
     edge-ros-builder = "target:builder"
   }
 }
+
+target "vision-v1" {
+  dockerfile = "src/modules/vision_v1/Dockerfile"
+  tags = tag("edge-vision-v1")
+  contexts = {
+    edge-ros-base = "target:base"
+    edge-ros-builder = "target:builder"
+  }
+}

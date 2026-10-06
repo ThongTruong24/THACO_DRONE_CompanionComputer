@@ -47,8 +47,8 @@ while [[ $# -gt 0 ]]; do
     case "$1" in
         --help|-h)
             echo "Cách dùng: $0 [--no-build] [--force-build|-f] [--logs|-l] [service_name] [custom_host_or_ip]"
-            echo "service_name: edge-router | edge-agent | edge-network | edge-camera | edge-vision"
-            echo "              (alias cũ vẫn nhận: mavlink, cc-agent, networking, camera, vision, ...)"
+            echo "service_name: edge-router | edge-agent | edge-network | edge-camera | edge-vision | edge-vision-v1"
+            echo "              (alias cũ vẫn nhận: mavlink, cc-agent, networking, camera, vision, vision-v1, ...)"
             echo ""
             echo "Tùy chọn tối ưu hóa:"
             echo "  --no-build            Bỏ qua build, chỉ đồng bộ file (rsync) và rolling-restart"
@@ -97,6 +97,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         edge-vision|vision|drone-vision)
             TARGET_SERVICE="edge-vision"
+            shift
+            ;;
+        edge-vision-v1|vision-v1|vision_v1)
+            TARGET_SERVICE="edge-vision-v1"
             shift
             ;;
         *@*)
@@ -171,6 +175,7 @@ service_dir() {
         edge-network) echo "src/modules/networking" ;;
         edge-camera)  echo "src/modules/camera_streamer" ;;
         edge-vision)  echo "src/modules/vision" ;;
+        edge-vision-v1) echo "src/modules/vision_v1" ;;
         *) echo "" ;;
     esac
 }
@@ -228,6 +233,7 @@ bake_target() {
         edge-network) echo "network" ;;
         edge-camera)  echo "camera" ;;
         edge-vision)  echo "vision" ;;
+        edge-vision-v1) echo "vision-v1" ;;
         *) echo "" ;;
     esac
 }
@@ -414,13 +420,29 @@ if [ -n "$TARGET_SERVICE" ]; then
     ssh "${PI_USER}@${PI_HOST}" "mkdir -p ${REMOTE_DIR}/${TARGET_DIR}"
     rsync -avz --delete "${RSYNC_EXCLUDES[@]}" \
         "${WORKSPACE_DIR}/${TARGET_DIR}/" "${PI_USER}@${PI_HOST}:${REMOTE_DIR}/${TARGET_DIR}/"
+    if [ "$TARGET_SERVICE" = "edge-vision-v1" ]; then
+        # vision_v1 deliberately reuses the existing model asset instead of duplicating it.
+        # A targeted deploy therefore has to ship that bind-mounted runtime asset as well.
+        ssh "${PI_USER}@${PI_HOST}" "mkdir -p ${REMOTE_DIR}/src/modules/vision"
+        rsync -avz "${WORKSPACE_DIR}/src/modules/vision/yolo26n.pt" \
+            "${PI_USER}@${PI_HOST}:${REMOTE_DIR}/src/modules/vision/yolo26n.pt"
+    fi
     rsync -avz "${WORKSPACE_DIR}/docker-compose.yml" "${PI_USER}@${PI_HOST}:${REMOTE_DIR}/"
     [ -f "${WORKSPACE_DIR}/.env" ] && rsync -avz "${WORKSPACE_DIR}/.env" "${PI_USER}@${PI_HOST}:${REMOTE_DIR}/"
     rsync -avz "${WORKSPACE_DIR}/deploy/ship/verify-deployment.sh" "${PI_USER}@${PI_HOST}:${REMOTE_DIR}/deploy/ship/"
 
     echo -e "     ▶ Rolling restart container ${CYAN}${TARGET_SERVICE}${NC}..."
+    CONFLICTING_VISION_SERVICE=""
+    if [ "$TARGET_SERVICE" = "edge-vision-v1" ]; then
+        CONFLICTING_VISION_SERVICE="edge-vision"
+    elif [ "$TARGET_SERVICE" = "edge-vision" ]; then
+        CONFLICTING_VISION_SERVICE="edge-vision-v1"
+    fi
     ssh "${PI_USER}@${PI_HOST}" "
         cd ${REMOTE_DIR}
+        if [ -n '${CONFLICTING_VISION_SERVICE}' ]; then
+            docker compose stop '${CONFLICTING_VISION_SERVICE}' >/dev/null 2>&1 || true
+        fi
         docker compose up -d --no-deps --no-build ${TARGET_SERVICE}
         bash deploy/ship/verify-deployment.sh ${TARGET_SERVICE}
     "

@@ -38,6 +38,7 @@ Hệ sinh thái Companion Computer phân tán trên nền tảng Raspberry Pi 5 
 | **Networking** | [`src/drone-networking`](src/drone-networking/) | Phát WiFi AP (`AP_DRONE`), cấp DHCP `dnsmasq`, mDNS `thong.local` | [Docs & UML](src/drone-networking/docs/) |
 | **Camera RTSP** | [`src/camera-stream-controller`](src/camera-stream-controller/) | Thu hình RealSense/V4L2, tăng tốc ARM NEON, MediaMTX RTSP `/camera` | [Docs & UML](src/camera-stream-controller/docs/) |
 | **AI Vision** | [`src/drone-vision`](src/drone-vision/) | Suy luận YOLOv8, phát hiện vật thể, đẩy luồng annotated `/yolo` | [Docs & UML](src/drone-vision/docs/) |
+| **AI Vision v1** | [`src/modules/vision_v1`](src/modules/vision_v1/) | Video RTSP độc lập inference; YOLO đọc FramePool và chỉ cập nhật `DetectionSnapshot` | [Docs & UML](src/modules/vision_v1/docs/) |
 | **MAVROS** | [`src/mavros`](src/mavros/) | Cầu nối ROS 2 Jazzy, giải mã custom telemetry plugin | [Docs & UML](src/mavros/docs/) |
 
 ---
@@ -60,6 +61,7 @@ graph TD
         Cam[camera-stream-controller<br/>NEON + MediaMTX]
         Net[drone-networking<br/>AP-STA + DHCP]
         Vision[drone-vision<br/>YOLOv8 Pipeline]
+        VisionV1[vision_v1<br/>Decoupled RTSP + FramePool]
         Mavros[drone-mavros<br/>ROS 2 Jazzy Bridge]
     end
 
@@ -73,6 +75,8 @@ graph TD
     Cam -->|WebRTC :8889/camera| Web
     Cam -->|Ingest Stream| Vision
     Vision -->|RTSP :8554/yolo| VLC
+    Cam -->|RTSP /camera + FramePool| VisionV1
+    VisionV1 -->|RTSP :8554/yolo| VLC
 ```
 
 ---
@@ -163,6 +167,7 @@ Build thực hiện trực tiếp trên WSL thông qua `docker buildx` nhắm m�
 | **Networking & WiFi AP** | `make build-networking` | `src/drone-networking/` |
 | **Camera RTSP Streamer** | `make build-camera-rtsp` | `src/camera-stream-controller/` |
 | **AI Vision (YOLO)** | `make build-vision` | `src/drone-vision/` |
+| **AI Vision v1 (decoupled)** | `make build-vision-v1` | `src/modules/vision_v1/` |
 | **ROS 2 MAVROS** | `make build-mavros` | `src/mavros/` |
 | **Toàn bộ Container cốt lõi** | `make build-all` | mavlink, cc-agent, networking, camera |
 
@@ -184,6 +189,7 @@ make deploy-cc-agent     # Deploy cc-agent
 make deploy-networking   # Deploy drone-networking
 make deploy-camera-rtsp  # Deploy camera-stream-controller
 make deploy-vision       # Deploy drone-vision (Profile vision)
+make deploy-vision-v1    # Deploy vision_v1 (Profile vision-v1)
 make deploy-mavros       # Deploy drone-mavros (Profile mavros)
 
 # Deploy toàn bộ 5 container cốt lõi:
@@ -209,11 +215,16 @@ make logs-cc-agent       # Log Companion Agent
 make logs-networking     # Log WiFi & DHCP
 make logs-camera-rtsp    # Log Camera RealSense & MediaMTX
 make logs-vision         # Log YOLO Vision
+make logs-vision-v1      # Log decoupled Vision v1
 
 # Khởi động lại từng service khi cần:
 make restart-mavlink
 make restart-hw
 make restart-camera-rtsp
+
+# Mutual exclusion: mỗi lệnh start sẽ dừng implementation vision còn lại
+make start-vision-v1
+make start-vision
 
 # Chẩn đoán tự động toàn diện:
 make doctor

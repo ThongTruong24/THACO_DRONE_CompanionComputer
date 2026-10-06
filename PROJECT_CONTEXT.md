@@ -22,6 +22,7 @@
 | **Networking** | `src/drone-networking` | `drone-networking:latest` | AP `uap0` (192.168.10.1)<br>DNS 53, mDNS 5353 (`thong.local`) | AP-STA Concurrency, DHCP `dnsmasq`, mDNS |
 | **Camera RTSP** | `src/camera-stream-controller` | `camera-stream-controller:latest` | RTSP `:8554/camera`<br>WebRTC `:8889/camera` | Thu hình RealSense/V4L2, tăng tốc NEON SIMD |
 | **AI Vision** | `src/drone-vision` | `drone-vision:latest` (profile `vision`) | RTSP `:8554/yolo` | Suy luận YOLOv8, phát hiện vật thể |
+| **AI Vision v1** | `src/modules/vision_v1` | `edge-vision-v1:latest` (profile `vision-v1`) | RTSP input `:8554/camera`, FramePool `/run/frame_pool`, RTSP output `:8554/yolo` | Video độc lập YOLO qua latest `DetectionSnapshot`; không chạy đồng thời legacy vision |
 | **MAVROS** | `src/mavros` | `drone-mavros:latest` (profile `mavros`) | MAVLink UDP `:14541` (Local socket) | Cầu nối ROS 2 Jazzy, telemetry plugin |
 
 ---

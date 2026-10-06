@@ -14,6 +14,7 @@ build:
     - platforms/linux/edge_agent
     - src/modules/config_manager
     - src/modules/vision
+    - src/modules/vision_v1
     - src/modules/networking
     - tests
   cmake-args:

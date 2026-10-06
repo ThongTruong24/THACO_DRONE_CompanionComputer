@@ -280,11 +280,23 @@ if [ "$RTMP_SESSION" != "1" ]; then
 fi
 step_pass "Camera Video Stream" "Đã có phiên RTMP publisher local tới MediaMTX /camera."
 
-if docker compose --profile vision ps --status running edge-vision 2>/dev/null | grep -q edge-vision; then
+LEGACY_VISION_RUNNING=0
+VISION_V1_RUNNING=0
+docker compose --profile vision ps --status running edge-vision 2>/dev/null | grep -q edge-vision && LEGACY_VISION_RUNNING=1 || true
+docker compose --profile vision-v1 ps --status running edge-vision-v1 2>/dev/null | grep -q edge-vision-v1 && VISION_V1_RUNNING=1 || true
+
+if [ "$LEGACY_VISION_RUNNING" = "1" ] && [ "$VISION_V1_RUNNING" = "1" ]; then
+    step_fail "Vision publisher mutual exclusion" \
+        "ERR_33_VISION_PUBLISHER_CONFLICT" \
+        "edge-vision và edge-vision-v1 đang chạy đồng thời, cùng sở hữu node vision và /yolo." \
+        "Dừng một service: make stop-vision hoặc make stop-vision-v1."
+fi
+
+if [ "$LEGACY_VISION_RUNNING" = "1" ] || [ "$VISION_V1_RUNNING" = "1" ]; then
     if echo "$RTSP_LOGS" | grep -qE "(is publishing to path 'yolo'|path.*yolo|RTMP.*yolo)"; then
         step_pass "YOLO Video Stream" "Vision đang publish /yolo."
     else
-        step_warn "Vision đang chạy nhưng /yolo chưa publish; xem: docker compose logs --tail=120 edge-vision"
+        step_warn "Vision đang chạy nhưng /yolo chưa publish; kiểm tra logs của edge-vision hoặc edge-vision-v1."
     fi
 else
     step_warn "Vision profile chưa chạy; /yolo không tồn tại là bình thường."
