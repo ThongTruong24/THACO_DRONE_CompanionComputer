@@ -1,0 +1,63 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [
+    "src/cc-agent/CMakeLists.txt",
+    "src/cc-agent/Dockerfile.cross"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "src/cc-agent/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 65,
+      "nonEmptyLines": 54,
+      "sections": [
+        {
+          "heading": "cc-config: Companion Computer Configuration System (100% Native C++20)",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Build & Install",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Systemd Service",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "MAVLink Message Catalog",
+          "level": 2,
+          "line": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

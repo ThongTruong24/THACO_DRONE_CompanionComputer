@@ -1,0 +1,30 @@
+# Khong co ap_wpa_passphrase (S4): passphrase khong bao gio di qua topic.
+uint64 timestamp # [us]
+uint32 uap0_rx_kb
+uint32 uap0_tx_kb
+uint32 wlan0_rx_kb
+uint32 wlan0_tx_kb
+uint32 eth0_rx_kb
+uint32 eth0_tx_kb
+uint8 ap_channel
+uint8 ap_ieee80211n
+uint8 ap_wmm_enabled
+uint8 ap_wpa
+uint8 ap_client_count
+uint8 ap_status
+uint8 wlan0_status
+uint8 eth0_status
+uint8 eth0_is_static
+uint8 wlan0_dhcp
+uint8 dnsmasq_status
+int8 wlan0_rssi
+string<=16 eth0_ip
+string<=16 eth0_netmask
+string<=16 wlan0_ip
+string<=16 wlan0_netmask
+string<=32 wlan0_ssid
+string<=16 ap_ip
+string<=16 ap_netmask
+string<=32 ap_ssid
+string<=12 ap_key_mgmt
+string<=4 ap_hw_mode

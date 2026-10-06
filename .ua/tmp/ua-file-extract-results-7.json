@@ -1,0 +1,107 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "src/hardware-manager/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 24,
+      "nonEmptyLines": 18,
+      "services": [
+        {
+          "name": "builder",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 17
+        },
+        {
+          "name": "ubuntu",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 18,
+          "endLine": 25
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ubuntu:24.04 AS builder",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "ENV DEBIAN_FRONTEND=noninteractive",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "RUN apt-get update && apt-get install -y --no-install-recommends",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 10,
+          "endLine": 10
+        },
+        {
+          "name": "COPY . .",
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "RUN mkdir -p build && cd build && \\",
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "FROM ubuntu:24.04",
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "COPY --from=builder /usr/local/bin/hardware-manager /usr/local/bi",
+          "startLine": 21,
+          "endLine": 21
+        },
+        {
+          "name": "ENTRYPOINT [\"/usr/local/bin/hardware-manager\"]",
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "CMD [\"/run/drone/hw_manager.sock\"]",
+          "startLine": 24,
+          "endLine": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 2,
+        "stepCount": 11
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+@startuml router-controller-sequence
+title MAVLink Router Node: Startup, Standby Mode & ROS 2 Apply Sequence
+
+participant "Docker / Systemd" as Init
+participant "MavlinkRouter\n(Process Manager)" as Router
+participant "MavlinkRouterNode\n(ROS 2 Node)" as Node
+participant "Linux Process\n(mavlink-routerd)" as RouterD
+participant "Serial Devices\n(UART)" as UART
+participant "QGC / Operator\n(UDP :14550)" as QGC
+participant "ConfigAgent\n(UDP :14600)" as Agent
+
+== Startup & Standby Check ==
+Init -> Router : start() before rclcpp::init()
+Router -> Router : read /run/drone/links.json (or config/links.json)
+Router -> Router : generate_config_content()
+Router -> RouterD : fork() & execvp("mavlink-routerd", "-c", conf)
+Init -> Node : rclcpp::init() & spin()
+
+== Steady-State Telemetry Routing ==
+UART -> RouterD : MAVLink frames
+RouterD -> QGC : UDP :14550 (GCS Telemetry)
+RouterD -> Agent : UDP :14600 (Config Agent)
+Node -> Node : 1 Hz timer -> publish /cc/serial_link_status
+
+== Dynamic Configuration Apply via ROS 2 ==
+Agent -> Node : Service /cc/router/apply_links
+Node -> Router : apply_links(new_links)
+Router -> Router : lock config_mutex_, generate_config_file()
+Router -> RouterD : kill(SIGTERM) & waitpid(), then spawn new routerd
+Node -> Agent : response success=true
+
+== Hotplug Watchdog (every 5 s) ==
+Router -> Router : check child_alive & port availability
+alt child died OR serial port changed
+  Router -> Router : restart child process
+end
+
+@enduml

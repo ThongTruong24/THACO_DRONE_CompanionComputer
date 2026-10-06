@@ -1,0 +1,370 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 15,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 15
+    }
+  },
+  "results": [
+    {
+      "path": "scripts/configure-rpi.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 157,
+      "nonEmptyLines": 136,
+      "functions": [
+        {
+          "name": "check_uart",
+          "startLine": 110,
+          "endLine": 117,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/cross_build.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 37,
+      "nonEmptyLines": 29,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/deploy.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 305,
+      "nonEmptyLines": 272,
+      "functions": [
+        {
+          "name": "normalize_pi_host",
+          "startLine": 29,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "sync_ssh_config",
+          "startLine": 75,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "check_ssh",
+          "startLine": 110,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "verify_release_checker_disabled",
+          "startLine": 124,
+          "endLine": 129,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/deploy_depth.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/docker_pi_ctl.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 78,
+      "nonEmptyLines": 73,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/doctor.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 355,
+      "nonEmptyLines": 305,
+      "functions": [
+        {
+          "name": "print_header",
+          "startLine": 31,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "step_pass",
+          "startLine": 40,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "step_fail",
+          "startLine": 51,
+          "endLine": 66,
+          "params": []
+        },
+        {
+          "name": "step_warn",
+          "startLine": 68,
+          "endLine": 71,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/drone_log.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 43,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "drone_log",
+          "startLine": 6,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "drone_info",
+          "startLine": 35,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "drone_warn",
+          "startLine": 36,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "drone_error",
+          "startLine": 37,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "drone_critical",
+          "startLine": 38,
+          "endLine": 38,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/drone_uart_status.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 108,
+      "nonEmptyLines": 93,
+      "functions": [
+        {
+          "name": "check_port",
+          "startLine": 19,
+          "endLine": 87,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/install_docker_wsl.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 106,
+      "nonEmptyLines": 93,
+      "functions": [
+        {
+          "name": "step",
+          "startLine": 8,
+          "endLine": 8,
+          "params": []
+        },
+        {
+          "name": "ok",
+          "startLine": 9,
+          "endLine": 9,
+          "params": []
+        },
+        {
+          "name": "err",
+          "startLine": 10,
+          "endLine": 10,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/mavlink-status.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 126,
+      "nonEmptyLines": 112,
+      "functions": [
+        {
+          "name": "show_ports",
+          "startLine": 19,
+          "endLine": 95,
+          "params": []
+        },
+        {
+          "name": "show_stats",
+          "startLine": 97,
+          "endLine": 103,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/package_release.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 59,
+      "nonEmptyLines": 51,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/perf.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 43,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "section",
+          "startLine": 6,
+          "endLine": 6,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/setup-ssh.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 98,
+      "nonEmptyLines": 85,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/update_mavlink.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 58,
+      "nonEmptyLines": 49,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/verify-deployment.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 44,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "fail",
+          "startLine": 9,
+          "endLine": 9,
+          "params": []
+        },
+        {
+          "name": "pass",
+          "startLine": 10,
+          "endLine": 10,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

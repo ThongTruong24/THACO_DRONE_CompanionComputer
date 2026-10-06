@@ -1,0 +1,49 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/cc-agent/include/config_engine.hpp",
+      "language": "cpp",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/mavlink_core.hpp",
+      "language": "cpp",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/network_monitor.hpp",
+      "language": "cpp",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/rollback_guard.hpp",
+      "language": "cpp",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/include/system_metrics.hpp",
+      "language": "cpp",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/cc-agent/include/config_engine.hpp": [],
+    "src/cc-agent/include/mavlink_core.hpp": [
+      "src/cc-agent/include/config_engine.hpp",
+      "src/cc-agent/include/network_monitor.hpp",
+      "src/cc-agent/include/rollback_guard.hpp",
+      "src/cc-agent/include/system_metrics.hpp"
+    ],
+    "src/cc-agent/include/network_monitor.hpp": [],
+    "src/cc-agent/include/rollback_guard.hpp": [
+      "src/cc-agent/include/config_engine.hpp"
+    ],
+    "src/cc-agent/include/system_metrics.hpp": []
+  }
+}

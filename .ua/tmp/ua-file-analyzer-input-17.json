@@ -1,0 +1,42 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/drone-vision/Dockerfile.base",
+      "language": "dockerfile",
+      "sizeLines": 30,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/drone-vision/README.md",
+      "language": "markdown",
+      "sizeLines": 133,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/drone-vision/drone.yaml",
+      "language": "yaml",
+      "sizeLines": 68,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/drone-vision/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 28,
+      "fileCategory": "script"
+    },
+    {
+      "path": "src/drone-vision/object-localization.example.yaml",
+      "language": "yaml",
+      "sizeLines": 20,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "src/drone-vision/Dockerfile.base": [],
+    "src/drone-vision/README.md": [],
+    "src/drone-vision/drone.yaml": [],
+    "src/drone-vision/entrypoint.sh": [],
+    "src/drone-vision/object-localization.example.yaml": []
+  }
+}

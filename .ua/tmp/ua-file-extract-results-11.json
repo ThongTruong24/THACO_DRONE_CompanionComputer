@@ -1,0 +1,689 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [
+    ".dockerignore"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 6,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 6
+    }
+  },
+  "results": [
+    {
+      "path": ".env",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 14,
+      "nonEmptyLines": 12,
+      "definitions": [
+        {
+          "name": "PI_HOST",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "PI_USER",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "DRONE_SERIAL_PORT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 7,
+          "endLine": 7
+        },
+        {
+          "name": "DRONE_BAUD_RATE",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "CAMERA_DEVICE",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "ROS_DOMAIN_ID",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 10,
+          "endLine": 10
+        },
+        {
+          "name": "LOG_LEVEL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "GCS_IP",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "MDNS_HOSTNAME",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 14,
+          "endLine": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 9
+      }
+    },
+    {
+      "path": ".env.example",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 22,
+      "nonEmptyLines": 20,
+      "definitions": [
+        {
+          "name": "PI_HOST",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "MDNS_HOSTNAME",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "PI_USER",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 7,
+          "endLine": 7
+        },
+        {
+          "name": "DRONE_SERIAL_PORT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "DRONE_BAUD_RATE",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "CAMERA_DEVICE",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 10,
+          "endLine": 10
+        },
+        {
+          "name": "ROS_DOMAIN_ID",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "LOG_LEVEL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "GCS_IP",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "TS_HOSTNAME",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 17,
+          "endLine": 17
+        },
+        {
+          "name": "COMPANION_GCS_API_PORT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 19,
+          "endLine": 19
+        },
+        {
+          "name": "COMPANION_GCS_API_CPUS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "COMPANION_GCS_API_MEMORY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 21,
+          "endLine": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 13
+      }
+    },
+    {
+      "path": "AGENTS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 13,
+      "nonEmptyLines": 10,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "Makefile",
+      "language": "makefile",
+      "fileCategory": "infra",
+      "totalLines": 346,
+      "nonEmptyLines": 275,
+      "steps": [
+        {
+          "name": "all",
+          "startLine": 20,
+          "endLine": 21
+        },
+        {
+          "name": "help",
+          "startLine": 22,
+          "endLine": 70
+        },
+        {
+          "name": "setup-ssh",
+          "startLine": 72,
+          "endLine": 74
+        },
+        {
+          "name": "build-mavlink",
+          "startLine": 76,
+          "endLine": 84
+        },
+        {
+          "name": "build-companion-gcs-api",
+          "startLine": 85,
+          "endLine": 89
+        },
+        {
+          "name": "telemetry-snapshot",
+          "startLine": 90,
+          "endLine": 92
+        },
+        {
+          "name": "telemetry-health",
+          "startLine": 93,
+          "endLine": 95
+        },
+        {
+          "name": "build-autopilot-telemetry",
+          "startLine": 96,
+          "endLine": 100
+        },
+        {
+          "name": "build-mavros",
+          "startLine": 101,
+          "endLine": 106
+        },
+        {
+          "name": "build-networking",
+          "startLine": 107,
+          "endLine": 113
+        },
+        {
+          "name": "build-camera-rtsp",
+          "startLine": 114,
+          "endLine": 120
+        },
+        {
+          "name": "build-vision-base",
+          "startLine": 121,
+          "endLine": 127
+        },
+        {
+          "name": "build-vision",
+          "startLine": 128,
+          "endLine": 132
+        },
+        {
+          "name": "build-all",
+          "startLine": 133,
+          "endLine": 135
+        },
+        {
+          "name": "build",
+          "startLine": 136,
+          "endLine": 137
+        },
+        {
+          "name": "deploy",
+          "startLine": 139,
+          "endLine": 141
+        },
+        {
+          "name": "deploy-fast",
+          "startLine": 142,
+          "endLine": 144
+        },
+        {
+          "name": "deploy-mavlink",
+          "startLine": 145,
+          "endLine": 147
+        },
+        {
+          "name": "verify-mavlink",
+          "startLine": 148,
+          "endLine": 150
+        },
+        {
+          "name": "deploy-autopilot-telemetry",
+          "startLine": 151,
+          "endLine": 154
+        },
+        {
+          "name": "deploy-mavros",
+          "startLine": 155,
+          "endLine": 157
+        },
+        {
+          "name": "deploy-networking",
+          "startLine": 158,
+          "endLine": 160
+        },
+        {
+          "name": "deploy-camera-rtsp",
+          "startLine": 161,
+          "endLine": 163
+        },
+        {
+          "name": "deploy-vision",
+          "startLine": 164,
+          "endLine": 166
+        },
+        {
+          "name": "start-mavlink",
+          "startLine": 169,
+          "endLine": 172
+        },
+        {
+          "name": "start-autopilot-telemetry",
+          "startLine": 173,
+          "endLine": 175
+        },
+        {
+          "name": "start-mavros",
+          "startLine": 176,
+          "endLine": 179
+        },
+        {
+          "name": "start-networking",
+          "startLine": 180,
+          "endLine": 183
+        },
+        {
+          "name": "start-camera-rtsp",
+          "startLine": 184,
+          "endLine": 187
+        },
+        {
+          "name": "start-vision",
+          "startLine": 188,
+          "endLine": 191
+        },
+        {
+          "name": "start-all",
+          "startLine": 192,
+          "endLine": 196
+        },
+        {
+          "name": "stop-mavlink",
+          "startLine": 198,
+          "endLine": 201
+        },
+        {
+          "name": "stop-mavros",
+          "startLine": 202,
+          "endLine": 205
+        },
+        {
+          "name": "stop-networking",
+          "startLine": 206,
+          "endLine": 209
+        },
+        {
+          "name": "stop-camera-rtsp",
+          "startLine": 210,
+          "endLine": 213
+        },
+        {
+          "name": "stop-vision",
+          "startLine": 214,
+          "endLine": 217
+        },
+        {
+          "name": "stop-all",
+          "startLine": 218,
+          "endLine": 222
+        },
+        {
+          "name": "restart-mavlink",
+          "startLine": 224,
+          "endLine": 227
+        },
+        {
+          "name": "restart-mavros",
+          "startLine": 228,
+          "endLine": 231
+        },
+        {
+          "name": "restart-networking",
+          "startLine": 232,
+          "endLine": 235
+        },
+        {
+          "name": "restart-camera-rtsp",
+          "startLine": 236,
+          "endLine": 239
+        },
+        {
+          "name": "restart-vision",
+          "startLine": 240,
+          "endLine": 243
+        },
+        {
+          "name": "restart-all",
+          "startLine": 244,
+          "endLine": 247
+        },
+        {
+          "name": "ps",
+          "startLine": 249,
+          "endLine": 251
+        },
+        {
+          "name": "log-mavlink",
+          "startLine": 253,
+          "endLine": 255
+        },
+        {
+          "name": "logs-mavlink",
+          "startLine": 256,
+          "endLine": 257
+        },
+        {
+          "name": "log-mavlink-ports",
+          "startLine": 258,
+          "endLine": 260
+        },
+        {
+          "name": "log-mavlink-stats",
+          "startLine": 261,
+          "endLine": 263
+        },
+        {
+          "name": "logs-autopilot-telemetry",
+          "startLine": 264,
+          "endLine": 266
+        },
+        {
+          "name": "logs-mavros",
+          "startLine": 267,
+          "endLine": 269
+        },
+        {
+          "name": "logs-networking",
+          "startLine": 270,
+          "endLine": 272
+        },
+        {
+          "name": "logs-camera-rtsp",
+          "startLine": 273,
+          "endLine": 275
+        },
+        {
+          "name": "logs-vision",
+          "startLine": 276,
+          "endLine": 278
+        },
+        {
+          "name": "logs",
+          "startLine": 279,
+          "endLine": 280
+        },
+        {
+          "name": "logs-all",
+          "startLine": 281,
+          "endLine": 283
+        },
+        {
+          "name": "ssh",
+          "startLine": 285,
+          "endLine": 287
+        },
+        {
+          "name": "setup-pi",
+          "startLine": 289,
+          "endLine": 303
+        },
+        {
+          "name": "autostart",
+          "startLine": 305,
+          "endLine": 314
+        },
+        {
+          "name": "doctor",
+          "startLine": 316,
+          "endLine": 321
+        },
+        {
+          "name": "check",
+          "startLine": 322,
+          "endLine": 323
+        },
+        {
+          "name": "perf",
+          "startLine": 325,
+          "endLine": 327
+        },
+        {
+          "name": "clean",
+          "startLine": 329,
+          "endLine": 333
+        },
+        {
+          "name": "apply-netplan",
+          "startLine": 334,
+          "endLine": 339
+        },
+        {
+          "name": "build-wifi-ap",
+          "startLine": 341,
+          "endLine": 341
+        },
+        {
+          "name": "deploy-wifi-ap",
+          "startLine": 342,
+          "endLine": 342
+        },
+        {
+          "name": "start-wifi-ap",
+          "startLine": 343,
+          "endLine": 343
+        },
+        {
+          "name": "stop-wifi-ap",
+          "startLine": 344,
+          "endLine": 344
+        },
+        {
+          "name": "restart-wifi-ap",
+          "startLine": 345,
+          "endLine": 345
+        },
+        {
+          "name": "logs-wifi-ap",
+          "startLine": 346,
+          "endLine": 347
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "stepCount": 69
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 262,
+      "nonEmptyLines": 195,
+      "sections": [
+        {
+          "heading": "Drone Edge Companion Computer",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Yêu cầu",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Máy build (WSL Ubuntu)",
+          "level": 3,
+          "line": 8
+        },
+        {
+          "heading": "Raspberry Pi 5",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "2. Cáº¥u hÃ¬nh láº§n Ä‘áº§u",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "3. Cách build image ARM64",
+          "level": 2,
+          "line": 72
+        },
+        {
+          "heading": "4. Deploy từng container",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "5. Deploy toÃ n bá»™ Compose",
+          "level": 2,
+          "line": 128
+        },
+        {
+          "heading": "6. Chạy Compose trực tiếp trên Pi",
+          "level": 2,
+          "line": 153
+        },
+        {
+          "heading": "7. Endpoint vÃ  kiá»ƒm tra sau deploy",
+          "level": 2,
+          "line": 189
+        },
+        {
+          "heading": "8. Cấu hình quan trọng",
+          "level": 2,
+          "line": 230
+        },
+        {
+          "heading": "9. MAVLink Single Source of Truth & Đồng bộ Gói tin",
+          "level": 2,
+          "line": 246
+        },
+        {
+          "heading": "Lệnh cập nhật 1 chạm:",
+          "level": 3,
+          "line": 250
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 13
+      }
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 254,
+      "nonEmptyLines": 245,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 251
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

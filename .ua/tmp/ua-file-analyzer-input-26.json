@@ -1,0 +1,35 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp",
+      "language": "cpp",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp",
+      "language": "cpp",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/test/core_test.cpp",
+      "language": "cpp",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/telemetry_demo.py",
+      "language": "python",
+      "sizeLines": 120,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/mavros/ros2ws/cc_telemetry/src/parameter_store.cpp": [],
+    "src/mavros/ros2ws/cc_telemetry/src/system_metrics.cpp": [],
+    "src/mavros/ros2ws/cc_telemetry/test/core_test.cpp": [],
+    "src/mavros/telemetry_demo.py": []
+  }
+}

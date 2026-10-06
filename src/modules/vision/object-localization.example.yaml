@@ -1,0 +1,20 @@
+﻿# Object localization is disabled until camera extrinsics are calibrated.
+object_localization:
+  enabled: false
+  color_topic: /camera/color/image_raw
+  aligned_depth_topic: /camera/aligned_depth_to_color/image_raw
+  camera_info_topic: /camera/color/camera_info
+  detections_2d_topic: /vision/detections_2d
+  objects_3d_topic: /vision/objects_3d
+  ranges_topic: /vision/object_ranges
+  camera_frame: camera_color_optical_frame
+  base_frame: base_link
+  map_frame: map
+  sync_slop_seconds: 0.08
+  center_fraction: 0.5
+  minimum_valid_samples: 12
+  minimum_valid_ratio: 0.35
+  maximum_depth_mad_m: 0.25
+  max_depth_age_ms: 150
+  min_distance_m: 0.3
+  max_distance_m: 10.0

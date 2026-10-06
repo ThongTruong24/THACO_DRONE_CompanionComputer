@@ -1,0 +1,21 @@
+{
+  "batchIndex": 6,
+  "nodes": [
+    {
+      "id": "service:src/drone-vision/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "src/drone-vision/Dockerfile",
+      "summary": "Drone vision component (Dockerfile) performing real-time object detection and localization.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,73 @@
+@startuml camera-stream-system
+title Camera Stream Controller: System Architecture Diagram
+
+package "Camera Stream Controller Container" {
+  component "MediaMTX Server" as MediaMTX
+  component "drone_camera_streamer (Native)" as NativeApp
+}
+
+package "Hardware Layer" {
+  file "/dev/video0 (V4L2)" as V4L2Dev
+  file "USB 3.0 RealSense D435i" as RSDev
+}
+
+package "Streaming Endpoints" {
+  interface "RTMP :1935/camera" as RTMPPort
+  interface "RTSP :8554/camera" as RTSPPort
+  interface "WebRTC :8889/camera" as WebRTCPort
+}
+
+class ConfigManager {
+  + load(path: string): bool
+  + get_stream_config(): StreamConfig
+}
+
+interface CameraInterface {
+  + start(): bool
+  + stop(): void
+  + get_frame(buf: FrameBuffer): bool
+}
+
+class RealSenseCamera {
+  - rs_context_
+  - rs_pipeline_
+}
+
+class V4L2Camera {
+  - fd_: int
+  - device_path_: string
+}
+
+class NeonProcessor {
+  + convert_and_scale_neon(src, dst): void
+}
+
+class SafeRingBuffer {
+  - buffer_queue_
+  - mutex_
+  + push(frame): void
+  + pop(frame): bool
+}
+
+class GstStreamSink {
+  - pipeline_: GstElement*
+  + push_buffer(data, size): void
+}
+
+CameraInterface <|.. RealSenseCamera
+CameraInterface <|.. V4L2Camera
+CameraInterface --> SafeRingBuffer : pushes raw
+SafeRingBuffer --> NeonProcessor : SIMD processing
+NeonProcessor --> GstStreamSink : encoded frames
+
+V4L2Dev ..> V4L2Camera : captures
+RSDev ..> RealSenseCamera : captures
+GstStreamSink --> RTMPPort : pushes H.264
+RTMPPort --> MediaMTX : internal ingest
+MediaMTX --> RTSPPort : exposes to QGC/VLC
+MediaMTX --> WebRTCPort : exposes to Web Browser
+
+ConfigManager ..> NativeApp : configures
+NativeApp ..> GstStreamSink : owns
+
+@enduml

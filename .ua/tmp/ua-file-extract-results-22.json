@@ -1,0 +1,4329 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [
+    "config/drone-boot-tracker.service",
+    "config/drone-edge.service",
+    "docs/deployment_handoff.tex",
+    "src/camera-stream-controller/docs/sequence.puml",
+    "src/cc-agent/config/templates/10-drone-netplan.yaml.j2",
+    "src/cc-agent/config/templates/camera.yaml.j2",
+    "src/cc-agent/config/templates/cc_telemetry.yaml.j2",
+    "src/cc-agent/config/templates/dnsmasq.conf.j2",
+    "src/cc-agent/config/templates/hostapd.conf.j2",
+    "src/cc-agent/config/templates/mavlink-router.conf.j2"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 15,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 12,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "docs/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 76,
+      "nonEmptyLines": 68,
+      "sections": [
+        {
+          "heading": "Drone Edge Container Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Endpoint ownership",
+          "level": 2,
+          "line": 54
+        },
+        {
+          "heading": "Future autonomy boundary",
+          "level": 2,
+          "line": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "scripts/drone-boot-tracker.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 176,
+      "nonEmptyLines": 152,
+      "functions": [
+        {
+          "name": "query_docker_containers",
+          "startLine": 23,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "get_network_ips",
+          "startLine": 37,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "main",
+          "startLine": 56,
+          "endLine": 173,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "UnixHTTPConnection",
+          "startLine": 14,
+          "endLine": 21,
+          "methods": [
+            "__init__",
+            "connect"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UnixHTTPConnection",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "query_docker_containers",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "get_network_ips",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 56,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 16
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 16
+        },
+        {
+          "caller": "connect",
+          "callee": "socket.socket",
+          "lineNumber": 20
+        },
+        {
+          "caller": "connect",
+          "callee": "self.sock.connect",
+          "lineNumber": 21
+        },
+        {
+          "caller": "query_docker_containers",
+          "callee": "os.path.exists",
+          "lineNumber": 24
+        },
+        {
+          "caller": "query_docker_containers",
+          "callee": "UnixHTTPConnection",
+          "lineNumber": 27
+        },
+        {
+          "caller": "query_docker_containers",
+          "callee": "conn.request",
+          "lineNumber": 28
+        },
+        {
+          "caller": "query_docker_containers",
+          "callee": "conn.getresponse",
+          "lineNumber": 29
+        },
+        {
+          "caller": "query_docker_containers",
+          "callee": "resp.read().decode",
+          "lineNumber": 31
+        },
+        {
+          "caller": "query_docker_containers",
+          "callee": "resp.read",
+          "lineNumber": 31
+        },
+        {
+          "caller": "query_docker_containers",
+          "callee": "json.loads",
+          "lineNumber": 32
+        },
+        {
+          "caller": "get_network_ips",
+          "callee": "subprocess.check_output",
+          "lineNumber": 41
+        },
+        {
+          "caller": "get_network_ips",
+          "callee": "out.splitlines",
+          "lineNumber": 42
+        },
+        {
+          "caller": "get_network_ips",
+          "callee": "line.split",
+          "lineNumber": 43
+        },
+        {
+          "caller": "get_network_ips",
+          "callee": "len",
+          "lineNumber": 44
+        },
+        {
+          "caller": "get_network_ips",
+          "callee": "ip_cidr.split",
+          "lineNumber": 47
+        },
+        {
+          "caller": "get_network_ips",
+          "callee": "ip.startswith",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "os.makedirs",
+          "lineNumber": 57
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 58
+        },
+        {
+          "caller": "add_event",
+          "callee": "time.strftime",
+          "lineNumber": 74
+        },
+        {
+          "caller": "add_event",
+          "callee": "events.append",
+          "lineNumber": 75
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 84
+        },
+        {
+          "caller": "main",
+          "callee": "get_network_ips",
+          "lineNumber": 87
+        },
+        {
+          "caller": "main",
+          "callee": "add_event",
+          "lineNumber": 94
+        },
+        {
+          "caller": "main",
+          "callee": "query_docker_containers",
+          "lineNumber": 97
+        },
+        {
+          "caller": "main",
+          "callee": "n.lstrip",
+          "lineNumber": 100
+        },
+        {
+          "caller": "main",
+          "callee": "c.get",
+          "lineNumber": 100
+        },
+        {
+          "caller": "main",
+          "callee": "c.get",
+          "lineNumber": 101
+        },
+        {
+          "caller": "main",
+          "callee": "c.get",
+          "lineNumber": 102
+        },
+        {
+          "caller": "is_up",
+          "callee": "ctn_map.items",
+          "lineNumber": 108
+        },
+        {
+          "caller": "is_healthy",
+          "callee": "ctn_map.items",
+          "lineNumber": 114
+        },
+        {
+          "caller": "main",
+          "callee": "is_healthy",
+          "lineNumber": 121
+        },
+        {
+          "caller": "main",
+          "callee": "add_event",
+          "lineNumber": 123
+        },
+        {
+          "caller": "main",
+          "callee": "is_healthy",
+          "lineNumber": 127
+        },
+        {
+          "caller": "main",
+          "callee": "is_up",
+          "lineNumber": 127
+        },
+        {
+          "caller": "main",
+          "callee": "add_event",
+          "lineNumber": 129
+        },
+        {
+          "caller": "main",
+          "callee": "is_up",
+          "lineNumber": 133
+        },
+        {
+          "caller": "main",
+          "callee": "add_event",
+          "lineNumber": 135
+        },
+        {
+          "caller": "main",
+          "callee": "add_event",
+          "lineNumber": 140
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 144
+        },
+        {
+          "caller": "main",
+          "callee": "sum",
+          "lineNumber": 149
+        },
+        {
+          "caller": "main",
+          "callee": "ctn_map.values",
+          "lineNumber": 149
+        },
+        {
+          "caller": "main",
+          "callee": "sum",
+          "lineNumber": 150
+        },
+        {
+          "caller": "main",
+          "callee": "ctn_map.values",
+          "lineNumber": 150
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 153
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 154
+        },
+        {
+          "caller": "main",
+          "callee": "open",
+          "lineNumber": 167
+        },
+        {
+          "caller": "main",
+          "callee": "json.dump",
+          "lineNumber": 168
+        },
+        {
+          "caller": "main",
+          "callee": "os.replace",
+          "lineNumber": 169
+        },
+        {
+          "caller": "main",
+          "callee": "time.sleep",
+          "lineNumber": 173
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "scripts/drone_log.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 125,
+      "nonEmptyLines": 102,
+      "functions": [
+        {
+          "name": "_send",
+          "startLine": 46,
+          "endLine": 57,
+          "params": [
+            "src",
+            "sev",
+            "msg",
+            "sock_path"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DroneLogger",
+          "startLine": 60,
+          "endLine": 107,
+          "methods": [
+            "__init__",
+            "_log",
+            "info",
+            "warning",
+            "error",
+            "critical"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_send",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "DroneLogger",
+          "line": 60,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_send",
+          "callee": "json.dumps",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_send",
+          "callee": "time.time",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_send",
+          "callee": "socket.socket",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_send",
+          "callee": "s.sendto",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_send",
+          "callee": "payload.encode",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_log",
+          "callee": "_send",
+          "lineNumber": 89
+        },
+        {
+          "caller": "info",
+          "callee": "self._log",
+          "lineNumber": 93
+        },
+        {
+          "caller": "warning",
+          "callee": "self._log",
+          "lineNumber": 97
+        },
+        {
+          "caller": "error",
+          "callee": "self._log",
+          "lineNumber": 103
+        },
+        {
+          "caller": "critical",
+          "callee": "self._log",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "scripts/drone_log_view.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 87,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 41,
+          "endLine": 97,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "args.target.lower().strip",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "args.target.lower",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 52
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 55
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 57
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 58
+        },
+        {
+          "caller": "main",
+          "callee": "cmd.append",
+          "lineNumber": 62
+        },
+        {
+          "caller": "main",
+          "callee": "cmd.extend",
+          "lineNumber": 63
+        },
+        {
+          "caller": "main",
+          "callee": "str",
+          "lineNumber": 63
+        },
+        {
+          "caller": "main",
+          "callee": "subprocess.Popen",
+          "lineNumber": 65
+        },
+        {
+          "caller": "main",
+          "callee": "iter",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "line.strip",
+          "lineNumber": 69
+        },
+        {
+          "caller": "main",
+          "callee": "target.lower",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main",
+          "callee": "line.lower",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main",
+          "callee": "re.sub",
+          "lineNumber": 89
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 90
+        },
+        {
+          "caller": "main",
+          "callee": "proc.terminate",
+          "lineNumber": 95
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scripts/drone_param.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 184,
+      "nonEmptyLines": 162,
+      "functions": [
+        {
+          "name": "_send_cmd",
+          "startLine": 45,
+          "endLine": 74,
+          "params": [
+            "payload",
+            "timeout"
+          ]
+        },
+        {
+          "name": "cmd_list",
+          "startLine": 76,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "cmd_get",
+          "startLine": 114,
+          "endLine": 127,
+          "params": [
+            "pname"
+          ]
+        },
+        {
+          "name": "cmd_set",
+          "startLine": 129,
+          "endLine": 138,
+          "params": [
+            "pname",
+            "val"
+          ]
+        },
+        {
+          "name": "cmd_toggle",
+          "startLine": 140,
+          "endLine": 153,
+          "params": [
+            "name",
+            "enable"
+          ]
+        },
+        {
+          "name": "print_help",
+          "startLine": 155,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "main",
+          "startLine": 158,
+          "endLine": 181,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_send_cmd",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "cmd_list",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "cmd_get",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "cmd_set",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "cmd_toggle",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "print_help",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 158,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_send_cmd",
+          "callee": "os.getpid",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "os.path.exists",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "os.unlink",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "socket.socket",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "s.bind",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "os.chmod",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "s.setblocking",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "json.dumps(payload).encode",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "json.dumps",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "s.sendto",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "select.select",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "s.recvfrom",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "json.loads",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "reply_data.decode",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "str",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "s.close",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "os.path.exists",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_send_cmd",
+          "callee": "os.unlink",
+          "lineNumber": 73
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "_send_cmd",
+          "lineNumber": 77
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "res.get",
+          "lineNumber": 79
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "print",
+          "lineNumber": 80
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "sys.exit",
+          "lineNumber": 81
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "print",
+          "lineNumber": 83
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "print",
+          "lineNumber": 84
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "print",
+          "lineNumber": 85
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "print",
+          "lineNumber": 86
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "print",
+          "lineNumber": 87
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "sorted",
+          "lineNumber": 89
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "res.keys",
+          "lineNumber": 89
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "p.get",
+          "lineNumber": 91
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "p.get",
+          "lineNumber": 92
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "p.get",
+          "lineNumber": 93
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "p.get",
+          "lineNumber": 94
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "name.endswith",
+          "lineNumber": 97
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "sev_names.get",
+          "lineNumber": 103
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "int",
+          "lineNumber": 103
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "str",
+          "lineNumber": 103
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "int",
+          "lineNumber": 103
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "int",
+          "lineNumber": 105
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "int",
+          "lineNumber": 107
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "print",
+          "lineNumber": 111
+        },
+        {
+          "caller": "cmd_list",
+          "callee": "print",
+          "lineNumber": 112
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "_send_cmd",
+          "lineNumber": 115
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "res.get",
+          "lineNumber": 117
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "print",
+          "lineNumber": 118
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "sys.exit",
+          "lineNumber": 119
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "pname.upper().strip",
+          "lineNumber": 121
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "pname.upper",
+          "lineNumber": 121
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "print",
+          "lineNumber": 124
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "p.get",
+          "lineNumber": 124
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "p.get",
+          "lineNumber": 124
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "p.get",
+          "lineNumber": 124
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "p.get",
+          "lineNumber": 124
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "print",
+          "lineNumber": 126
+        },
+        {
+          "caller": "cmd_get",
+          "callee": "sys.exit",
+          "lineNumber": 127
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "pname.upper().strip",
+          "lineNumber": 130
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "pname.upper",
+          "lineNumber": 130
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "_send_cmd",
+          "lineNumber": 131
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "res.get",
+          "lineNumber": 132
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "res.get",
+          "lineNumber": 133
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "print",
+          "lineNumber": 134
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "res.get",
+          "lineNumber": 136
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "res.get",
+          "lineNumber": 136
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "print",
+          "lineNumber": 137
+        },
+        {
+          "caller": "cmd_set",
+          "callee": "sys.exit",
+          "lineNumber": 138
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "name.lower().strip",
+          "lineNumber": 141
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "name.lower",
+          "lineNumber": 141
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "print",
+          "lineNumber": 143
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "', '.join",
+          "lineNumber": 143
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "sorted",
+          "lineNumber": 143
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "set",
+          "lineNumber": 143
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "GROUP_MAP.keys",
+          "lineNumber": 143
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "sys.exit",
+          "lineNumber": 144
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "DEFAULT_ON_RATES.get",
+          "lineNumber": 148
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "cmd_set",
+          "lineNumber": 149
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "print",
+          "lineNumber": 150
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "cmd_set",
+          "lineNumber": 152
+        },
+        {
+          "caller": "cmd_toggle",
+          "callee": "print",
+          "lineNumber": 153
+        },
+        {
+          "caller": "print_help",
+          "callee": "print",
+          "lineNumber": 156
+        },
+        {
+          "caller": "print_help",
+          "callee": "__doc__.strip",
+          "lineNumber": 156
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 159
+        },
+        {
+          "caller": "main",
+          "callee": "print_help",
+          "lineNumber": 160
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 161
+        },
+        {
+          "caller": "main",
+          "callee": "sys.argv[1].lower().strip",
+          "lineNumber": 163
+        },
+        {
+          "caller": "main",
+          "callee": "sys.argv[1].lower",
+          "lineNumber": 163
+        },
+        {
+          "caller": "main",
+          "callee": "cmd_list",
+          "lineNumber": 165
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 166
+        },
+        {
+          "caller": "main",
+          "callee": "cmd_get",
+          "lineNumber": 167
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 168
+        },
+        {
+          "caller": "main",
+          "callee": "float",
+          "lineNumber": 170
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 172
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 173
+        },
+        {
+          "caller": "main",
+          "callee": "cmd_set",
+          "lineNumber": 174
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 175
+        },
+        {
+          "caller": "main",
+          "callee": "cmd_toggle",
+          "lineNumber": 176
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 177
+        },
+        {
+          "caller": "main",
+          "callee": "cmd_toggle",
+          "lineNumber": 178
+        },
+        {
+          "caller": "main",
+          "callee": "print_help",
+          "lineNumber": 180
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 181
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/scripts/rtsp_streamer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 284,
+      "nonEmptyLines": 247,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 271,
+          "endLine": 280,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RTSPStreamer",
+          "startLine": 36,
+          "endLine": 268,
+          "methods": [
+            "__init__",
+            "load_config",
+            "apply_rotation",
+            "init_writer",
+            "write_frame_safe",
+            "image_callback",
+            "standby_timer",
+            "destroy_node"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RTSPStreamer",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 271,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 38
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 38
+        },
+        {
+          "caller": "__init__",
+          "callee": "CvBridge",
+          "lineNumber": 39
+        },
+        {
+          "caller": "__init__",
+          "callee": "time.time",
+          "lineNumber": 43
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.load_config",
+          "lineNumber": 48
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.get_logger().info",
+          "lineNumber": 50
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.get_logger",
+          "lineNumber": 50
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.init_writer",
+          "lineNumber": 56
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.create_subscription",
+          "lineNumber": 59
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.create_subscription",
+          "lineNumber": 65
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.create_timer",
+          "lineNumber": 73
+        },
+        {
+          "caller": "load_config",
+          "callee": "os.environ.get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "load_config",
+          "callee": "os.path.exists",
+          "lineNumber": 86
+        },
+        {
+          "caller": "load_config",
+          "callee": "open",
+          "lineNumber": 88
+        },
+        {
+          "caller": "load_config",
+          "callee": "yaml.safe_load",
+          "lineNumber": 89
+        },
+        {
+          "caller": "load_config",
+          "callee": "isinstance",
+          "lineNumber": 90
+        },
+        {
+          "caller": "load_config",
+          "callee": "cfg.get",
+          "lineNumber": 91
+        },
+        {
+          "caller": "load_config",
+          "callee": "str",
+          "lineNumber": 93
+        },
+        {
+          "caller": "load_config",
+          "callee": "int",
+          "lineNumber": 95
+        },
+        {
+          "caller": "load_config",
+          "callee": "int",
+          "lineNumber": 97
+        },
+        {
+          "caller": "load_config",
+          "callee": "int",
+          "lineNumber": 99
+        },
+        {
+          "caller": "load_config",
+          "callee": "int",
+          "lineNumber": 101
+        },
+        {
+          "caller": "load_config",
+          "callee": "int",
+          "lineNumber": 103
+        },
+        {
+          "caller": "load_config",
+          "callee": "bool",
+          "lineNumber": 105
+        },
+        {
+          "caller": "load_config",
+          "callee": "self.get_logger().warn",
+          "lineNumber": 108
+        },
+        {
+          "caller": "load_config",
+          "callee": "self.get_logger",
+          "lineNumber": 108
+        },
+        {
+          "caller": "apply_rotation",
+          "callee": "str(self.rotation).strip().lower",
+          "lineNumber": 112
+        },
+        {
+          "caller": "apply_rotation",
+          "callee": "str(self.rotation).strip",
+          "lineNumber": 112
+        },
+        {
+          "caller": "apply_rotation",
+          "callee": "str",
+          "lineNumber": 112
+        },
+        {
+          "caller": "apply_rotation",
+          "callee": "cv2.rotate",
+          "lineNumber": 116
+        },
+        {
+          "caller": "apply_rotation",
+          "callee": "cv2.rotate",
+          "lineNumber": 118
+        },
+        {
+          "caller": "apply_rotation",
+          "callee": "cv2.rotate",
+          "lineNumber": 120
+        },
+        {
+          "caller": "apply_rotation",
+          "callee": "cv2.flip",
+          "lineNumber": 122
+        },
+        {
+          "caller": "apply_rotation",
+          "callee": "cv2.flip",
+          "lineNumber": 124
+        },
+        {
+          "caller": "init_writer",
+          "callee": "time.time",
+          "lineNumber": 129
+        },
+        {
+          "caller": "init_writer",
+          "callee": "self.writer.release",
+          "lineNumber": 136
+        },
+        {
+          "caller": "init_writer",
+          "callee": "cv2.VideoWriter",
+          "lineNumber": 160
+        },
+        {
+          "caller": "init_writer",
+          "callee": "float",
+          "lineNumber": 164
+        },
+        {
+          "caller": "init_writer",
+          "callee": "self.get_logger().error",
+          "lineNumber": 169
+        },
+        {
+          "caller": "init_writer",
+          "callee": "self.get_logger",
+          "lineNumber": 169
+        },
+        {
+          "caller": "init_writer",
+          "callee": "self.writer.isOpened",
+          "lineNumber": 172
+        },
+        {
+          "caller": "init_writer",
+          "callee": "self.get_logger().warn",
+          "lineNumber": 173
+        },
+        {
+          "caller": "init_writer",
+          "callee": "self.get_logger",
+          "lineNumber": 173
+        },
+        {
+          "caller": "init_writer",
+          "callee": "self.get_logger().info",
+          "lineNumber": 176
+        },
+        {
+          "caller": "init_writer",
+          "callee": "self.get_logger",
+          "lineNumber": 176
+        },
+        {
+          "caller": "write_frame_safe",
+          "callee": "self.writer.isOpened",
+          "lineNumber": 185
+        },
+        {
+          "caller": "write_frame_safe",
+          "callee": "self.init_writer",
+          "lineNumber": 186
+        },
+        {
+          "caller": "write_frame_safe",
+          "callee": "self.writer.write",
+          "lineNumber": 190
+        },
+        {
+          "caller": "write_frame_safe",
+          "callee": "self.get_logger().warn",
+          "lineNumber": 196
+        },
+        {
+          "caller": "write_frame_safe",
+          "callee": "self.get_logger",
+          "lineNumber": 196
+        },
+        {
+          "caller": "write_frame_safe",
+          "callee": "self.init_writer",
+          "lineNumber": 197
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.bridge.imgmsg_to_cv2",
+          "lineNumber": 202
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.apply_rotation",
+          "lineNumber": 205
+        },
+        {
+          "caller": "image_callback",
+          "callee": "cv2.resize",
+          "lineNumber": 209
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.write_frame_safe",
+          "lineNumber": 211
+        },
+        {
+          "caller": "image_callback",
+          "callee": "time.time",
+          "lineNumber": 212
+        },
+        {
+          "caller": "image_callback",
+          "callee": "cv_image.mean",
+          "lineNumber": 215
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.get_logger().info",
+          "lineNumber": 216
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.get_logger",
+          "lineNumber": 216
+        },
+        {
+          "caller": "image_callback",
+          "callee": "time.time",
+          "lineNumber": 221
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.load_config",
+          "lineNumber": 226
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.get_logger().info",
+          "lineNumber": 228
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.get_logger",
+          "lineNumber": 228
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.get_logger().info",
+          "lineNumber": 230
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.get_logger",
+          "lineNumber": 230
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.init_writer",
+          "lineNumber": 231
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.get_logger().warn",
+          "lineNumber": 234
+        },
+        {
+          "caller": "image_callback",
+          "callee": "self.get_logger",
+          "lineNumber": 234
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "time.time",
+          "lineNumber": 237
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "self.init_writer",
+          "lineNumber": 242
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "np.full",
+          "lineNumber": 244
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "cv2.rectangle",
+          "lineNumber": 245
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "cv2.putText",
+          "lineNumber": 246
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "time.strftime",
+          "lineNumber": 248
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "cv2.putText",
+          "lineNumber": 249
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "cv2.putText",
+          "lineNumber": 251
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "cv2.putText",
+          "lineNumber": 253
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "time.time",
+          "lineNumber": 256
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "int",
+          "lineNumber": 257
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "np.sin",
+          "lineNumber": 257
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "cv2.line",
+          "lineNumber": 258
+        },
+        {
+          "caller": "standby_timer",
+          "callee": "self.write_frame_safe",
+          "lineNumber": 260
+        },
+        {
+          "caller": "destroy_node",
+          "callee": "self.writer.release",
+          "lineNumber": 265
+        },
+        {
+          "caller": "destroy_node",
+          "callee": "super().destroy_node",
+          "lineNumber": 268
+        },
+        {
+          "caller": "destroy_node",
+          "callee": "super",
+          "lineNumber": 268
+        },
+        {
+          "caller": "main",
+          "callee": "rclpy.init",
+          "lineNumber": 272
+        },
+        {
+          "caller": "main",
+          "callee": "RTSPStreamer",
+          "lineNumber": 273
+        },
+        {
+          "caller": "main",
+          "callee": "rclpy.spin",
+          "lineNumber": 275
+        },
+        {
+          "caller": "main",
+          "callee": "node.destroy_node",
+          "lineNumber": 279
+        },
+        {
+          "caller": "main",
+          "callee": "rclpy.shutdown",
+          "lineNumber": 280
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/src/config_manager.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 90,
+      "functions": [
+        {
+          "name": "loadConfig",
+          "startLine": 7,
+          "endLine": 81,
+          "params": [
+            "yaml_path",
+            "out_config"
+          ]
+        },
+        {
+          "name": "printConfig",
+          "startLine": 83,
+          "endLine": 98,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "loadConfig",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "printConfig",
+          "line": 83,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "loadConfig",
+          "callee": "YAML::LoadFile",
+          "lineNumber": 9
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 12
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 19
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 20
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<bool>",
+          "lineNumber": 21
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 22
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 23
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 24
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 28
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 29
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 30
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 36
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 37
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 38
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 39
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 44
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 45
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 46
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 47
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 48
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 49
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 50
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 51
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 52
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<bool>",
+          "lineNumber": 53
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<bool>",
+          "lineNumber": 54
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 55
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 56
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 61
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<std::string>",
+          "lineNumber": 62
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 63
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "as<int>",
+          "lineNumber": 64
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "std::runtime_error",
+          "lineNumber": 69
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "std::runtime_error",
+          "lineNumber": 74
+        },
+        {
+          "caller": "loadConfig",
+          "callee": "what",
+          "lineNumber": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/src/gst_stream_sink.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 366,
+      "nonEmptyLines": 322,
+      "functions": [
+        {
+          "name": "GstStreamSink",
+          "startLine": 10,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "~GstStreamSink",
+          "startLine": 30,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "start",
+          "startLine": 34,
+          "endLine": 37,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "buildPipeline",
+          "startLine": 39,
+          "endLine": 154,
+          "params": []
+        },
+        {
+          "name": "onQueueOverrun",
+          "startLine": 156,
+          "endLine": 161,
+          "params": [
+            "user_data"
+          ]
+        },
+        {
+          "name": "handleOverrun",
+          "startLine": 163,
+          "endLine": 192,
+          "params": []
+        },
+        {
+          "name": "checkAdaptiveRateRecovery",
+          "startLine": 194,
+          "endLine": 217,
+          "params": []
+        },
+        {
+          "name": "forceKeyframe",
+          "startLine": 219,
+          "endLine": 235,
+          "params": []
+        },
+        {
+          "name": "setBitrate",
+          "startLine": 237,
+          "endLine": 254,
+          "params": [
+            "bitrate_kbps"
+          ]
+        },
+        {
+          "name": "getCurrentBitrate",
+          "startLine": 256,
+          "endLine": 258,
+          "params": []
+        },
+        {
+          "name": "getDroppedFrames",
+          "startLine": 260,
+          "endLine": 262,
+          "params": []
+        },
+        {
+          "name": "busCallback",
+          "startLine": 264,
+          "endLine": 288,
+          "params": [
+            "bus",
+            "msg",
+            "user_data"
+          ]
+        },
+        {
+          "name": "pushFrame",
+          "startLine": 290,
+          "endLine": 327,
+          "params": [
+            "frame"
+          ]
+        },
+        {
+          "name": "stop",
+          "startLine": 329,
+          "endLine": 356,
+          "params": []
+        },
+        {
+          "name": "isConnected",
+          "startLine": 358,
+          "endLine": 360,
+          "params": []
+        },
+        {
+          "name": "getLastErrorCode",
+          "startLine": 362,
+          "endLine": 364,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "GstStreamSink",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "~GstStreamSink",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "buildPipeline",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "onQueueOverrun",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "handleOverrun",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "checkAdaptiveRateRecovery",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "forceKeyframe",
+          "line": 219,
+          "isDefault": false
+        },
+        {
+          "name": "setBitrate",
+          "line": 237,
+          "isDefault": false
+        },
+        {
+          "name": "getCurrentBitrate",
+          "line": 256,
+          "isDefault": false
+        },
+        {
+          "name": "getDroppedFrames",
+          "line": 260,
+          "isDefault": false
+        },
+        {
+          "name": "busCallback",
+          "line": 264,
+          "isDefault": false
+        },
+        {
+          "name": "pushFrame",
+          "line": 290,
+          "isDefault": false
+        },
+        {
+          "name": "stop",
+          "line": 329,
+          "isDefault": false
+        },
+        {
+          "name": "isConnected",
+          "line": 358,
+          "isDefault": false
+        },
+        {
+          "name": "getLastErrorCode",
+          "line": 362,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "GstStreamSink",
+          "callee": "gst_is_initialized",
+          "lineNumber": 23
+        },
+        {
+          "caller": "GstStreamSink",
+          "callee": "gst_init",
+          "lineNumber": 24
+        },
+        {
+          "caller": "GstStreamSink",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 26
+        },
+        {
+          "caller": "GstStreamSink",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 27
+        },
+        {
+          "caller": "~GstStreamSink",
+          "callee": "stop",
+          "lineNumber": 31
+        },
+        {
+          "caller": "start",
+          "callee": "buildPipeline",
+          "lineNumber": 36
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "stop",
+          "lineNumber": 40
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 47
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 48
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_element_factory_find",
+          "lineNumber": 50
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_object_unref",
+          "lineNumber": 53
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "str",
+          "lineNumber": 95
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_parse_launch",
+          "lineNumber": 99
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "c_str",
+          "lineNumber": 99
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "g_error_free",
+          "lineNumber": 103
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_object_unref",
+          "lineNumber": 108
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "buildPipeline",
+          "lineNumber": 112
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_bin_get_by_name",
+          "lineNumber": 118
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "GST_BIN",
+          "lineNumber": 118
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "GST_APP_SRC",
+          "lineNumber": 124
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_bin_get_by_name",
+          "lineNumber": 126
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "GST_BIN",
+          "lineNumber": 126
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "g_signal_connect",
+          "lineNumber": 128
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "G_CALLBACK",
+          "lineNumber": 128
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_bin_get_by_name",
+          "lineNumber": 131
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "GST_BIN",
+          "lineNumber": 131
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_pipeline_get_bus",
+          "lineNumber": 133
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "GST_PIPELINE",
+          "lineNumber": 133
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_bus_add_watch",
+          "lineNumber": 134
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "gst_element_set_state",
+          "lineNumber": 136
+        },
+        {
+          "caller": "buildPipeline",
+          "callee": "buildPipeline",
+          "lineNumber": 143
+        },
+        {
+          "caller": "onQueueOverrun",
+          "callee": "static_cast<GstStreamSink*>",
+          "lineNumber": 157
+        },
+        {
+          "caller": "onQueueOverrun",
+          "callee": "handleOverrun",
+          "lineNumber": 159
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 165
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "count",
+          "lineNumber": 170
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "std::chrono::duration<double>",
+          "lineNumber": 170
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "forceKeyframe",
+          "lineNumber": 172
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "load",
+          "lineNumber": 180
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "std::max",
+          "lineNumber": 182
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "static_cast<int>",
+          "lineNumber": 182
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "store",
+          "lineNumber": 184
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "g_object_set",
+          "lineNumber": 186
+        },
+        {
+          "caller": "handleOverrun",
+          "callee": "load",
+          "lineNumber": 190
+        },
+        {
+          "caller": "checkAdaptiveRateRecovery",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 197
+        },
+        {
+          "caller": "checkAdaptiveRateRecovery",
+          "callee": "count",
+          "lineNumber": 198
+        },
+        {
+          "caller": "checkAdaptiveRateRecovery",
+          "callee": "std::chrono::duration<double>",
+          "lineNumber": 198
+        },
+        {
+          "caller": "checkAdaptiveRateRecovery",
+          "callee": "count",
+          "lineNumber": 199
+        },
+        {
+          "caller": "checkAdaptiveRateRecovery",
+          "callee": "std::chrono::duration<double>",
+          "lineNumber": 199
+        },
+        {
+          "caller": "checkAdaptiveRateRecovery",
+          "callee": "load",
+          "lineNumber": 204
+        },
+        {
+          "caller": "checkAdaptiveRateRecovery",
+          "callee": "std::min",
+          "lineNumber": 207
+        },
+        {
+          "caller": "checkAdaptiveRateRecovery",
+          "callee": "store",
+          "lineNumber": 208
+        },
+        {
+          "caller": "checkAdaptiveRateRecovery",
+          "callee": "g_object_set",
+          "lineNumber": 210
+        },
+        {
+          "caller": "forceKeyframe",
+          "callee": "gst_video_event_new_downstream_force_key_unit",
+          "lineNumber": 223
+        },
+        {
+          "caller": "forceKeyframe",
+          "callee": "gst_element_send_event",
+          "lineNumber": 231
+        },
+        {
+          "caller": "forceKeyframe",
+          "callee": "GST_ELEMENT",
+          "lineNumber": 231
+        },
+        {
+          "caller": "forceKeyframe",
+          "callee": "gst_element_send_event",
+          "lineNumber": 233
+        },
+        {
+          "caller": "setBitrate",
+          "callee": "store",
+          "lineNumber": 240
+        },
+        {
+          "caller": "setBitrate",
+          "callee": "g_object_class_find_property",
+          "lineNumber": 242
+        },
+        {
+          "caller": "setBitrate",
+          "callee": "G_OBJECT_GET_CLASS",
+          "lineNumber": 242
+        },
+        {
+          "caller": "setBitrate",
+          "callee": "g_object_set",
+          "lineNumber": 244
+        },
+        {
+          "caller": "setBitrate",
+          "callee": "gst_structure_new",
+          "lineNumber": 246
+        },
+        {
+          "caller": "setBitrate",
+          "callee": "g_object_set",
+          "lineNumber": 248
+        },
+        {
+          "caller": "setBitrate",
+          "callee": "gst_structure_free",
+          "lineNumber": 249
+        },
+        {
+          "caller": "getCurrentBitrate",
+          "callee": "load",
+          "lineNumber": 257
+        },
+        {
+          "caller": "getDroppedFrames",
+          "callee": "load",
+          "lineNumber": 261
+        },
+        {
+          "caller": "busCallback",
+          "callee": "static_cast<GstStreamSink*>",
+          "lineNumber": 266
+        },
+        {
+          "caller": "busCallback",
+          "callee": "GST_MESSAGE_TYPE",
+          "lineNumber": 267
+        },
+        {
+          "caller": "busCallback",
+          "callee": "gst_message_parse_error",
+          "lineNumber": 271
+        },
+        {
+          "caller": "busCallback",
+          "callee": "g_error_free",
+          "lineNumber": 274
+        },
+        {
+          "caller": "busCallback",
+          "callee": "g_free",
+          "lineNumber": 275
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "checkAdaptiveRateRecovery",
+          "lineNumber": 295
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "size",
+          "lineNumber": 297
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "gst_buffer_new_allocate",
+          "lineNumber": 300
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "gst_buffer_map",
+          "lineNumber": 307
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "std::memcpy",
+          "lineNumber": 308
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "data",
+          "lineNumber": 308
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "gst_buffer_unmap",
+          "lineNumber": 309
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "gst_buffer_unref",
+          "lineNumber": 311
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "GST_BUFFER_PTS",
+          "lineNumber": 315
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "GST_BUFFER_DTS",
+          "lineNumber": 316
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "GST_BUFFER_PTS",
+          "lineNumber": 316
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "GST_BUFFER_DURATION",
+          "lineNumber": 317
+        },
+        {
+          "caller": "pushFrame",
+          "callee": "gst_app_src_push_buffer",
+          "lineNumber": 320
+        },
+        {
+          "caller": "stop",
+          "callee": "gst_element_set_state",
+          "lineNumber": 332
+        },
+        {
+          "caller": "stop",
+          "callee": "g_source_remove",
+          "lineNumber": 334
+        },
+        {
+          "caller": "stop",
+          "callee": "gst_object_unref",
+          "lineNumber": 338
+        },
+        {
+          "caller": "stop",
+          "callee": "gst_object_unref",
+          "lineNumber": 342
+        },
+        {
+          "caller": "stop",
+          "callee": "gst_object_unref",
+          "lineNumber": 346
+        },
+        {
+          "caller": "stop",
+          "callee": "gst_object_unref",
+          "lineNumber": 350
+        },
+        {
+          "caller": "stop",
+          "callee": "gst_object_unref",
+          "lineNumber": 353
+        },
+        {
+          "caller": "isConnected",
+          "callee": "load",
+          "lineNumber": 359
+        },
+        {
+          "caller": "getLastErrorCode",
+          "callee": "load",
+          "lineNumber": 363
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 16,
+        "functionCount": 16,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/src/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 348,
+      "nonEmptyLines": 303,
+      "functions": [
+        {
+          "name": "signalHandler",
+          "startLine": 27,
+          "endLine": 31,
+          "params": [
+            "sig"
+          ]
+        },
+        {
+          "name": "exportCameraStats",
+          "startLine": 33,
+          "endLine": 65,
+          "params": [
+            "bitrate_kbps",
+            "fps",
+            "dropped",
+            "adaptive",
+            "connected",
+            "is_standby",
+            "rotation",
+            "camera_type",
+            "device_name"
+          ]
+        },
+        {
+          "name": "processCameraCommands",
+          "startLine": 68,
+          "endLine": 114,
+          "params": [
+            "sink",
+            "processor",
+            "config"
+          ]
+        },
+        {
+          "name": "createCamera",
+          "startLine": 117,
+          "endLine": 123,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 125,
+          "endLine": 348,
+          "params": [
+            "argc",
+            "argv"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "signalHandler",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "createCamera",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 125,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "exportCameraStats",
+          "callee": "std::setprecision",
+          "lineNumber": 42
+        },
+        {
+          "caller": "exportCameraStats",
+          "callee": "str",
+          "lineNumber": 52
+        },
+        {
+          "caller": "exportCameraStats",
+          "callee": "is_open",
+          "lineNumber": 55
+        },
+        {
+          "caller": "exportCameraStats",
+          "callee": "close",
+          "lineNumber": 57
+        },
+        {
+          "caller": "exportCameraStats",
+          "callee": "std::rename",
+          "lineNumber": 58
+        },
+        {
+          "caller": "exportCameraStats",
+          "callee": "c_str",
+          "lineNumber": 58
+        },
+        {
+          "caller": "exportCameraStats",
+          "callee": "c_str",
+          "lineNumber": 58
+        },
+        {
+          "caller": "exportCameraStats",
+          "callee": "is_open",
+          "lineNumber": 61
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "is_open",
+          "lineNumber": 72
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "rdbuf",
+          "lineNumber": 75
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "close",
+          "lineNumber": 76
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "std::remove",
+          "lineNumber": 77
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "c_str",
+          "lineNumber": 77
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "str",
+          "lineNumber": 79
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "empty",
+          "lineNumber": 80
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "find",
+          "lineNumber": 85
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "std::atoi",
+          "lineNumber": 87
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "c_str",
+          "lineNumber": 87
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "setBitrate",
+          "lineNumber": 90
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "find",
+          "lineNumber": 96
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "std::atoi",
+          "lineNumber": 98
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "c_str",
+          "lineNumber": 98
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "setRotation",
+          "lineNumber": 101
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "find",
+          "lineNumber": 107
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "find",
+          "lineNumber": 109
+        },
+        {
+          "caller": "processCameraCommands",
+          "callee": "find",
+          "lineNumber": 109
+        },
+        {
+          "caller": "createCamera",
+          "callee": "std::make_unique<V4L2Camera>",
+          "lineNumber": 119
+        },
+        {
+          "caller": "createCamera",
+          "callee": "std::make_unique<RealSenseCamera>",
+          "lineNumber": 122
+        },
+        {
+          "caller": "main",
+          "callee": "std::signal",
+          "lineNumber": 131
+        },
+        {
+          "caller": "main",
+          "callee": "std::signal",
+          "lineNumber": 132
+        },
+        {
+          "caller": "main",
+          "callee": "ConfigManager::loadConfig",
+          "lineNumber": 135
+        },
+        {
+          "caller": "main",
+          "callee": "ConfigManager::printConfig",
+          "lineNumber": 139
+        },
+        {
+          "caller": "main",
+          "callee": "start",
+          "lineNumber": 143
+        },
+        {
+          "caller": "main",
+          "callee": "std::this_thread::sleep_for",
+          "lineNumber": 146
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::seconds",
+          "lineNumber": 146
+        },
+        {
+          "caller": "main",
+          "callee": "createCamera",
+          "lineNumber": 165
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 167
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::seconds",
+          "lineNumber": 167
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::microseconds",
+          "lineNumber": 169
+        },
+        {
+          "caller": "main",
+          "callee": "exchange",
+          "lineNumber": 173
+        },
+        {
+          "caller": "main",
+          "callee": "stopStream",
+          "lineNumber": 176
+        },
+        {
+          "caller": "main",
+          "callee": "createCamera",
+          "lineNumber": 180
+        },
+        {
+          "caller": "main",
+          "callee": "std::this_thread::sleep_for",
+          "lineNumber": 181
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::milliseconds",
+          "lineNumber": 181
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 192
+        },
+        {
+          "caller": "main",
+          "callee": "generateFrame",
+          "lineNumber": 196
+        },
+        {
+          "caller": "main",
+          "callee": "push",
+          "lineNumber": 197
+        },
+        {
+          "caller": "main",
+          "callee": "std::move",
+          "lineNumber": 197
+        },
+        {
+          "caller": "main",
+          "callee": "count",
+          "lineNumber": 200
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::duration_cast<std::chrono::milliseconds>",
+          "lineNumber": 200
+        },
+        {
+          "caller": "main",
+          "callee": "isAvailable",
+          "lineNumber": 202
+        },
+        {
+          "caller": "main",
+          "callee": "initialize",
+          "lineNumber": 204
+        },
+        {
+          "caller": "main",
+          "callee": "startStream",
+          "lineNumber": 204
+        },
+        {
+          "caller": "main",
+          "callee": "getDeviceName",
+          "lineNumber": 210
+        },
+        {
+          "caller": "main",
+          "callee": "getDeviceName",
+          "lineNumber": 213
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::duration_cast<std::chrono::microseconds>",
+          "lineNumber": 221
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 221
+        },
+        {
+          "caller": "main",
+          "callee": "std::this_thread::sleep_for",
+          "lineNumber": 223
+        },
+        {
+          "caller": "main",
+          "callee": "captureFrame",
+          "lineNumber": 228
+        },
+        {
+          "caller": "main",
+          "callee": "push",
+          "lineNumber": 231
+        },
+        {
+          "caller": "main",
+          "callee": "std::move",
+          "lineNumber": 231
+        },
+        {
+          "caller": "main",
+          "callee": "getLastErrorCode",
+          "lineNumber": 234
+        },
+        {
+          "caller": "main",
+          "callee": "errorCodeToString",
+          "lineNumber": 238
+        },
+        {
+          "caller": "main",
+          "callee": "stopStream",
+          "lineNumber": 245
+        },
+        {
+          "caller": "main",
+          "callee": "createCamera",
+          "lineNumber": 249
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 250
+        },
+        {
+          "caller": "main",
+          "callee": "std::this_thread::sleep_for",
+          "lineNumber": 252
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::milliseconds",
+          "lineNumber": 252
+        },
+        {
+          "caller": "main",
+          "callee": "stopStream",
+          "lineNumber": 259
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 270
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 271
+        },
+        {
+          "caller": "main",
+          "callee": "pop",
+          "lineNumber": 276
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::milliseconds",
+          "lineNumber": 276
+        },
+        {
+          "caller": "main",
+          "callee": "load",
+          "lineNumber": 278
+        },
+        {
+          "caller": "main",
+          "callee": "process",
+          "lineNumber": 279
+        },
+        {
+          "caller": "main",
+          "callee": "pushFrame",
+          "lineNumber": 283
+        },
+        {
+          "caller": "main",
+          "callee": "isConnected",
+          "lineNumber": 284
+        },
+        {
+          "caller": "main",
+          "callee": "std::this_thread::sleep_for",
+          "lineNumber": 286
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::milliseconds",
+          "lineNumber": 286
+        },
+        {
+          "caller": "main",
+          "callee": "start",
+          "lineNumber": 287
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 294
+        },
+        {
+          "caller": "main",
+          "callee": "count",
+          "lineNumber": 297
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::duration_cast<std::chrono::milliseconds>",
+          "lineNumber": 297
+        },
+        {
+          "caller": "main",
+          "callee": "processCameraCommands",
+          "lineNumber": 299
+        },
+        {
+          "caller": "main",
+          "callee": "count",
+          "lineNumber": 303
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::duration_cast<std::chrono::milliseconds>",
+          "lineNumber": 303
+        },
+        {
+          "caller": "main",
+          "callee": "count",
+          "lineNumber": 304
+        },
+        {
+          "caller": "main",
+          "callee": "std::chrono::duration<double>",
+          "lineNumber": 304
+        },
+        {
+          "caller": "main",
+          "callee": "static_cast<double>",
+          "lineNumber": 307
+        },
+        {
+          "caller": "main",
+          "callee": "static_cast<double>",
+          "lineNumber": 308
+        },
+        {
+          "caller": "main",
+          "callee": "getCurrentBitrate",
+          "lineNumber": 311
+        },
+        {
+          "caller": "main",
+          "callee": "getDroppedCount",
+          "lineNumber": 312
+        },
+        {
+          "caller": "main",
+          "callee": "getDroppedFrames",
+          "lineNumber": 312
+        },
+        {
+          "caller": "main",
+          "callee": "exportCameraStats",
+          "lineNumber": 320
+        },
+        {
+          "caller": "main",
+          "callee": "load",
+          "lineNumber": 321
+        },
+        {
+          "caller": "main",
+          "callee": "load",
+          "lineNumber": 321
+        },
+        {
+          "caller": "main",
+          "callee": "getRotation",
+          "lineNumber": 321
+        },
+        {
+          "caller": "main",
+          "callee": "load",
+          "lineNumber": 328
+        },
+        {
+          "caller": "main",
+          "callee": "static_cast<int>",
+          "lineNumber": 329
+        },
+        {
+          "caller": "main",
+          "callee": "getRotation",
+          "lineNumber": 332
+        },
+        {
+          "caller": "main",
+          "callee": "isConnected",
+          "lineNumber": 333
+        },
+        {
+          "caller": "main",
+          "callee": "stop",
+          "lineNumber": 338
+        },
+        {
+          "caller": "main",
+          "callee": "joinable",
+          "lineNumber": 343
+        },
+        {
+          "caller": "main",
+          "callee": "join",
+          "lineNumber": 343
+        },
+        {
+          "caller": "main",
+          "callee": "joinable",
+          "lineNumber": 344
+        },
+        {
+          "caller": "main",
+          "callee": "join",
+          "lineNumber": 344
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/src/neon_processor.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "process",
+          "startLine": 11,
+          "endLine": 15,
+          "params": [
+            "frame"
+          ]
+        },
+        {
+          "name": "rotate180_inplace",
+          "startLine": 17,
+          "endLine": 43,
+          "params": [
+            "data",
+            "width",
+            "height"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "process",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "rotate180_inplace",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "process",
+          "callee": "load",
+          "lineNumber": 12
+        },
+        {
+          "caller": "process",
+          "callee": "empty",
+          "lineNumber": 12
+        },
+        {
+          "caller": "process",
+          "callee": "rotate180_inplace",
+          "lineNumber": 13
+        },
+        {
+          "caller": "process",
+          "callee": "data",
+          "lineNumber": 13
+        },
+        {
+          "caller": "rotate180_inplace",
+          "callee": "static_cast<size_t>",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/src/realsense_camera.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 217,
+      "nonEmptyLines": 181,
+      "callGraph": [
+        {
+          "caller": "~RealSenseCamera",
+          "callee": "stopStream",
+          "lineNumber": 17
+        },
+        {
+          "caller": "initialize",
+          "callee": "query_devices",
+          "lineNumber": 26
+        },
+        {
+          "caller": "initialize",
+          "callee": "size",
+          "lineNumber": 27
+        },
+        {
+          "caller": "initialize",
+          "callee": "get_info",
+          "lineNumber": 34
+        },
+        {
+          "caller": "initialize",
+          "callee": "get_info",
+          "lineNumber": 36
+        },
+        {
+          "caller": "initialize",
+          "callee": "query_sensors",
+          "lineNumber": 39
+        },
+        {
+          "caller": "initialize",
+          "callee": "supports",
+          "lineNumber": 40
+        },
+        {
+          "caller": "initialize",
+          "callee": "set_option",
+          "lineNumber": 41
+        },
+        {
+          "caller": "initialize",
+          "callee": "std::make_unique<rs2::pipeline>",
+          "lineNumber": 45
+        },
+        {
+          "caller": "initialize",
+          "callee": "std::make_unique<rs2::config>",
+          "lineNumber": 46
+        },
+        {
+          "caller": "initialize",
+          "callee": "empty",
+          "lineNumber": 48
+        },
+        {
+          "caller": "initialize",
+          "callee": "enable_device",
+          "lineNumber": 49
+        },
+        {
+          "caller": "initialize",
+          "callee": "enable_stream",
+          "lineNumber": 53
+        },
+        {
+          "caller": "initialize",
+          "callee": "enable_stream",
+          "lineNumber": 66
+        },
+        {
+          "caller": "initialize",
+          "callee": "what",
+          "lineNumber": 81
+        },
+        {
+          "caller": "startStream",
+          "callee": "start",
+          "lineNumber": 93
+        },
+        {
+          "caller": "startStream",
+          "callee": "what",
+          "lineNumber": 100
+        },
+        {
+          "caller": "stopStream",
+          "callee": "stop",
+          "lineNumber": 110
+        },
+        {
+          "caller": "stopStream",
+          "callee": "reset",
+          "lineNumber": 114
+        },
+        {
+          "caller": "stopStream",
+          "callee": "reset",
+          "lineNumber": 115
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "wait_for_frames",
+          "lineNumber": 122
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "get_color_frame",
+          "lineNumber": 123
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "get_width",
+          "lineNumber": 130
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "get_height",
+          "lineNumber": 131
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "static_cast<const uint8_t*>",
+          "lineNumber": 132
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "get_data",
+          "lineNumber": 132
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "static_cast<size_t>",
+          "lineNumber": 133
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "count",
+          "lineNumber": 139
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "std::chrono::duration_cast<std::chrono::microseconds>",
+          "lineNumber": 139
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "time_since_epoch",
+          "lineNumber": 140
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 140
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "size",
+          "lineNumber": 143
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "resize",
+          "lineNumber": 144
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "std::memcpy",
+          "lineNumber": 146
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "data",
+          "lineNumber": 146
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "what",
+          "lineNumber": 153
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "find",
+          "lineNumber": 154
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "find",
+          "lineNumber": 154
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "find",
+          "lineNumber": 154
+        },
+        {
+          "caller": "isAvailable",
+          "callee": "query_devices",
+          "lineNumber": 167
+        },
+        {
+          "caller": "isAvailable",
+          "callee": "size",
+          "lineNumber": 168
+        },
+        {
+          "caller": "isHealthy",
+          "callee": "load",
+          "lineNumber": 175
+        },
+        {
+          "caller": "getLastErrorCode",
+          "callee": "load",
+          "lineNumber": 183
+        },
+        {
+          "caller": "getLastErrorCode",
+          "callee": "load",
+          "lineNumber": 213
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/src/standby_generator.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 278,
+      "nonEmptyLines": 254,
+      "functions": [
+        {
+          "name": "StandbyGenerator",
+          "startLine": 110,
+          "endLine": 114,
+          "params": [
+            "width",
+            "height",
+            "fps"
+          ]
+        },
+        {
+          "name": "updateConfig",
+          "startLine": 116,
+          "endLine": 120,
+          "params": [
+            "width",
+            "height",
+            "fps"
+          ]
+        },
+        {
+          "name": "drawChar",
+          "startLine": 122,
+          "endLine": 145,
+          "params": [
+            "buffer",
+            "x",
+            "y",
+            "c",
+            "scale",
+            "b",
+            "g",
+            "r"
+          ]
+        },
+        {
+          "name": "drawText",
+          "startLine": 147,
+          "endLine": 158,
+          "params": [
+            "buffer",
+            "x",
+            "y",
+            "text",
+            "scale",
+            "b",
+            "g",
+            "r"
+          ]
+        },
+        {
+          "name": "drawRect",
+          "startLine": 160,
+          "endLine": 171,
+          "params": [
+            "buffer",
+            "x",
+            "y",
+            "w",
+            "h",
+            "b",
+            "g",
+            "r"
+          ]
+        },
+        {
+          "name": "renderBackground",
+          "startLine": 173,
+          "endLine": 206,
+          "params": [
+            "buffer"
+          ]
+        },
+        {
+          "name": "generateFrame",
+          "startLine": 208,
+          "endLine": 276,
+          "params": [
+            "out_frame",
+            "status_message"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "StandbyGenerator",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "updateConfig",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "drawChar",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "drawText",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "drawRect",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "renderBackground",
+          "line": 173,
+          "isDefault": false
+        },
+        {
+          "name": "generateFrame",
+          "line": 208,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "drawChar",
+          "callee": "static_cast<size_t>",
+          "lineNumber": 136
+        },
+        {
+          "caller": "drawText",
+          "callee": "drawChar",
+          "lineNumber": 155
+        },
+        {
+          "caller": "drawRect",
+          "callee": "static_cast<size_t>",
+          "lineNumber": 165
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "static_cast<float>",
+          "lineNumber": 176
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "static_cast<float>",
+          "lineNumber": 176
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "static_cast<uint8_t>",
+          "lineNumber": 177
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "static_cast<uint8_t>",
+          "lineNumber": 178
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "static_cast<uint8_t>",
+          "lineNumber": 179
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "static_cast<size_t>",
+          "lineNumber": 181
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "static_cast<size_t>",
+          "lineNumber": 191
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "std::min",
+          "lineNumber": 193
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "std::min",
+          "lineNumber": 194
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "std::min",
+          "lineNumber": 195
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "static_cast<size_t>",
+          "lineNumber": 200
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "std::min",
+          "lineNumber": 201
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "std::min",
+          "lineNumber": 202
+        },
+        {
+          "caller": "renderBackground",
+          "callee": "std::min",
+          "lineNumber": 203
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "static_cast<size_t>",
+          "lineNumber": 209
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "size",
+          "lineNumber": 210
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "resize",
+          "lineNumber": 211
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "count",
+          "lineNumber": 217
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "std::chrono::duration_cast<std::chrono::microseconds>",
+          "lineNumber": 217
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "time_since_epoch",
+          "lineNumber": 218
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 218
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "data",
+          "lineNumber": 221
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "renderBackground",
+          "lineNumber": 222
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "std::min",
+          "lineNumber": 225
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawRect",
+          "lineNumber": 231
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawRect",
+          "lineNumber": 232
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawText",
+          "lineNumber": 236
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawText",
+          "lineNumber": 239
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "std::chrono::system_clock::now",
+          "lineNumber": 242
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "std::chrono::system_clock::to_time_t",
+          "lineNumber": 243
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "std::strftime",
+          "lineNumber": 245
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "std::gmtime",
+          "lineNumber": 245
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "std::string",
+          "lineNumber": 246
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawText",
+          "lineNumber": 247
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawText",
+          "lineNumber": 252
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "str",
+          "lineNumber": 252
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawText",
+          "lineNumber": 256
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "std::string",
+          "lineNumber": 263
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawRect",
+          "lineNumber": 265
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawText",
+          "lineNumber": 266
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawRect",
+          "lineNumber": 268
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawText",
+          "lineNumber": 269
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "static_cast<int>",
+          "lineNumber": 274
+        },
+        {
+          "caller": "generateFrame",
+          "callee": "drawRect",
+          "lineNumber": 275
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 204,
+      "nonEmptyLines": 170,
+      "functions": [
+        {
+          "name": "isAvailable",
+          "startLine": 14,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "V4L2Camera",
+          "startLine": 19,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "~V4L2Camera",
+          "startLine": 27,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "initialize",
+          "startLine": 34,
+          "endLine": 109,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "startStream",
+          "startLine": 111,
+          "endLine": 136,
+          "params": []
+        },
+        {
+          "name": "stopStream",
+          "startLine": 138,
+          "endLine": 144,
+          "params": []
+        },
+        {
+          "name": "captureFrame",
+          "startLine": 146,
+          "endLine": 190,
+          "params": [
+            "out_frame"
+          ]
+        },
+        {
+          "name": "isHealthy",
+          "startLine": 192,
+          "endLine": 194,
+          "params": []
+        },
+        {
+          "name": "getDeviceName",
+          "startLine": 196,
+          "endLine": 198,
+          "params": []
+        },
+        {
+          "name": "getLastErrorCode",
+          "startLine": 200,
+          "endLine": 202,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "isAvailable",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "V4L2Camera",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "~V4L2Camera",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "startStream",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "stopStream",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "captureFrame",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "isHealthy",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "getDeviceName",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "getLastErrorCode",
+          "line": 200,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isAvailable",
+          "callee": "empty",
+          "lineNumber": 15
+        },
+        {
+          "caller": "isAvailable",
+          "callee": "access",
+          "lineNumber": 16
+        },
+        {
+          "caller": "isAvailable",
+          "callee": "c_str",
+          "lineNumber": 16
+        },
+        {
+          "caller": "~V4L2Camera",
+          "callee": "stopStream",
+          "lineNumber": 28
+        },
+        {
+          "caller": "~V4L2Camera",
+          "callee": "close",
+          "lineNumber": 30
+        },
+        {
+          "caller": "initialize",
+          "callee": "open",
+          "lineNumber": 38
+        },
+        {
+          "caller": "initialize",
+          "callee": "c_str",
+          "lineNumber": 38
+        },
+        {
+          "caller": "initialize",
+          "callee": "ioctl",
+          "lineNumber": 47
+        },
+        {
+          "caller": "initialize",
+          "callee": "reinterpret_cast<char*>",
+          "lineNumber": 52
+        },
+        {
+          "caller": "initialize",
+          "callee": "std::memset",
+          "lineNumber": 55
+        },
+        {
+          "caller": "initialize",
+          "callee": "ioctl",
+          "lineNumber": 62
+        },
+        {
+          "caller": "initialize",
+          "callee": "ioctl",
+          "lineNumber": 65
+        },
+        {
+          "caller": "initialize",
+          "callee": "std::memset",
+          "lineNumber": 73
+        },
+        {
+          "caller": "initialize",
+          "callee": "ioctl",
+          "lineNumber": 78
+        },
+        {
+          "caller": "initialize",
+          "callee": "resize",
+          "lineNumber": 84
+        },
+        {
+          "caller": "initialize",
+          "callee": "std::memset",
+          "lineNumber": 87
+        },
+        {
+          "caller": "initialize",
+          "callee": "ioctl",
+          "lineNumber": 92
+        },
+        {
+          "caller": "initialize",
+          "callee": "mmap",
+          "lineNumber": 98
+        },
+        {
+          "caller": "startStream",
+          "callee": "size",
+          "lineNumber": 115
+        },
+        {
+          "caller": "startStream",
+          "callee": "std::memset",
+          "lineNumber": 117
+        },
+        {
+          "caller": "startStream",
+          "callee": "ioctl",
+          "lineNumber": 121
+        },
+        {
+          "caller": "startStream",
+          "callee": "ioctl",
+          "lineNumber": 128
+        },
+        {
+          "caller": "stopStream",
+          "callee": "ioctl",
+          "lineNumber": 141
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "FD_ZERO",
+          "lineNumber": 150
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "FD_SET",
+          "lineNumber": 151
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "select",
+          "lineNumber": 156
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "std::memset",
+          "lineNumber": 163
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "ioctl",
+          "lineNumber": 167
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "count",
+          "lineNumber": 176
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "std::chrono::duration_cast<std::chrono::microseconds>",
+          "lineNumber": 176
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "time_since_epoch",
+          "lineNumber": 177
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "std::chrono::steady_clock::now",
+          "lineNumber": 177
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "size",
+          "lineNumber": 180
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "resize",
+          "lineNumber": 181
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "std::memcpy",
+          "lineNumber": 183
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "data",
+          "lineNumber": 183
+        },
+        {
+          "caller": "captureFrame",
+          "callee": "ioctl",
+          "lineNumber": 185
+        },
+        {
+          "caller": "isHealthy",
+          "callee": "load",
+          "lineNumber": 193
+        },
+        {
+          "caller": "getLastErrorCode",
+          "callee": "load",
+          "lineNumber": 201
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 10,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cc-agent/config/default.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 56,
+      "nonEmptyLines": 56,
+      "sections": [
+        {
+          "heading": "network",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "hardware",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 31
+        },
+        {
+          "heading": "system",
+          "level": 1,
+          "line": 40
+        },
+        {
+          "heading": "camera",
+          "level": 1,
+          "line": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "src/cc-agent/config/schema.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 236,
+      "nonEmptyLines": 236,
+      "sections": [
+        {
+          "heading": "$schema",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "title",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "definitions",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "keys",
+          "level": 1,
+          "line": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

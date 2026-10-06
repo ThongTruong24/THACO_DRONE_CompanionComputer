@@ -1,0 +1,58 @@
+@startuml router-controller-system
+title MAVLink Router Node: System Architecture Diagram
+
+package "MAVLink Router Node" {
+  class MavlinkRouter {
+    - config_path_: std::string
+    - child_pid_: pid_t
+    - current_config_: RouterConfig
+    + start(): bool
+    + stop(): void
+    + apply_links(links: Links, err: string): bool
+    - config_mutex_: std::mutex
+    - spawn_child_locked(): bool
+    - kill_child_locked(): void
+  }
+
+  class MavlinkRouterNode {
+    - router_: std::shared_ptr<MavlinkRouter>
+    - hw_registry_: std::shared_ptr<HardwareRegistry>
+    - link_monitor_: SerialLinkMonitor
+    + handle_apply_links()
+    + handle_link_config()
+    + on_timer_1hz()
+  }
+
+  component "Child Process:\nmavlink-routerd" as RouterD
+
+  MavlinkRouterNode --> MavlinkRouter : Controls
+  MavlinkRouter --> RouterD : Supervises / Forks / Signals
+}
+
+package "ROS 2 Interfaces" {
+  interface "Service /cc/router/apply_links" as SrvApply
+  interface "Topic /cc/serial_link_status" as TopicStatus
+  interface "Topic /cc/mavlink_log" as TopicLog
+  interface "Topic /cc/link_config" as TopicLinks
+}
+
+package "Network Endpoints" {
+  interface "UDP :14550\n(QGC GCS)" as Port14550
+  interface "UDP :14600\n(Config Agent)" as Port14600
+  interface "TCP :5760\n(Telemetry Proxy)" as Port5760
+}
+
+package "Hardware UART Ports" {
+  file "Generic Serial Ports" as UART_Ports
+}
+
+MavlinkRouterNode --> SrvApply : Provides
+MavlinkRouterNode --> TopicStatus : Publishes
+MavlinkRouterNode --> TopicLog : Publishes
+MavlinkRouterNode --> TopicLinks : Subscribes
+RouterD --> Port14550 : Serves GCS
+RouterD --> Port14600 : Serves Config Agent
+RouterD --> Port5760 : Serves TCP
+RouterD ..> UART_Ports : Binds (if present)
+
+@enduml

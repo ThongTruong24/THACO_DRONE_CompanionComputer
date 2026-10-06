@@ -1,0 +1,115 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "src/mavros/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 43,
+      "nonEmptyLines": 36,
+      "services": [
+        {
+          "name": "ros",
+          "image": "ros:jazzy-ros-base",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 44
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ros:jazzy-ros-base",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "ENV DEBIAN_FRONTEND=noninteractive \\",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "RUN apt-get update \\",
+          "startLine": 7,
+          "endLine": 7
+        },
+        {
+          "name": "COPY mavlink/agridrone-thaco-mavlink/include/mavlink/v2.0/thaco_c",
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "COPY ros2ws/cc_interfaces /ws/src/cc_interfaces",
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "COPY ros2ws/cc_telemetry /ws/src/cc_telemetry",
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "COPY mavlink/plugin_agridrone /ws/src/plugin_agridrone",
+          "startLine": 25,
+          "endLine": 25
+        },
+        {
+          "name": "RUN . /opt/ros/jazzy/setup.sh \\",
+          "startLine": 26,
+          "endLine": 26
+        },
+        {
+          "name": "COPY ros2ws/cc_telemetry/config/cc_telemetry.yaml /etc/cc-telemet",
+          "startLine": 34,
+          "endLine": 34
+        },
+        {
+          "name": "COPY entrypoint.sh /entrypoint.sh",
+          "startLine": 36,
+          "endLine": 36
+        },
+        {
+          "name": "COPY telemetry_demo.py /usr/local/bin/mavros-telemetry-demo",
+          "startLine": 37,
+          "endLine": 37
+        },
+        {
+          "name": "RUN chmod 0755 /entrypoint.sh /usr/local/bin/mavros-telemetry-de",
+          "startLine": 38,
+          "endLine": 38
+        },
+        {
+          "name": "HEALTHCHECK --interval=20s --timeout=5s --start-period=25s --retries=3 \\",
+          "startLine": 40,
+          "endLine": 40
+        },
+        {
+          "name": "ENTRYPOINT [\"/entrypoint.sh\"]",
+          "startLine": 43,
+          "endLine": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 14
+      }
+    }
+  ]
+}

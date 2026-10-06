@@ -1,0 +1,28 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 31,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/README.md",
+      "language": "markdown",
+      "sizeLines": 134,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/package.xml",
+      "language": "xml",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "src/mavros/ros2ws/cc_telemetry/CMakeLists.txt": [],
+    "src/mavros/ros2ws/cc_telemetry/README.md": [],
+    "src/mavros/ros2ws/cc_telemetry/package.xml": []
+  }
+}

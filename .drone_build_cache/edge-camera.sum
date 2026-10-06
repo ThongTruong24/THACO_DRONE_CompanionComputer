@@ -1,0 +1,31 @@
+ M src/drivers/camera/camera_interface.hpp
+ M src/modules/camera_streamer/CMakeLists.txt
+ M src/modules/camera_streamer/Dockerfile
+ M src/modules/camera_streamer/Dockerfile.dockerignore
+ D src/modules/camera_streamer/camera.yaml
+ M src/modules/camera_streamer/entrypoint.sh
+ D src/modules/camera_streamer/include/config_manager.hpp
+ M src/modules/camera_streamer/include/gst_stream_sink.hpp
+ M src/modules/camera_streamer/package.xml
+ D src/modules/camera_streamer/src/config_manager.cpp
+ M src/modules/camera_streamer/src/gst_stream_sink.cpp
+ M src/modules/camera_streamer/src/main.cpp
+ M src/modules/camera_streamer/tests/CMakeLists.txt
+ D src/modules/camera_streamer/tests/test_camera_config.cpp
+?? cmake/
+?? msg/
+?? platforms/linux/docker/
+?? src/drivers/camera/ICameraDevice.hpp
+?? src/lib/atomic_file/
+?? src/lib/frame_pool/
+?? src/lib/hrt/
+?? src/lib/link_config/
+?? src/lib/serial/
+?? src/lib/systemlib/
+?? src/modules/camera_streamer/config/
+?? src/modules/camera_streamer/include/camera_streamer/
+?? src/modules/camera_streamer/src/ai_branch.cpp
+?? src/modules/camera_streamer/src/camera_streamer_node.cpp
+?? src/modules/camera_streamer/tests/test_ai_branch.cpp
+?? src/modules/camera_streamer/tests/test_camera_streamer_node.cpp
+09701d995f6de80678e0f8b95b9ba3ef35ba63ca

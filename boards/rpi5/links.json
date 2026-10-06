@@ -1,0 +1,6 @@
+{
+  "links": [
+    { "name": "FC",   "port": "/dev/ttyAMA4", "baud": 921600 },
+    { "name": "SIYI", "port": "/dev/ttyAMA0", "baud": 115200 }
+  ]
+}

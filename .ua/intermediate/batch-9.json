@@ -1,0 +1,21 @@
+{
+  "batchIndex": 9,
+  "nodes": [
+    {
+      "id": "service:src/mavros/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "src/mavros/Dockerfile",
+      "summary": "ROS 2 MAVROS subsystem (Dockerfile) integrating companion telemetry with ROS 2.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

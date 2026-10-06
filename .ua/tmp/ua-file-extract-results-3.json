@@ -1,0 +1,187 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "src/camera-stream-controller/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 87,
+      "nonEmptyLines": 76,
+      "services": [
+        {
+          "name": "builder",
+          "image": "ros:jazzy-ros-base",
+          "ports": [],
+          "startLine": 4,
+          "endLine": 49
+        },
+        {
+          "name": "runtime",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 50,
+          "endLine": 88
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ros:jazzy-ros-base AS builder",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "ENV DEBIAN_FRONTEND=noninteractive",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \\",
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "ENV PKG_CONFIG_PATH=/opt/ros/jazzy/lib/aarch64-linux-gnu/pkgconf",
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "ENV CMAKE_PREFIX_PATH=/opt/ros/jazzy",
+          "startLine": 19,
+          "endLine": 19
+        },
+        {
+          "name": "ARG MEDIAMTX_VERSION=v1.9.3",
+          "startLine": 22,
+          "endLine": 22
+        },
+        {
+          "name": "ARG TARGETARCH",
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "RUN case \"${TARGETARCH}\" in \\",
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 37,
+          "endLine": 37
+        },
+        {
+          "name": "COPY include/ /app/include/",
+          "startLine": 38,
+          "endLine": 38
+        },
+        {
+          "name": "COPY src/     /app/src/",
+          "startLine": 39,
+          "endLine": 39
+        },
+        {
+          "name": "COPY CMakeLists.txt /app/CMakeLists.txt",
+          "startLine": 40,
+          "endLine": 40
+        },
+        {
+          "name": "RUN mkdir -p /app/build && cd /app/build && \\",
+          "startLine": 41,
+          "endLine": 41
+        },
+        {
+          "name": "FROM ubuntu:24.04 AS runtime",
+          "startLine": 50,
+          "endLine": 50
+        },
+        {
+          "name": "ENV DEBIAN_FRONTEND=noninteractive",
+          "startLine": 52,
+          "endLine": 52
+        },
+        {
+          "name": "RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \\",
+          "startLine": 56,
+          "endLine": 56
+        },
+        {
+          "name": "COPY --from=builder /usr/local/bin/mediamtx              /usr/loc",
+          "startLine": 75,
+          "endLine": 75
+        },
+        {
+          "name": "COPY --from=builder /usr/local/bin/drone_camera_streamer /usr/loc",
+          "startLine": 76,
+          "endLine": 76
+        },
+        {
+          "name": "COPY --from=builder /opt/ros/jazzy/lib/aarch64-linux-gnu/libreals",
+          "startLine": 77,
+          "endLine": 77
+        },
+        {
+          "name": "RUN ldconfig",
+          "startLine": 78,
+          "endLine": 78
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 80,
+          "endLine": 80
+        },
+        {
+          "name": "COPY scripts/     /app/scripts/",
+          "startLine": 81,
+          "endLine": 81
+        },
+        {
+          "name": "COPY camera.yaml  /app/camera.yaml",
+          "startLine": 82,
+          "endLine": 82
+        },
+        {
+          "name": "COPY mediamtx.yml /app/mediamtx.yml",
+          "startLine": 83,
+          "endLine": 83
+        },
+        {
+          "name": "COPY entrypoint.sh /app/entrypoint.sh",
+          "startLine": 84,
+          "endLine": 84
+        },
+        {
+          "name": "RUN chmod +x /app/entrypoint.sh /usr/local/bin/mediamtx /usr/loc",
+          "startLine": 85,
+          "endLine": 85
+        },
+        {
+          "name": "ENTRYPOINT [\"/app/entrypoint.sh\"]",
+          "startLine": 87,
+          "endLine": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 2,
+        "stepCount": 27
+      }
+    }
+  ]
+}

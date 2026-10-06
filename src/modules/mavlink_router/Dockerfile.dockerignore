@@ -1,0 +1,8 @@
+# Whitelist: send only what this image's Dockerfile COPYs (build context is the repo root).
+*
+!msg
+!src/lib
+!src/modules/mavlink_router
+**/build*
+**/__pycache__
+**/*.pyc

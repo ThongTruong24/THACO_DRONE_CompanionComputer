@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>cc_integration_tests</name>
+  <version>1.0.0</version>
+  <description>Wire-level integration tests against the MAVLink dialect and router supervisor</description>
+  <maintainer email="minh.civil.en.2249@gmail.com">THACO Drone</maintainer>
+  <license>Proprietary</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>cc_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

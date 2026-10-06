@@ -1,0 +1,36 @@
+# ============================================================
+# Cấu hình MediaMTX cho Drone Edge Video Streaming (Ultra Low Latency)
+# ============================================================
+
+logLevel: info
+logDestinations: [stdout]
+
+# Enables readiness checks without exposing the API outside the host network.
+api: true
+apiAddress: 127.0.0.1:9997
+
+# Host-networked listeners; reach them through thong.local where mDNS is available.
+rtspAddress: :8554
+rtmpAddress: :1935
+webrtcAddress: :8889
+
+# Giới hạn kích thước gói UDP RTP để tránh phân mảnh IP (MTU fragmentation) trên sóng RF SIYI và WiFi
+udpMaxPayloadSize: 1400
+
+# TCP is the reliable default for WLAN/QGroundControl/VLC. UDP remains available
+# for low-latency links that have been validated in the field.
+protocols: [tcp]
+
+# Bound per-reader backlog: slow readers are disconnected instead of causing latency growth.
+readTimeout: 20s
+writeTimeout: 20s
+writeQueueSize: 2048
+
+paths:
+  camera:
+    maxReaders: 10
+    overridePublisher: false
+  yolo:
+    maxReaders: 10
+    overridePublisher: false
+  all_others:

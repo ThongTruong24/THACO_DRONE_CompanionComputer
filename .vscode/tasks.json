@@ -1,0 +1,105 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Docker (Pi): Up / Start Stack",
+            "type": "shell",
+            "command": "./scripts/docker_pi_ctl.sh up",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            }
+        },
+        {
+            "label": "Docker (Pi): Build All Containers",
+            "type": "shell",
+            "command": "./scripts/docker_pi_ctl.sh build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            }
+        },
+        {
+            "label": "Docker (Pi): Sync Source & Restart",
+            "type": "shell",
+            "command": "./scripts/docker_pi_ctl.sh sync-and-run",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            }
+        },
+        {
+            "label": "Docker (Pi): Stop / Down Stack",
+            "type": "shell",
+            "command": "./scripts/docker_pi_ctl.sh down",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            }
+        },
+        {
+            "label": "Docker (Pi): Check Containers Status",
+            "type": "shell",
+            "command": "./scripts/docker_pi_ctl.sh status",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            }
+        },
+        {
+            "label": "Docker (Pi): Live Logs",
+            "type": "shell",
+            "command": "./scripts/docker_pi_ctl.sh logs",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "Docker (Local WSL): Build",
+            "type": "shell",
+            "command": "docker compose build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Docker (Local WSL): Up",
+            "type": "shell",
+            "command": "docker compose up -d",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Docker (Local WSL): Down",
+            "type": "shell",
+            "command": "docker compose down",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        }
+    ]
+}

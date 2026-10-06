@@ -1,0 +1,18 @@
+/**:
+  ros__parameters:
+    # Camera hardware model identity
+    camera_model: "v4l2_default"
+    camera_type: "v4l2"
+
+    # Capture video settings
+    video:
+      width: 1280
+      height: 720
+      rotation: 180
+
+    fps: 30
+
+    v4l2:
+      device_path: "/dev/video0"
+      pixel_format: "YUYV"
+      num_buffers: 4

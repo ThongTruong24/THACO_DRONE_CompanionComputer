@@ -1,0 +1,71 @@
+{
+  "batchIndex": 19,
+  "nodes": [
+    {
+      "id": "service:src/mavros/Dockerfile.update",
+      "type": "service",
+      "name": "Dockerfile.update",
+      "filePath": "src/mavros/Dockerfile.update",
+      "summary": "ROS 2 MAVROS subsystem (Dockerfile.update) integrating companion telemetry with ROS 2.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/mavros/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/mavros/README.md",
+      "summary": "ROS 2 MAVROS subsystem (README.md) integrating companion telemetry with ROS 2.",
+      "tags": [
+        "markdown",
+        "docs",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/mavros/entrypoint.sh",
+      "type": "file",
+      "name": "entrypoint.sh",
+      "filePath": "src/mavros/entrypoint.sh",
+      "summary": "ROS 2 MAVROS subsystem (entrypoint.sh) integrating companion telemetry with ROS 2.",
+      "tags": [
+        "shell",
+        "script",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/mavros/entrypoint.sh:cleanup",
+      "type": "function",
+      "name": "cleanup",
+      "filePath": "src/mavros/entrypoint.sh",
+      "summary": "Function cleanup() declared or defined in entrypoint.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 44,
+      "endLine": 50
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/mavros/entrypoint.sh",
+      "target": "function:src/mavros/entrypoint.sh:cleanup",
+      "type": "contains"
+    }
+  ]
+}

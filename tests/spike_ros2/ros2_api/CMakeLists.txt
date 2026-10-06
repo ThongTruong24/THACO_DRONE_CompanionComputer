@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+project(spike_ros2_api CXX)
+set(CMAKE_CXX_STANDARD 17)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+add_executable(spike_ros2_api spike_ros2_api.cpp)
+target_link_libraries(spike_ros2_api PRIVATE rclcpp::rclcpp ${std_msgs_TARGETS})

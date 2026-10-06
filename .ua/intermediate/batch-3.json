@@ -1,0 +1,21 @@
+{
+  "batchIndex": 3,
+  "nodes": [
+    {
+      "id": "service:src/camera-stream-controller/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "src/camera-stream-controller/Dockerfile",
+      "summary": "Camera stream controller component (Dockerfile) handling video acquisition and streaming.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

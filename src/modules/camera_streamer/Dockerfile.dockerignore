@@ -1,0 +1,9 @@
+# Whitelist: send only what this image's Dockerfile COPYs (build context is the repo root).
+*
+!msg
+!src/lib
+!src/drivers/camera
+!src/modules/camera_streamer
+**/build*
+**/__pycache__
+**/*.pyc

@@ -1,0 +1,144 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 6,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 6
+    }
+  },
+  "results": [
+    {
+      "path": ".agents/rules/00-core.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 25,
+      "nonEmptyLines": 18,
+      "sections": [
+        {
+          "heading": "Source of truth",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Host boundary",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "Service boundary",
+          "level": 2,
+          "line": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".agents/rules/01-networking.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 8,
+      "nonEmptyLines": 7,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": ".agents/rules/02-mavlink.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 26,
+      "nonEmptyLines": 22,
+      "sections": [
+        {
+          "heading": "MAVLink rules",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Single Source of Truth for MAVLink Packets (BẮT BUỘC)",
+          "level": 2,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".agents/rules/03-camera-rtsp.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": ".agents/rules/04-vision.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": ".agents/rules/05-doctor.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 17,
+      "nonEmptyLines": 15,
+      "sections": [
+        {
+          "heading": "05 — QUY TRÌNH CHẨN ĐOÁN MÃ LỖI TUẦN TỰ (scripts/doctor.sh)",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "MA TRẬN MÃ LỖI (ERROR CODE MATRIX)",
+          "level": 2,
+          "line": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

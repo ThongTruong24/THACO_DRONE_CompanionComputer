@@ -1,0 +1,1299 @@
+{
+  "batchIndex": 24,
+  "nodes": [
+    {
+      "id": "file:src/cc-agent/src/mavlink_core.cpp",
+      "type": "file",
+      "name": "mavlink_core.cpp",
+      "filePath": "src/cc-agent/src/mavlink_core.cpp",
+      "summary": "MAVLink message dispatcher and protocol packet handler for companion computer communication.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "very-complex"
+    },
+    {
+      "id": "file:src/cc-agent/src/network_monitor.cpp",
+      "type": "file",
+      "name": "network_monitor.cpp",
+      "filePath": "src/cc-agent/src/network_monitor.cpp",
+      "summary": "Companion computer agent component (network_monitor.cpp) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cc-agent/src/network_monitor.cpp:NetworkMonitor",
+      "type": "function",
+      "name": "NetworkMonitor",
+      "filePath": "src/cc-agent/src/network_monitor.cpp",
+      "summary": "Function NetworkMonitor() declared or defined in network_monitor.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 16,
+      "endLine": 21
+    },
+    {
+      "id": "function:src/cc-agent/src/network_monitor.cpp:get_if_addr",
+      "type": "function",
+      "name": "get_if_addr",
+      "filePath": "src/cc-agent/src/network_monitor.cpp",
+      "summary": "Function get_if_addr() declared or defined in network_monitor.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 23,
+      "endLine": 43
+    },
+    {
+      "id": "function:src/cc-agent/src/network_monitor.cpp:get_if_status",
+      "type": "function",
+      "name": "get_if_status",
+      "filePath": "src/cc-agent/src/network_monitor.cpp",
+      "summary": "Function get_if_status() declared or defined in network_monitor.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 45,
+      "endLine": 59
+    },
+    {
+      "id": "function:src/cc-agent/src/network_monitor.cpp:get_wlan_rssi",
+      "type": "function",
+      "name": "get_wlan_rssi",
+      "filePath": "src/cc-agent/src/network_monitor.cpp",
+      "summary": "Function get_wlan_rssi() declared or defined in network_monitor.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 61,
+      "endLine": 71
+    },
+    {
+      "id": "function:src/cc-agent/src/network_monitor.cpp:get_ap_clients",
+      "type": "function",
+      "name": "get_ap_clients",
+      "filePath": "src/cc-agent/src/network_monitor.cpp",
+      "summary": "Function get_ap_clients() declared or defined in network_monitor.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 73,
+      "endLine": 87
+    },
+    {
+      "id": "function:src/cc-agent/src/network_monitor.cpp:read_net_counters",
+      "type": "function",
+      "name": "read_net_counters",
+      "filePath": "src/cc-agent/src/network_monitor.cpp",
+      "summary": "Function read_net_counters() declared or defined in network_monitor.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 89,
+      "endLine": 105
+    },
+    {
+      "id": "function:src/cc-agent/src/network_monitor.cpp:read_stats",
+      "type": "function",
+      "name": "read_stats",
+      "filePath": "src/cc-agent/src/network_monitor.cpp",
+      "summary": "Function read_stats() declared or defined in network_monitor.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 107,
+      "endLine": 150
+    },
+    {
+      "id": "file:src/cc-agent/src/rollback_guard.cpp",
+      "type": "file",
+      "name": "rollback_guard.cpp",
+      "filePath": "src/cc-agent/src/rollback_guard.cpp",
+      "summary": "Companion computer agent component (rollback_guard.cpp) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cc-agent/src/rollback_guard.cpp:RollbackGuard",
+      "type": "function",
+      "name": "RollbackGuard",
+      "filePath": "src/cc-agent/src/rollback_guard.cpp",
+      "summary": "Function RollbackGuard() declared or defined in rollback_guard.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 6,
+      "endLine": 10
+    },
+    {
+      "id": "function:src/cc-agent/src/rollback_guard.cpp:record_fc_heartbeat",
+      "type": "function",
+      "name": "record_fc_heartbeat",
+      "filePath": "src/cc-agent/src/rollback_guard.cpp",
+      "summary": "Function record_fc_heartbeat() declared or defined in rollback_guard.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 12,
+      "endLine": 15
+    },
+    {
+      "id": "function:src/cc-agent/src/rollback_guard.cpp:is_fc_online",
+      "type": "function",
+      "name": "is_fc_online",
+      "filePath": "src/cc-agent/src/rollback_guard.cpp",
+      "summary": "Function is_fc_online() declared or defined in rollback_guard.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 17,
+      "endLine": 22
+    },
+    {
+      "id": "function:src/cc-agent/src/rollback_guard.cpp:get_fc_status",
+      "type": "function",
+      "name": "get_fc_status",
+      "filePath": "src/cc-agent/src/rollback_guard.cpp",
+      "summary": "Function get_fc_status() declared or defined in rollback_guard.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 24,
+      "endLine": 26
+    },
+    {
+      "id": "function:src/cc-agent/src/rollback_guard.cpp:start_trial",
+      "type": "function",
+      "name": "start_trial",
+      "filePath": "src/cc-agent/src/rollback_guard.cpp",
+      "summary": "Function start_trial() declared or defined in rollback_guard.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 28,
+      "endLine": 49
+    },
+    {
+      "id": "function:src/cc-agent/src/rollback_guard.cpp:tick_1hz",
+      "type": "function",
+      "name": "tick_1hz",
+      "filePath": "src/cc-agent/src/rollback_guard.cpp",
+      "summary": "Function tick_1hz() declared or defined in rollback_guard.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 51,
+      "endLine": 58
+    },
+    {
+      "id": "file:src/cc-agent/src/serial_enumerator.cpp",
+      "type": "file",
+      "name": "serial_enumerator.cpp",
+      "filePath": "src/cc-agent/src/serial_enumerator.cpp",
+      "summary": "Companion computer agent component (serial_enumerator.cpp) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cc-agent/src/serial_enumerator.cpp:is_valid_character_device",
+      "type": "function",
+      "name": "is_valid_character_device",
+      "filePath": "src/cc-agent/src/serial_enumerator.cpp",
+      "summary": "Function is_valid_character_device() declared or defined in serial_enumerator.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 14,
+      "endLine": 20
+    },
+    {
+      "id": "function:src/cc-agent/src/serial_enumerator.cpp:get_available_ports",
+      "type": "function",
+      "name": "get_available_ports",
+      "filePath": "src/cc-agent/src/serial_enumerator.cpp",
+      "summary": "Function get_available_ports() declared or defined in serial_enumerator.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 22,
+      "endLine": 110
+    },
+    {
+      "id": "file:src/cc-agent/src/system_metrics.cpp",
+      "type": "file",
+      "name": "system_metrics.cpp",
+      "filePath": "src/cc-agent/src/system_metrics.cpp",
+      "summary": "Companion computer agent component (system_metrics.cpp) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cc-agent/src/system_metrics.cpp:SystemMetricsCollector",
+      "type": "function",
+      "name": "SystemMetricsCollector",
+      "filePath": "src/cc-agent/src/system_metrics.cpp",
+      "summary": "Function SystemMetricsCollector() declared or defined in system_metrics.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 9,
+      "endLine": 12
+    },
+    {
+      "id": "function:src/cc-agent/src/system_metrics.cpp:read_stats",
+      "type": "function",
+      "name": "read_stats",
+      "filePath": "src/cc-agent/src/system_metrics.cpp",
+      "summary": "Function read_stats() declared or defined in system_metrics.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 14,
+      "endLine": 96
+    },
+    {
+      "id": "service:src/cc-agent/systemd/cc-config-agent.service",
+      "type": "service",
+      "name": "cc-config-agent.service",
+      "filePath": "src/cc-agent/systemd/cc-config-agent.service",
+      "summary": "Companion computer agent component (cc-config-agent.service) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "service",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cc-agent/tests/test_cc_config.py",
+      "type": "file",
+      "name": "test_cc_config.py",
+      "filePath": "src/cc-agent/tests/test_cc_config.py",
+      "summary": "Companion computer agent component (test_cc_config.py) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "python",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/tests/test_cc_config.py:TestCcConfigSubsystem",
+      "type": "class",
+      "name": "TestCcConfigSubsystem",
+      "filePath": "src/cc-agent/tests/test_cc_config.py",
+      "summary": "Class TestCcConfigSubsystem defined in test_cc_config.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 17,
+      "endLine": 110
+    },
+    {
+      "id": "file:src/cc-agent/tests/test_e2e_mavlink.py",
+      "type": "file",
+      "name": "test_e2e_mavlink.py",
+      "filePath": "src/cc-agent/tests/test_e2e_mavlink.py",
+      "summary": "Companion computer agent component (test_e2e_mavlink.py) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "python",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/tests/test_e2e_mavlink.py:TestE2EMavlink",
+      "type": "class",
+      "name": "TestE2EMavlink",
+      "filePath": "src/cc-agent/tests/test_e2e_mavlink.py",
+      "summary": "Class TestE2EMavlink defined in test_e2e_mavlink.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 22,
+      "endLine": 145
+    },
+    {
+      "id": "config:src/drone-networking/dnsmasq.conf",
+      "type": "config",
+      "name": "dnsmasq.conf",
+      "filePath": "src/drone-networking/dnsmasq.conf",
+      "summary": "DHCP and DNS server configuration assigning IPs to connecting ground control stations.",
+      "tags": [
+        "conf",
+        "code",
+        "networking",
+        "wifi",
+        "ap-sta"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/drone-networking/docs/sequence.puml",
+      "type": "document",
+      "name": "sequence.puml",
+      "filePath": "src/drone-networking/docs/sequence.puml",
+      "summary": "Networking subsystem file (sequence.puml) managing Wi-Fi, hotspot, and IP connectivity.",
+      "tags": [
+        "puml",
+        "code",
+        "networking",
+        "wifi",
+        "ap-sta"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/drone-networking/hostapd.conf",
+      "type": "config",
+      "name": "hostapd.conf",
+      "filePath": "src/drone-networking/hostapd.conf",
+      "summary": "Wi-Fi Access Point configuration providing local ground control connectivity.",
+      "tags": [
+        "conf",
+        "code",
+        "networking",
+        "wifi",
+        "ap-sta"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/drone-networking/wifi_manager.py",
+      "type": "file",
+      "name": "wifi_manager.py",
+      "filePath": "src/drone-networking/wifi_manager.py",
+      "summary": "Wi-Fi state manager monitoring signal quality and handling automatic AP/STA failover.",
+      "tags": [
+        "python",
+        "code",
+        "networking",
+        "wifi",
+        "ap-sta"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/drone-networking/wifi_manager.py:WiFiConfigInterface",
+      "type": "class",
+      "name": "WiFiConfigInterface",
+      "filePath": "src/drone-networking/wifi_manager.py",
+      "summary": "Class WiFiConfigInterface defined in wifi_manager.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 21,
+      "endLine": 34
+    },
+    {
+      "id": "class:src/drone-networking/wifi_manager.py:JsonWiFiManager",
+      "type": "class",
+      "name": "JsonWiFiManager",
+      "filePath": "src/drone-networking/wifi_manager.py",
+      "summary": "Class JsonWiFiManager defined in wifi_manager.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 37,
+      "endLine": 123
+    },
+    {
+      "id": "document:src/drone-vision/docs/sequence.puml",
+      "type": "document",
+      "name": "sequence.puml",
+      "filePath": "src/drone-vision/docs/sequence.puml",
+      "summary": "Drone vision component (sequence.puml) performing real-time object detection and localization.",
+      "tags": [
+        "puml",
+        "code",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/drone-vision/scripts/object_geometry.py",
+      "type": "file",
+      "name": "object_geometry.py",
+      "filePath": "src/drone-vision/scripts/object_geometry.py",
+      "summary": "3D spatial geometry and bounding box coordinate transformation to real-world coordinates.",
+      "tags": [
+        "python",
+        "code",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/drone-vision/scripts/object_geometry.py:Intrinsics",
+      "type": "class",
+      "name": "Intrinsics",
+      "filePath": "src/drone-vision/scripts/object_geometry.py",
+      "summary": "Class Intrinsics defined in object_geometry.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 11,
+      "endLine": 15
+    },
+    {
+      "id": "class:src/drone-vision/scripts/object_geometry.py:DepthEstimate",
+      "type": "class",
+      "name": "DepthEstimate",
+      "filePath": "src/drone-vision/scripts/object_geometry.py",
+      "summary": "Class DepthEstimate defined in object_geometry.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 19,
+      "endLine": 23
+    },
+    {
+      "id": "function:src/drone-vision/scripts/object_geometry.py:estimate_roi_depth",
+      "type": "function",
+      "name": "estimate_roi_depth",
+      "filePath": "src/drone-vision/scripts/object_geometry.py",
+      "summary": "Function estimate_roi_depth() declared or defined in object_geometry.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 26,
+      "endLine": 62
+    },
+    {
+      "id": "function:src/drone-vision/scripts/object_geometry.py:deproject_pixel",
+      "type": "function",
+      "name": "deproject_pixel",
+      "filePath": "src/drone-vision/scripts/object_geometry.py",
+      "summary": "Function deproject_pixel() declared or defined in object_geometry.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 65,
+      "endLine": 75
+    },
+    {
+      "id": "file:src/drone-vision/scripts/vision_processor.py",
+      "type": "file",
+      "name": "vision_processor.py",
+      "filePath": "src/drone-vision/scripts/vision_processor.py",
+      "summary": "Real-time computer vision coordinator detecting targets and publishing vision telemetry.",
+      "tags": [
+        "python",
+        "code",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/drone-vision/scripts/vision_processor.py:VisionProcessor",
+      "type": "class",
+      "name": "VisionProcessor",
+      "filePath": "src/drone-vision/scripts/vision_processor.py",
+      "summary": "Class VisionProcessor defined in vision_processor.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 26,
+      "endLine": 106
+    },
+    {
+      "id": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "type": "file",
+      "name": "yolo_streamer.py",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "YOLO neural network object detection pipeline processing live camera feeds.",
+      "tags": [
+        "python",
+        "code",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/drone-vision/scripts/yolo_streamer.py:LatestFrame",
+      "type": "class",
+      "name": "LatestFrame",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Class LatestFrame defined in yolo_streamer.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 73,
+      "endLine": 90
+    },
+    {
+      "id": "class:src/drone-vision/scripts/yolo_streamer.py:RealSenseDepthSource",
+      "type": "class",
+      "name": "RealSenseDepthSource",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Class RealSenseDepthSource defined in yolo_streamer.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 118,
+      "endLine": 175
+    },
+    {
+      "id": "class:src/drone-vision/scripts/yolo_streamer.py:RtspSource",
+      "type": "class",
+      "name": "RtspSource",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Class RtspSource defined in yolo_streamer.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 178,
+      "endLine": 213
+    },
+    {
+      "id": "function:src/drone-vision/scripts/yolo_streamer.py:is_camera_standby",
+      "type": "function",
+      "name": "is_camera_standby",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Function is_camera_standby() declared or defined in yolo_streamer.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 1,
+      "endLine": 8
+    },
+    {
+      "id": "function:src/drone-vision/scripts/yolo_streamer.py:load_config",
+      "type": "function",
+      "name": "load_config",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Function load_config() declared or defined in yolo_streamer.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 34,
+      "endLine": 66
+    },
+    {
+      "id": "function:src/drone-vision/scripts/yolo_streamer.py:sample_depth",
+      "type": "function",
+      "name": "sample_depth",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Function sample_depth() declared or defined in yolo_streamer.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 97,
+      "endLine": 111
+    },
+    {
+      "id": "function:src/drone-vision/scripts/yolo_streamer.py:inference_loop",
+      "type": "function",
+      "name": "inference_loop",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Function inference_loop() declared or defined in yolo_streamer.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 220,
+      "endLine": 282
+    },
+    {
+      "id": "function:src/drone-vision/scripts/yolo_streamer.py:quote",
+      "type": "function",
+      "name": "quote",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Function quote() declared or defined in yolo_streamer.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 289,
+      "endLine": 290
+    },
+    {
+      "id": "function:src/drone-vision/scripts/yolo_streamer.py:output_pipeline",
+      "type": "function",
+      "name": "output_pipeline",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Function output_pipeline() declared or defined in yolo_streamer.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 293,
+      "endLine": 303
+    },
+    {
+      "id": "function:src/drone-vision/scripts/yolo_streamer.py:publish_loop",
+      "type": "function",
+      "name": "publish_loop",
+      "filePath": "src/drone-vision/scripts/yolo_streamer.py",
+      "summary": "Function publish_loop() declared or defined in yolo_streamer.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 306,
+      "endLine": 346
+    },
+    {
+      "id": "file:src/drone-vision/tests/test_object_geometry.py",
+      "type": "file",
+      "name": "test_object_geometry.py",
+      "filePath": "src/drone-vision/tests/test_object_geometry.py",
+      "summary": "3D spatial geometry and bounding box coordinate transformation to real-world coordinates.",
+      "tags": [
+        "python",
+        "code",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/drone-vision/tests/test_object_geometry.py:ObjectGeometryTests",
+      "type": "class",
+      "name": "ObjectGeometryTests",
+      "filePath": "src/drone-vision/tests/test_object_geometry.py",
+      "summary": "Class ObjectGeometryTests defined in test_object_geometry.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 13,
+      "endLine": 28
+    },
+    {
+      "id": "file:src/drone-vision/tests/test_yolo_streamer.py",
+      "type": "file",
+      "name": "test_yolo_streamer.py",
+      "filePath": "src/drone-vision/tests/test_yolo_streamer.py",
+      "summary": "YOLO neural network object detection pipeline processing live camera feeds.",
+      "tags": [
+        "python",
+        "code",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/drone-vision/tests/test_yolo_streamer.py:WorkerTests",
+      "type": "class",
+      "name": "WorkerTests",
+      "filePath": "src/drone-vision/tests/test_yolo_streamer.py",
+      "summary": "Class WorkerTests defined in test_yolo_streamer.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 15,
+      "endLine": 75
+    },
+    {
+      "id": "file:src/drone-vision/yolo26n.pt",
+      "type": "file",
+      "name": "yolo26n.pt",
+      "filePath": "src/drone-vision/yolo26n.pt",
+      "summary": "YOLO neural network object detection pipeline processing live camera feeds.",
+      "tags": [
+        "pt",
+        "code",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "very-complex"
+    },
+    {
+      "id": "document:src/hardware-manager/CMakeLists.txt",
+      "type": "document",
+      "name": "CMakeLists.txt",
+      "filePath": "src/hardware-manager/CMakeLists.txt",
+      "summary": "Hardware management component (CMakeLists.txt) monitoring physical interfaces and ports.",
+      "tags": [
+        "txt",
+        "docs",
+        "hardware",
+        "serial",
+        "scanner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/hardware-manager/include/hw_manager.hpp",
+      "type": "file",
+      "name": "hw_manager.hpp",
+      "filePath": "src/hardware-manager/include/hw_manager.hpp",
+      "summary": "Hardware manager monitoring USB, I2C, and UART peripheral health.",
+      "tags": [
+        "cpp",
+        "code",
+        "hardware",
+        "serial",
+        "scanner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/hardware-manager/include/hw_manager.hpp:HardwareManagerServer",
+      "type": "class",
+      "name": "HardwareManagerServer",
+      "filePath": "src/hardware-manager/include/hw_manager.hpp",
+      "summary": "Class HardwareManagerServer defined in hw_manager.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 12,
+      "endLine": 32
+    },
+    {
+      "id": "file:src/hardware-manager/include/nlohmann/json.hpp",
+      "type": "file",
+      "name": "json.hpp",
+      "filePath": "src/hardware-manager/include/nlohmann/json.hpp",
+      "summary": "Hardware management component (json.hpp) monitoring physical interfaces and ports.",
+      "tags": [
+        "cpp",
+        "code",
+        "hardware",
+        "serial",
+        "scanner"
+      ],
+      "complexity": "very-complex"
+    },
+    {
+      "id": "file:src/hardware-manager/include/serial_scanner.hpp",
+      "type": "file",
+      "name": "serial_scanner.hpp",
+      "filePath": "src/hardware-manager/include/serial_scanner.hpp",
+      "summary": "Automated serial port scanner detecting connected Flight Controllers and sensors.",
+      "tags": [
+        "cpp",
+        "code",
+        "hardware",
+        "serial",
+        "scanner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/hardware-manager/include/serial_scanner.hpp:SerialDevice",
+      "type": "class",
+      "name": "SerialDevice",
+      "filePath": "src/hardware-manager/include/serial_scanner.hpp",
+      "summary": "Class SerialDevice defined in serial_scanner.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 8,
+      "endLine": 14
+    },
+    {
+      "id": "class:src/hardware-manager/include/serial_scanner.hpp:SerialScanner",
+      "type": "class",
+      "name": "SerialScanner",
+      "filePath": "src/hardware-manager/include/serial_scanner.hpp",
+      "summary": "Class SerialScanner defined in serial_scanner.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 16,
+      "endLine": 21
+    },
+    {
+      "id": "file:src/hardware-manager/src/hw_manager.cpp",
+      "type": "file",
+      "name": "hw_manager.cpp",
+      "filePath": "src/hardware-manager/src/hw_manager.cpp",
+      "summary": "Hardware manager monitoring USB, I2C, and UART peripheral health.",
+      "tags": [
+        "cpp",
+        "code",
+        "hardware",
+        "serial",
+        "scanner"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/hardware-manager/src/hw_manager.cpp:HardwareManagerServer",
+      "type": "function",
+      "name": "HardwareManagerServer",
+      "filePath": "src/hardware-manager/src/hw_manager.cpp",
+      "summary": "Function HardwareManagerServer() declared or defined in hw_manager.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 15,
+      "endLine": 16
+    },
+    {
+      "id": "function:src/hardware-manager/src/hw_manager.cpp:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/hardware-manager/src/hw_manager.cpp",
+      "summary": "Function start() declared or defined in hw_manager.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 22,
+      "endLine": 68
+    },
+    {
+      "id": "function:src/hardware-manager/src/hw_manager.cpp:stop",
+      "type": "function",
+      "name": "stop",
+      "filePath": "src/hardware-manager/src/hw_manager.cpp",
+      "summary": "Function stop() declared or defined in hw_manager.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 70,
+      "endLine": 85
+    },
+    {
+      "id": "function:src/hardware-manager/src/hw_manager.cpp:run_accept_loop",
+      "type": "function",
+      "name": "run_accept_loop",
+      "filePath": "src/hardware-manager/src/hw_manager.cpp",
+      "summary": "Function run_accept_loop() declared or defined in hw_manager.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 87,
+      "endLine": 98
+    },
+    {
+      "id": "function:src/hardware-manager/src/hw_manager.cpp:handle_client",
+      "type": "function",
+      "name": "handle_client",
+      "filePath": "src/hardware-manager/src/hw_manager.cpp",
+      "summary": "Function handle_client() declared or defined in hw_manager.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 100,
+      "endLine": 128
+    },
+    {
+      "id": "function:src/hardware-manager/src/hw_manager.cpp:process_json_command",
+      "type": "function",
+      "name": "process_json_command",
+      "filePath": "src/hardware-manager/src/hw_manager.cpp",
+      "summary": "Function process_json_command() declared or defined in hw_manager.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 130,
+      "endLine": 204
+    },
+    {
+      "id": "file:src/hardware-manager/src/main.cpp",
+      "type": "file",
+      "name": "main.cpp",
+      "filePath": "src/hardware-manager/src/main.cpp",
+      "summary": "Hardware management component (main.cpp) monitoring physical interfaces and ports.",
+      "tags": [
+        "cpp",
+        "code",
+        "hardware",
+        "serial",
+        "scanner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hardware-manager/src/main.cpp:sig_handler",
+      "type": "function",
+      "name": "sig_handler",
+      "filePath": "src/hardware-manager/src/main.cpp",
+      "summary": "Function sig_handler() declared or defined in main.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 9,
+      "endLine": 12
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cc-agent/src/network_monitor.cpp",
+      "target": "function:src/cc-agent/src/network_monitor.cpp:NetworkMonitor",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/network_monitor.cpp",
+      "target": "function:src/cc-agent/src/network_monitor.cpp:get_if_addr",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/network_monitor.cpp",
+      "target": "function:src/cc-agent/src/network_monitor.cpp:get_if_status",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/network_monitor.cpp",
+      "target": "function:src/cc-agent/src/network_monitor.cpp:get_wlan_rssi",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/network_monitor.cpp",
+      "target": "function:src/cc-agent/src/network_monitor.cpp:get_ap_clients",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/network_monitor.cpp",
+      "target": "function:src/cc-agent/src/network_monitor.cpp:read_net_counters",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/network_monitor.cpp",
+      "target": "function:src/cc-agent/src/network_monitor.cpp:read_stats",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/rollback_guard.cpp",
+      "target": "function:src/cc-agent/src/rollback_guard.cpp:RollbackGuard",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/rollback_guard.cpp",
+      "target": "function:src/cc-agent/src/rollback_guard.cpp:record_fc_heartbeat",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/rollback_guard.cpp",
+      "target": "function:src/cc-agent/src/rollback_guard.cpp:is_fc_online",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/rollback_guard.cpp",
+      "target": "function:src/cc-agent/src/rollback_guard.cpp:get_fc_status",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/rollback_guard.cpp",
+      "target": "function:src/cc-agent/src/rollback_guard.cpp:start_trial",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/rollback_guard.cpp",
+      "target": "function:src/cc-agent/src/rollback_guard.cpp:tick_1hz",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/serial_enumerator.cpp",
+      "target": "function:src/cc-agent/src/serial_enumerator.cpp:is_valid_character_device",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/serial_enumerator.cpp",
+      "target": "function:src/cc-agent/src/serial_enumerator.cpp:get_available_ports",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/system_metrics.cpp",
+      "target": "function:src/cc-agent/src/system_metrics.cpp:SystemMetricsCollector",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/src/system_metrics.cpp",
+      "target": "function:src/cc-agent/src/system_metrics.cpp:read_stats",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/tests/test_cc_config.py",
+      "target": "class:src/cc-agent/tests/test_cc_config.py:TestCcConfigSubsystem",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/tests/test_e2e_mavlink.py",
+      "target": "class:src/cc-agent/tests/test_e2e_mavlink.py:TestE2EMavlink",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-networking/wifi_manager.py",
+      "target": "class:src/drone-networking/wifi_manager.py:WiFiConfigInterface",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-networking/wifi_manager.py",
+      "target": "class:src/drone-networking/wifi_manager.py:JsonWiFiManager",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/object_geometry.py",
+      "target": "class:src/drone-vision/scripts/object_geometry.py:Intrinsics",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/object_geometry.py",
+      "target": "class:src/drone-vision/scripts/object_geometry.py:DepthEstimate",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/object_geometry.py",
+      "target": "function:src/drone-vision/scripts/object_geometry.py:estimate_roi_depth",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/object_geometry.py",
+      "target": "function:src/drone-vision/scripts/object_geometry.py:deproject_pixel",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/vision_processor.py",
+      "target": "class:src/drone-vision/scripts/vision_processor.py:VisionProcessor",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "class:src/drone-vision/scripts/yolo_streamer.py:LatestFrame",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "class:src/drone-vision/scripts/yolo_streamer.py:RealSenseDepthSource",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "class:src/drone-vision/scripts/yolo_streamer.py:RtspSource",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "function:src/drone-vision/scripts/yolo_streamer.py:is_camera_standby",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "function:src/drone-vision/scripts/yolo_streamer.py:load_config",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "function:src/drone-vision/scripts/yolo_streamer.py:sample_depth",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "function:src/drone-vision/scripts/yolo_streamer.py:inference_loop",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "function:src/drone-vision/scripts/yolo_streamer.py:quote",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "function:src/drone-vision/scripts/yolo_streamer.py:output_pipeline",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/scripts/yolo_streamer.py",
+      "target": "function:src/drone-vision/scripts/yolo_streamer.py:publish_loop",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/tests/test_object_geometry.py",
+      "target": "class:src/drone-vision/tests/test_object_geometry.py:ObjectGeometryTests",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-vision/tests/test_yolo_streamer.py",
+      "target": "class:src/drone-vision/tests/test_yolo_streamer.py:WorkerTests",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/include/hw_manager.hpp",
+      "target": "class:src/hardware-manager/include/hw_manager.hpp:HardwareManagerServer",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/include/hw_manager.hpp",
+      "target": "file:src/hardware-manager/include/serial_scanner.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/hardware-manager/include/serial_scanner.hpp",
+      "target": "class:src/hardware-manager/include/serial_scanner.hpp:SerialDevice",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/include/serial_scanner.hpp",
+      "target": "class:src/hardware-manager/include/serial_scanner.hpp:SerialScanner",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/src/hw_manager.cpp",
+      "target": "function:src/hardware-manager/src/hw_manager.cpp:HardwareManagerServer",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/src/hw_manager.cpp",
+      "target": "function:src/hardware-manager/src/hw_manager.cpp:start",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/src/hw_manager.cpp",
+      "target": "function:src/hardware-manager/src/hw_manager.cpp:stop",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/src/hw_manager.cpp",
+      "target": "function:src/hardware-manager/src/hw_manager.cpp:run_accept_loop",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/src/hw_manager.cpp",
+      "target": "function:src/hardware-manager/src/hw_manager.cpp:handle_client",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/src/hw_manager.cpp",
+      "target": "function:src/hardware-manager/src/hw_manager.cpp:process_json_command",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/hardware-manager/src/main.cpp",
+      "target": "function:src/hardware-manager/src/main.cpp:sig_handler",
+      "type": "contains"
+    }
+  ]
+}

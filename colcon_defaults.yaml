@@ -1,0 +1,26 @@
+# Explicit package list (colcon must not crawl src/lib or the vendored headers).
+# Pure-Python modules (networking, vision) join when they get a package.xml (T10/T11).
+# Used via: COLCON_DEFAULTS_FILE=$(pwd)/colcon_defaults.yaml colcon build|test
+build:
+  base-paths: &paths
+    - msg
+    - src/lib/link_config
+    - src/lib/serial
+    - src/lib/frame_pool
+    - src/lib/systemlib
+    - src/modules/mavlink
+    - src/modules/mavlink_router
+    - src/modules/camera_streamer
+    - platforms/linux/edge_agent
+    - src/modules/config_manager
+    - src/modules/vision
+    - src/modules/networking
+    - tests
+  cmake-args:
+    - -DCMAKE_BUILD_TYPE=Release
+    - -DBUILD_TESTING=ON
+test:
+  base-paths: *paths
+  executor: sequential
+test-result:
+  test-result-base: build

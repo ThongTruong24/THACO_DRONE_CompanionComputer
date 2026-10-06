@@ -1,0 +1,21 @@
+{
+  "batchIndex": 7,
+  "nodes": [
+    {
+      "id": "service:src/hardware-manager/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "src/hardware-manager/Dockerfile",
+      "summary": "Hardware management component (Dockerfile) monitoring physical interfaces and ports.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "hardware",
+        "serial",
+        "scanner"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

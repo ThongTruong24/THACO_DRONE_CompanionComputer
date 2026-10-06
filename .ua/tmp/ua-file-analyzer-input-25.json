@@ -1,0 +1,182 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/hardware-manager/src/serial_scanner.cpp",
+      "language": "cpp",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/include/nlohmann/json.hpp",
+      "language": "cpp",
+      "sizeLines": 5258,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/include/router_supervisor.hpp",
+      "language": "cpp",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/mavlink-router.conf",
+      "language": "conf",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/mavlink-tcp-proxy.py",
+      "language": "python",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/src/main.cpp",
+      "language": "cpp",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavlink-router-controller/src/router_supervisor.cpp",
+      "language": "cpp",
+      "sizeLines": 368,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/include/plugin_agridrone/agridrone_plugin.hpp",
+      "language": "cpp",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/include/plugin_agridrone/telemetry_codec.hpp",
+      "language": "cpp",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/src/agridrone_plugin.cpp",
+      "language": "cpp",
+      "sizeLines": 454,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 8,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/msg/Event.msg",
+      "language": "msg",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/msg/ParameterRequest.msg",
+      "language": "msg",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/msg/ParameterResponse.msg",
+      "language": "msg",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/msg/TelemetrySnapshot.msg",
+      "language": "msg",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/package.xml",
+      "language": "xml",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_interfaces/srv/Command.srv",
+      "language": "srv",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/config/cc_telemetry.yaml",
+      "language": "yaml",
+      "sizeLines": 28,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/include/cc_telemetry/collectors.hpp",
+      "language": "cpp",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/include/cc_telemetry/parameter_store.hpp",
+      "language": "cpp",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/include/cc_telemetry/system_metrics.hpp",
+      "language": "cpp",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/collectors.cpp",
+      "language": "cpp",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mavros/ros2ws/cc_telemetry/src/node.cpp",
+      "language": "cpp",
+      "sizeLines": 899,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/hardware-manager/src/serial_scanner.cpp": [],
+    "src/mavlink-router-controller/docs/sequence.puml": [],
+    "src/mavlink-router-controller/include/nlohmann/json.hpp": [],
+    "src/mavlink-router-controller/include/router_supervisor.hpp": [],
+    "src/mavlink-router-controller/mavlink-router.conf": [],
+    "src/mavlink-router-controller/mavlink-tcp-proxy.py": [],
+    "src/mavlink-router-controller/src/main.cpp": [],
+    "src/mavlink-router-controller/src/router_supervisor.cpp": [],
+    "src/mavros/docs/sequence.puml": [],
+    "src/mavros/mavlink/plugin_agridrone/include/plugin_agridrone/agridrone_plugin.hpp": [],
+    "src/mavros/mavlink/plugin_agridrone/include/plugin_agridrone/telemetry_codec.hpp": [],
+    "src/mavros/mavlink/plugin_agridrone/src/agridrone_plugin.cpp": [],
+    "src/mavros/ros2ws/cc_interfaces/CMakeLists.txt": [],
+    "src/mavros/ros2ws/cc_interfaces/msg/Event.msg": [],
+    "src/mavros/ros2ws/cc_interfaces/msg/ParameterRequest.msg": [],
+    "src/mavros/ros2ws/cc_interfaces/msg/ParameterResponse.msg": [],
+    "src/mavros/ros2ws/cc_interfaces/msg/TelemetrySnapshot.msg": [],
+    "src/mavros/ros2ws/cc_interfaces/package.xml": [],
+    "src/mavros/ros2ws/cc_interfaces/srv/Command.srv": [],
+    "src/mavros/ros2ws/cc_telemetry/config/cc_telemetry.yaml": [],
+    "src/mavros/ros2ws/cc_telemetry/include/cc_telemetry/collectors.hpp": [],
+    "src/mavros/ros2ws/cc_telemetry/include/cc_telemetry/parameter_store.hpp": [],
+    "src/mavros/ros2ws/cc_telemetry/include/cc_telemetry/system_metrics.hpp": [],
+    "src/mavros/ros2ws/cc_telemetry/src/collectors.cpp": [],
+    "src/mavros/ros2ws/cc_telemetry/src/node.cpp": []
+  }
+}

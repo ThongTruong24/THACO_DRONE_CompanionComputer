@@ -1,0 +1,23 @@
+ M src/drivers/camera/camera_interface.hpp
+ M src/modules/networking/Dockerfile
+ M src/modules/networking/Dockerfile.dockerignore
+ M src/modules/networking/entrypoint.sh
+D  src/modules/networking/hostapd.conf
+D  src/modules/networking/wifi_manager.py
+?? cmake/
+?? msg/
+?? platforms/linux/docker/
+?? src/drivers/camera/ICameraDevice.hpp
+?? src/lib/atomic_file/
+?? src/lib/frame_pool/
+?? src/lib/hrt/
+?? src/lib/link_config/
+?? src/lib/serial/
+?? src/lib/systemlib/
+?? src/modules/networking/networking/
+?? src/modules/networking/package.xml
+?? src/modules/networking/resource/
+?? src/modules/networking/setup.cfg
+?? src/modules/networking/setup.py
+?? src/modules/networking/tests/
+09701d995f6de80678e0f8b95b9ba3ef35ba63ca

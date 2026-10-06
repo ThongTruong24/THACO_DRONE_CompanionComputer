@@ -1,0 +1,144 @@
+{
+  "batchIndex": 11,
+  "nodes": [
+    {
+      "id": "file:.dockerignore",
+      "type": "file",
+      "name": ".dockerignore",
+      "filePath": ".dockerignore",
+      "summary": "Project file (.dockerignore) contributing to infra operations.",
+      "tags": [
+        "unknown",
+        "infra"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.env",
+      "type": "config",
+      "name": ".env",
+      "filePath": ".env",
+      "summary": "Project file (.env) contributing to config operations.",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": ".env.example",
+      "summary": "Project file (.env.example) contributing to config operations.",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:AGENTS.md",
+      "type": "document",
+      "name": "AGENTS.md",
+      "filePath": "AGENTS.md",
+      "summary": "Project file (AGENTS.md) contributing to docs operations.",
+      "tags": [
+        "markdown",
+        "docs"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:Makefile",
+      "type": "file",
+      "name": "Makefile",
+      "filePath": "Makefile",
+      "summary": "Build automation Makefile providing high-level commands for build, deploy, test, and diagnostics.",
+      "tags": [
+        "makefile",
+        "infra"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Primary project documentation explaining architecture, setup, and deployment on Raspberry Pi 5.",
+      "tags": [
+        "markdown",
+        "docs"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:docker-compose.yml",
+      "type": "config",
+      "name": "docker-compose.yml",
+      "filePath": "docker-compose.yml",
+      "summary": "Master Docker Compose manifest orchestrating all companion microservices on the drone.",
+      "tags": [
+        "yaml",
+        "infra"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/camera-stream-controller/Dockerfile",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/camera-stream-controller/Dockerfile.cross",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/cc-agent/Dockerfile",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/cc-agent/Dockerfile.cross",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/drone-networking/Dockerfile",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/drone-vision/Dockerfile",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/drone-vision/Dockerfile.base",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/hardware-manager/Dockerfile",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/mavlink-router-controller/Dockerfile",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/mavros/Dockerfile",
+      "type": "deploys"
+    },
+    {
+      "source": "config:docker-compose.yml",
+      "target": "service:src/mavros/Dockerfile.update",
+      "type": "deploys"
+    }
+  ]
+}

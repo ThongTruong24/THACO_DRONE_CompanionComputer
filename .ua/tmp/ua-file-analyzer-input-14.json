@@ -1,0 +1,49 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/camera-stream-controller/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 72,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/camera-stream-controller/Dockerfile.cross",
+      "language": "dockerfile",
+      "sizeLines": 28,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "src/camera-stream-controller/README.md",
+      "language": "markdown",
+      "sizeLines": 112,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/camera-stream-controller/camera.yaml",
+      "language": "yaml",
+      "sizeLines": 66,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/camera-stream-controller/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 40,
+      "fileCategory": "script"
+    },
+    {
+      "path": "src/camera-stream-controller/mediamtx.yml",
+      "language": "yaml",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "src/camera-stream-controller/CMakeLists.txt": [],
+    "src/camera-stream-controller/Dockerfile.cross": [],
+    "src/camera-stream-controller/README.md": [],
+    "src/camera-stream-controller/camera.yaml": [],
+    "src/camera-stream-controller/entrypoint.sh": [],
+    "src/camera-stream-controller/mediamtx.yml": []
+  }
+}

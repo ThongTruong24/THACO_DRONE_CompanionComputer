@@ -1,0 +1,4 @@
+LinkConfig config
+---
+bool success
+string message

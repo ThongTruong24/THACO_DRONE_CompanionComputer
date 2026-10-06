@@ -1,0 +1,17 @@
+/**:
+  ros__parameters:
+    # Selected camera hardware model (maps to /app/config/cameras/${camera_model}.yaml)
+    camera_model: "realsense_d435i"
+
+    model: "yolo26n.pt"
+    confidence: 0.35
+    source: "/camera/frame_ready"
+    imgsz: 320
+    inference_fps: 5
+    fps: 15
+    width: 640
+    height: 480
+    bitrate_kbps: 1000
+    output_url: "rtmp://127.0.0.1:1935/yolo"
+    stale_seconds: 2.0
+    pool_dir: "/run/frame_pool"

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>edge_agent</name>
+  <version>1.0.0</version>
+  <description>Edge Agent daemon for THACO Drone Companion Computer</description>
+  <maintainer email="dev@thaco.vn">THACO Drone Team</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>cc_msgs</depend>
+  <depend>cc_mavlink</depend>
+  <depend>config_manager</depend>
+  <depend>cc_systemlib</depend>
+  <depend>cc_link_config</depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

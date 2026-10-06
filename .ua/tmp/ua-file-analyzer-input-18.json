@@ -1,0 +1,28 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/mavlink-router-controller/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 19,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavlink-router-controller/README.md",
+      "language": "markdown",
+      "sizeLines": 88,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavlink-router-controller/entrypoint.sh",
+      "language": "shell",
+      "sizeLines": 72,
+      "fileCategory": "script"
+    }
+  ],
+  "batchImportData": {
+    "src/mavlink-router-controller/CMakeLists.txt": [],
+    "src/mavlink-router-controller/README.md": [],
+    "src/mavlink-router-controller/entrypoint.sh": []
+  }
+}

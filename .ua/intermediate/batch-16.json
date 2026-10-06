@@ -1,0 +1,90 @@
+{
+  "batchIndex": 16,
+  "nodes": [
+    {
+      "id": "config:src/drone-networking/50-drone.yaml",
+      "type": "config",
+      "name": "50-drone.yaml",
+      "filePath": "src/drone-networking/50-drone.yaml",
+      "summary": "Netplan networking configuration for simultaneous AP (hotspot) and STA (station) modes.",
+      "tags": [
+        "yaml",
+        "config",
+        "networking",
+        "wifi",
+        "ap-sta"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/drone-networking/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/drone-networking/README.md",
+      "summary": "Networking subsystem file (README.md) managing Wi-Fi, hotspot, and IP connectivity.",
+      "tags": [
+        "markdown",
+        "docs",
+        "networking",
+        "wifi",
+        "ap-sta"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/drone-networking/entrypoint.sh",
+      "type": "file",
+      "name": "entrypoint.sh",
+      "filePath": "src/drone-networking/entrypoint.sh",
+      "summary": "Networking subsystem file (entrypoint.sh) managing Wi-Fi, hotspot, and IP connectivity.",
+      "tags": [
+        "shell",
+        "script",
+        "networking",
+        "wifi",
+        "ap-sta"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/drone-networking/entrypoint.sh:watch_wifi_contract",
+      "type": "function",
+      "name": "watch_wifi_contract",
+      "filePath": "src/drone-networking/entrypoint.sh",
+      "summary": "Function watch_wifi_contract() declared or defined in entrypoint.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 230,
+      "endLine": 272
+    },
+    {
+      "id": "function:src/drone-networking/entrypoint.sh:cleanup",
+      "type": "function",
+      "name": "cleanup",
+      "filePath": "src/drone-networking/entrypoint.sh",
+      "summary": "Function cleanup() declared or defined in entrypoint.sh.",
+      "tags": [
+        "function",
+        "shell"
+      ],
+      "complexity": "simple",
+      "startLine": 277,
+      "endLine": 285
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/drone-networking/entrypoint.sh",
+      "target": "function:src/drone-networking/entrypoint.sh:watch_wifi_contract",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/drone-networking/entrypoint.sh",
+      "target": "function:src/drone-networking/entrypoint.sh:cleanup",
+      "type": "contains"
+    }
+  ]
+}
