@@ -1,0 +1,14 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/mavlink-router-controller/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 48,
+      "fileCategory": "infra"
+    }
+  ],
+  "batchImportData": {
+    "src/mavlink-router-controller/Dockerfile": []
+  }
+}

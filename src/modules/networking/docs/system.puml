@@ -1,0 +1,36 @@
+@startuml networking-system
+title Drone Networking: System Component & Interface Diagram
+
+package "Host Network Interfaces" {
+  interface "wlan0 (Physical WiFi)" as wlan0
+  interface "uap0 (Virtual AP)" as uap0
+  interface "eth0 (Physical Ethernet)" as eth0
+}
+
+package "Drone Networking Container (network_mode: host)" {
+  component "entrypoint.sh\n(Supervisor)" as EP
+  component "hostapd\n(AP Daemon)" as Hostapd
+  component "dnsmasq\n(DHCP / DNS)" as Dnsmasq
+  component "avahi-daemon\n(mDNS Service)" as Avahi
+  component "Config Watcher\n(wifi.json Loop)" as Watcher
+
+  EP --> Hostapd : Launches & configures
+  EP --> Dnsmasq : Launches (bind-dynamic)
+  EP --> Avahi : Launches (thong.local)
+  EP --> Watcher : Starts background loop
+}
+
+package "Configuration Files" {
+  file "/app/config/wifi.json" as WifiJson
+  file "/etc/hostapd/hostapd.conf" as HostapdConf
+  file "/etc/dnsmasq.d/drone.conf" as DnsmasqConf
+  file "/etc/netplan/50-drone.yaml" as NetplanConf
+}
+
+Hostapd --> uap0 : Broadcasts SSID: AP_DRONE
+Dnsmasq --> uap0 : Serves DHCP (192.168.10.100 - 150)
+Avahi --> uap0 : Publishes mDNS (thong.local -> 192.168.10.1)
+Watcher ..> WifiJson : Polls for STA credential updates
+NetplanConf ..> eth0 : Configures 192.168.144.11/24 (SIYI)
+
+@enduml

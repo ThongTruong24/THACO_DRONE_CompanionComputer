@@ -1,0 +1,656 @@
+{
+  "batchIndex": 1,
+  "nodes": [
+    {
+      "id": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "type": "file",
+      "name": "camera_interface.hpp",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Abstract interface and definitions for video capture devices supporting V4L2 and RealSense.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:FrameData",
+      "type": "class",
+      "name": "FrameData",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class FrameData defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 56,
+      "endLine": 63
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:RealSenseSettings",
+      "type": "class",
+      "name": "RealSenseSettings",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class RealSenseSettings defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 68,
+      "endLine": 75
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:V4L2Settings",
+      "type": "class",
+      "name": "V4L2Settings",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class V4L2Settings defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 77,
+      "endLine": 81
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:CSISettings",
+      "type": "class",
+      "name": "CSISettings",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class CSISettings defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 83,
+      "endLine": 86
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:VideoConfig",
+      "type": "class",
+      "name": "VideoConfig",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class VideoConfig defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 88,
+      "endLine": 93
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:EncoderConfig",
+      "type": "class",
+      "name": "EncoderConfig",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class EncoderConfig defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 95,
+      "endLine": 110
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:NetworkConfig",
+      "type": "class",
+      "name": "NetworkConfig",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class NetworkConfig defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 112,
+      "endLine": 117
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:CameraConfig",
+      "type": "class",
+      "name": "CameraConfig",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class CameraConfig defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 119,
+      "endLine": 127
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:ICameraDevice",
+      "type": "class",
+      "name": "ICameraDevice",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class ICameraDevice defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 132,
+      "endLine": 148
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:IFrameProcessor",
+      "type": "class",
+      "name": "IFrameProcessor",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class IFrameProcessor defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 151,
+      "endLine": 157
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/camera_interface.hpp:IGstStreamSink",
+      "type": "class",
+      "name": "IGstStreamSink",
+      "filePath": "src/camera-stream-controller/include/camera_interface.hpp",
+      "summary": "Class IGstStreamSink defined in camera_interface.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 160,
+      "endLine": 173
+    },
+    {
+      "id": "file:src/camera-stream-controller/include/config_manager.hpp",
+      "type": "file",
+      "name": "config_manager.hpp",
+      "filePath": "src/camera-stream-controller/include/config_manager.hpp",
+      "summary": "Camera stream controller component (config_manager.hpp) handling video acquisition and streaming.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/config_manager.hpp:ConfigManager",
+      "type": "class",
+      "name": "ConfigManager",
+      "filePath": "src/camera-stream-controller/include/config_manager.hpp",
+      "summary": "Class ConfigManager defined in config_manager.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 8,
+      "endLine": 12
+    },
+    {
+      "id": "file:src/camera-stream-controller/include/gst_stream_sink.hpp",
+      "type": "file",
+      "name": "gst_stream_sink.hpp",
+      "filePath": "src/camera-stream-controller/include/gst_stream_sink.hpp",
+      "summary": "GStreamer video sink pipeline encoding H.264 video and streaming to MediaMTX RTSP.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/gst_stream_sink.hpp:GstStreamSink",
+      "type": "class",
+      "name": "GstStreamSink",
+      "filePath": "src/camera-stream-controller/include/gst_stream_sink.hpp",
+      "summary": "Class GstStreamSink defined in gst_stream_sink.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 13,
+      "endLine": 55
+    },
+    {
+      "id": "file:src/camera-stream-controller/include/neon_processor.hpp",
+      "type": "file",
+      "name": "neon_processor.hpp",
+      "filePath": "src/camera-stream-controller/include/neon_processor.hpp",
+      "summary": "ARM NEON SIMD accelerated color space conversion and image processing pipeline.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/neon_processor.hpp:NeonFrameProcessor",
+      "type": "class",
+      "name": "NeonFrameProcessor",
+      "filePath": "src/camera-stream-controller/include/neon_processor.hpp",
+      "summary": "Class NeonFrameProcessor defined in neon_processor.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 8,
+      "endLine": 19
+    },
+    {
+      "id": "function:src/camera-stream-controller/include/neon_processor.hpp:NeonFrameProcessor",
+      "type": "function",
+      "name": "NeonFrameProcessor",
+      "filePath": "src/camera-stream-controller/include/neon_processor.hpp",
+      "summary": "Function NeonFrameProcessor() declared or defined in neon_processor.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 10,
+      "endLine": 10
+    },
+    {
+      "id": "function:src/camera-stream-controller/include/neon_processor.hpp:setRotation",
+      "type": "function",
+      "name": "setRotation",
+      "filePath": "src/camera-stream-controller/include/neon_processor.hpp",
+      "summary": "Function setRotation() declared or defined in neon_processor.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 13,
+      "endLine": 13
+    },
+    {
+      "id": "function:src/camera-stream-controller/include/neon_processor.hpp:getRotation",
+      "type": "function",
+      "name": "getRotation",
+      "filePath": "src/camera-stream-controller/include/neon_processor.hpp",
+      "summary": "Function getRotation() declared or defined in neon_processor.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 14,
+      "endLine": 14
+    },
+    {
+      "id": "file:src/camera-stream-controller/include/realsense_camera.hpp",
+      "type": "file",
+      "name": "realsense_camera.hpp",
+      "filePath": "src/camera-stream-controller/include/realsense_camera.hpp",
+      "summary": "RealSense D435/D455 RGB and depth camera streaming driver with pipeline configuration.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/realsense_camera.hpp:RealSenseCamera",
+      "type": "class",
+      "name": "RealSenseCamera",
+      "filePath": "src/camera-stream-controller/include/realsense_camera.hpp",
+      "summary": "Class RealSenseCamera defined in realsense_camera.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 13,
+      "endLine": 38
+    },
+    {
+      "id": "file:src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "type": "file",
+      "name": "safe_ring_buffer.hpp",
+      "filePath": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "summary": "Thread-safe lock-free ring buffer for passing video frames between capture and sink threads.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/safe_ring_buffer.hpp:SafeRingBuffer",
+      "type": "class",
+      "name": "SafeRingBuffer",
+      "filePath": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "summary": "Class SafeRingBuffer defined in safe_ring_buffer.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 12,
+      "endLine": 71
+    },
+    {
+      "id": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:SafeRingBuffer",
+      "type": "function",
+      "name": "SafeRingBuffer",
+      "filePath": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "summary": "Function SafeRingBuffer() declared or defined in safe_ring_buffer.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 16,
+      "endLine": 16
+    },
+    {
+      "id": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:push",
+      "type": "function",
+      "name": "push",
+      "filePath": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "summary": "Function push() declared or defined in safe_ring_buffer.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 19,
+      "endLine": 35
+    },
+    {
+      "id": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:pop",
+      "type": "function",
+      "name": "pop",
+      "filePath": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "summary": "Function pop() declared or defined in safe_ring_buffer.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 38,
+      "endLine": 50
+    },
+    {
+      "id": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:getDroppedCount",
+      "type": "function",
+      "name": "getDroppedCount",
+      "filePath": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "summary": "Function getDroppedCount() declared or defined in safe_ring_buffer.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 52,
+      "endLine": 54
+    },
+    {
+      "id": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:clear",
+      "type": "function",
+      "name": "clear",
+      "filePath": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "summary": "Function clear() declared or defined in safe_ring_buffer.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 56,
+      "endLine": 61
+    },
+    {
+      "id": "file:src/camera-stream-controller/include/standby_generator.hpp",
+      "type": "file",
+      "name": "standby_generator.hpp",
+      "filePath": "src/camera-stream-controller/include/standby_generator.hpp",
+      "summary": "Camera stream controller component (standby_generator.hpp) handling video acquisition and streaming.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/standby_generator.hpp:StandbyGenerator",
+      "type": "class",
+      "name": "StandbyGenerator",
+      "filePath": "src/camera-stream-controller/include/standby_generator.hpp",
+      "summary": "Class StandbyGenerator defined in standby_generator.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 10,
+      "endLine": 28
+    },
+    {
+      "id": "file:src/camera-stream-controller/include/v4l2_camera.hpp",
+      "type": "file",
+      "name": "v4l2_camera.hpp",
+      "filePath": "src/camera-stream-controller/include/v4l2_camera.hpp",
+      "summary": "V4L2 camera capture device driver supporting standard UVC/USB video cameras.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/camera-stream-controller/include/v4l2_camera.hpp:V4L2Camera",
+      "type": "class",
+      "name": "V4L2Camera",
+      "filePath": "src/camera-stream-controller/include/v4l2_camera.hpp",
+      "summary": "Class V4L2Camera defined in v4l2_camera.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 9,
+      "endLine": 37
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:FrameData",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:RealSenseSettings",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:V4L2Settings",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:CSISettings",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:VideoConfig",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:EncoderConfig",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:NetworkConfig",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:CameraConfig",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:ICameraDevice",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:IFrameProcessor",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "target": "class:src/camera-stream-controller/include/camera_interface.hpp:IGstStreamSink",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/config_manager.hpp",
+      "target": "class:src/camera-stream-controller/include/config_manager.hpp:ConfigManager",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/config_manager.hpp",
+      "target": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/gst_stream_sink.hpp",
+      "target": "class:src/camera-stream-controller/include/gst_stream_sink.hpp:GstStreamSink",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/gst_stream_sink.hpp",
+      "target": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/neon_processor.hpp",
+      "target": "class:src/camera-stream-controller/include/neon_processor.hpp:NeonFrameProcessor",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/neon_processor.hpp",
+      "target": "function:src/camera-stream-controller/include/neon_processor.hpp:NeonFrameProcessor",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/neon_processor.hpp",
+      "target": "function:src/camera-stream-controller/include/neon_processor.hpp:setRotation",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/neon_processor.hpp",
+      "target": "function:src/camera-stream-controller/include/neon_processor.hpp:getRotation",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/neon_processor.hpp",
+      "target": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/realsense_camera.hpp",
+      "target": "class:src/camera-stream-controller/include/realsense_camera.hpp:RealSenseCamera",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/realsense_camera.hpp",
+      "target": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "target": "class:src/camera-stream-controller/include/safe_ring_buffer.hpp:SafeRingBuffer",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "target": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:SafeRingBuffer",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "target": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:push",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "target": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:pop",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "target": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:getDroppedCount",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "target": "function:src/camera-stream-controller/include/safe_ring_buffer.hpp:clear",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "target": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/standby_generator.hpp",
+      "target": "class:src/camera-stream-controller/include/standby_generator.hpp:StandbyGenerator",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/standby_generator.hpp",
+      "target": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/v4l2_camera.hpp",
+      "target": "class:src/camera-stream-controller/include/v4l2_camera.hpp:V4L2Camera",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/include/v4l2_camera.hpp",
+      "target": "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "type": "imports"
+    }
+  ]
+}

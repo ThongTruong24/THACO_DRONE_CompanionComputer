@@ -1,0 +1,36 @@
+logging:
+  level: INFO
+  format: json
+  output: stdout
+  file: /var/log/drone/drone.log
+
+camera:
+  rotation: 180
+
+mode: yolo
+yolo:
+  model: /app/models/yolo26n.pt
+  input_source: rtsp
+  input_url: rtsp://127.0.0.1:8554/camera
+  output_url: rtmp://127.0.0.1:1935/yolo
+  width: 640
+  height: 360
+  fps: 20
+  inference_fps: 5
+  imgsz: 320
+  confidence: 0.35
+  threads: 2
+  bitrate_kbps: 1000
+  stale_seconds: 2
+  reconnect_seconds: 1
+
+depth:
+  enabled: false
+  width: 640
+  height: 480
+  fps: 6
+  min_distance_m: 0.3
+  max_distance_m: 10.0
+  sample_radius: 5
+  mavlink_publish: false
+  unit: m

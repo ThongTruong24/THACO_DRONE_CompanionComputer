@@ -1,0 +1,49 @@
+@startuml vision-v1-sequence
+title vision_v1: Startup, Steady State, Reconnect, and Shutdown
+
+participant "VisionNode\n(runtime name: vision)" as Node
+participant "RtspVideoSource" as RTSP
+participant "VideoWorker" as Video
+participant "FramePoolSource" as Pool
+participant "InferenceWorker" as Infer
+participant "DetectionStore" as Store
+participant "VisionPublisher" as Out
+
+Node -> Infer : start non-daemon worker
+Node -> Video : start non-daemon worker
+Node -> RTSP : start GStreamer source worker
+
+par Video path
+  loop each newest decoded frame
+    RTSP -> Video : latest frame (older pending frame replaced)
+    Video -> Store : latest(max_age), non-blocking
+    Store --> Video : snapshot or None
+    Video -> Video : resize + overlay
+    Video -> Out : push frame to leaky appsrc
+  end
+else Inference path
+  loop rate limited by inference_fps
+    Node -> Pool : FrameReady descriptor
+    Pool -> Infer : latest color/depth frame
+    Infer -> Infer : YOLO + metadata/depth only
+    Infer -> Store : immutable DetectionSnapshot
+  end
+end
+
+group RTSP failure
+  RTSP -> RTSP : ERROR/EOS -> NULL
+  RTSP -> RTSP : wait reconnect_seconds
+  RTSP -> RTSP : create fresh pipeline
+end
+
+group Clean shutdown
+  Node -> RTSP : signal stop + set pipeline NULL
+  Node -> Pool : close mailbox / wake inference
+  Node -> RTSP : join source
+  Node -> Infer : join
+  Node -> Video : join
+  Node -> Pool : close FramePool reader
+  Node -> Out : set output pipeline NULL
+end
+
+@enduml

@@ -1,0 +1,28 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 91,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/agridrone_plugins.xml",
+      "language": "xml",
+      "sizeLines": 5,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/mavros/mavlink/plugin_agridrone/package.xml",
+      "language": "xml",
+      "sizeLines": 32,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "src/mavros/mavlink/plugin_agridrone/CMakeLists.txt": [],
+    "src/mavros/mavlink/plugin_agridrone/agridrone_plugins.xml": [],
+    "src/mavros/mavlink/plugin_agridrone/package.xml": []
+  }
+}

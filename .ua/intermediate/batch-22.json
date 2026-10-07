@@ -1,0 +1,1054 @@
+{
+  "batchIndex": 22,
+  "nodes": [
+    {
+      "id": "service:config/drone-boot-tracker.service",
+      "type": "service",
+      "name": "drone-boot-tracker.service",
+      "filePath": "config/drone-boot-tracker.service",
+      "summary": "System configuration file (drone-boot-tracker.service) defining runtime parameters and services.",
+      "tags": [
+        "service",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:config/drone-edge.service",
+      "type": "service",
+      "name": "drone-edge.service",
+      "filePath": "config/drone-edge.service",
+      "summary": "System configuration file (drone-edge.service) defining runtime parameters and services.",
+      "tags": [
+        "service",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "docs/architecture.md",
+      "summary": "Project file (architecture.md) contributing to docs operations.",
+      "tags": [
+        "markdown",
+        "docs"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:docs/deployment_handoff.tex",
+      "type": "file",
+      "name": "deployment_handoff.tex",
+      "filePath": "docs/deployment_handoff.tex",
+      "summary": "Project file (deployment_handoff.tex) contributing to code operations.",
+      "tags": [
+        "tex",
+        "code"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scripts/drone-boot-tracker.py",
+      "type": "file",
+      "name": "drone-boot-tracker.py",
+      "filePath": "scripts/drone-boot-tracker.py",
+      "summary": "Operational script (drone-boot-tracker.py) for drone companion deployment and management.",
+      "tags": [
+        "python",
+        "code",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:scripts/drone-boot-tracker.py:UnixHTTPConnection",
+      "type": "class",
+      "name": "UnixHTTPConnection",
+      "filePath": "scripts/drone-boot-tracker.py",
+      "summary": "Class UnixHTTPConnection defined in drone-boot-tracker.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 21
+    },
+    {
+      "id": "function:scripts/drone-boot-tracker.py:query_docker_containers",
+      "type": "function",
+      "name": "query_docker_containers",
+      "filePath": "scripts/drone-boot-tracker.py",
+      "summary": "Function query_docker_containers() declared or defined in drone-boot-tracker.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 23,
+      "endLine": 35
+    },
+    {
+      "id": "function:scripts/drone-boot-tracker.py:get_network_ips",
+      "type": "function",
+      "name": "get_network_ips",
+      "filePath": "scripts/drone-boot-tracker.py",
+      "summary": "Function get_network_ips() declared or defined in drone-boot-tracker.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 37,
+      "endLine": 54
+    },
+    {
+      "id": "file:scripts/drone_log.py",
+      "type": "file",
+      "name": "drone_log.py",
+      "filePath": "scripts/drone_log.py",
+      "summary": "Log management utility collecting, filtering, and displaying drone service logs.",
+      "tags": [
+        "python",
+        "code",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:scripts/drone_log.py:DroneLogger",
+      "type": "class",
+      "name": "DroneLogger",
+      "filePath": "scripts/drone_log.py",
+      "summary": "Class DroneLogger defined in drone_log.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 60,
+      "endLine": 107
+    },
+    {
+      "id": "function:scripts/drone_log.py:_send",
+      "type": "function",
+      "name": "_send",
+      "filePath": "scripts/drone_log.py",
+      "summary": "Function _send() declared or defined in drone_log.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 46,
+      "endLine": 57
+    },
+    {
+      "id": "file:scripts/drone_log_view.py",
+      "type": "file",
+      "name": "drone_log_view.py",
+      "filePath": "scripts/drone_log_view.py",
+      "summary": "Log management utility collecting, filtering, and displaying drone service logs.",
+      "tags": [
+        "python",
+        "code",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scripts/drone_param.py",
+      "type": "file",
+      "name": "drone_param.py",
+      "filePath": "scripts/drone_param.py",
+      "summary": "CLI parameter management tool reading and modifying drone configurations.",
+      "tags": [
+        "python",
+        "code",
+        "automation",
+        "deployment",
+        "devops"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scripts/drone_param.py:_send_cmd",
+      "type": "function",
+      "name": "_send_cmd",
+      "filePath": "scripts/drone_param.py",
+      "summary": "Function _send_cmd() declared or defined in drone_param.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 45,
+      "endLine": 74
+    },
+    {
+      "id": "function:scripts/drone_param.py:cmd_list",
+      "type": "function",
+      "name": "cmd_list",
+      "filePath": "scripts/drone_param.py",
+      "summary": "Function cmd_list() declared or defined in drone_param.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 76,
+      "endLine": 112
+    },
+    {
+      "id": "function:scripts/drone_param.py:cmd_get",
+      "type": "function",
+      "name": "cmd_get",
+      "filePath": "scripts/drone_param.py",
+      "summary": "Function cmd_get() declared or defined in drone_param.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 114,
+      "endLine": 127
+    },
+    {
+      "id": "function:scripts/drone_param.py:cmd_set",
+      "type": "function",
+      "name": "cmd_set",
+      "filePath": "scripts/drone_param.py",
+      "summary": "Function cmd_set() declared or defined in drone_param.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 129,
+      "endLine": 138
+    },
+    {
+      "id": "function:scripts/drone_param.py:cmd_toggle",
+      "type": "function",
+      "name": "cmd_toggle",
+      "filePath": "scripts/drone_param.py",
+      "summary": "Function cmd_toggle() declared or defined in drone_param.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 140,
+      "endLine": 153
+    },
+    {
+      "id": "function:scripts/drone_param.py:print_help",
+      "type": "function",
+      "name": "print_help",
+      "filePath": "scripts/drone_param.py",
+      "summary": "Function print_help() declared or defined in drone_param.py.",
+      "tags": [
+        "function",
+        "python"
+      ],
+      "complexity": "simple",
+      "startLine": 155,
+      "endLine": 156
+    },
+    {
+      "id": "document:src/camera-stream-controller/docs/sequence.puml",
+      "type": "document",
+      "name": "sequence.puml",
+      "filePath": "src/camera-stream-controller/docs/sequence.puml",
+      "summary": "Camera stream controller component (sequence.puml) handling video acquisition and streaming.",
+      "tags": [
+        "puml",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/camera-stream-controller/scripts/rtsp_streamer.py",
+      "type": "file",
+      "name": "rtsp_streamer.py",
+      "filePath": "src/camera-stream-controller/scripts/rtsp_streamer.py",
+      "summary": "Camera stream controller component (rtsp_streamer.py) handling video acquisition and streaming.",
+      "tags": [
+        "python",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/camera-stream-controller/scripts/rtsp_streamer.py:RTSPStreamer",
+      "type": "class",
+      "name": "RTSPStreamer",
+      "filePath": "src/camera-stream-controller/scripts/rtsp_streamer.py",
+      "summary": "Class RTSPStreamer defined in rtsp_streamer.py.",
+      "tags": [
+        "class",
+        "python"
+      ],
+      "complexity": "moderate",
+      "startLine": 36,
+      "endLine": 268
+    },
+    {
+      "id": "file:src/camera-stream-controller/src/config_manager.cpp",
+      "type": "file",
+      "name": "config_manager.cpp",
+      "filePath": "src/camera-stream-controller/src/config_manager.cpp",
+      "summary": "Camera stream controller component (config_manager.cpp) handling video acquisition and streaming.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/config_manager.cpp:loadConfig",
+      "type": "function",
+      "name": "loadConfig",
+      "filePath": "src/camera-stream-controller/src/config_manager.cpp",
+      "summary": "Function loadConfig() declared or defined in config_manager.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 7,
+      "endLine": 81
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/config_manager.cpp:printConfig",
+      "type": "function",
+      "name": "printConfig",
+      "filePath": "src/camera-stream-controller/src/config_manager.cpp",
+      "summary": "Function printConfig() declared or defined in config_manager.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 83,
+      "endLine": 98
+    },
+    {
+      "id": "file:src/camera-stream-controller/src/gst_stream_sink.cpp",
+      "type": "file",
+      "name": "gst_stream_sink.cpp",
+      "filePath": "src/camera-stream-controller/src/gst_stream_sink.cpp",
+      "summary": "GStreamer video sink pipeline encoding H.264 video and streaming to MediaMTX RTSP.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/camera-stream-controller/src/main.cpp",
+      "type": "file",
+      "name": "main.cpp",
+      "filePath": "src/camera-stream-controller/src/main.cpp",
+      "summary": "Camera stream controller component (main.cpp) handling video acquisition and streaming.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/main.cpp:signalHandler",
+      "type": "function",
+      "name": "signalHandler",
+      "filePath": "src/camera-stream-controller/src/main.cpp",
+      "summary": "Function signalHandler() declared or defined in main.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 27,
+      "endLine": 31
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/main.cpp:exportCameraStats",
+      "type": "function",
+      "name": "exportCameraStats",
+      "filePath": "src/camera-stream-controller/src/main.cpp",
+      "summary": "Function exportCameraStats() declared or defined in main.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 33,
+      "endLine": 65
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/main.cpp:processCameraCommands",
+      "type": "function",
+      "name": "processCameraCommands",
+      "filePath": "src/camera-stream-controller/src/main.cpp",
+      "summary": "Function processCameraCommands() declared or defined in main.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 68,
+      "endLine": 114
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/main.cpp:createCamera",
+      "type": "function",
+      "name": "createCamera",
+      "filePath": "src/camera-stream-controller/src/main.cpp",
+      "summary": "Function createCamera() declared or defined in main.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 117,
+      "endLine": 123
+    },
+    {
+      "id": "file:src/camera-stream-controller/src/neon_processor.cpp",
+      "type": "file",
+      "name": "neon_processor.cpp",
+      "filePath": "src/camera-stream-controller/src/neon_processor.cpp",
+      "summary": "ARM NEON SIMD accelerated color space conversion and image processing pipeline.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/neon_processor.cpp:process",
+      "type": "function",
+      "name": "process",
+      "filePath": "src/camera-stream-controller/src/neon_processor.cpp",
+      "summary": "Function process() declared or defined in neon_processor.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 11,
+      "endLine": 15
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/neon_processor.cpp:rotate180_inplace",
+      "type": "function",
+      "name": "rotate180_inplace",
+      "filePath": "src/camera-stream-controller/src/neon_processor.cpp",
+      "summary": "Function rotate180_inplace() declared or defined in neon_processor.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 17,
+      "endLine": 43
+    },
+    {
+      "id": "file:src/camera-stream-controller/src/realsense_camera.cpp",
+      "type": "file",
+      "name": "realsense_camera.cpp",
+      "filePath": "src/camera-stream-controller/src/realsense_camera.cpp",
+      "summary": "RealSense D435/D455 RGB and depth camera streaming driver with pipeline configuration.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/camera-stream-controller/src/standby_generator.cpp",
+      "type": "file",
+      "name": "standby_generator.cpp",
+      "filePath": "src/camera-stream-controller/src/standby_generator.cpp",
+      "summary": "Camera stream controller component (standby_generator.cpp) handling video acquisition and streaming.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/standby_generator.cpp:StandbyGenerator",
+      "type": "function",
+      "name": "StandbyGenerator",
+      "filePath": "src/camera-stream-controller/src/standby_generator.cpp",
+      "summary": "Function StandbyGenerator() declared or defined in standby_generator.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 110,
+      "endLine": 114
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/standby_generator.cpp:updateConfig",
+      "type": "function",
+      "name": "updateConfig",
+      "filePath": "src/camera-stream-controller/src/standby_generator.cpp",
+      "summary": "Function updateConfig() declared or defined in standby_generator.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 116,
+      "endLine": 120
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/standby_generator.cpp:drawChar",
+      "type": "function",
+      "name": "drawChar",
+      "filePath": "src/camera-stream-controller/src/standby_generator.cpp",
+      "summary": "Function drawChar() declared or defined in standby_generator.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 122,
+      "endLine": 145
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/standby_generator.cpp:drawText",
+      "type": "function",
+      "name": "drawText",
+      "filePath": "src/camera-stream-controller/src/standby_generator.cpp",
+      "summary": "Function drawText() declared or defined in standby_generator.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 147,
+      "endLine": 158
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/standby_generator.cpp:drawRect",
+      "type": "function",
+      "name": "drawRect",
+      "filePath": "src/camera-stream-controller/src/standby_generator.cpp",
+      "summary": "Function drawRect() declared or defined in standby_generator.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 160,
+      "endLine": 171
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/standby_generator.cpp:renderBackground",
+      "type": "function",
+      "name": "renderBackground",
+      "filePath": "src/camera-stream-controller/src/standby_generator.cpp",
+      "summary": "Function renderBackground() declared or defined in standby_generator.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 173,
+      "endLine": 206
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/standby_generator.cpp:generateFrame",
+      "type": "function",
+      "name": "generateFrame",
+      "filePath": "src/camera-stream-controller/src/standby_generator.cpp",
+      "summary": "Function generateFrame() declared or defined in standby_generator.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 208,
+      "endLine": 276
+    },
+    {
+      "id": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "type": "file",
+      "name": "v4l2_camera.cpp",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "V4L2 camera capture device driver supporting standard UVC/USB video cameras.",
+      "tags": [
+        "cpp",
+        "code",
+        "camera",
+        "video",
+        "rtsp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/v4l2_camera.cpp:isAvailable",
+      "type": "function",
+      "name": "isAvailable",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "Function isAvailable() declared or defined in v4l2_camera.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 14,
+      "endLine": 17
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/v4l2_camera.cpp:V4L2Camera",
+      "type": "function",
+      "name": "V4L2Camera",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "Function V4L2Camera() declared or defined in v4l2_camera.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 19,
+      "endLine": 25
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/v4l2_camera.cpp:initialize",
+      "type": "function",
+      "name": "initialize",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "Function initialize() declared or defined in v4l2_camera.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 34,
+      "endLine": 109
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/v4l2_camera.cpp:startStream",
+      "type": "function",
+      "name": "startStream",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "Function startStream() declared or defined in v4l2_camera.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 111,
+      "endLine": 136
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/v4l2_camera.cpp:stopStream",
+      "type": "function",
+      "name": "stopStream",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "Function stopStream() declared or defined in v4l2_camera.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 138,
+      "endLine": 144
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/v4l2_camera.cpp:captureFrame",
+      "type": "function",
+      "name": "captureFrame",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "Function captureFrame() declared or defined in v4l2_camera.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 146,
+      "endLine": 190
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/v4l2_camera.cpp:isHealthy",
+      "type": "function",
+      "name": "isHealthy",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "Function isHealthy() declared or defined in v4l2_camera.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 192,
+      "endLine": 194
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/v4l2_camera.cpp:getDeviceName",
+      "type": "function",
+      "name": "getDeviceName",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "Function getDeviceName() declared or defined in v4l2_camera.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 196,
+      "endLine": 198
+    },
+    {
+      "id": "function:src/camera-stream-controller/src/v4l2_camera.cpp:getLastErrorCode",
+      "type": "function",
+      "name": "getLastErrorCode",
+      "filePath": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "summary": "Function getLastErrorCode() declared or defined in v4l2_camera.cpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 200,
+      "endLine": 202
+    },
+    {
+      "id": "config:src/cc-agent/config/default.yaml",
+      "type": "config",
+      "name": "default.yaml",
+      "filePath": "src/cc-agent/config/default.yaml",
+      "summary": "Companion computer agent component (default.yaml) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "yaml",
+        "config",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/cc-agent/config/schema.json",
+      "type": "config",
+      "name": "schema.json",
+      "filePath": "src/cc-agent/config/schema.json",
+      "summary": "Companion computer agent component (schema.json) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "json",
+        "config",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cc-agent/config/templates/10-drone-netplan.yaml.j2",
+      "type": "file",
+      "name": "10-drone-netplan.yaml.j2",
+      "filePath": "src/cc-agent/config/templates/10-drone-netplan.yaml.j2",
+      "summary": "Companion computer agent component (10-drone-netplan.yaml.j2) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "j2",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cc-agent/config/templates/camera.yaml.j2",
+      "type": "file",
+      "name": "camera.yaml.j2",
+      "filePath": "src/cc-agent/config/templates/camera.yaml.j2",
+      "summary": "Companion computer agent component (camera.yaml.j2) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "j2",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cc-agent/config/templates/cc_telemetry.yaml.j2",
+      "type": "file",
+      "name": "cc_telemetry.yaml.j2",
+      "filePath": "src/cc-agent/config/templates/cc_telemetry.yaml.j2",
+      "summary": "Telemetry provider aggregating CPU, memory, temperature, and link statistics.",
+      "tags": [
+        "j2",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cc-agent/config/templates/dnsmasq.conf.j2",
+      "type": "file",
+      "name": "dnsmasq.conf.j2",
+      "filePath": "src/cc-agent/config/templates/dnsmasq.conf.j2",
+      "summary": "Companion computer agent component (dnsmasq.conf.j2) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "j2",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cc-agent/config/templates/hostapd.conf.j2",
+      "type": "file",
+      "name": "hostapd.conf.j2",
+      "filePath": "src/cc-agent/config/templates/hostapd.conf.j2",
+      "summary": "Companion computer agent component (hostapd.conf.j2) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "j2",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cc-agent/config/templates/mavlink-router.conf.j2",
+      "type": "file",
+      "name": "mavlink-router.conf.j2",
+      "filePath": "src/cc-agent/config/templates/mavlink-router.conf.j2",
+      "summary": "Companion computer agent component (mavlink-router.conf.j2) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "j2",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scripts/drone-boot-tracker.py",
+      "target": "class:scripts/drone-boot-tracker.py:UnixHTTPConnection",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone-boot-tracker.py",
+      "target": "function:scripts/drone-boot-tracker.py:query_docker_containers",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone-boot-tracker.py",
+      "target": "function:scripts/drone-boot-tracker.py:get_network_ips",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_log.py",
+      "target": "class:scripts/drone_log.py:DroneLogger",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_log.py",
+      "target": "function:scripts/drone_log.py:_send",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_param.py",
+      "target": "function:scripts/drone_param.py:_send_cmd",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_param.py",
+      "target": "function:scripts/drone_param.py:cmd_list",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_param.py",
+      "target": "function:scripts/drone_param.py:cmd_get",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_param.py",
+      "target": "function:scripts/drone_param.py:cmd_set",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_param.py",
+      "target": "function:scripts/drone_param.py:cmd_toggle",
+      "type": "contains"
+    },
+    {
+      "source": "file:scripts/drone_param.py",
+      "target": "function:scripts/drone_param.py:print_help",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/scripts/rtsp_streamer.py",
+      "target": "class:src/camera-stream-controller/scripts/rtsp_streamer.py:RTSPStreamer",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/config_manager.cpp",
+      "target": "function:src/camera-stream-controller/src/config_manager.cpp:loadConfig",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/config_manager.cpp",
+      "target": "function:src/camera-stream-controller/src/config_manager.cpp:printConfig",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/main.cpp",
+      "target": "function:src/camera-stream-controller/src/main.cpp:signalHandler",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/main.cpp",
+      "target": "function:src/camera-stream-controller/src/main.cpp:exportCameraStats",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/main.cpp",
+      "target": "function:src/camera-stream-controller/src/main.cpp:processCameraCommands",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/main.cpp",
+      "target": "function:src/camera-stream-controller/src/main.cpp:createCamera",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/neon_processor.cpp",
+      "target": "function:src/camera-stream-controller/src/neon_processor.cpp:process",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/neon_processor.cpp",
+      "target": "function:src/camera-stream-controller/src/neon_processor.cpp:rotate180_inplace",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/standby_generator.cpp",
+      "target": "function:src/camera-stream-controller/src/standby_generator.cpp:StandbyGenerator",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/standby_generator.cpp",
+      "target": "function:src/camera-stream-controller/src/standby_generator.cpp:updateConfig",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/standby_generator.cpp",
+      "target": "function:src/camera-stream-controller/src/standby_generator.cpp:drawChar",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/standby_generator.cpp",
+      "target": "function:src/camera-stream-controller/src/standby_generator.cpp:drawText",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/standby_generator.cpp",
+      "target": "function:src/camera-stream-controller/src/standby_generator.cpp:drawRect",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/standby_generator.cpp",
+      "target": "function:src/camera-stream-controller/src/standby_generator.cpp:renderBackground",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/standby_generator.cpp",
+      "target": "function:src/camera-stream-controller/src/standby_generator.cpp:generateFrame",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "target": "function:src/camera-stream-controller/src/v4l2_camera.cpp:isAvailable",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "target": "function:src/camera-stream-controller/src/v4l2_camera.cpp:V4L2Camera",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "target": "function:src/camera-stream-controller/src/v4l2_camera.cpp:initialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "target": "function:src/camera-stream-controller/src/v4l2_camera.cpp:startStream",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "target": "function:src/camera-stream-controller/src/v4l2_camera.cpp:stopStream",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "target": "function:src/camera-stream-controller/src/v4l2_camera.cpp:captureFrame",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "target": "function:src/camera-stream-controller/src/v4l2_camera.cpp:isHealthy",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "target": "function:src/camera-stream-controller/src/v4l2_camera.cpp:getDeviceName",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "target": "function:src/camera-stream-controller/src/v4l2_camera.cpp:getLastErrorCode",
+      "type": "contains"
+    }
+  ]
+}

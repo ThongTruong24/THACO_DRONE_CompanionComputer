@@ -1,0 +1,11 @@
+# Whitelist: send only what this image's Dockerfile COPYs (build context is the repo root).
+*
+!cmake
+!msg
+!src/lib
+!src/modules/config_manager
+!src/modules/mavlink
+!platforms/linux/edge_agent
+**/build*
+**/__pycache__
+**/*.pyc

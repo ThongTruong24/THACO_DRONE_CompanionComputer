@@ -1,0 +1,14 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/camera-stream-controller/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 87,
+      "fileCategory": "infra"
+    }
+  ],
+  "batchImportData": {
+    "src/camera-stream-controller/Dockerfile": []
+  }
+}

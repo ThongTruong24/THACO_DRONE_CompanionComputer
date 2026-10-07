@@ -1,0 +1,70 @@
+[
+  {
+    "order": 1,
+    "title": "System Overview and Microservice Orchestration",
+    "description": "Start here to understand how Docker Compose orchestrates the companion microservices (MAVLink router, camera streaming, vision, CC agent, MAVROS) with network_mode: host on Raspberry Pi 5.",
+    "nodeIds": [
+      "document:README.md",
+      "service:docker-compose.yml",
+      "file:Makefile"
+    ]
+  },
+  {
+    "order": 2,
+    "title": "Hardware Discovery and Autopilot Serial Probing",
+    "description": "Examine how the hardware manager automatically detects Flight Controller serial UART devices (/dev/ttyAMA4, /dev/ttyUSB*) and monitors USB peripheral health.",
+    "nodeIds": [
+      "file:src/hardware-manager/src/serial_scanner.cpp",
+      "file:src/hardware-manager/src/hw_manager.cpp"
+    ]
+  },
+  {
+    "order": 3,
+    "title": "MAVLink Packet Routing Architecture",
+    "description": "Inspect the low-latency MAVLink routing subsystem that bridges the autopilot serial stream to internal companion processes and external GCS telemetry endpoints.",
+    "nodeIds": [
+      "file:src/mavlink-router-controller/src/router_supervisor.cpp",
+      "config:src/mavlink-router-controller/mavlink-router.conf"
+    ]
+  },
+  {
+    "order": 4,
+    "title": "Companion Computer Agent and Custom Dialect",
+    "description": "Dive into the central CC agent managing dynamic parameter persistence, health states, and the THACO custom MAVLink protocol extensions.",
+    "nodeIds": [
+      "file:src/cc-agent/src/mavlink_core.cpp",
+      "file:src/cc-agent/src/config_engine.cpp",
+      "file:src/cc-agent/mavlink/thaco_common/thaco_common.h"
+    ]
+  },
+  {
+    "order": 5,
+    "title": "Camera Pipeline and Low-Latency Video Streaming",
+    "description": "Follow video ingestion from V4L2/RealSense cameras through ARM NEON SIMD color conversion and lock-free ring buffers to GStreamer RTSP streaming.",
+    "nodeIds": [
+      "file:src/camera-stream-controller/include/camera_interface.hpp",
+      "file:src/camera-stream-controller/src/v4l2_camera.cpp",
+      "file:src/camera-stream-controller/src/gst_stream_sink.cpp"
+    ]
+  },
+  {
+    "order": 6,
+    "title": "YOLO Computer Vision and Target Localization",
+    "description": "Understand the computer vision pipeline that runs real-time object detection and transforms 2D bounding boxes into 3D world target coordinates.",
+    "nodeIds": [
+      "file:src/drone-vision/scripts/vision_processor.py",
+      "file:src/drone-vision/scripts/yolo_streamer.py",
+      "file:src/drone-vision/scripts/object_geometry.py"
+    ]
+  },
+  {
+    "order": 7,
+    "title": "ROS 2 MAVROS Plugins and Deployment Automation",
+    "description": "Review ROS 2 Jazzy integration via custom MAVROS plugins and the scripts powering cross-compilation and automated deployment to Raspberry Pi 5.",
+    "nodeIds": [
+      "file:src/mavros/mavlink/plugin_agridrone/src/agridrone_plugin.cpp",
+      "file:src/mavros/ros2ws/cc_telemetry/src/node.cpp",
+      "file:scripts/deploy.sh"
+    ]
+  }
+]

@@ -1,0 +1,396 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{listings}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,pdftitle={Drone Edge Deployment Handoff}}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single,columns=fullflexible}
+\newcommand{\pathtext}[1]{\texttt{#1}}
+\newcommand{\todoitem}{\textcolor{red}{\textbf{[TODO]}}}
+
+\title{Drone Edge\\Deployment Handoff and Extension Roadmap}
+\author{Project Working State}
+\date{17 September 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Purpose and Current State}
+
+This document is the editable implementation handoff for the Drone Edge project.
+It separates features verified on the Raspberry Pi from local work that has not
+been deployed. It also records the architectural and safety constraints for
+future planner-driven flight-control development.
+
+\section{Authoritative Transport Topology}
+
+\begin{lstlisting}
+FC <-> UART <-> MAVLink Router <-> MAVROS <-> autopilot-telemetry <-> ROS planner/apps
+                     |
+                     +---- QGroundControl (standard MAVLink UDP/TCP, unchanged)
+
+custom GCS app <-> companion-gcs-api (HTTPS REST + read-only WebSocket, mTLS)
+\end{lstlisting}
+
+\begin{itemize}
+  \item MAVROS is the sole MAVLink-to-ROS adapter.
+  \item MAVLink Router is the sole FC-to-QGroundControl transport.
+  \item The companion API is for a project-owned GCS application. It does not
+        replace QGroundControl and must not add a MAVLink dialect or raw MAVLink
+        injection endpoint.
+  \item ARM64 images are built only on the WSL workstation, then transferred to
+        the Pi using \pathtext{docker save | ssh | docker load}. Never build on Pi.
+\end{itemize}
+
+\section{Verified Raspberry Pi Runtime}
+
+\begin{tabular}{ll}
+\toprule
+Item & Value \\
+\midrule
+MagicDNS & \pathtext{drone-edge.tail5bb92d.ts.net} \\
+Tailscale address & \pathtext{100.68.96.119} \\
+SSH account & \pathtext{thong} \\
+Remote project & \pathtext{\textasciitilde/drone-edge} \\
+\bottomrule
+\end{tabular}
+
+\subsection{Known healthy services}
+
+\begin{lstlisting}
+drone-edge-drone-mavlink-1           healthy
+drone-edge-drone-mavros-1            healthy
+drone-edge-autopilot-telemetry-1     running, restarts=0
+drone-edge-drone-camera-rtsp-1        running
+drone-edge-drone-networking-1         running
+drone-edge-drone-tailscale-1          healthy
+drone-edge-drone-vision-1             profile-dependent
+\end{lstlisting}
+
+The obsolete containers below were explicitly removed:
+
+\begin{lstlisting}
+drone-edge-thaco-bridge-1
+drone-edge-drone-thaco-bridge-1
+\end{lstlisting}
+
+Do not use \pathtext{docker system prune}, \pathtext{docker compose down}, or
+\pathtext{--remove-orphans} without first reviewing the live service list.
+
+\section{Autopilot Telemetry Module}
+
+Source directory: \pathtext{src/autopilot-telemetry/}. The service uses Compose
+profile \pathtext{telemetry}, image \pathtext{autopilot-telemetry:latest}, and
+host networking for ROS~2 DDS.
+
+\subsection{MAVROS inputs}
+
+\begin{lstlisting}
+/drone_mavros/state
+/drone_mavros/local_position/pose
+/drone_mavros/local_position/velocity_local
+/drone_mavros/imu/data
+/drone_mavros/battery
+/drone_mavros/global_position/raw/fix
+/drone_mavros/extended_state
+/drone_mavros/statustext/recv
+/drone_mavros/mavlink/from          # counter only
+\end{lstlisting}
+
+\subsection{Project ROS outputs}
+
+\begin{lstlisting}
+/autopilot_telemetry/snapshot  autopilot_telemetry/msg/TelemetrySnapshot
+/autopilot_telemetry/health    std_msgs/String
+/autopilot_telemetry/event     std_msgs/String
+/autopilot_telemetry/command   guarded custom service
+\end{lstlisting}
+
+The snapshot includes FC connection, armed state, mode, system state, local
+pose, local velocity, IMU, battery, GPS, extended state, inbound raw MAVLink
+count, validity flags, and per-stream freshness ages.
+
+\subsection{Observed evidence}
+
+\begin{lstlisting}
+connected: true
+armed: false
+mode: POSCTL
+local pose/velocity: present
+IMU: present
+battery: 15.688 V, 61%, present=true
+GPS: status=0, latitude=15.4493243, longitude=108.5986297
+extended state: landed_state=1
+expected validity fields: true
+message ages: under 1 second
+\end{lstlisting}
+
+GPS altitude and covariance must not be treated as navigation-grade until GNSS
+reference and outdoor validation have been completed.
+
+\subsection{Current command safety policy}
+
+\begin{lstlisting}
+dry_run=true
+allowlist empty
+no command reaches FC
+\end{lstlisting}
+
+Useful commands:
+
+\begin{lstlisting}[language=bash]
+make telemetry-snapshot PI_HOST=drone-edge.tail5bb92d.ts.net
+make telemetry-health PI_HOST=drone-edge.tail5bb92d.ts.net
+make logs-autopilot-telemetry PI_HOST=drone-edge.tail5bb92d.ts.net
+\end{lstlisting}
+
+The local Dockerfile has been improved to install \pathtext{ros-jazzy-ros2cli}
+in the runtime stage, and the entrypoint now sources the module install space.
+This updated telemetry image still needs an ARM64 build and service-scoped deploy.
+
+\section{Repository Cleanup Decision}
+
+Only the following runtime source remains:
+
+\begin{lstlisting}
+src/autopilot-telemetry/
+src/camera-rtsp/
+src/mavlink/
+src/mavros/
+src/networking/
+src/vision/
+\end{lstlisting}
+
+The following source was removed by user decision:
+
+\begin{lstlisting}
+src/autonomy/              src/perception/       src/common/
+src/interfaces/            src/simulation/       src/agridrone-thaco-mavlink/
+src/thaco_bridge/          src/thaco_interfaces/
+CMakeLists.txt             scripts/test-offline-cpp.sh
+ test_mujoco.py
+\end{lstlisting}
+
+The user chose to retain these local artifacts:
+
+\begin{lstlisting}
+.telemetry-build/
+.telemetry-build-1789613127/
+build/
+\end{lstlisting}
+
+\section{Companion GCS API (Local Work in Progress)}
+
+Source directory: \pathtext{src/companion-gcs-api/}. A local Docker build passed
+as \pathtext{companion-gcs-api:local-test}. Its Compose service uses profile
+\pathtext{companion-api}, host networking, a read-only root filesystem, a tmpfs
+for \pathtext{/tmp}, CPU limit 0.30, memory limit 192~MB, and default port 8443.
+
+\subsection{Security model}
+
+The API mandates TLS~1.3 and mutual TLS. Certificate subject is mapped to role:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Certificate subject & Role \\
+\midrule
+\pathtext{CN=drone-viewer} & viewer \\
+\pathtext{CN=drone-operator} & operator \\
+\pathtext{CN=drone-admin} & admin \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Implemented API contract}
+
+Read-only endpoints:
+
+\begin{lstlisting}
+GET /v1/health
+GET /v1/services
+GET /v1/services/{service}/logs?tail=200
+GET /v1/stream/services              # WebSocket
+GET /v1/stream/logs?service=...      # WebSocket
+\end{lstlisting}
+
+Only named Compose services can be queried. Log output is redacted for common
+secret patterns. The API accepts no shell command, arbitrary Docker identifier,
+or raw MAVLink payload.
+
+Future typed control routes currently exist only as a disabled contract:
+
+\begin{lstlisting}
+POST /v1/control/arm
+POST /v1/control/mode
+POST /v1/control/mission
+POST /v1/control/offboard/session
+POST /v1/control/offboard/setpoint
+POST /v1/control/abort
+\end{lstlisting}
+
+They currently return \pathtext{409 capability\_disabled}; no FC command is sent.
+
+\subsection{Important deployment caveat}
+
+The prototype uses Docker CLI internally, but Compose deliberately does not
+mount \pathtext{/var/run/docker.sock}. Therefore it is safe-by-default but cannot
+return live service/log data after deployment yet.
+
+Before deployment, implement exactly one reviewed option:
+
+\begin{enumerate}
+  \item \textbf{Recommended:} a host-side read-only collector that writes
+        sanitized status/log events to a shared read-only file or socket.
+  \item A narrowly scoped Docker socket proxy exposing only container inspection
+        and log-read endpoints, with every mutating endpoint blocked.
+\end{enumerate}
+
+Never mount the raw Docker socket in the network-facing API container.
+
+\section{mTLS PKI to Generate Next}
+
+The user requested a new internal CA, server certificate, and three client
+certificates. No private key or certificate material may be committed to Git.
+
+The Pi receives only:
+
+\begin{lstlisting}
+config/companion-gcs-api/tls/ca.crt
+config/companion-gcs-api/tls/server.crt
+config/companion-gcs-api/tls/server.key
+\end{lstlisting}
+
+Client private material remains in an operator-only protected local location:
+
+\begin{lstlisting}
+viewer.crt / viewer.key
+operator.crt / operator.key
+admin.crt / admin.key
+\end{lstlisting}
+
+The server certificate must include these SAN values after confirming their
+current validity:
+
+\begin{lstlisting}
+drone-edge.tail5bb92d.ts.net
+100.68.96.119
+thong.local
+10.14.94.190
+\end{lstlisting}
+
+Set private-key mode to \pathtext{0600}; keep the CA private key outside the
+repository and preferably offline/protected. Never copy client private keys to Pi.
+
+\section{Future Planner-to-FC Control Plane}
+
+A planner will eventually use typed ROS interfaces above MAVROS. No generic
+command API and no raw MAVLink transmitter will be added.
+
+Every control operation must have:
+
+\begin{itemize}
+  \item mTLS identity and RBAC authorization;
+  \item a request ID and explicit confirmation;
+  \item a versioned capability policy;
+  \item connection/state/mode/freshness preconditions;
+  \item strict timeout and rate limiting;
+  \item immutable audit evidence with MAVROS/PX4 result;
+  \item an operator abort path.
+\end{itemize}
+
+Offboard operation must be a dedicated state machine: pre-stream setpoints,
+verify mode transition, maintain freshness/watchdog, abort upon planner loss or
+timeout, and provide immediate operator abort.
+
+\section{Mandatory Validation Gates}
+
+The user stated that propellers have been removed for bench work. This reduces
+risk but does not authorize arbitrary control or flight operation.
+
+Before enabling each individual capability (arm, disarm, mode, mission,
+offboard session, offboard setpoint, abort), validate:
+
+\begin{enumerate}
+  \item correct target vehicle identity;
+  \item accessible power disconnect and kill/abort procedure;
+  \item RC/manual override and PX4 failsafe behavior;
+  \item mTLS rejection, RBAC denial, missing confirmation and stale-state denial;
+  \item policy expiry, timeout and rate limits;
+  \item audit record, MAVROS result and return-to-safe state.
+\end{enumerate}
+
+Flight-ready authorization requires a separate review, including SITL,
+geofence, loss-link behavior, battery/GPS criteria, and operational risk review.
+
+\section{Next Deployment Order}
+
+\begin{enumerate}[label=\arabic*.]
+  \item Verify local configuration:
+\begin{lstlisting}[language=bash]
+docker compose --profile mavros --profile telemetry --profile companion-api config --quiet
+python3 -m py_compile src/companion-gcs-api/app/server.py
+\end{lstlisting}
+  \item Generate and provision PKI. Keep CA private key and client private keys
+        off Pi and outside Git.
+  \item Implement and test the read-only service/log collector or constrained
+        Docker socket proxy.
+  \item Add service-scoped deployment wiring for \pathtext{companion-gcs-api}:
+        \pathtext{deploy-companion-gcs-api} and \pathtext{logs-companion-gcs-api}.
+  \item Build ARM64 images only on WSL and deploy services independently using
+        \pathtext{--no-deps}; do not restart Router, MAVROS, camera, Vision,
+        networking, or Tailscale.
+  \item Validate mTLS, RBAC, log redaction, service allowlist, API streams, and
+        the disabled-control response.
+  \item Implement FC command policy and typed MAVROS adapters only in a separate
+        reviewed phase.
+\end{enumerate}
+
+\section{Checklist}
+
+\subsection{Telemetry}
+\begin{itemize}
+  \item[$\checkmark$] ROS C++ package builds in Docker.
+  \item[$\checkmark$] ARM64 image built on WSL and deployed.
+  \item[$\checkmark$] Pi snapshot contains standard MAVROS V1 data.
+  \item[$\checkmark$] Container runs with zero restarts.
+  \item[\todoitem] Deploy the updated image with ROS CLI runtime support.
+\end{itemize}
+
+\subsection{Companion API}
+\begin{itemize}
+  \item[$\checkmark$] Python compile, local Docker build, Compose validation and
+        API source-boundary test passed.
+  \item[\todoitem] Generate/provision TLS material.
+  \item[\todoitem] Implement read-only collector or proxy.
+  \item[\todoitem] Build ARM64, deploy on Pi, test mTLS/RBAC/log/status endpoints.
+\end{itemize}
+
+\subsection{FC control}
+\begin{itemize}
+  \item[\todoitem] Command policy and persistent audit log.
+  \item[\todoitem] Typed MAVROS adapters.
+  \item[\todoitem] SITL and propeller-off bench evidence.
+  \item[\todoitem] Explicit capability-by-capability activation approval.
+\end{itemize}
+
+\section{Non-Negotiable Constraints}
+
+\begin{itemize}
+  \item Never build ARM64 images on Pi.
+  \item Do not replace QGroundControl or create another GCS MAVLink transport.
+  \item No custom MAVLink dialect or raw MAVLink injection.
+  \item Do not broadly clean Docker or restart unrelated services.
+  \item Never commit secrets, authentication keys, certificates, or private keys.
+  \item No public exposure, Tailscale Funnel, exit node, or subnet route.
+  \item Keep \pathtext{/camera} independent from Vision.
+\end{itemize}
+
+\end{document}

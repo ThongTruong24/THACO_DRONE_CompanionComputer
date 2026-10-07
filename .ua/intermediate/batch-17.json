@@ -1,0 +1,81 @@
+{
+  "batchIndex": 17,
+  "nodes": [
+    {
+      "id": "service:src/drone-vision/Dockerfile.base",
+      "type": "service",
+      "name": "Dockerfile.base",
+      "filePath": "src/drone-vision/Dockerfile.base",
+      "summary": "Drone vision component (Dockerfile.base) performing real-time object detection and localization.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/drone-vision/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/drone-vision/README.md",
+      "summary": "Drone vision component (README.md) performing real-time object detection and localization.",
+      "tags": [
+        "markdown",
+        "docs",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/drone-vision/drone.yaml",
+      "type": "config",
+      "name": "drone.yaml",
+      "filePath": "src/drone-vision/drone.yaml",
+      "summary": "Drone vision component (drone.yaml) performing real-time object detection and localization.",
+      "tags": [
+        "yaml",
+        "config",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/drone-vision/entrypoint.sh",
+      "type": "file",
+      "name": "entrypoint.sh",
+      "filePath": "src/drone-vision/entrypoint.sh",
+      "summary": "Drone vision component (entrypoint.sh) performing real-time object detection and localization.",
+      "tags": [
+        "shell",
+        "script",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/drone-vision/object-localization.example.yaml",
+      "type": "config",
+      "name": "object-localization.example.yaml",
+      "filePath": "src/drone-vision/object-localization.example.yaml",
+      "summary": "Drone vision component (object-localization.example.yaml) performing real-time object detection and localization.",
+      "tags": [
+        "yaml",
+        "config",
+        "vision",
+        "yolo",
+        "detection"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,22 @@
+/**:
+  ros__parameters:
+    enabled: true
+    camera_model: "realsense_d435i"
+    model: "yolo26n.pt"
+    confidence: 0.35
+    source: "/camera/frame_ready"
+    input_url: "rtsp://127.0.0.1:8554/camera"
+    imgsz: 320
+    inference_fps: 5
+    fps: 30
+    width: 640
+    height: 480
+    bitrate_kbps: 1000
+    output_url: "rtmp://127.0.0.1:1935/yolo"
+    stale_seconds: 2.0
+    detection_max_age: 0.5
+    reconnect_seconds: 1.0
+    pool_dir: "/run/frame_pool"
+    min_distance_m: 0.3
+    max_distance_m: 10.0
+    sample_radius: 5

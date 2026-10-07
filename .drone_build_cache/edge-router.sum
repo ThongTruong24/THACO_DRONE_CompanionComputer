@@ -1,0 +1,38 @@
+ M src/drivers/camera/camera_interface.hpp
+ M src/modules/mavlink_router/CMakeLists.txt
+ M src/modules/mavlink_router/Dockerfile
+ M src/modules/mavlink_router/Dockerfile.dockerignore
+ M src/modules/mavlink_router/README.md
+ M src/modules/mavlink_router/docs/sequence.puml
+ M src/modules/mavlink_router/docs/system.puml
+ D src/modules/mavlink_router/entrypoint.sh
+ D src/modules/mavlink_router/include/router_supervisor.hpp
+ M src/modules/mavlink_router/mavlink-router.conf
+ M src/modules/mavlink_router/package.xml
+ M src/modules/mavlink_router/src/main.cpp
+ D src/modules/mavlink_router/src/router_supervisor.cpp
+ M src/modules/mavlink_router/tests/CMakeLists.txt
+ D src/modules/mavlink_router/tests/test_config_generator.cpp
+ D src/modules/mavlink_router/tests/test_router_supervisor.cpp
+?? cmake/
+?? msg/
+?? platforms/linux/docker/
+?? src/drivers/camera/ICameraDevice.hpp
+?? src/lib/atomic_file/
+?? src/lib/frame_pool/
+?? src/lib/hrt/
+?? src/lib/link_config/
+?? src/lib/serial/
+?? src/lib/systemlib/
+?? src/modules/mavlink_router/include/mavlink_router/
+?? src/modules/mavlink_router/src/mavlink_router.cpp
+?? src/modules/mavlink_router/src/mavlink_router_node.cpp
+?? src/modules/mavlink_router/src/router_config_generator.cpp
+?? src/modules/mavlink_router/src/router_stats_parser.cpp
+?? src/modules/mavlink_router/src/serial_link_monitor.cpp
+?? src/modules/mavlink_router/tests/test_mavlink_router.cpp
+?? src/modules/mavlink_router/tests/test_mavlink_router_node.cpp
+?? src/modules/mavlink_router/tests/test_router_config_generator.cpp
+?? src/modules/mavlink_router/tests/test_router_stats_parser.cpp
+?? src/modules/mavlink_router/tests/test_serial_link_monitor.cpp
+09701d995f6de80678e0f8b95b9ba3ef35ba63ca

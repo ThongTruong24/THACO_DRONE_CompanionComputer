@@ -1,0 +1,184 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/cc-agent/src/mavlink_core.cpp",
+      "language": "cpp",
+      "sizeLines": 607,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/network_monitor.cpp",
+      "language": "cpp",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/rollback_guard.cpp",
+      "language": "cpp",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/serial_enumerator.cpp",
+      "language": "cpp",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/src/system_metrics.cpp",
+      "language": "cpp",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/systemd/cc-config-agent.service",
+      "language": "service",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/tests/test_cc_config.py",
+      "language": "python",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/tests/test_e2e_mavlink.py",
+      "language": "python",
+      "sizeLines": 148,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-networking/dnsmasq.conf",
+      "language": "conf",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-networking/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-networking/hostapd.conf",
+      "language": "conf",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-networking/wifi_manager.py",
+      "language": "python",
+      "sizeLines": 173,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/scripts/object_geometry.py",
+      "language": "python",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/scripts/vision_processor.py",
+      "language": "python",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/scripts/yolo_streamer.py",
+      "language": "python",
+      "sizeLines": 418,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/tests/test_object_geometry.py",
+      "language": "python",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/tests/test_yolo_streamer.py",
+      "language": "python",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/drone-vision/yolo26n.pt",
+      "language": "pt",
+      "sizeLines": 13267,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 20,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/hardware-manager/include/hw_manager.hpp",
+      "language": "cpp",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/include/nlohmann/json.hpp",
+      "language": "cpp",
+      "sizeLines": 5258,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/include/serial_scanner.hpp",
+      "language": "cpp",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/src/hw_manager.cpp",
+      "language": "cpp",
+      "sizeLines": 206,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/hardware-manager/src/main.cpp",
+      "language": "cpp",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/cc-agent/src/mavlink_core.cpp": [],
+    "src/cc-agent/src/network_monitor.cpp": [],
+    "src/cc-agent/src/rollback_guard.cpp": [],
+    "src/cc-agent/src/serial_enumerator.cpp": [],
+    "src/cc-agent/src/system_metrics.cpp": [],
+    "src/cc-agent/systemd/cc-config-agent.service": [],
+    "src/cc-agent/tests/test_cc_config.py": [],
+    "src/cc-agent/tests/test_e2e_mavlink.py": [],
+    "src/drone-networking/dnsmasq.conf": [],
+    "src/drone-networking/docs/sequence.puml": [],
+    "src/drone-networking/hostapd.conf": [],
+    "src/drone-networking/wifi_manager.py": [],
+    "src/drone-vision/docs/sequence.puml": [],
+    "src/drone-vision/scripts/object_geometry.py": [],
+    "src/drone-vision/scripts/vision_processor.py": [],
+    "src/drone-vision/scripts/yolo_streamer.py": [],
+    "src/drone-vision/tests/test_object_geometry.py": [],
+    "src/drone-vision/tests/test_yolo_streamer.py": [],
+    "src/drone-vision/yolo26n.pt": [],
+    "src/hardware-manager/CMakeLists.txt": [],
+    "src/hardware-manager/include/hw_manager.hpp": [
+      "src/hardware-manager/include/serial_scanner.hpp"
+    ],
+    "src/hardware-manager/include/nlohmann/json.hpp": [],
+    "src/hardware-manager/include/serial_scanner.hpp": [],
+    "src/hardware-manager/src/hw_manager.cpp": [],
+    "src/hardware-manager/src/main.cpp": []
+  }
+}

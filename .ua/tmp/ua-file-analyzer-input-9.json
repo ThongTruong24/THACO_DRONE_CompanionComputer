@@ -1,0 +1,14 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/mavros/Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 43,
+      "fileCategory": "infra"
+    }
+  ],
+  "batchImportData": {
+    "src/mavros/Dockerfile": []
+  }
+}

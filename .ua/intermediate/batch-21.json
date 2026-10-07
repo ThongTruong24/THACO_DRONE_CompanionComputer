@@ -1,0 +1,51 @@
+{
+  "batchIndex": 21,
+  "nodes": [
+    {
+      "id": "document:src/mavros/ros2ws/cc_telemetry/CMakeLists.txt",
+      "type": "document",
+      "name": "CMakeLists.txt",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/CMakeLists.txt",
+      "summary": "ROS 2 telemetry publishing node broadcasting companion metrics over ROS 2 topics.",
+      "tags": [
+        "txt",
+        "docs",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/mavros/ros2ws/cc_telemetry/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/README.md",
+      "summary": "ROS 2 telemetry publishing node broadcasting companion metrics over ROS 2 topics.",
+      "tags": [
+        "markdown",
+        "docs",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/mavros/ros2ws/cc_telemetry/package.xml",
+      "type": "config",
+      "name": "package.xml",
+      "filePath": "src/mavros/ros2ws/cc_telemetry/package.xml",
+      "summary": "ROS 2 telemetry publishing node broadcasting companion metrics over ROS 2 topics.",
+      "tags": [
+        "xml",
+        "config",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

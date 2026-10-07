@@ -1,0 +1,51 @@
+{
+  "batchIndex": 20,
+  "nodes": [
+    {
+      "id": "document:src/mavros/mavlink/plugin_agridrone/CMakeLists.txt",
+      "type": "document",
+      "name": "CMakeLists.txt",
+      "filePath": "src/mavros/mavlink/plugin_agridrone/CMakeLists.txt",
+      "summary": "ROS 2 MAVROS subsystem (CMakeLists.txt) integrating companion telemetry with ROS 2.",
+      "tags": [
+        "txt",
+        "docs",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/mavros/mavlink/plugin_agridrone/agridrone_plugins.xml",
+      "type": "config",
+      "name": "agridrone_plugins.xml",
+      "filePath": "src/mavros/mavlink/plugin_agridrone/agridrone_plugins.xml",
+      "summary": "Custom MAVROS plugin decoding THACO proprietary MAVLink telemetry packets into ROS 2.",
+      "tags": [
+        "xml",
+        "config",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/mavros/mavlink/plugin_agridrone/package.xml",
+      "type": "config",
+      "name": "package.xml",
+      "filePath": "src/mavros/mavlink/plugin_agridrone/package.xml",
+      "summary": "ROS 2 MAVROS subsystem (package.xml) integrating companion telemetry with ROS 2.",
+      "tags": [
+        "xml",
+        "config",
+        "ros2",
+        "mavros",
+        "plugin"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

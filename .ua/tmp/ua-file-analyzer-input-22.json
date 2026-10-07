@@ -1,0 +1,182 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "config/drone-boot-tracker.service",
+      "language": "service",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/drone-edge.service",
+      "language": "service",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "docs/architecture.md",
+      "language": "markdown",
+      "sizeLines": 76,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/deployment_handoff.tex",
+      "language": "tex",
+      "sizeLines": 396,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/drone-boot-tracker.py",
+      "language": "python",
+      "sizeLines": 176,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/drone_log.py",
+      "language": "python",
+      "sizeLines": 125,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/drone_log_view.py",
+      "language": "python",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scripts/drone_param.py",
+      "language": "python",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/docs/sequence.puml",
+      "language": "puml",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/scripts/rtsp_streamer.py",
+      "language": "python",
+      "sizeLines": 284,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/config_manager.cpp",
+      "language": "cpp",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/gst_stream_sink.cpp",
+      "language": "cpp",
+      "sizeLines": 366,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/main.cpp",
+      "language": "cpp",
+      "sizeLines": 348,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/neon_processor.cpp",
+      "language": "cpp",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/realsense_camera.cpp",
+      "language": "cpp",
+      "sizeLines": 217,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/standby_generator.cpp",
+      "language": "cpp",
+      "sizeLines": 278,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/src/v4l2_camera.cpp",
+      "language": "cpp",
+      "sizeLines": 204,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/default.yaml",
+      "language": "yaml",
+      "sizeLines": 56,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/cc-agent/config/schema.json",
+      "language": "json",
+      "sizeLines": 236,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/cc-agent/config/templates/10-drone-netplan.yaml.j2",
+      "language": "j2",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/camera.yaml.j2",
+      "language": "j2",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/cc_telemetry.yaml.j2",
+      "language": "j2",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/dnsmasq.conf.j2",
+      "language": "j2",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/hostapd.conf.j2",
+      "language": "j2",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/config/templates/mavlink-router.conf.j2",
+      "language": "j2",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "config/drone-boot-tracker.service": [],
+    "config/drone-edge.service": [],
+    "docs/architecture.md": [],
+    "docs/deployment_handoff.tex": [],
+    "scripts/drone-boot-tracker.py": [],
+    "scripts/drone_log.py": [],
+    "scripts/drone_log_view.py": [],
+    "scripts/drone_param.py": [],
+    "src/camera-stream-controller/docs/sequence.puml": [],
+    "src/camera-stream-controller/scripts/rtsp_streamer.py": [],
+    "src/camera-stream-controller/src/config_manager.cpp": [],
+    "src/camera-stream-controller/src/gst_stream_sink.cpp": [],
+    "src/camera-stream-controller/src/main.cpp": [],
+    "src/camera-stream-controller/src/neon_processor.cpp": [],
+    "src/camera-stream-controller/src/realsense_camera.cpp": [],
+    "src/camera-stream-controller/src/standby_generator.cpp": [],
+    "src/camera-stream-controller/src/v4l2_camera.cpp": [],
+    "src/cc-agent/config/default.yaml": [],
+    "src/cc-agent/config/schema.json": [],
+    "src/cc-agent/config/templates/10-drone-netplan.yaml.j2": [],
+    "src/cc-agent/config/templates/camera.yaml.j2": [],
+    "src/cc-agent/config/templates/cc_telemetry.yaml.j2": [],
+    "src/cc-agent/config/templates/dnsmasq.conf.j2": [],
+    "src/cc-agent/config/templates/hostapd.conf.j2": [],
+    "src/cc-agent/config/templates/mavlink-router.conf.j2": []
+  }
+}

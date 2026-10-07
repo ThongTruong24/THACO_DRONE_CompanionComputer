@@ -1,0 +1,32 @@
+version: "1.0"
+drone_id: "THACO-DRONE-01"
+
+# 1. MAVLink Multiplexer & Router
+router:
+  fmu_port: "/dev/ttyAMA0"
+  fmu_baud: 921600
+  gcs_tcp_port: 5760
+  telemetry_udp_port: 14550
+
+# 2. Local Networking
+network:
+  ap_enabled: true
+  ap_ssid: "THACO_DRONE_01"
+  ap_password: "thacodronepass"
+  ap_ip: "192.168.144.1"
+
+# 3. Camera FPV Streaming
+camera:
+  model: "realsense_d435i"
+  bitrate_kbps: 1300
+  fps: 30
+  fpv_enabled: true
+  rtsp_url_qgc: "rtsp://127.0.0.1:8554/camera"
+
+# 4. Vision & AI (YOLO)
+vision:
+  enabled: true
+  model: "yolo26n.pt"
+  confidence: 0.35
+  inference_fps: 5
+  output_url: "rtmp://127.0.0.1:1935/yolo"

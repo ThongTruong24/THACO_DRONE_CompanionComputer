@@ -1,0 +1,80 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "src/drone-vision/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "services": [
+        {
+          "name": "${VISION_BASE_IMAGE}",
+          "image": "${VISION_BASE_IMAGE}",
+          "ports": [],
+          "startLine": 4,
+          "endLine": 12
+        }
+      ],
+      "steps": [
+        {
+          "name": "ARG VISION_BASE_IMAGE=drone-vision-base:latest",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "FROM ${VISION_BASE_IMAGE}",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "COPY scripts/    /app/scripts/",
+          "startLine": 7,
+          "endLine": 7
+        },
+        {
+          "name": "COPY entrypoint.sh /app/entrypoint.sh",
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "RUN chmod +x /app/entrypoint.sh /app/scripts/*.py",
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "ENTRYPOINT [\"/app/entrypoint.sh\"]",
+          "startLine": 11,
+          "endLine": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 7
+      }
+    }
+  ]
+}

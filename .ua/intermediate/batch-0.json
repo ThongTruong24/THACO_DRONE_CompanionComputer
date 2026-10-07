@@ -1,0 +1,2052 @@
+{
+  "batchIndex": 0,
+  "nodes": [
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/gtestsuite.hpp",
+      "type": "file",
+      "name": "gtestsuite.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/gtestsuite.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "very-complex"
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_config_ack.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:CC_CONFIG_ACK",
+      "type": "class",
+      "name": "CC_CONFIG_ACK",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "summary": "Class CC_CONFIG_ACK defined in mavlink_msg_cc_config_ack.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 76
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_config_ack.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 30,
+      "endLine": 33
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_config_ack.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 35,
+      "endLine": 38
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_config_ack.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 40,
+      "endLine": 53
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_config_ack.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 55,
+      "endLine": 65
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_config_ack.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 67,
+      "endLine": 75
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_config_apply.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:CC_CONFIG_APPLY",
+      "type": "class",
+      "name": "CC_CONFIG_APPLY",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "summary": "Class CC_CONFIG_APPLY defined in mavlink_msg_cc_config_apply.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 60
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_config_apply.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 26,
+      "endLine": 29
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_config_apply.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 31,
+      "endLine": 34
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_config_apply.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 36,
+      "endLine": 45
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_config_apply.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 47,
+      "endLine": 53
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_config_apply.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 55,
+      "endLine": 59
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_config_begin.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:CC_CONFIG_BEGIN",
+      "type": "class",
+      "name": "CC_CONFIG_BEGIN",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "summary": "Class CC_CONFIG_BEGIN defined in mavlink_msg_cc_config_begin.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 60
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_config_begin.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 26,
+      "endLine": 29
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_config_begin.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 31,
+      "endLine": 34
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_config_begin.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 36,
+      "endLine": 45
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_config_begin.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 47,
+      "endLine": 53
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_config_begin.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 55,
+      "endLine": 59
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_config_confirm.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:CC_CONFIG_CONFIRM",
+      "type": "class",
+      "name": "CC_CONFIG_CONFIRM",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "summary": "Class CC_CONFIG_CONFIRM defined in mavlink_msg_cc_config_confirm.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 60
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_config_confirm.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 26,
+      "endLine": 29
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_config_confirm.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 31,
+      "endLine": 34
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_config_confirm.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 36,
+      "endLine": 45
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_config_confirm.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 47,
+      "endLine": 53
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_config_confirm.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 55,
+      "endLine": 59
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_config_get.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:CC_CONFIG_GET",
+      "type": "class",
+      "name": "CC_CONFIG_GET",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "summary": "Class CC_CONFIG_GET defined in mavlink_msg_cc_config_get.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 60
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_config_get.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 26,
+      "endLine": 29
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_config_get.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 31,
+      "endLine": 34
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_config_get.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 36,
+      "endLine": 45
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_config_get.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 47,
+      "endLine": 53
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_config_get.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 55,
+      "endLine": 59
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_config_rollback.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:CC_CONFIG_ROLLBACK",
+      "type": "class",
+      "name": "CC_CONFIG_ROLLBACK",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "summary": "Class CC_CONFIG_ROLLBACK defined in mavlink_msg_cc_config_rollback.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 60
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_config_rollback.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 26,
+      "endLine": 29
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_config_rollback.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 31,
+      "endLine": 34
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_config_rollback.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 36,
+      "endLine": 45
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_config_rollback.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 47,
+      "endLine": 53
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_config_rollback.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 55,
+      "endLine": 59
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_config_set.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:CC_CONFIG_SET",
+      "type": "class",
+      "name": "CC_CONFIG_SET",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "summary": "Class CC_CONFIG_SET defined in mavlink_msg_cc_config_set.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 68
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_config_set.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 28,
+      "endLine": 31
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_config_set.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 33,
+      "endLine": 36
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_config_set.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 38,
+      "endLine": 49
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_config_set.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 51,
+      "endLine": 59
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_config_set.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 61,
+      "endLine": 67
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_config_status.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:CC_CONFIG_STATUS",
+      "type": "class",
+      "name": "CC_CONFIG_STATUS",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "summary": "Class CC_CONFIG_STATUS defined in mavlink_msg_cc_config_status.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 72
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_config_status.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 29,
+      "endLine": 32
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_config_status.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 34,
+      "endLine": 37
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_config_status.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 39,
+      "endLine": 51
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_config_status.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 53,
+      "endLine": 62
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_config_status.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 64,
+      "endLine": 71
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_config_value.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:CC_CONFIG_VALUE",
+      "type": "class",
+      "name": "CC_CONFIG_VALUE",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "summary": "Class CC_CONFIG_VALUE defined in mavlink_msg_cc_config_value.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 64
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_config_value.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 27,
+      "endLine": 30
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_config_value.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 32,
+      "endLine": 35
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_config_value.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 37,
+      "endLine": 47
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_config_value.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 49,
+      "endLine": 56
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_config_value.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 58,
+      "endLine": 63
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_telemetry_camera.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "summary": "Telemetry provider aggregating CPU, memory, temperature, and link statistics.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:CC_TELEMETRY_CAMERA",
+      "type": "class",
+      "name": "CC_TELEMETRY_CAMERA",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "summary": "Class CC_TELEMETRY_CAMERA defined in mavlink_msg_cc_telemetry_camera.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 160
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_telemetry_camera.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 51,
+      "endLine": 54
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_telemetry_camera.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 56,
+      "endLine": 59
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_telemetry_camera.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 61,
+      "endLine": 95
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_telemetry_camera.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 97,
+      "endLine": 128
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_telemetry_camera.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 130,
+      "endLine": 159
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_telemetry_links.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "summary": "Telemetry provider aggregating CPU, memory, temperature, and link statistics.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:CC_TELEMETRY_LINKS",
+      "type": "class",
+      "name": "CC_TELEMETRY_LINKS",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "summary": "Class CC_TELEMETRY_LINKS defined in mavlink_msg_cc_telemetry_links.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 148
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_telemetry_links.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 48,
+      "endLine": 51
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_telemetry_links.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 53,
+      "endLine": 56
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_telemetry_links.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 58,
+      "endLine": 89
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_telemetry_links.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 91,
+      "endLine": 119
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_telemetry_links.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 121,
+      "endLine": 147
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_telemetry_network.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "summary": "Telemetry provider aggregating CPU, memory, temperature, and link statistics.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:CC_TELEMETRY_NETWORK",
+      "type": "class",
+      "name": "CC_TELEMETRY_NETWORK",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "summary": "Class CC_TELEMETRY_NETWORK defined in mavlink_msg_cc_telemetry_network.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 168
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_telemetry_network.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 53,
+      "endLine": 56
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_telemetry_network.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 58,
+      "endLine": 61
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_telemetry_network.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 63,
+      "endLine": 99
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_telemetry_network.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 101,
+      "endLine": 134
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_telemetry_network.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 136,
+      "endLine": 167
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_telemetry_system.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "summary": "Telemetry provider aggregating CPU, memory, temperature, and link statistics.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:CC_TELEMETRY_SYSTEM",
+      "type": "class",
+      "name": "CC_TELEMETRY_SYSTEM",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "summary": "Class CC_TELEMETRY_SYSTEM defined in mavlink_msg_cc_telemetry_system.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 76
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_telemetry_system.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 30,
+      "endLine": 33
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_telemetry_system.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 35,
+      "endLine": 38
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_telemetry_system.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 40,
+      "endLine": 53
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_telemetry_system.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 55,
+      "endLine": 65
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_telemetry_system.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 67,
+      "endLine": 75
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "type": "file",
+      "name": "mavlink_msg_cc_telemetry_vision.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "summary": "Telemetry provider aggregating CPU, memory, temperature, and link statistics.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:CC_TELEMETRY_VISION",
+      "type": "class",
+      "name": "CC_TELEMETRY_VISION",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "summary": "Class CC_TELEMETRY_VISION defined in mavlink_msg_cc_telemetry_vision.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 88
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_cc_telemetry_vision.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 33,
+      "endLine": 36
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_cc_telemetry_vision.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 38,
+      "endLine": 41
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_cc_telemetry_vision.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 43,
+      "endLine": 59
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_cc_telemetry_vision.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 61,
+      "endLine": 74
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_cc_telemetry_vision.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 76,
+      "endLine": 87
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "type": "file",
+      "name": "mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:THACO_EXTERNAL_XYZ_TRIGGER",
+      "type": "class",
+      "name": "THACO_EXTERNAL_XYZ_TRIGGER",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "summary": "Class THACO_EXTERNAL_XYZ_TRIGGER defined in mavlink_msg_thaco_external_xyz_trigger.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 14,
+      "endLine": 60
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:get_name",
+      "type": "function",
+      "name": "get_name",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "summary": "Function get_name() declared or defined in mavlink_msg_thaco_external_xyz_trigger.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 26,
+      "endLine": 29
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:get_message_info",
+      "type": "function",
+      "name": "get_message_info",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "summary": "Function get_message_info() declared or defined in mavlink_msg_thaco_external_xyz_trigger.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 31,
+      "endLine": 34
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:to_yaml",
+      "type": "function",
+      "name": "to_yaml",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "summary": "Function to_yaml() declared or defined in mavlink_msg_thaco_external_xyz_trigger.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 36,
+      "endLine": 45
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:serialize",
+      "type": "function",
+      "name": "serialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "summary": "Function serialize() declared or defined in mavlink_msg_thaco_external_xyz_trigger.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 47,
+      "endLine": 53
+    },
+    {
+      "id": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:deserialize",
+      "type": "function",
+      "name": "deserialize",
+      "filePath": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "summary": "Function deserialize() declared or defined in mavlink_msg_thaco_external_xyz_trigger.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 55,
+      "endLine": 59
+    },
+    {
+      "id": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "type": "file",
+      "name": "thaco_common.hpp",
+      "filePath": "src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "summary": "THACO drone custom MAVLink dialect definition and C++ message serialization codecs.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/gtestsuite.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:CC_CONFIG_ACK",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:CC_CONFIG_APPLY",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:CC_CONFIG_BEGIN",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:CC_CONFIG_CONFIRM",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:CC_CONFIG_GET",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:CC_CONFIG_ROLLBACK",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:CC_CONFIG_SET",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:CC_CONFIG_STATUS",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:CC_CONFIG_VALUE",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:CC_TELEMETRY_CAMERA",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:CC_TELEMETRY_LINKS",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:CC_TELEMETRY_NETWORK",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:CC_TELEMETRY_SYSTEM",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:CC_TELEMETRY_VISION",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "target": "class:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:THACO_EXTERNAL_XYZ_TRIGGER",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:get_name",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:get_message_info",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:to_yaml",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:serialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "target": "function:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp:deserialize",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "target": "file:src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "type": "imports"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+# ============================================================
+# Raspberry Pi Boot Configuration - Drone Edge Computing
+# File: /boot/firmware/config.txt (Pi 4/5) hoac /boot/config.txt (Pi 3)
+#
+# Cai dat: sudo cp config/rpi-config.txt /boot/firmware/config.txt
+#          sudo reboot
+#
+# So sanh voi Ubuntu default config.txt:
+#   Giu nguyen : arm_64bit, kernel, initramfs, cmdline,
+#                dtoverlay=vc4-kms-v3d, disable_fw_kms_setup=1,
+#                camera/display_auto_detect, dtoverlay=dwc2,
+#                tat ca sections [pi4] [pi3+] [pi02] [cm4] [all]
+#   Them vao   : dtoverlay=uart4   (UART4 cho Flight Controller /dev/ttyAMA4)
+#                dtoverlay=uart0-pi5 (UART0 tren GPIO 14/15 cho SIYI Telemetry)
+#   Tat        : dtparam=audio=on  (drone khong can audio)
+#   Comment    : dtparam=spi, i2c_arm (tuy chon, bat khi can them sensor)
+#   KHONG dat  : gpu_mem (de kernel KMS tu quan ly, giong standard)
+#   KHONG them : [pi5] section (Ubuntu firmware tu xu ly Pi5 qua [all])
+# ============================================================
+
+[all]
+arm_64bit=1
+
+# --- Direct kernel loading (KHONG qua U-Boot) ---
+# EEPROM doc 3 dong nay de boot truc tiep vao Linux kernel
+kernel=vmlinuz
+cmdline=cmdline.txt
+initramfs initrd.img followkernel
+
+# --- GPIO peripherals (tu Ubuntu default) ---
+# dtparam=audio=on   # Tat audio - drone khong su dung loa/mic
+dtparam=i2c_arm=on
+dtparam=spi=on
+
+# --- GPU/Display: Full KMS mode ---
+dtoverlay=vc4-kms-v3d
+disable_fw_kms_setup=1
+
+# Disable overscan (pho bien khi chay headless)
+disable_overscan=1
+
+# --- UART: bat truoc khi them dtoverlay ---
+enable_uart=1
+
+# --- Camera & Display auto-detect (libcamera support) ---
+camera_auto_detect=1
+display_auto_detect=1
+
+# --- arm64 USB support (quan trong voi Ubuntu arm64) ---
+dtoverlay=dwc2
+
+# --- UART4: Ket noi Flight Controller (GPIO8=TX, GPIO9=RX) ---
+# Tao /dev/ttyAMA4 de ket noi Cube Orange Plus @ 921600 baud
+dtoverlay=uart4
+
+# --- UART0: Ket noi SIYI Air Unit (GPIO14=TX, GPIO15=RX) tren Pi 5 ---
+# Can thiet tren Pi 5 de chuyen UART0 tu cong JST 3-chan sang chan GPIO 14/15
+dtoverlay=uart0-pi5
+
+# ============================================================
+# Pi 4 specific
+# ============================================================
+[pi4]
+max_framebuffers=2
+arm_boost=1
+
+# ============================================================
+# Pi 3B+/3A+ - giam CMA de tranh OOM khi boot
+# ============================================================
+[pi3+]
+dtoverlay=vc4-kms-v3d,cma-128
+
+# ============================================================
+# Pi 02W
+# ============================================================
+[pi02]
+dtoverlay=vc4-kms-v3d,cma-128
+
+# ============================================================
+# Compute Module 4
+# ============================================================
+[cm4]
+dtoverlay=dwc2,dr_mode=host
+
+# Reset conditional filter ve [all] - giong Ubuntu default (best practice)
+[all]

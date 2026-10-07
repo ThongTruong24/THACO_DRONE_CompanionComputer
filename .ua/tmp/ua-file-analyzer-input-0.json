@@ -1,0 +1,144 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/gtestsuite.hpp",
+      "language": "cpp",
+      "sizeLines": 1341,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "language": "cpp",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "language": "cpp",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "language": "cpp",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "language": "cpp",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "language": "cpp",
+      "sizeLines": 164,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "language": "cpp",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "language": "cpp",
+      "sizeLines": 172,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "language": "cpp",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "language": "cpp",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp",
+      "language": "cpp",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cc-agent/mavlink/thaco_common/thaco_common.hpp",
+      "language": "cpp",
+      "sizeLines": 437,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/cc-agent/mavlink/thaco_common/gtestsuite.hpp": [
+      "src/cc-agent/mavlink/thaco_common/thaco_common.hpp"
+    ],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp": [],
+    "src/cc-agent/mavlink/thaco_common/thaco_common.hpp": [
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_ack.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_apply.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_begin.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_confirm.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_get.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_rollback.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_set.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_status.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_config_value.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_camera.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_links.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_network.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_system.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_cc_telemetry_vision.hpp",
+      "src/cc-agent/mavlink/thaco_common/mavlink_msg_thaco_external_xyz_trigger.hpp"
+    ]
+  }
+}

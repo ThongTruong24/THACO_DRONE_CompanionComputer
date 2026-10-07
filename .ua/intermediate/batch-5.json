@@ -1,0 +1,21 @@
+{
+  "batchIndex": 5,
+  "nodes": [
+    {
+      "id": "service:src/drone-networking/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "src/drone-networking/Dockerfile",
+      "summary": "Networking subsystem file (Dockerfile) managing Wi-Fi, hotspot, and IP connectivity.",
+      "tags": [
+        "dockerfile",
+        "infra",
+        "networking",
+        "wifi",
+        "ap-sta"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

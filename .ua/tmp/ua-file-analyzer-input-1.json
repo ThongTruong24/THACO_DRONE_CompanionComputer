@@ -1,0 +1,77 @@
+{
+  "projectRoot": "/home/lnh/Drone",
+  "batchFiles": [
+    {
+      "path": "src/camera-stream-controller/include/camera_interface.hpp",
+      "language": "cpp",
+      "sizeLines": 175,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/config_manager.hpp",
+      "language": "cpp",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/gst_stream_sink.hpp",
+      "language": "cpp",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/neon_processor.hpp",
+      "language": "cpp",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/realsense_camera.hpp",
+      "language": "cpp",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/safe_ring_buffer.hpp",
+      "language": "cpp",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/standby_generator.hpp",
+      "language": "cpp",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/camera-stream-controller/include/v4l2_camera.hpp",
+      "language": "cpp",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/camera-stream-controller/include/camera_interface.hpp": [],
+    "src/camera-stream-controller/include/config_manager.hpp": [
+      "src/camera-stream-controller/include/camera_interface.hpp"
+    ],
+    "src/camera-stream-controller/include/gst_stream_sink.hpp": [
+      "src/camera-stream-controller/include/camera_interface.hpp"
+    ],
+    "src/camera-stream-controller/include/neon_processor.hpp": [
+      "src/camera-stream-controller/include/camera_interface.hpp"
+    ],
+    "src/camera-stream-controller/include/realsense_camera.hpp": [
+      "src/camera-stream-controller/include/camera_interface.hpp"
+    ],
+    "src/camera-stream-controller/include/safe_ring_buffer.hpp": [
+      "src/camera-stream-controller/include/camera_interface.hpp"
+    ],
+    "src/camera-stream-controller/include/standby_generator.hpp": [
+      "src/camera-stream-controller/include/camera_interface.hpp"
+    ],
+    "src/camera-stream-controller/include/v4l2_camera.hpp": [
+      "src/camera-stream-controller/include/camera_interface.hpp"
+    ]
+  }
+}

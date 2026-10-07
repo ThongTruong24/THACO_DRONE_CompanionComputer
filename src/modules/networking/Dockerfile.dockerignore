@@ -1,0 +1,7 @@
+# Whitelist: send only what this image's Dockerfile COPYs (build context is the repo root).
+*
+!msg
+!src/modules/networking
+**/build*
+**/__pycache__
+**/*.pyc

@@ -1,0 +1,32 @@
+@startuml vision-v1-system
+title vision_v1: Decoupled Video and Inference Architecture
+
+package "edge-camera / MediaMTX" {
+  interface "RTSP /camera" as CameraStream
+  interface "RTMP ingest /yolo" as YoloIngest
+  component "FramePool" as Pool
+  interface "/camera/frame_ready" as FrameReady
+}
+
+package "edge-vision-v1" {
+  component "RtspVideoSource\nlatest frame" as RTSP
+  component "FramePoolInferenceSource\nlatest frame" as InferenceSource
+  component "InferenceWorker\nYOLO metadata only" as Inference
+  component "DetectionStore\nlatest immutable snapshot" as Store
+  component "VideoWorker\nresize + overlay" as Video
+  component "VisionPublisher\nleaky appsrc/x264" as Publisher
+  component "VisionNode\nROS name: vision" as Node
+}
+
+CameraStream --> RTSP
+RTSP --> Video
+FrameReady --> Node
+Node --> Pool : read descriptor
+Pool --> InferenceSource
+InferenceSource --> Inference
+Inference --> Store
+Store --> Video : non-blocking read
+Video --> Publisher
+Publisher --> YoloIngest
+
+@enduml

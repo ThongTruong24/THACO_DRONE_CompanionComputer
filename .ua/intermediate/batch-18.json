@@ -1,0 +1,48 @@
+{
+  "batchIndex": 18,
+  "nodes": [
+    {
+      "id": "document:src/mavlink-router-controller/CMakeLists.txt",
+      "type": "document",
+      "name": "CMakeLists.txt",
+      "filePath": "src/mavlink-router-controller/CMakeLists.txt",
+      "summary": "MAVLink routing controller (CMakeLists.txt) routing flight telemetry packets.",
+      "tags": [
+        "txt",
+        "docs",
+        "mavlink",
+        "router"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/mavlink-router-controller/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/mavlink-router-controller/README.md",
+      "summary": "MAVLink routing controller (README.md) routing flight telemetry packets.",
+      "tags": [
+        "markdown",
+        "docs",
+        "mavlink",
+        "router"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/mavlink-router-controller/entrypoint.sh",
+      "type": "file",
+      "name": "entrypoint.sh",
+      "filePath": "src/mavlink-router-controller/entrypoint.sh",
+      "summary": "MAVLink routing controller (entrypoint.sh) routing flight telemetry packets.",
+      "tags": [
+        "shell",
+        "script",
+        "mavlink",
+        "router"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

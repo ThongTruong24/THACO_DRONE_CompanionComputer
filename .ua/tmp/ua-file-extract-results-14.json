@@ -1,0 +1,223 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [
+    "src/camera-stream-controller/CMakeLists.txt",
+    "src/camera-stream-controller/Dockerfile.cross"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 4
+    }
+  },
+  "results": [
+    {
+      "path": "src/camera-stream-controller/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 112,
+      "nonEmptyLines": 81,
+      "sections": [
+        {
+          "heading": "Camera + RTSP Container",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Configuration",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "RGB-D contract for 3D Vision",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "Endpoints",
+          "level": 2,
+          "line": 48
+        },
+        {
+          "heading": "Operation",
+          "level": 2,
+          "line": 61
+        },
+        {
+          "heading": "Troubleshooting",
+          "level": 2,
+          "line": 70
+        },
+        {
+          "heading": "Fast local build",
+          "level": 2,
+          "line": 87
+        },
+        {
+          "heading": "Diagrams",
+          "level": 2,
+          "line": 97
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/camera.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 66,
+      "nonEmptyLines": 58,
+      "sections": [
+        {
+          "heading": "camera_type",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "device_settings",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "video",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "encoder",
+          "level": 1,
+          "line": 35
+        },
+        {
+          "heading": "network",
+          "level": 1,
+          "line": 51
+        },
+        {
+          "heading": "ros2_rgbd",
+          "level": 1,
+          "line": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/entrypoint.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 40,
+      "nonEmptyLines": 34,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/camera-stream-controller/mediamtx.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 36,
+      "nonEmptyLines": 29,
+      "sections": [
+        {
+          "heading": "logLevel",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "logDestinations",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "api",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "apiAddress",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "rtspAddress",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "rtmpAddress",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "webrtcAddress",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "udpMaxPayloadSize",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "protocols",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "readTimeout",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "writeTimeout",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "writeQueueSize",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "paths",
+          "level": 1,
+          "line": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 13
+      }
+    }
+  ]
+}

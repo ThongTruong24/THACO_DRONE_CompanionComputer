@@ -1,0 +1,27 @@
+/**:
+  ros__parameters:
+    # Camera hardware model identity
+    camera_model: "realsense_d435i"
+    camera_type: "realsense"
+
+    # Capture video settings (native sensor capability)
+    video:
+      width: 1280
+      height: 720
+      rotation: 180
+
+    fps: 30
+
+    # RealSense D435i specific hardware settings
+    realsense:
+      serial_number: ""
+      profile_mode: "rgb_only"   # "rgb_only", "rgb_depth", "rgb_depth_pointcloud"
+      enable_emitter: false      # Laser pattern projector (false saves power outdoors)
+      depth_width: 640
+      depth_height: 480
+      depth_fps: 30
+
+    # Optical & Depth measurement range (D435i stereo baseline ~50mm)
+    min_distance_m: 0.3
+    max_distance_m: 10.0
+    sample_radius: 5

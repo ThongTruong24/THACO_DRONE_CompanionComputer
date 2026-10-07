@@ -1,0 +1,9 @@
+# Whitelist: send only what this image's Dockerfile COPYs (build context is the repo root).
+*
+!msg
+!src/lib/frame_pool
+!src/lib/hrt
+!src/modules/vision
+**/build*
+**/__pycache__
+**/*.pyc

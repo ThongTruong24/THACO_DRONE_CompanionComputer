@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>camera_streamer</name>
+  <version>1.0.0</version>
+  <description>Camera capture, NEON processing, AI downscale and RTSP/WebRTC streaming via MediaMTX</description>
+  <maintainer email="minh.civil.en.2249@gmail.com">THACO Drone</maintainer>
+  <license>Proprietary</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>cc_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cc_frame_pool</depend>
+  <depend>cc_systemlib</depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

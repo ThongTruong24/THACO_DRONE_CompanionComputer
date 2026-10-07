@@ -1,0 +1,36 @@
+/**:
+  ros__parameters:
+    # Selected camera hardware model (maps to /app/config/cameras/${camera_model}.yaml)
+    camera_model: "realsense_d435i"
+
+    # Streaming and encoding parameters
+    fps: 30
+    bitrate_kbps: 1300
+    fpv_enabled: true
+    ai_enabled: true
+    ai_width: 640
+    ai_height: 480
+    ai_fps: 10
+    ai_pool_dir: "/run/frame_pool"
+
+    encoder:
+      mode: "software"
+      codec: "h264"
+      bitrate_min_kbps: 1300
+      bitrate_max_kbps: 1300
+      vbv_buffer_kb: 1300
+      tune: "zerolatency"
+      speed_preset: "ultrafast"
+      threads: 4
+      intra_refresh: false
+      adaptive_rate: false
+      key_int_max: 30
+      leaky_queue_buffers: 6
+
+    network:
+      sink_type: "rtmp"
+      target_url: "rtmp://127.0.0.1:1935/camera"
+
+    rtsp_url_qgc: "rtsp://127.0.0.1:8554/camera"
+    rtsp_url_controller: ""
+    rtsp_url_laptop: ""

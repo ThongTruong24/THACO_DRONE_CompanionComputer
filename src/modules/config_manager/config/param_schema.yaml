@@ -1,0 +1,180 @@
+version: "1.0"
+parameters:
+  # 1. MAVLink Multiplexer & Router
+  router.fmu_port:
+    mav_id: "CC_RTR_PORT"
+    node: "config_manager"
+    ros_name: "router.fmu_port"
+    type: string
+    default: "/dev/ttyAMA0"
+    tier: 1
+    desc: "Cổng nối Flight Controller"
+
+  router.fmu_baud:
+    mav_id: "CC_RTR_BAUD"
+    node: "config_manager"
+    ros_name: "router.fmu_baud"
+    type: int
+    default: 921600
+    options: [115200, 460800, 921600, 1500000]
+    tier: 1
+    desc: "Baudrate kết nối PX4 FMU"
+
+  router.gcs_tcp_port:
+    mav_id: "CC_RTR_GCS_TCP"
+    node: "config_manager"
+    ros_name: "router.gcs_tcp_port"
+    type: int
+    default: 5760
+    min: 1024
+    max: 65535
+    tier: 2
+    desc: "Port phục vụ QGC TCP"
+
+  router.telemetry_udp_port:
+    mav_id: "CC_RTR_TEL_UDP"
+    node: "config_manager"
+    ros_name: "router.telemetry_udp_port"
+    type: int
+    default: 14550
+    min: 1024
+    max: 65535
+    tier: 2
+    desc: "Port phát broadcast GCS UDP"
+
+  # 2. Local Networking
+  network.ap_enabled:
+    mav_id: "CC_NET_AP_EN"
+    node: "config_manager"
+    ros_name: "network.ap_enabled"
+    type: bool
+    default: true
+    tier: 2
+    desc: "Bật tắt Wi-Fi Hotspot"
+
+  network.ap_ssid:
+    mav_id: "CC_AP_SSID"
+    node: "config_manager"
+    ros_name: "ap.ssid"
+    type: string
+    default: "THACO_DRONE_01"
+    tier: 2
+    desc: "SSID Wi-Fi Access Point"
+
+  network.ap_password:
+    mav_id: "CC_AP_PASS"
+    node: "config_manager"
+    ros_name: "ap.pass"
+    type: string
+    default: "thacodronepass"
+    tier: 2
+    desc: "Mật khẩu Wi-Fi WPA2"
+
+  network.ap_ip:
+    mav_id: "CC_NET_AP_IP"
+    node: "config_manager"
+    ros_name: "network.ap_ip"
+    type: string
+    default: "192.168.144.1"
+    tier: 2
+    desc: "Địa chỉ IP tĩnh của Hotspot"
+
+  # 3. Camera FPV Streaming
+  camera.model:
+    mav_id: "CC_CAM_MODEL"
+    node: "camera_streamer"
+    ros_name: "camera_model"
+    type: string
+    default: "realsense_d435i"
+    tier: 2
+    desc: "Camera hardware profile name"
+
+  camera.bitrate_kbps:
+    mav_id: "CC_CAM_BR"
+    node: "camera_streamer"
+    ros_name: "bitrate_kbps"
+    type: int
+    default: 1300
+    min: 300
+    max: 20000
+    tier: 2
+    desc: "Bitrate video FPV (kbps)"
+
+  camera.fps:
+    mav_id: "CC_CAM_FPS"
+    node: "camera_streamer"
+    ros_name: "fps"
+    type: int
+    default: 30
+    min: 1
+    max: 120
+    tier: 2
+    desc: "Tốc độ khung hình camera"
+
+  camera.fpv_enabled:
+    mav_id: "CC_CAM_FPV_EN"
+    node: "camera_streamer"
+    ros_name: "fpv_enabled"
+    type: bool
+    default: true
+    tier: 2
+    desc: "Kích hoạt luồng RTSP FPV"
+
+  camera.rtsp_url_qgc:
+    mav_id: "CC_CAM_RTSP_URL"
+    node: "camera_streamer"
+    ros_name: "rtsp_url_qgc"
+    type: string
+    default: "rtsp://127.0.0.1:8554/camera"
+    tier: 3
+    desc: "URL RTSP cho QGroundControl"
+
+  # 4. Vision & AI (YOLO)
+  vision.enabled:
+    mav_id: "CC_VIS_EN"
+    node: "vision"
+    ros_name: "enabled"
+    type: bool
+    default: true
+    tier: 2
+    desc: "Kích hoạt xử lý AI Vision"
+
+  vision.model:
+    mav_id: "CC_VIS_MODEL"
+    node: "vision"
+    ros_name: "model"
+    type: string
+    default: "yolo26n.pt"
+    tier: 2
+    desc: "Tên model YOLO đang nạp"
+
+  vision.confidence:
+    mav_id: "CC_VIS_CONF"
+    node: "vision"
+    ros_name: "confidence"
+    type: float
+    default: 0.35
+    min: 0.05
+    max: 0.95
+    tier: 2
+    desc: "Ngưỡng tin cậy nhận diện"
+
+  vision.inference_fps:
+    mav_id: "CC_VIS_FPS"
+    node: "vision"
+    ros_name: "inference_fps"
+    type: int
+    default: 5
+    min: 1
+    max: 30
+    tier: 2
+    desc: "Tần số suy luận AI (Hz)"
+
+  vision.output_url:
+    mav_id: "CC_VIS_OUT_URL"
+    node: "vision"
+    ros_name: "output_url"
+    type: string
+    default: "rtmp://127.0.0.1:1935/yolo"
+    tier: 3
+    desc: "URL phát luồng kết quả AI"

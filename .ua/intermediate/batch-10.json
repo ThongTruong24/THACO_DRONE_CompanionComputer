@@ -1,0 +1,90 @@
+{
+  "batchIndex": 10,
+  "nodes": [
+    {
+      "id": "document:.agents/rules/00-core.md",
+      "type": "document",
+      "name": "00-core.md",
+      "filePath": ".agents/rules/00-core.md",
+      "summary": "Architectural rule and development constraint guideline (00-core.md) for companion computer subsystems.",
+      "tags": [
+        "markdown",
+        "docs",
+        "standards",
+        "guidelines"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/rules/01-networking.md",
+      "type": "document",
+      "name": "01-networking.md",
+      "filePath": ".agents/rules/01-networking.md",
+      "summary": "Architectural rule and development constraint guideline (01-networking.md) for companion computer subsystems.",
+      "tags": [
+        "markdown",
+        "docs",
+        "standards",
+        "guidelines"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/rules/02-mavlink.md",
+      "type": "document",
+      "name": "02-mavlink.md",
+      "filePath": ".agents/rules/02-mavlink.md",
+      "summary": "Architectural rule and development constraint guideline (02-mavlink.md) for companion computer subsystems.",
+      "tags": [
+        "markdown",
+        "docs",
+        "standards",
+        "guidelines"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/rules/03-camera-rtsp.md",
+      "type": "document",
+      "name": "03-camera-rtsp.md",
+      "filePath": ".agents/rules/03-camera-rtsp.md",
+      "summary": "Architectural rule and development constraint guideline (03-camera-rtsp.md) for companion computer subsystems.",
+      "tags": [
+        "markdown",
+        "docs",
+        "standards",
+        "guidelines"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/rules/04-vision.md",
+      "type": "document",
+      "name": "04-vision.md",
+      "filePath": ".agents/rules/04-vision.md",
+      "summary": "Architectural rule and development constraint guideline (04-vision.md) for companion computer subsystems.",
+      "tags": [
+        "markdown",
+        "docs",
+        "standards",
+        "guidelines"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/rules/05-doctor.md",
+      "type": "document",
+      "name": "05-doctor.md",
+      "filePath": ".agents/rules/05-doctor.md",
+      "summary": "Architectural rule and development constraint guideline (05-doctor.md) for companion computer subsystems.",
+      "tags": [
+        "markdown",
+        "docs",
+        "standards",
+        "guidelines"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

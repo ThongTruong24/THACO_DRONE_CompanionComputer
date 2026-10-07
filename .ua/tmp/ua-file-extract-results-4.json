@@ -1,0 +1,112 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "src/cc-agent/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 26,
+      "nonEmptyLines": 19,
+      "services": [
+        {
+          "name": "builder",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 15
+        },
+        {
+          "name": "ubuntu",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 16,
+          "endLine": 27
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ubuntu:24.04 AS builder",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "ENV DEBIAN_FRONTEND=noninteractive",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "RUN apt-get update && apt-get install -y --no-install-recommends",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "COPY . .",
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "RUN mkdir -p build && cd build && \\",
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "FROM ubuntu:24.04",
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "RUN apt-get update && apt-get install -y --no-install-recommends",
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 22,
+          "endLine": 22
+        },
+        {
+          "name": "COPY --from=builder /usr/local/bin/drone-companion-agent /usr/loc",
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "ENTRYPOINT [\"/usr/local/bin/drone-companion-agent\"]",
+          "startLine": 25,
+          "endLine": 25
+        },
+        {
+          "name": "CMD [\"127.0.0.1\", \"14600\"]",
+          "startLine": 26,
+          "endLine": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 2,
+        "stepCount": 12
+      }
+    }
+  ]
+}

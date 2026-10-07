@@ -1,0 +1,147 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 1,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "src/mavlink-router-controller/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 48,
+      "nonEmptyLines": 37,
+      "services": [
+        {
+          "name": "builder",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 2,
+          "endLine": 28
+        },
+        {
+          "name": "runtime",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 29,
+          "endLine": 49
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ubuntu:24.04 AS builder",
+          "startLine": 2,
+          "endLine": 2
+        },
+        {
+          "name": "ENV DEBIAN_FRONTEND=noninteractive",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "RUN apt-get update && apt-get install -y --no-install-recommends",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "RUN git clone --depth=1 https://github.com/mavlink-router/mavlin",
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "WORKDIR /build/mavlink-router",
+          "startLine": 14,
+          "endLine": 14
+        },
+        {
+          "name": "RUN git submodule update --init --recursive",
+          "startLine": 15,
+          "endLine": 15
+        },
+        {
+          "name": "RUN meson setup build --buildtype=release \\",
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "WORKDIR /build/controller",
+          "startLine": 21,
+          "endLine": 21
+        },
+        {
+          "name": "COPY . .",
+          "startLine": 22,
+          "endLine": 22
+        },
+        {
+          "name": "RUN mkdir -p build && cd build && \\",
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "FROM ubuntu:24.04 AS runtime",
+          "startLine": 29,
+          "endLine": 29
+        },
+        {
+          "name": "ENV DEBIAN_FRONTEND=noninteractive",
+          "startLine": 31,
+          "endLine": 31
+        },
+        {
+          "name": "RUN apt-get update && apt-get install -y --no-install-recommends",
+          "startLine": 33,
+          "endLine": 33
+        },
+        {
+          "name": "COPY --from=builder /usr/bin/mavlink-routerd /usr/bin/mavlink-rou",
+          "startLine": 38,
+          "endLine": 38
+        },
+        {
+          "name": "COPY --from=builder /usr/local/bin/mavlink-router-controller /usr",
+          "startLine": 39,
+          "endLine": 39
+        },
+        {
+          "name": "RUN chmod +x /usr/bin/mavlink-routerd /usr/local/bin/mavlink-rou",
+          "startLine": 41,
+          "endLine": 41
+        },
+        {
+          "name": "HEALTHCHECK --interval=15s --timeout=5s --start-period=10s --retries=3 \\",
+          "startLine": 44,
+          "endLine": 44
+        },
+        {
+          "name": "ENTRYPOINT [\"/usr/local/bin/mavlink-router-controller\"]",
+          "startLine": 47,
+          "endLine": 47
+        },
+        {
+          "name": "CMD [\"/run/drone/router.sock\", \"/run/drone/hw_manager.sock\"]",
+          "startLine": 48,
+          "endLine": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 2,
+        "stepCount": 19
+      }
+    }
+  ]
+}

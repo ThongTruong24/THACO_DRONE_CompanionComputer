@@ -1,0 +1,354 @@
+{
+  "batchIndex": 2,
+  "nodes": [
+    {
+      "id": "file:src/cc-agent/include/config_engine.hpp",
+      "type": "file",
+      "name": "config_engine.hpp",
+      "filePath": "src/cc-agent/include/config_engine.hpp",
+      "summary": "Configuration management engine loading and persisting runtime drone parameters.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/include/config_engine.hpp:TelemetryConfig",
+      "type": "class",
+      "name": "TelemetryConfig",
+      "filePath": "src/cc-agent/include/config_engine.hpp",
+      "summary": "Class TelemetryConfig defined in config_engine.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 13,
+      "endLine": 18
+    },
+    {
+      "id": "class:src/cc-agent/include/config_engine.hpp:TxResult",
+      "type": "class",
+      "name": "TxResult",
+      "filePath": "src/cc-agent/include/config_engine.hpp",
+      "summary": "Class TxResult defined in config_engine.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 20,
+      "endLine": 27
+    },
+    {
+      "id": "class:src/cc-agent/include/config_engine.hpp:ConfigEngine",
+      "type": "class",
+      "name": "ConfigEngine",
+      "filePath": "src/cc-agent/include/config_engine.hpp",
+      "summary": "Class ConfigEngine defined in config_engine.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 29,
+      "endLine": 83
+    },
+    {
+      "id": "function:src/cc-agent/include/config_engine.hpp:set_log_callback",
+      "type": "function",
+      "name": "set_log_callback",
+      "filePath": "src/cc-agent/include/config_engine.hpp",
+      "summary": "Function set_log_callback() declared or defined in config_engine.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 49,
+      "endLine": 51
+    },
+    {
+      "id": "file:src/cc-agent/include/mavlink_core.hpp",
+      "type": "file",
+      "name": "mavlink_core.hpp",
+      "filePath": "src/cc-agent/include/mavlink_core.hpp",
+      "summary": "MAVLink message dispatcher and protocol packet handler for companion computer communication.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/include/mavlink_core.hpp:MavlinkCore",
+      "type": "class",
+      "name": "MavlinkCore",
+      "filePath": "src/cc-agent/include/mavlink_core.hpp",
+      "summary": "Class MavlinkCore defined in mavlink_core.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 17,
+      "endLine": 93
+    },
+    {
+      "id": "file:src/cc-agent/include/network_monitor.hpp",
+      "type": "file",
+      "name": "network_monitor.hpp",
+      "filePath": "src/cc-agent/include/network_monitor.hpp",
+      "summary": "Companion computer agent component (network_monitor.hpp) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cc-agent/include/network_monitor.hpp:NetworkStats",
+      "type": "class",
+      "name": "NetworkStats",
+      "filePath": "src/cc-agent/include/network_monitor.hpp",
+      "summary": "Class NetworkStats defined in network_monitor.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 8,
+      "endLine": 40
+    },
+    {
+      "id": "class:src/cc-agent/include/network_monitor.hpp:NetworkMonitor",
+      "type": "class",
+      "name": "NetworkMonitor",
+      "filePath": "src/cc-agent/include/network_monitor.hpp",
+      "summary": "Class NetworkMonitor defined in network_monitor.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 42,
+      "endLine": 61
+    },
+    {
+      "id": "file:src/cc-agent/include/rollback_guard.hpp",
+      "type": "file",
+      "name": "rollback_guard.hpp",
+      "filePath": "src/cc-agent/include/rollback_guard.hpp",
+      "summary": "Companion computer agent component (rollback_guard.hpp) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cc-agent/include/rollback_guard.hpp:RollbackGuard",
+      "type": "class",
+      "name": "RollbackGuard",
+      "filePath": "src/cc-agent/include/rollback_guard.hpp",
+      "summary": "Class RollbackGuard defined in rollback_guard.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 15,
+      "endLine": 47
+    },
+    {
+      "id": "function:src/cc-agent/include/rollback_guard.hpp:get_fc_bitrate_kbps",
+      "type": "function",
+      "name": "get_fc_bitrate_kbps",
+      "filePath": "src/cc-agent/include/rollback_guard.hpp",
+      "summary": "Function get_fc_bitrate_kbps() declared or defined in rollback_guard.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 24,
+      "endLine": 24
+    },
+    {
+      "id": "function:src/cc-agent/include/rollback_guard.hpp:get_fc_rx_bytes",
+      "type": "function",
+      "name": "get_fc_rx_bytes",
+      "filePath": "src/cc-agent/include/rollback_guard.hpp",
+      "summary": "Function get_fc_rx_bytes() declared or defined in rollback_guard.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 25,
+      "endLine": 25
+    },
+    {
+      "id": "function:src/cc-agent/include/rollback_guard.hpp:set_log_callback",
+      "type": "function",
+      "name": "set_log_callback",
+      "filePath": "src/cc-agent/include/rollback_guard.hpp",
+      "summary": "Function set_log_callback() declared or defined in rollback_guard.hpp.",
+      "tags": [
+        "function",
+        "cpp"
+      ],
+      "complexity": "simple",
+      "startLine": 28,
+      "endLine": 30
+    },
+    {
+      "id": "file:src/cc-agent/include/system_metrics.hpp",
+      "type": "file",
+      "name": "system_metrics.hpp",
+      "filePath": "src/cc-agent/include/system_metrics.hpp",
+      "summary": "Companion computer agent component (system_metrics.hpp) managing system status, config, and MAVLink telemetry.",
+      "tags": [
+        "cpp",
+        "code",
+        "agent",
+        "mavlink",
+        "telemetry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cc-agent/include/system_metrics.hpp:SystemStats",
+      "type": "class",
+      "name": "SystemStats",
+      "filePath": "src/cc-agent/include/system_metrics.hpp",
+      "summary": "Class SystemStats defined in system_metrics.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 7,
+      "endLine": 13
+    },
+    {
+      "id": "class:src/cc-agent/include/system_metrics.hpp:SystemMetricsCollector",
+      "type": "class",
+      "name": "SystemMetricsCollector",
+      "filePath": "src/cc-agent/include/system_metrics.hpp",
+      "summary": "Class SystemMetricsCollector defined in system_metrics.hpp.",
+      "tags": [
+        "class",
+        "cpp"
+      ],
+      "complexity": "moderate",
+      "startLine": 15,
+      "endLine": 23
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cc-agent/include/config_engine.hpp",
+      "target": "class:src/cc-agent/include/config_engine.hpp:TelemetryConfig",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/config_engine.hpp",
+      "target": "class:src/cc-agent/include/config_engine.hpp:TxResult",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/config_engine.hpp",
+      "target": "class:src/cc-agent/include/config_engine.hpp:ConfigEngine",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/config_engine.hpp",
+      "target": "function:src/cc-agent/include/config_engine.hpp:set_log_callback",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/mavlink_core.hpp",
+      "target": "class:src/cc-agent/include/mavlink_core.hpp:MavlinkCore",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/mavlink_core.hpp",
+      "target": "file:src/cc-agent/include/config_engine.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/include/mavlink_core.hpp",
+      "target": "file:src/cc-agent/include/network_monitor.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/include/mavlink_core.hpp",
+      "target": "file:src/cc-agent/include/rollback_guard.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/include/mavlink_core.hpp",
+      "target": "file:src/cc-agent/include/system_metrics.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/include/network_monitor.hpp",
+      "target": "class:src/cc-agent/include/network_monitor.hpp:NetworkStats",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/network_monitor.hpp",
+      "target": "class:src/cc-agent/include/network_monitor.hpp:NetworkMonitor",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/rollback_guard.hpp",
+      "target": "class:src/cc-agent/include/rollback_guard.hpp:RollbackGuard",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/rollback_guard.hpp",
+      "target": "function:src/cc-agent/include/rollback_guard.hpp:get_fc_bitrate_kbps",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/rollback_guard.hpp",
+      "target": "function:src/cc-agent/include/rollback_guard.hpp:get_fc_rx_bytes",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/rollback_guard.hpp",
+      "target": "function:src/cc-agent/include/rollback_guard.hpp:set_log_callback",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/rollback_guard.hpp",
+      "target": "file:src/cc-agent/include/config_engine.hpp",
+      "type": "imports"
+    },
+    {
+      "source": "file:src/cc-agent/include/system_metrics.hpp",
+      "target": "class:src/cc-agent/include/system_metrics.hpp:SystemStats",
+      "type": "contains"
+    },
+    {
+      "source": "file:src/cc-agent/include/system_metrics.hpp",
+      "target": "class:src/cc-agent/include/system_metrics.hpp:SystemMetricsCollector",
+      "type": "contains"
+    }
+  ]
+}

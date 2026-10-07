@@ -1,0 +1,549 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 5,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/cc-agent/include/config_engine.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 85,
+      "nonEmptyLines": 68,
+      "functions": [
+        {
+          "name": "set_log_callback",
+          "startLine": 49,
+          "endLine": 51,
+          "params": [
+            "cb"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TelemetryConfig",
+          "startLine": 13,
+          "endLine": 18,
+          "methods": [],
+          "properties": [
+            "fc_port",
+            "fc_baud",
+            "siyi_port",
+            "siyi_baud"
+          ]
+        },
+        {
+          "name": "TxResult",
+          "startLine": 20,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "success",
+            "tid",
+            "result_code",
+            "apply_type",
+            "error_code",
+            "message"
+          ]
+        },
+        {
+          "name": "ConfigEngine",
+          "startLine": 29,
+          "endLine": 83,
+          "methods": [
+            "load_telemetry_config",
+            "save_telemetry_config",
+            "restart_mavlink_router",
+            "begin",
+            "set",
+            "get",
+            "apply",
+            "confirm",
+            "rollback",
+            "tick_1hz",
+            "set_log_callback",
+            "init_defaults",
+            "load_config_file",
+            "save_config_file",
+            "apply_netplan_backend",
+            "apply_rpi_hardware_backend",
+            "apply_systemd_backend",
+            "determine_apply_type"
+          ],
+          "properties": [
+            "drone_root_",
+            "env_path_",
+            "config_file_path_",
+            "netplan_file_path_",
+            "rpi_config_txt_path_",
+            "active_config_",
+            "backup_config_",
+            "staged_config_",
+            "tx_state_",
+            "active_tid_",
+            "timeout_s_",
+            "arm_time_",
+            "rollback_armed_",
+            "log_cb_"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TelemetryConfig",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "TxResult",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "load_telemetry_config",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "save_telemetry_config",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "restart_mavlink_router",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "begin",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "apply",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "confirm",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "rollback",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "tick_1hz",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "set_log_callback",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "ConfigEngine",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "set_log_callback",
+          "callee": "std::move",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 1,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/cc-agent/include/mavlink_core.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 78,
+      "classes": [
+        {
+          "name": "MavlinkCore",
+          "startLine": 17,
+          "endLine": 93,
+          "methods": [
+            "init",
+            "process_incoming",
+            "send_1hz_telemetry",
+            "send_statustext",
+            "send_command_ack",
+            "send_packet",
+            "handle_message",
+            "send_telemetry_links",
+            "send_telemetry_camera",
+            "send_telemetry_network",
+            "send_telemetry_vision",
+            "send_telemetry_system",
+            "handle_cc_config_begin",
+            "handle_cc_config_set",
+            "handle_cc_config_get",
+            "handle_cc_config_apply",
+            "handle_cc_config_confirm",
+            "handle_cc_config_rollback",
+            "handle_command_long",
+            "handle_incoming_telemetry_links",
+            "handle_incoming_telemetry_camera",
+            "handle_incoming_telemetry_network",
+            "handle_incoming_telemetry_vision",
+            "apply_telemetry_links_hardware"
+          ],
+          "properties": [
+            "router_ip_",
+            "router_port_",
+            "sock_fd_",
+            "router_addr_",
+            "guard_",
+            "metrics_",
+            "net_",
+            "config_engine_",
+            "sys_id_",
+            "comp_id_",
+            "total_tx_bytes_",
+            "cam_width",
+            "cam_height",
+            "cam_fps",
+            "cam_bitrate",
+            "cam_codec",
+            "cam_encoder",
+            "vis_model",
+            "vis_source",
+            "vis_conf",
+            "draft_fc_port",
+            "draft_fc_baud",
+            "draft_siyi_port",
+            "draft_siyi_baud"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "process_incoming",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "send_1hz_telemetry",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "send_statustext",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "send_command_ack",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "MavlinkCore",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 6,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/include/network_monitor.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 54,
+      "classes": [
+        {
+          "name": "NetworkStats",
+          "startLine": 8,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "eth0_ip",
+            "eth0_netmask",
+            "wlan0_ip",
+            "wlan0_netmask",
+            "uap0_ip",
+            "uap0_netmask",
+            "ap_ssid",
+            "ap_wpa_passphrase",
+            "ap_key_mgmt",
+            "ap_hw_mode",
+            "ap_channel",
+            "wlan0_rx_kb",
+            "wlan0_tx_kb",
+            "eth0_rx_kb",
+            "eth0_tx_kb",
+            "uap0_rx_kb",
+            "uap0_tx_kb",
+            "ap_status",
+            "wlan0_status",
+            "eth0_status",
+            "eth0_is_static",
+            "wlan0_dhcp",
+            "dnsmasq_status",
+            "ap_ieee80211n",
+            "ap_wmm_enabled",
+            "ap_wpa",
+            "ap_client_count",
+            "wlan0_rssi"
+          ]
+        },
+        {
+          "name": "NetworkMonitor",
+          "startLine": 42,
+          "endLine": 61,
+          "methods": [
+            "read_stats",
+            "get_if_addr",
+            "get_if_status",
+            "get_wlan_rssi",
+            "get_ap_clients",
+            "read_net_counters"
+          ],
+          "properties": [
+            "draft_ssid",
+            "draft_passphrase",
+            "draft_eth0_ip",
+            "draft_channel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NetworkStats",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "read_stats",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "NetworkMonitor",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/cc-agent/include/rollback_guard.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "get_fc_bitrate_kbps",
+          "startLine": 24,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "get_fc_rx_bytes",
+          "startLine": 25,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "set_log_callback",
+          "startLine": 28,
+          "endLine": 30,
+          "params": [
+            "cb"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RollbackGuard",
+          "startLine": 15,
+          "endLine": 47,
+          "methods": [
+            "record_fc_heartbeat",
+            "start_trial",
+            "tick_1hz",
+            "is_fc_online",
+            "get_fc_bitrate_kbps",
+            "get_fc_rx_bytes",
+            "get_fc_status",
+            "set_log_callback"
+          ],
+          "properties": [
+            "engine_",
+            "state_",
+            "current_cfg_",
+            "backup_cfg_",
+            "last_fc_time_",
+            "trial_start_time_",
+            "fc_rx_bytes_",
+            "fc_rx_bytes_last_",
+            "fc_bitrate_kbps_",
+            "log_callback_"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "record_fc_heartbeat",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "start_trial",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "tick_1hz",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "is_fc_online",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "get_fc_bitrate_kbps",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "get_fc_rx_bytes",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "get_fc_status",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "set_log_callback",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "RollbackGuard",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 9,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cc-agent/include/system_metrics.hpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 19,
+      "classes": [
+        {
+          "name": "SystemStats",
+          "startLine": 7,
+          "endLine": 13,
+          "methods": [],
+          "properties": [
+            "uptime_seconds",
+            "cpu_usage_pct",
+            "ram_usage_pct",
+            "disk_usage_pct",
+            "cpu_temp_celsius"
+          ]
+        },
+        {
+          "name": "SystemMetricsCollector",
+          "startLine": 15,
+          "endLine": 23,
+          "methods": [
+            "read_stats"
+          ],
+          "properties": [
+            "prev_idle_",
+            "prev_total_"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SystemStats",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "read_stats",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "SystemMetricsCollector",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    }
+  ]
+}
