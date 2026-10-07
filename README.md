@@ -76,6 +76,8 @@ graph TD
     Cam -->|Ingest Stream| Vision
     Vision -->|RTSP :8554/yolo| VLC
     Cam -->|RTSP /camera + FramePool| VisionV1
+    CCAgent -->|ROS /cc/ai_vision_control: latest control state| VisionV1
+    CCAgent -->|ROS /cc/ai_vision_track_point: target selection event| VisionV1
     VisionV1 -->|RTSP :8554/yolo| VLC
 ```
 
@@ -239,6 +241,23 @@ Các lệnh start/restart và targeted deploy chỉ bật implementation đượ
 khi đã dừng implementation còn lại thành công. Nếu tự chạy Compose trực tiếp,
 hãy dừng vision còn lại trước; profiles không tự bảo đảm mutual exclusion.
 Doctor báo `ERR_33_VISION_PUBLISHER_CONFLICT` nếu cả hai cùng chạy.
+
+Luồng `CC_AI_VISION_CONTROL` (42015) đi từ QGC qua MAVLink Router tới
+`edge-agent/cc_mavlink`; `MavlinkReceiver` decode bằng header generated và publish
+`cc_msgs/msg/AiVisionControl` trên `/cc/ai_vision_control` với
+`RELIABLE + TRANSIENT_LOCAL`, depth 1. `VisionNode` lưu thread-safe ba cờ
+`bounding_box`, `tracking`, `following` (mặc định đều `false`); khi bounding box
+tắt, receiver ép hai cờ còn lại về `false`. Bounding box OFF ẩn mọi box và clear
+selected target, không dừng video/inference. `COMMAND_LONG / MAV_CMD_CAMERA_TRACK_POINT`
+(2004) đi qua receiver tới `/cc/ai_vision_track_point`
+(`cc_msgs/msg/AiVisionTrackPoint`, RELIABLE + VOLATILE, depth 1), không ACK.
+Vision chỉ chọn target khi bbox/tracking bật, từ snapshot chưa stale theo
+`detection_max_age`; point phải nằm trong bbox và center phải nằm trong radius.
+Inference worker dùng YOLO `track(persist=True)`; overlay highlight theo
+`Detection.track_id`. Selected ID được giữ khi target tạm mất, chỉ clear khi
+bbox/tracking tắt. Following chỉ lưu state, chưa có flight behavior;
+MAVLink ownership vẫn ở agent. Xem
+[`src/modules/vision_v1/README.md`](src/modules/vision_v1/README.md#ai-vision-control-state).
 
 ### Endpoints mạng và Truy cập:
 | Dịch vụ | Giao thức / Cổng | Địa chỉ kết nối |

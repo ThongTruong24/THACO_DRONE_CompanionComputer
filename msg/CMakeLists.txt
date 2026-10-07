@@ -13,6 +13,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/NetworkStatus.msg"
   "msg/CameraStatus.msg"
   "msg/VisionStatus.msg"
+  "msg/AiVisionControl.msg"
+  "msg/AiVisionTrackPoint.msg"
   "msg/SerialLink.msg"
   "msg/SerialLinkStatus.msg"
   "msg/Link.msg"

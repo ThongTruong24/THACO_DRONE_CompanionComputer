@@ -2,7 +2,9 @@
 #include "streams/HEARTBEAT.hpp"
 #include "streams/STATUSTEXT.hpp"
 #include "streams/CC_SERIAL_LINK.hpp"
+#ifdef MAVLINK_MSG_ID_CC_TELEMETRY_LINKS
 #include "streams/CC_TELEMETRY_LINKS.hpp"
+#endif
 #include "streams/CC_TELEMETRY_CAMERA.hpp"
 #include "streams/CC_TELEMETRY_NETWORK.hpp"
 #include "streams/CC_TELEMETRY_VISION.hpp"
@@ -24,7 +26,9 @@ const std::vector<StreamListItem> streams_list = {
 	create_stream_list_item<MavlinkStreamHeartbeat>(),
 	create_stream_list_item<MavlinkStreamStatustext>(),
 	create_stream_list_item<MavlinkStreamCcSerialLink>(),
+#ifdef MAVLINK_MSG_ID_CC_TELEMETRY_LINKS
 	create_stream_list_item<MavlinkStreamCcTelemetryLinks>(),
+#endif
 	create_stream_list_item<MavlinkStreamCcTelemetryCamera>(),
 	create_stream_list_item<MavlinkStreamCcTelemetryNetwork>(),
 	create_stream_list_item<MavlinkStreamCcTelemetryVision>(),

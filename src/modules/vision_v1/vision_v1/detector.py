@@ -60,8 +60,11 @@ class Detector:
         detections = []
 
         if self.model is not None:
-            results = self.model.predict(
+            # Keep ID metadata continuous; control flags gate selection and rendering.
+            results = self.model.track(
                 color_frame,
+                persist=True,
+                tracker="bytetrack.yaml",
                 imgsz=self.imgsz,
                 conf=self.confidence,
                 device="cpu",
@@ -72,12 +75,13 @@ class Detector:
             names = getattr(result, "names", None) or getattr(self.model, "names", {})
 
             if boxes is not None:
+                track_ids = getattr(boxes, "id", None)
                 depth_height = depth_frame.shape[0] if depth_frame is not None else 0
                 depth_width = depth_frame.shape[1] if depth_frame is not None else 0
                 scale_x = depth_width / width if width and depth_width else 1.0
                 scale_y = depth_height / height if height and depth_height else 1.0
 
-                for box in boxes:
+                for index, box in enumerate(boxes):
                     x1, y1, x2, y2 = [float(value) for value in box.xyxy[0].tolist()]
                     class_id = int(_scalar(box.cls[0]))
                     confidence = float(_scalar(box.conf[0]))
@@ -110,6 +114,7 @@ class Detector:
                             class_name=class_name,
                             confidence=confidence,
                             distance_m=distance_m,
+                            track_id=None if track_ids is None else int(_scalar(track_ids[index])),
                         )
                     )
 

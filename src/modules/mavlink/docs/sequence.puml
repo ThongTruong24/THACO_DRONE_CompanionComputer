@@ -1,0 +1,49 @@
+@startuml cc-mavlink-sequence
+title AI Vision Control and Camera Track Point: Existing MAVLink to ROS Bridge
+participant QGC
+participant "MAVLink Router" as Router
+participant "edge-agent / Mavlink" as Transport
+participant MavlinkReceiver as Receiver
+participant "/cc/ai_vision_control\nRELIABLE + TRANSIENT_LOCAL\nKEEP_LAST depth 1" as Topic
+participant "vision_v1 / VisionNode" as Vision
+participant AiVisionControlStore as Store
+participant "/cc/ai_vision_track_point\nRELIABLE + VOLATILE\nKEEP_LAST depth 1" as TrackPoint
+Transport -> Receiver : construct; create publisher
+QGC -> Router : CC_AI_VISION_CONTROL (42015)
+Router -> Transport : existing UDP transport
+Transport -> Receiver : handle_message(parsed message)
+Receiver -> Receiver : mavlink_msg_cc_ai_vision_control_decode
+Receiver -> Receiver : bytes != 0 -> bool
+alt bounding_box == 0
+  Receiver -> Receiver : tracking = following = false
+end
+Receiver -> Topic : publish with monotonic receive timestamp
+note right of Receiver : No COMMAND_ACK for AI control
+Vision -> Store : initialize false / false / false
+Vision -> Topic : subscribe with matching QoS
+Topic -> Vision : latest retained state
+Vision -> Store : replace all flags under lock
+note right of Store : Box visibility / target selection\nWorkers continue; no following behavior
+loop subsequent control updates
+  QGC -> Router : new state
+  Router -> Transport : MAVLink
+  Transport -> Receiver : handle_message
+  Receiver -> Topic : normalized state
+  Topic -> Vision : _on_ai_vision_control
+  Vision -> Store : atomic state update
+end
+group Target selection command
+  QGC -> Router : COMMAND_LONG / MAV_CMD_CAMERA_TRACK_POINT (2004)
+  Router -> Transport : existing MAVLink transport
+  Transport -> Receiver : handle_message
+  Receiver -> Receiver : decode params 1/2/3; component 191 or 0
+  Receiver -> TrackPoint : publish x/y/radius with receive timestamp
+  note right of Receiver : Return before generic VehicleCommand route\nNo COMMAND_ACK for selection
+  TrackPoint -> Vision : fresh event only, no retained click
+  Vision -> Store : gated selection from fresh DetectionSnapshot
+end
+group Shutdown
+  Vision -> Vision : stop existing workers; destroy ROS node
+  Transport -> Transport : destroy node; close existing UDP socket
+end
+@enduml

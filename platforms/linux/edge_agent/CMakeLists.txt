@@ -13,6 +13,7 @@ find_package(cc_mavlink REQUIRED)
 find_package(config_manager REQUIRED)
 find_package(cc_systemlib REQUIRED)
 find_package(cc_link_config REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 add_executable(edge_agent src/edge_agent_main.cpp)
 
@@ -36,6 +37,7 @@ target_link_libraries(edge_agent PRIVATE
     ${cc_msgs_TARGETS}
     ${cc_systemlib_LIBRARIES}
     ${cc_link_config_LIBRARIES}
+    yaml-cpp
 )
 
 install(TARGETS edge_agent

@@ -5,6 +5,7 @@ import time
 from typing import Optional, Tuple
 
 from .detection_types import DetectionSnapshot
+from .ai_vision_control import AiVisionControlState
 
 
 class OverlayRenderer:
@@ -20,8 +21,11 @@ class OverlayRenderer:
         *,
         now_ns: Optional[int] = None,
         copy_frame: bool = False,
+        control: AiVisionControlState = AiVisionControlState(),
     ) -> Tuple[object, bool]:
         output = frame.copy() if copy_frame else frame
+        if not control.bounding_box:
+            return output, False
         current_ns = time.monotonic_ns() if now_ns is None else int(now_ns)
         if snapshot is None or snapshot.age_seconds(current_ns) > self.detection_max_age:
             return output, False
@@ -42,16 +46,25 @@ class OverlayRenderer:
                 continue
 
             label = f"{detection.class_name} {detection.confidence:.2f}"
+            selected = (
+                control.tracking
+                and control.selected_track_id is not None
+                and detection.track_id == control.selected_track_id
+            )
+            color = (0, 165, 255) if selected else (0, 255, 0)
+            thickness = 3 if selected else 2
+            if selected:
+                label = f"SELECTED #{detection.track_id} {label}"
             if detection.distance_m is not None:
                 label += f" {detection.distance_m:.2f}m"
-            cv2.rectangle(output, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            cv2.rectangle(output, (x1, y1), (x2, y2), color, thickness)
             cv2.putText(
                 output,
                 label,
                 (x1, max(14, y1 - 6)),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 0.5,
-                (0, 255, 0),
+                color,
                 1,
                 cv2.LINE_AA,
             )

@@ -7,6 +7,7 @@ import time
 from typing import Callable, Optional
 
 from .detection_store import DetectionStore
+from .ai_vision_control import AiVisionControlStore
 
 
 @dataclass(frozen=True)
@@ -38,6 +39,7 @@ class VisionPipeline:
         depth_options_getter: Callable[[], dict],
         enabled_getter: Callable[[], bool] = lambda: True,
         resize_frame: Optional[Callable[[object, int, int], object]] = None,
+        ai_vision_control: Optional[AiVisionControlStore] = None,
     ):
         self.video_source = video_source
         self.inference_source = inference_source
@@ -53,6 +55,7 @@ class VisionPipeline:
         self.depth_options_getter = depth_options_getter
         self.enabled_getter = enabled_getter
         self.resize_frame = resize_frame or _resize_frame
+        self.ai_vision_control = ai_vision_control or AiVisionControlStore()
 
         self._stop_event = threading.Event()
         self._inference_thread: Optional[threading.Thread] = None
@@ -149,7 +152,8 @@ class VisionPipeline:
             max_age = float(self.detection_max_age_getter())
             self.overlay.detection_max_age = max_age
             snapshot = self.detection_store.latest(max_age_seconds=max_age)
-            annotated, _ = self.overlay.render(frame, snapshot, copy_frame=False)
+            control = self.ai_vision_control.latest()
+            annotated, _ = self.overlay.render(frame, snapshot, copy_frame=False, control=control)
             if self.publisher.push_frame(annotated):
                 last_publish_time = time.monotonic()
                 with self._metrics_lock:

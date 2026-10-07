@@ -13,6 +13,15 @@ MavlinkReceiver::MavlinkReceiver(Mavlink *mavlink, MavlinkParametersManager *par
 		qos_status.transient_local();
 		_vehicle_status_pub = _mavlink->create_publisher<cc_msgs::msg::VehicleStatus>("/cc/vehicle_status", qos_status);
 		_vehicle_command_pub = _mavlink->create_publisher<cc_msgs::msg::VehicleCommand>("/cc/vehicle_command", 10);
+		rclcpp::QoS qos_ai_control(1);
+		qos_ai_control.reliable().transient_local();
+		_ai_vision_control_pub = _mavlink->create_publisher<cc_msgs::msg::AiVisionControl>(
+						"/cc/ai_vision_control", qos_ai_control);
+		// Track points are events: do not replay a previous click to a late VisionNode.
+		rclcpp::QoS qos_track_point(1);
+		qos_track_point.reliable().durability_volatile();
+		_ai_vision_track_point_pub = _mavlink->create_publisher<cc_msgs::msg::AiVisionTrackPoint>(
+						   "/cc/ai_vision_track_point", qos_track_point);
 	}
 }
 
@@ -25,6 +34,10 @@ void MavlinkReceiver::handle_message(const mavlink_message_t *msg)
 
 	case MAVLINK_MSG_ID_COMMAND_LONG:
 		handle_message_command_long(msg);
+		break;
+
+	case MAVLINK_MSG_ID_CC_AI_VISION_CONTROL:
+		handle_message_cc_ai_vision_control(msg);
 		break;
 
 	case MAVLINK_MSG_ID_PARAM_EXT_REQUEST_LIST:
@@ -48,9 +61,12 @@ void MavlinkReceiver::handle_message(const mavlink_message_t *msg)
 
 		break;
 
+#ifdef MAVLINK_MSG_ID_CC_TELEMETRY_LINKS
+	// Older THACO dialects expose this legacy message alongside CC_SERIAL_LINK.
 	case MAVLINK_MSG_ID_CC_TELEMETRY_LINKS:
 		handle_message_cc_telemetry_links(msg);
 		break;
+#endif
 
 	case MAVLINK_MSG_ID_CC_TELEMETRY_CAMERA:
 		handle_message_cc_telemetry_camera(msg);
@@ -97,6 +113,21 @@ void MavlinkReceiver::handle_message_command_long(const mavlink_message_t *msg)
 
 	// Only publish commands targeted to 191 (onboard computer) or 0 (broadcast)
 	if (cmd.target_component == _mavlink->get_comp_id() || cmd.target_component == 0) {
+		if (cmd.command == MAV_CMD_CAMERA_TRACK_POINT) {
+			cc_msgs::msg::AiVisionTrackPoint point;
+			point.timestamp = hrt_absolute_time();
+			point.x = cmd.param1;
+			point.y = cmd.param2;
+			point.radius = cmd.param3;
+
+			if (_ai_vision_track_point_pub) {
+				_ai_vision_track_point_pub->publish(point);
+			}
+
+			// Selection is handled in vision, outside the command/ACK path.
+			return;
+		}
+
 		cc_msgs::msg::VehicleCommand vcmd;
 		vcmd.timestamp = hrt_absolute_time();
 		vcmd.command = cmd.command;
@@ -120,6 +151,23 @@ void MavlinkReceiver::handle_message_command_long(const mavlink_message_t *msg)
 	}
 }
 
+void MavlinkReceiver::handle_message_cc_ai_vision_control(const mavlink_message_t *msg)
+{
+	mavlink_cc_ai_vision_control_t control{};
+	mavlink_msg_cc_ai_vision_control_decode(msg, &control);
+
+	cc_msgs::msg::AiVisionControl state;
+	state.timestamp = hrt_absolute_time();
+	state.bounding_box = control.bounding_box != 0;
+	state.tracking = state.bounding_box && control.tracking != 0;
+	state.following = state.bounding_box && control.following != 0;
+
+	if (_ai_vision_control_pub) {
+		_ai_vision_control_pub->publish(state);
+	}
+}
+
+#ifdef MAVLINK_MSG_ID_CC_TELEMETRY_LINKS
 void MavlinkReceiver::handle_message_cc_telemetry_links(const mavlink_message_t *msg)
 {
 	if (!_parameters_manager) {
@@ -134,6 +182,7 @@ void MavlinkReceiver::handle_message_cc_telemetry_links(const mavlink_message_t 
 	_parameters_manager->set("CC_L1_PORT", ParamValue::Str(m.siyi_port));
 	_parameters_manager->set("CC_L1_BAUD", ParamValue::U32(m.siyi_baudrate));
 }
+#endif
 
 void MavlinkReceiver::handle_message_cc_telemetry_camera(const mavlink_message_t *msg)
 {

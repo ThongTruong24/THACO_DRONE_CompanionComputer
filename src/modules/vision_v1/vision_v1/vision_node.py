@@ -12,8 +12,9 @@ from rclpy.node import Node
 from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import CameraInfo
 
-from cc_msgs.msg import FrameReady, VisionStatus
+from cc_msgs.msg import AiVisionControl, AiVisionTrackPoint, FrameReady, VisionStatus
 
+from .ai_vision_control import AiVisionControlStore
 from .detection_store import DetectionStore
 from .detector import Detector
 from .frame_pool_source import FramePoolInferenceSource
@@ -30,6 +31,7 @@ class VisionNode(Node):
         super().__init__(node_name, **kwargs)
         self._stop_lock = threading.Lock()
         self._stopped = False
+        self.ai_vision_control = AiVisionControlStore()
         self._declare_parameters()
         self._validate_startup_config()
 
@@ -67,6 +69,7 @@ class VisionNode(Node):
             detection_max_age_getter=lambda: self.get_parameter("detection_max_age").value,
             enabled_getter=lambda: self.get_parameter("enabled").value,
             depth_options_getter=self._depth_options,
+            ai_vision_control=self.ai_vision_control,
         )
 
         frame_qos = QoSProfile(
@@ -84,6 +87,25 @@ class VisionNode(Node):
             history=HistoryPolicy.KEEP_LAST,
             depth=1,
             reliability=ReliabilityPolicy.RELIABLE,
+        )
+        ai_control_qos = QoSProfile(
+            history=HistoryPolicy.KEEP_LAST,
+            depth=1,
+            reliability=ReliabilityPolicy.RELIABLE,
+            durability=DurabilityPolicy.TRANSIENT_LOCAL,
+        )
+        self.create_subscription(
+            AiVisionControl, "/cc/ai_vision_control", self._on_ai_vision_control, ai_control_qos
+        )
+        track_point_qos = QoSProfile(
+            history=HistoryPolicy.KEEP_LAST,
+            depth=1,
+            reliability=ReliabilityPolicy.RELIABLE,
+            durability=DurabilityPolicy.VOLATILE,
+        )
+        self.create_subscription(
+            AiVisionTrackPoint, "/cc/ai_vision_track_point", self._on_ai_vision_track_point,
+            track_point_qos,
         )
         self.create_subscription(FrameReady, "/camera/frame_ready", self._on_frame_ready, frame_qos)
         self.create_subscription(CameraInfo, "/camera/camera_info", self._on_camera_info, camera_info_qos)
@@ -137,6 +159,16 @@ class VisionNode(Node):
             "max_distance_m": self.get_parameter("max_distance_m").value,
             "sample_radius": self.get_parameter("sample_radius").value,
         }
+
+    def _on_ai_vision_control(self, message: AiVisionControl) -> None:
+        self.ai_vision_control.update(message.bounding_box, message.tracking, message.following)
+
+    def _on_ai_vision_track_point(self, message: AiVisionTrackPoint) -> None:
+        max_age = float(self.get_parameter("detection_max_age").value)
+        snapshot = self.detection_store.latest(max_age_seconds=max_age)
+        self.ai_vision_control.select_track_point(
+            message.x, message.y, message.radius, snapshot, max_age_seconds=max_age,
+        )
 
     def _on_frame_ready(self, message: FrameReady) -> None:
         self.inference_source.submit_descriptor(message.generation, message.slot, message.seq)

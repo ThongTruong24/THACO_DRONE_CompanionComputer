@@ -11,12 +11,29 @@ package "edge-camera / MediaMTX" {
 package "edge-vision-v1" {
   component "RtspVideoSource\nlatest frame" as RTSP
   component "FramePoolInferenceSource\nlatest frame" as InferenceSource
-  component "InferenceWorker\nYOLO metadata only" as Inference
+  component "InferenceWorker\nYOLO track(persist=True)\nmetadata + Optional track_id" as Inference
   component "DetectionStore\nlatest immutable snapshot" as Store
   component "VideoWorker\nresize + overlay" as Video
   component "VisionPublisher\nleaky appsrc/x264" as Publisher
   component "VisionNode\nROS name: vision" as Node
+  component "AiVisionControlStore\nlocked immutable flags + selected_track_id\ndefault: false / false / false / None" as ControlStore
 }
+
+component "QGC" as QGC
+component "MAVLink Router" as Router
+component "edge-agent / cc_mavlink\nMavlinkReceiver\ngenerated decode 42015" as Receiver
+interface "/cc/ai_vision_control\ncc_msgs/AiVisionControl\nRELIABLE + TRANSIENT_LOCAL\nKEEP_LAST depth 1" as ControlTopic
+interface "/cc/ai_vision_track_point\ncc_msgs/AiVisionTrackPoint\nRELIABLE + VOLATILE\nKEEP_LAST depth 1" as PointTopic
+
+QGC --> Router : MAVLink
+Router --> Receiver : existing UDP transport
+Receiver --> ControlTopic : normalized state; no ACK
+ControlTopic --> Node
+Receiver --> PointTopic : COMMAND_LONG 2004 params 1/2/3; no ACK
+PointTopic --> Node
+Node --> ControlStore : flags / nearest valid tracked target
+Store --> Node : fresh snapshot using detection_max_age
+ControlStore --> Video : immutable control read; bbox visibility / selected highlight
 
 CameraStream --> RTSP
 RTSP --> Video

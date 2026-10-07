@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m venv --system-site-packages /opt/vision && \
-    /opt/vision/bin/pip install --no-cache-dir 'numpy<2' torch==2.6.0 torchvision==0.21.0 && \
+    /opt/vision/bin/pip install --no-cache-dir 'numpy<2' torch==2.6.0 torchvision==0.21.0 \
+        scipy==1.15.3 lap==0.5.12 && \
     /opt/vision/bin/pip install --no-cache-dir --no-deps ultralytics==8.4.14
 
 # ── Stage 2: ROS package build ────────────────────────────────────────────

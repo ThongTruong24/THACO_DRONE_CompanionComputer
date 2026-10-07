@@ -25,6 +25,23 @@
 | **AI Vision v1** | `src/modules/vision_v1` | `edge-vision-v1:latest` (profile `vision-v1`) | RTSP input `:8554/camera`, FramePool `/run/frame_pool`, RTSP output `:8554/yolo` | Video độc lập YOLO qua latest `DetectionSnapshot`; không chạy đồng thời legacy vision |
 | **MAVROS** | `src/mavros` | `drone-mavros:latest` (profile `mavros`) | MAVLink UDP `:14541` (Local socket) | Cầu nối ROS 2 Jazzy, telemetry plugin |
 
+**AI vision control**: QGC → MAVLink Router → `edge-agent/cc_mavlink` →
+`MavlinkReceiver` (generated decode `CC_AI_VISION_CONTROL`, ID 42015) → ROS 2
+`/cc/ai_vision_control` (`cc_msgs/msg/AiVisionControl`, RELIABLE + TRANSIENT_LOCAL,
+KEEP_LAST depth 1) → `vision_v1/VisionNode`. Ba cờ bool `bounding_box`, `tracking`,
+`following` mặc định false; receiver ép tracking/following=false nếu bounding_box=0.
+Vision lưu immutable state và `selected_track_id` dưới lock, không mở UDP hoặc
+import MAVLink. Timestamp là local monotonic microseconds. `COMMAND_LONG /`
+`MAV_CMD_CAMERA_TRACK_POINT` (2004) được receiver map param1/2/3 sang ROS
+`/cc/ai_vision_track_point` (`AiVisionTrackPoint`, RELIABLE + VOLATILE, depth 1),
+không ACK hoặc generic VehicleCommand. Vision chọn từ snapshot mới theo
+`detection_max_age`, point trong bbox và center trong `max(1, radius*width)`;
+nearest center thắng, tie theo track_id nhỏ hơn. Inference worker gọi YOLO
+`track(persist=True, tracker="bytetrack.yaml")`, lưu `Detection.track_id: Optional[int]`.
+Overlay ẩn mọi box khi bbox OFF; highlight selected ID khi tracking ON.
+Selected ID giữ khi target mất/stale, chỉ clear khi bbox/tracking OFF. Video và
+inference vẫn độc lập; following chỉ lưu state, chưa có flight behavior.
+
 ---
 
 ## 3. BẢNG CỔNG MẠNG & PHẦN CỨNG (ENDPOINTS & HARDWARE)

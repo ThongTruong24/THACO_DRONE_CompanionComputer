@@ -53,6 +53,7 @@ class SlowDetector:
         self.release = threading.Event()
 
     def infer(self, frame, **kwargs):
+        self.thread_name = threading.current_thread().name
         self.started.set()
         self.release.wait(2.0)
         return DetectionSnapshot.create(
@@ -68,7 +69,11 @@ class SlowDetector:
 class PassthroughOverlay:
     detection_max_age = 1.0
 
-    def render(self, frame, snapshot, copy_frame=False):
+    def __init__(self):
+        self.controls = []
+
+    def render(self, frame, snapshot, copy_frame=False, control=None):
+        self.controls.append(control)
         return frame, snapshot is not None
 
 
@@ -149,3 +154,32 @@ def test_clean_shutdown_joins_workers_and_closes_resources():
     assert not pipeline.is_alive
     assert inference.reader_closed
     assert publisher.stopped
+
+
+def test_control_changes_do_not_stop_video_or_inference():
+    detector = SlowDetector()
+    pipeline, video, inference, publisher = build_pipeline(detector)
+    pipeline.start()
+    try:
+        # Even with the default bbox OFF, inference starts and video is published.
+        inference.put(InferenceFrame(1, 1, 2, FakeFrame(), None, 0.001))
+        assert detector.started.wait(0.5)
+        assert detector.thread_name == "vision-inference"
+        video.put(FakeFrame())
+        assert wait_until(lambda: len(publisher.frames) >= 1)
+        assert not pipeline.overlay.controls[-1].bounding_box
+        pipeline.ai_vision_control.update(True, True, True)
+        video.put(FakeFrame())
+        assert wait_until(lambda: len(publisher.frames) >= 2)
+        assert pipeline.overlay.controls[-1].tracking
+        pipeline.ai_vision_control.update(False, True, True)
+        time.sleep(0.005)
+        video.put(FakeFrame())
+        assert wait_until(lambda: len(publisher.frames) >= 3)
+        assert not pipeline.overlay.controls[-1].bounding_box
+        assert not pipeline.overlay.controls[-1].tracking
+        detector.release.set()
+        assert wait_until(lambda: pipeline.metrics().inference_completed == 1)
+    finally:
+        detector.release.set()
+        pipeline.stop()

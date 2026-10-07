@@ -8,6 +8,18 @@ participant "FramePoolSource" as Pool
 participant "InferenceWorker" as Infer
 participant "DetectionStore" as Store
 participant "VisionPublisher" as Out
+participant "cc_mavlink / MavlinkReceiver" as Receiver
+participant "/cc/ai_vision_control\ntransient local depth 1" as ControlTopic
+participant "AiVisionControlStore" as ControlStore
+participant "/cc/ai_vision_track_point\nvolatile depth 1" as PointTopic
+
+Node -> ControlStore : initialize false / false / false
+Node -> ControlTopic : subscribe RELIABLE + TRANSIENT_LOCAL
+Node -> PointTopic : subscribe RELIABLE + VOLATILE
+opt publisher has retained state
+  ControlTopic -> Node : latest AiVisionControl
+  Node -> ControlStore : store all three flags under lock
+end
 
 Node -> Infer : start non-daemon worker
 Node -> Video : start non-daemon worker
@@ -18,16 +30,37 @@ par Video path
     RTSP -> Video : latest frame (older pending frame replaced)
     Video -> Store : latest(max_age), non-blocking
     Store --> Video : snapshot or None
-    Video -> Video : resize + overlay
+    Video -> ControlStore : latest immutable flags + selected ID
+    Video -> Video : resize; bbox OFF hides all; selected ID uses orange highlight
     Video -> Out : push frame to leaky appsrc
   end
 else Inference path
   loop rate limited by inference_fps
     Node -> Pool : FrameReady descriptor
     Pool -> Infer : latest color/depth frame
-    Infer -> Infer : YOLO + metadata/depth only
-    Infer -> Store : immutable DetectionSnapshot
+    Infer -> Infer : YOLO track(persist=True) + metadata/depth only
+    Infer -> Store : immutable DetectionSnapshot with Optional track_id
   end
+end
+
+group AI control (independent from video and inference)
+  Receiver -> Receiver : decode generated CC_AI_VISION_CONTROL (42015)
+  Receiver -> Receiver : normalize bytes; bounding_box=0 clears tracking/following
+  Receiver -> ControlTopic : publish state (no COMMAND_ACK)
+  ControlTopic -> Node : _on_ai_vision_control(message)
+  Node -> ControlStore : atomic flags; OFF clears selected ID; workers continue
+end
+
+group Track point selection
+  Receiver -> Receiver : decode COMMAND_LONG 2004, target 191 or broadcast 0
+  Receiver -> PointTopic : publish x/y/radius; no VehicleCommand or ACK
+  PointTopic -> Node : _on_ai_vision_track_point(message)
+  Node -> Store : latest(detection_max_age)
+  Store --> Node : snapshot or None
+  Node -> ControlStore : select point using source dimensions
+  ControlStore -> ControlStore : require bbox/tracking; fresh snapshot; bbox + radius; track_id
+  ControlStore -> ControlStore : nearest center, smaller ID tie-break; failed click keeps ID
+  note right of ControlStore : Geometry outside lock; revision check before commit\nLoss/stale does not clear selection\nFollowing has no behavior
 end
 
 group RTSP failure

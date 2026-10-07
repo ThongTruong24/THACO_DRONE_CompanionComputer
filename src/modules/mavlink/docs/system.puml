@@ -1,0 +1,27 @@
+@startuml cc-mavlink-system
+title cc_mavlink: Existing MAVLink Transport and AI Control Bridge
+component "QGC" as QGC
+component "MAVLink Router\nUDP :14550 / :14600" as Router
+package "edge-agent" {
+  component "Mavlink\nloopback UDP :14601\n100 Hz poll timer" as Transport
+  component "MavlinkReceiver\ngenerated THACO decode" as Receiver
+  component "MavlinkParametersManager\nPARAM_EXT / telemetry settings" as Parameters
+  component "Telemetry streams / command ACK output" as Streams
+}
+interface "/cc/ai_vision_control\ncc_msgs/AiVisionControl\nRELIABLE + TRANSIENT_LOCAL\nKEEP_LAST depth 1" as Control
+interface "/cc/ai_vision_track_point\ncc_msgs/AiVisionTrackPoint\nRELIABLE + VOLATILE\nKEEP_LAST depth 1" as TrackPoint
+component "edge-vision-v1\nVisionNode / locked state store" as Vision
+interface "/cc/vehicle_status" as Status
+interface "/cc/vehicle_command" as Command
+QGC <--> Router : MAVLink
+Router <--> Transport : existing loopback UDP
+Transport --> Receiver : parsed messages
+Receiver --> Parameters : PARAM_EXT and telemetry
+Receiver --> Status : HEARTBEAT
+Receiver --> Command : other COMMAND_LONG
+Receiver --> Control : CC_AI_VISION_CONTROL (42015)
+Control --> Vision : flags; no MAVLink transport
+Receiver --> TrackPoint : COMMAND_LONG 2004; no ACK
+TrackPoint --> Vision : selection event
+Streams --> Transport : existing telemetry and command ACKs
+@enduml

@@ -16,6 +16,7 @@ class Detection:
     class_name: str
     confidence: float
     distance_m: Optional[float] = None
+    track_id: Optional[int] = None
 
 
 @dataclass(frozen=True)
