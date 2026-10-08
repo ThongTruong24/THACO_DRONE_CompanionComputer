@@ -24,6 +24,16 @@ def make_pipeline_desc(input_url: str, latency_ms: int = 80) -> str:
     )
 
 
+def copy_bgr_frame(data, width: int, height: int, stride: int, offset: int = 0):
+    """Copy negotiated BGR pixels, excluding any GStreamer row padding."""
+    import numpy as np
+
+    return np.ndarray(
+        (height, width, 3), dtype=np.uint8, buffer=data,
+        offset=offset, strides=(stride, 3, 1),
+    ).copy()
+
+
 class GStreamerRtspBackend:
     def __init__(self, input_url: str, latency_ms: int = 80):
         self.input_url = input_url
@@ -35,8 +45,8 @@ class GStreamerRtspBackend:
         import gi
 
         gi.require_version("Gst", "1.0")
-        from gi.repository import Gst
-        import numpy as np
+        gi.require_version("GstVideo", "1.0")
+        from gi.repository import Gst, GstVideo
 
         Gst.init(None)
         pipeline = Gst.parse_launch(make_pipeline_desc(self.input_url, self.latency_ms))
@@ -54,11 +64,12 @@ class GStreamerRtspBackend:
             structure = caps.get_structure(0)
             width = structure.get_value("width")
             height = structure.get_value("height")
+            info = GstVideo.VideoInfo.new_from_caps(caps)
             ok, mapped = buffer.map(Gst.MapFlags.READ)
             if not ok:
                 return Gst.FlowReturn.ERROR
             try:
-                frame = np.frombuffer(mapped.data, dtype=np.uint8).reshape((height, width, 3)).copy()
+                frame = copy_bgr_frame(mapped.data, width, height, info.stride[0], info.offset[0])
             finally:
                 buffer.unmap(mapped)
             on_frame(frame)

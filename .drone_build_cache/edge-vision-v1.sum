@@ -1,0 +1,26 @@
+ M src/modules/vision_v1/Dockerfile
+ M src/modules/vision_v1/README.md
+ M src/modules/vision_v1/config/vision_v1.yaml
+ M src/modules/vision_v1/docs/sequence.puml
+ M src/modules/vision_v1/docs/system.puml
+ M src/modules/vision_v1/entrypoint.sh
+ M src/modules/vision_v1/tests/test_ai_vision_control_ros.py
+ M src/modules/vision_v1/tests/test_overlay.py
+ M src/modules/vision_v1/tests/test_pipeline.py
+ M src/modules/vision_v1/tests/test_publisher.py
+ M src/modules/vision_v1/tests/test_rtsp_source.py
+ M src/modules/vision_v1/tests/test_target_selection.py
+ M src/modules/vision_v1/tests/test_vision_config.py
+ M src/modules/vision_v1/vision_v1/ai_vision_control.py
+ M src/modules/vision_v1/vision_v1/detection_types.py
+ M src/modules/vision_v1/vision_v1/overlay.py
+ M src/modules/vision_v1/vision_v1/pipeline.py
+ M src/modules/vision_v1/vision_v1/publisher.py
+ M src/modules/vision_v1/vision_v1/rtsp_source.py
+ M src/modules/vision_v1/vision_v1/vision_node.py
+?? src/modules/vision_v1/tests/test_compose_runtime.py
+?? src/modules/vision_v1/tests/test_gstreamer_integration.py
+?? src/modules/vision_v1/tests/test_pending_selection.py
+?? src/modules/vision_v1/tests/test_video_geometry.py
+?? src/modules/vision_v1/vision_v1/video_geometry.py
+e11b21ab5bc7cd5b068119487dd3523035381a08

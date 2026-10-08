@@ -2,12 +2,17 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import logging
 import threading
 import time
 from typing import Callable, Optional
 
 from .detection_store import DetectionStore
 from .ai_vision_control import AiVisionControlStore
+from .video_geometry import fit_output_size
+
+
+LOG = logging.getLogger("vision_v1.pipeline")
 
 
 @dataclass(frozen=True)
@@ -19,6 +24,15 @@ class PipelineMetrics:
     dropped_video_frames: int
     dropped_inference_frames: int
     snapshot_age_seconds: Optional[float]
+    input_width: int
+    input_height: int
+    output_width: int
+    output_height: int
+    video_rate_limited_frames: int
+    video_processing_frames: int
+    resize_time_seconds: float
+    overlay_time_seconds: float
+    push_time_seconds: float
 
 
 class VisionPipeline:
@@ -49,6 +63,8 @@ class VisionPipeline:
         self.publisher = publisher
         self.output_width = int(output_width)
         self.output_height = int(output_height)
+        if min(self.output_width, self.output_height) <= 0:
+            raise ValueError("output bounds must be positive")
         self.video_fps_getter = video_fps_getter
         self.inference_fps_getter = inference_fps_getter
         self.detection_max_age_getter = detection_max_age_getter
@@ -64,6 +80,14 @@ class VisionPipeline:
         self._video_output_frames = 0
         self._inference_completed = 0
         self._video_publish_failures = 0
+        self._video_rate_limited_frames = 0
+        self._video_processing_frames = 0
+        self._resize_time_seconds = 0.0
+        self._overlay_time_seconds = 0.0
+        self._push_time_seconds = 0.0
+        self._input_size = (0, 0)
+        self._output_size = (0, 0)
+        self._last_bad_size = None
         self._intrinsics = None
         self._intrinsics_lock = threading.Lock()
 
@@ -123,13 +147,17 @@ class VisionPipeline:
             if self._stop_event.is_set():
                 break
             self.detection_store.update(snapshot)
+            self.ai_vision_control.on_detection_snapshot(
+                snapshot, max_age_seconds=float(self.detection_max_age_getter()),
+            )
             with self._metrics_lock:
                 self._inference_completed += 1
             next_allowed = started_at + 1.0 / max(0.1, float(self.inference_fps_getter()))
 
     def _video_loop(self) -> None:
         last_version = 0
-        last_publish_time = 0.0
+        next_publish_deadline = 0.0
+        previous_interval = None
         while not self._stop_event.is_set():
             item = self.video_source.wait_next(last_version, timeout=0.2)
             if item is None:
@@ -142,24 +170,54 @@ class VisionPipeline:
 
             now = time.monotonic()
             interval = 1.0 / max(1.0, float(self.video_fps_getter()))
-            if now - last_publish_time < interval:
+            if interval != previous_interval:
+                next_publish_deadline = now
+                previous_interval = interval
+            if now + 1e-9 < next_publish_deadline:
+                with self._metrics_lock:
+                    self._video_rate_limited_frames += 1
                 continue
+            # Anchor to processing START, never push completion. A late frame
+            # rebases the deadline instead of consuming missed slots in a burst.
+            # No sleep or backlog: the next iteration reads the latest mailbox.
+            next_publish_deadline = now + interval
 
             height, width = frame.shape[:2]
-            if width != self.output_width or height != self.output_height:
-                frame = self.resize_frame(frame, self.output_width, self.output_height)
+            try:
+                output_size = fit_output_size(width, height, self.output_width, self.output_height)
+            except ValueError as exc:
+                if self._last_bad_size != (width, height):
+                    LOG.error("Cannot publish source %sx%s: %s", width, height, exc)
+                    self._last_bad_size = (width, height)
+                with self._metrics_lock:
+                    self._video_publish_failures += 1
+                continue
+            self._last_bad_size = None
+            with self._metrics_lock:
+                self._input_size = (width, height)
+                self._output_size = output_size
+            resize_started = time.monotonic()
+            if (width, height) != output_size:
+                frame = self.resize_frame(frame, *output_size)
+            resize_finished = time.monotonic()
 
             max_age = float(self.detection_max_age_getter())
             self.overlay.detection_max_age = max_age
             snapshot = self.detection_store.latest(max_age_seconds=max_age)
             control = self.ai_vision_control.latest()
+            overlay_started = time.monotonic()
             annotated, _ = self.overlay.render(frame, snapshot, copy_frame=False, control=control)
-            if self.publisher.push_frame(annotated):
-                last_publish_time = time.monotonic()
-                with self._metrics_lock:
+            overlay_finished = time.monotonic()
+            published = self.publisher.push_frame(annotated)
+            push_finished = time.monotonic()
+            with self._metrics_lock:
+                self._video_processing_frames += 1
+                self._resize_time_seconds += resize_finished - resize_started
+                self._overlay_time_seconds += overlay_finished - overlay_started
+                self._push_time_seconds += push_finished - overlay_finished
+                if published:
                     self._video_output_frames += 1
-            else:
-                with self._metrics_lock:
+                else:
                     self._video_publish_failures += 1
 
     def stop(self, join_timeout: float = 5.0) -> None:
@@ -186,6 +244,12 @@ class VisionPipeline:
             output = self._video_output_frames
             inference = self._inference_completed
             failures = self._video_publish_failures
+            rate_limited = self._video_rate_limited_frames
+            processing = self._video_processing_frames
+            resize_time = self._resize_time_seconds
+            overlay_time = self._overlay_time_seconds
+            push_time = self._push_time_seconds
+            input_size, output_size = self._input_size, self._output_size
         return PipelineMetrics(
             video_input_frames=int(self.video_source.received_frames),
             video_output_frames=output,
@@ -194,6 +258,13 @@ class VisionPipeline:
             dropped_video_frames=int(self.video_source.dropped_frames),
             dropped_inference_frames=int(self.inference_source.dropped_frames),
             snapshot_age_seconds=None if snapshot is None else snapshot.age_seconds(),
+            input_width=input_size[0], input_height=input_size[1],
+            output_width=output_size[0], output_height=output_size[1],
+            video_rate_limited_frames=rate_limited,
+            video_processing_frames=processing,
+            resize_time_seconds=resize_time,
+            overlay_time_seconds=overlay_time,
+            push_time_seconds=push_time,
         )
 
     @property

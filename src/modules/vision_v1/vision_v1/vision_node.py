@@ -21,7 +21,10 @@ from .frame_pool_source import FramePoolInferenceSource
 from .object_geometry import Intrinsics
 from .overlay import OverlayRenderer
 from .pipeline import VisionPipeline
-from .publisher import VisionPublisher
+from .publisher import (
+    DEFAULT_BITRATE_KBPS, DEFAULT_ENCODER_PRESET, DEFAULT_KEY_INT_MAX,
+    VisionPublisher, validate_encoder_settings,
+)
 from .rtsp_source import RtspVideoSource
 from .stream_validation import validate_stream_routes
 
@@ -54,6 +57,8 @@ class VisionNode(Node):
             self.get_parameter("bitrate_kbps").value,
             self.get_parameter("output_url").value,
             self.get_parameter("stale_seconds").value,
+            encoder_preset=self.get_parameter("encoder_preset").value,
+            key_int_max=self.get_parameter("key_int_max").value,
         )
         self.pipeline = VisionPipeline(
             video_source=self.video_source,
@@ -117,6 +122,10 @@ class VisionNode(Node):
         self._last_video_input = 0
         self._last_video_output = 0
         self._last_inference_completed = 0
+        self._last_rate_limited = 0
+        self._last_publish_failures = 0
+        self._last_processing_frames = 0
+        self._last_stage_times = (0.0, 0.0, 0.0)
         self._video_input_fps = 0.0
         self._video_output_fps = 0.0
         self._inference_completion_fps = 0.0
@@ -136,7 +145,9 @@ class VisionNode(Node):
         self.declare_parameter("fps", 30)
         self.declare_parameter("width", 640, read_only)
         self.declare_parameter("height", 480, read_only)
-        self.declare_parameter("bitrate_kbps", 1000, read_only)
+        self.declare_parameter("bitrate_kbps", DEFAULT_BITRATE_KBPS, read_only)
+        self.declare_parameter("encoder_preset", DEFAULT_ENCODER_PRESET, read_only)
+        self.declare_parameter("key_int_max", DEFAULT_KEY_INT_MAX, read_only)
         self.declare_parameter("output_url", "rtmp://127.0.0.1:1935/yolo", read_only)
         self.declare_parameter("stale_seconds", 2.0)
         self.declare_parameter("detection_max_age", 0.5)
@@ -147,6 +158,12 @@ class VisionNode(Node):
         self.declare_parameter("sample_radius", 5)
 
     def _validate_startup_config(self) -> None:
+        validate_encoder_settings(
+            self.get_parameter("encoder_preset").value,
+            self.get_parameter("key_int_max").value,
+        )
+        if min(self.get_parameter("width").value, self.get_parameter("height").value) <= 0:
+            raise ValueError("width/height output bounds must be positive")
         input_url = self.get_parameter("input_url").value
         output_url = self.get_parameter("output_url").value
         error = validate_stream_routes(input_url, output_url)
@@ -203,6 +220,7 @@ class VisionNode(Node):
         return SetParametersResult(successful=True)
 
     def _publish_status(self) -> None:
+        self.ai_vision_control.latest()  # Expire pending events even if both streams are idle.
         self.pipeline.check_output_stale()
         metrics = self.pipeline.metrics()
         now = time.monotonic()
@@ -212,18 +230,30 @@ class VisionNode(Node):
         self._inference_completion_fps = (
             metrics.inference_completed - self._last_inference_completed
         ) / elapsed
+        rate_skips = metrics.video_rate_limited_frames - self._last_rate_limited
+        publish_failures = metrics.video_publish_failures - self._last_publish_failures
+        processing_frames = metrics.video_processing_frames - self._last_processing_frames
+        stage_times = (metrics.resize_time_seconds, metrics.overlay_time_seconds, metrics.push_time_seconds)
+        stage_ms = tuple(
+            1000.0 * (current - previous) / max(1, processing_frames)
+            for current, previous in zip(stage_times, self._last_stage_times)
+        )
         self._last_metric_time = now
         self._last_video_input = metrics.video_input_frames
         self._last_video_output = metrics.video_output_frames
         self._last_inference_completed = metrics.inference_completed
+        self._last_rate_limited = metrics.video_rate_limited_frames
+        self._last_publish_failures = metrics.video_publish_failures
+        self._last_processing_frames = metrics.video_processing_frames
+        self._last_stage_times = stage_times
 
         snapshot = self.detection_store.latest()
         message = VisionStatus()
         message.timestamp = int(time.time() * 1_000_000)
         message.confidence_thresh = float(self.get_parameter("confidence").value)
         message.inference_fps = float(self._inference_completion_fps)
-        message.input_width = int(self.get_parameter("width").value)
-        message.input_height = int(self.get_parameter("height").value)
+        message.input_width = metrics.input_width
+        message.input_height = metrics.input_height
         message.video_fps = min(255, max(0, round(self._video_output_fps)))
         message.detections_count = 0 if snapshot is None else min(255, len(snapshot.detections))
         flags = 0
@@ -240,10 +270,16 @@ class VisionNode(Node):
         self.get_logger().info(
             f"metrics video_in_fps={self._video_input_fps:.1f} "
             f"video_out_fps={self._video_output_fps:.1f} "
+            f"rate_skip={rate_skips} rate_skip_fps={rate_skips / elapsed:.1f} "
+            f"publish_fail={publish_failures} "
+            f"resize_ms={stage_ms[0]:.2f} overlay_ms={stage_ms[1]:.2f} push_ms={stage_ms[2]:.2f} "
             f"inference_fps={self._inference_completion_fps:.1f} "
             f"drop_video={metrics.dropped_video_frames} "
             f"drop_inference={metrics.dropped_inference_frames} "
-            f"snapshot_age={age}"
+            f"snapshot_age={age} "
+            f"input_size={metrics.input_width}x{metrics.input_height} "
+            f"output_size={metrics.output_width}x{metrics.output_height} "
+            f"inference_size={'none' if snapshot is None else str(snapshot.source_width) + 'x' + str(snapshot.source_height)}"
         )
 
     def stop(self) -> None:

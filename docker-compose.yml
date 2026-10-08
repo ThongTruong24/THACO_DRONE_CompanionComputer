@@ -126,9 +126,18 @@ services:
     volumes:
       - /dev:/dev
       - frame_pool:/run/frame_pool:rw
-      - ./src/modules/camera_streamer/config:/app/config:ro
-      - ./src/drivers/camera/config:/app/config/cameras:ro
-      - ./src/modules/camera_streamer/entrypoint.sh:/app/entrypoint.sh:ro
+      - type: bind
+        source: ./src/modules/camera_streamer/config/camera_streamer.yaml
+        target: /app/config/camera_streamer.yaml
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./src/drivers/camera/config
+        target: /app/config/cameras
+        read_only: true
+        bind:
+          create_host_path: false
       - ./src/modules/camera_streamer/mediamtx.yml:/app/mediamtx.yml:ro
       - /etc/localtime:/etc/localtime:ro
     logging: *logging
@@ -189,9 +198,18 @@ services:
     command: ["--ros-args", "--params-file", "/app/config/vision_v1.yaml"]
     volumes:
       - frame_pool:/run/frame_pool:ro
-      - ./src/modules/vision_v1/config:/app/config:ro
-      - ./src/drivers/camera/config:/app/config/cameras:ro
-      - ./src/modules/vision_v1/entrypoint.sh:/app/entrypoint.sh:ro
+      - type: bind
+        source: ./src/modules/vision_v1/config/vision_v1.yaml
+        target: /app/config/vision_v1.yaml
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./src/drivers/camera/config
+        target: /app/config/cameras
+        read_only: true
+        bind:
+          create_host_path: false
       - ./src/modules/vision/yolo26n.pt:/app/models/yolo26n.pt:ro
       - /etc/localtime:/etc/localtime:ro
     logging: *logging

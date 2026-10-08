@@ -134,3 +134,13 @@ Mọi đề xuất đóng góp vui lòng tuân thủ quy chuẩn mã nguồn C++
 
 ## Giấy phép (License)
 Dự án được phân phối dưới giấy phép [MIT License](https://opensource.org/licenses/MIT).
+
+## Production Compose startup
+
+Compose mounts `config/camera_streamer.yaml` at `/app/config/camera_streamer.yaml`
+and shared camera profiles at sibling `/app/config/cameras`, both read-only.
+There is no parent config directory bind mount and no host entrypoint bind mount.
+The image supplies its executable script; profile and module parameter files are
+inside ROS argument groups. Targeted deploy ships camera profiles automatically.
+Rebuild `edge-camera` after entrypoint changes and recreate it to apply mounts.
+The capture, FPV `/camera`, rotation and FramePool inference paths are unchanged.

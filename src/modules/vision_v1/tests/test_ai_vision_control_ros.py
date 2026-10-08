@@ -1,16 +1,63 @@
 """Exercise the actual VisionNode subscription without video or YOLO workers."""
 import time
+from dataclasses import replace
+from types import SimpleNamespace
 
 import pytest
 
 rclpy = pytest.importorskip("rclpy")
 from cc_msgs.msg import AiVisionControl, AiVisionTrackPoint
 from rclpy.node import Node
+from rclpy.parameter import Parameter
 from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile, ReliabilityPolicy
 
 from vision_v1.ai_vision_control import AiVisionControlState
 from vision_v1.vision_node import VisionNode
 from vision_v1.detection_types import Detection, DetectionSnapshot
+
+
+@pytest.mark.parametrize("preset", ["ultrafast", "superfast", "veryfast"])
+def test_encoder_startup_parameters_and_periodic_stage_metrics(monkeypatch, preset):
+    monkeypatch.setattr("vision_v1.vision_node.Detector._load_model", lambda self: None)
+    monkeypatch.setattr("vision_v1.vision_node.VisionPipeline.start", lambda self: None)
+    rclpy.init()
+    node = None
+    try:
+        node = VisionNode(node_name="test_encoder_settings", parameter_overrides=[
+            Parameter("encoder_preset", value=preset), Parameter("key_int_max", value=45),
+        ])
+        assert node.get_parameter("bitrate_kbps").value == 2000
+        assert node.publisher.bitrate_kbps == 2000
+        assert node.publisher.encoder_preset == preset
+        assert node.publisher.key_int_max == 45
+        assert all(node.describe_parameter(name).read_only for name in (
+            "bitrate_kbps", "encoder_preset", "key_int_max",
+        ))
+        metrics = replace(
+            node.pipeline.metrics(), video_input_frames=20, video_output_frames=19,
+            video_rate_limited_frames=1, video_processing_frames=19,
+            resize_time_seconds=19 * 0.004, overlay_time_seconds=19 * 0.006,
+            push_time_seconds=19 * 0.010,
+        )
+        monkeypatch.setattr(node.pipeline, "metrics", lambda: metrics)
+        monkeypatch.setattr("vision_v1.vision_node.time", SimpleNamespace(
+            monotonic=lambda: 101.0, time=time.time,
+        ))
+        logs = []
+        monkeypatch.setattr(node, "get_logger", lambda: SimpleNamespace(info=logs.append))
+        node._last_metric_time = 100.0
+        node._publish_status()
+        assert "video_in_fps=20.0 video_out_fps=19.0" in logs[-1]
+        assert "rate_skip=1 rate_skip_fps=1.0 publish_fail=0" in logs[-1]
+        assert "resize_ms=4.00 overlay_ms=6.00 push_ms=10.00" in logs[-1]
+        node._last_metric_time = 100.0
+        node._publish_status()
+        assert "rate_skip=0" in logs[-1]
+        assert "resize_ms=0.00 overlay_ms=0.00 push_ms=0.00" in logs[-1]
+    finally:
+        if node is not None:
+            node.destroy_node()
+        rclpy.shutdown()
 
 
 def spin_until(node, predicate):
@@ -43,7 +90,7 @@ def test_vision_node_receives_live_and_latched_ros_control(monkeypatch):
             publisher.publish(AiVisionControl(
                 timestamp=123, bounding_box=flags[0], tracking=flags[1], following=flags[2]
             ))
-            spin_until(node, lambda: node.ai_vision_control.latest() == AiVisionControlState(*flags))
+            spin_until(node, lambda flags=flags: node.ai_vision_control.latest() == AiVisionControlState(*flags))
 
         node.destroy_node()
         node = None
@@ -94,7 +141,7 @@ def test_vision_node_selects_from_ros_event_using_control_and_snapshot_age(monke
 
         def click():
             count = len(received_points)
-            point_pub.publish(AiVisionTrackPoint(timestamp=123, x=0.5, y=0.5, radius=0.0))
+            point_pub.publish(AiVisionTrackPoint(timestamp=123, x=0.405, y=0.43, radius=0.0))
             spin_until(node, lambda: len(received_points) > count)
 
         def update_snapshot(track_id, age_ns=0):
@@ -112,6 +159,9 @@ def test_vision_node_selects_from_ros_event_using_control_and_snapshot_age(monke
         spin_until(node, lambda: node.ai_vision_control.latest().tracking)
         click()
         assert node.ai_vision_control.latest().selected_track_id == 7
+        click()  # The same ID toggles off once, with no retained event.
+        assert node.ai_vision_control.latest().selected_track_id is None
+        assert node.ai_vision_control.latest().pending_click is None
         update_snapshot(8)
         click()
         assert node.ai_vision_control.latest().selected_track_id == 8
@@ -121,11 +171,13 @@ def test_vision_node_selects_from_ros_event_using_control_and_snapshot_age(monke
         update_snapshot(9, age_ns=20_000_000)
         click()
         assert node.ai_vision_control.latest().selected_track_id == 8
+        assert node.ai_vision_control.latest().pending_click is not None
 
         control_pub.publish(AiVisionControl(bounding_box=True, tracking=False, following=True))
         spin_until(node, lambda: not node.ai_vision_control.latest().tracking)
         click()
         assert node.ai_vision_control.latest().selected_track_id is None
+        assert node.ai_vision_control.latest().pending_click is None
         assert node.ai_vision_control.latest().following
         subscription = next(item for item in node.subscriptions if item.topic_name == "/cc/ai_vision_track_point")
         assert subscription.qos_profile.depth == 1

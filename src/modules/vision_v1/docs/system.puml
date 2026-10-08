@@ -13,10 +13,10 @@ package "edge-vision-v1" {
   component "FramePoolInferenceSource\nlatest frame" as InferenceSource
   component "InferenceWorker\nYOLO track(persist=True)\nmetadata + Optional track_id" as Inference
   component "DetectionStore\nlatest immutable snapshot" as Store
-  component "VideoWorker\nresize + overlay" as Video
-  component "VisionPublisher\nleaky appsrc/x264" as Publisher
+  component "VideoWorker\nstart-based deadline, latest frame\nfit source ratio within bounds + overlay\nstage timing / rate-limit / failure counters" as Video
+  component "VisionPublisher\nleaky appsrc: 2 buffers, max-bytes=0\nx264: 2000 kbps, ultrafast, GOP 30\nvalidated startup preset / GOP" as Publisher
   component "VisionNode\nROS name: vision" as Node
-  component "AiVisionControlStore\nlocked immutable flags + selected_track_id\ndefault: false / false / false / None" as ControlStore
+  component "AiVisionControlStore\nlocked immutable flags + selected_track_id + pending click\ndefault: false / false / false / None" as ControlStore
 }
 
 component "QGC" as QGC
@@ -41,6 +41,7 @@ FrameReady --> Node
 Node --> Pool : read descriptor
 Pool --> InferenceSource
 InferenceSource --> Inference
+Inference --> ControlStore : retry pending event (1s deadline)
 Inference --> Store
 Store --> Video : non-blocking read
 Video --> Publisher

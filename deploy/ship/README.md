@@ -142,3 +142,13 @@ Sau khi `deploy.sh` kích hoạt container, kịch bản `verify-deployment.sh` 
    - `/run/drone/hw_manager.sock`
    - `/run/drone/router.sock`
 3. Trạng thái lắng nghe của các cổng mạng MAVLink `:14550`, RTSP `:8554`.
+
+## Camera and Vision v1 runtime assets
+
+Targeted `edge-camera` and `edge-vision-v1` deploys sync shared camera profiles
+under `src/drivers/camera/config`. Vision v1 also ships the existing YOLO model.
+Production Compose mounts module config files and sibling camera profiles; it
+uses camera/v1 entrypoints from their images. Rebuild both images after changing
+those scripts, then recreate the containers. No manual directory or executable
+permission repair is needed on the Pi. Verify RTSP aspect ratio, pending clicks,
+selection toggling and independent video/inference rates after deployment.

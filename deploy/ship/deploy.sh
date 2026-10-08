@@ -420,6 +420,11 @@ if [ -n "$TARGET_SERVICE" ]; then
     ssh "${PI_USER}@${PI_HOST}" "mkdir -p ${REMOTE_DIR}/${TARGET_DIR}"
     rsync -avz --delete "${RSYNC_EXCLUDES[@]}" \
         "${WORKSPACE_DIR}/${TARGET_DIR}/" "${PI_USER}@${PI_HOST}:${REMOTE_DIR}/${TARGET_DIR}/"
+    if [ "$TARGET_SERVICE" = "edge-camera" ] || [ "$TARGET_SERVICE" = "edge-vision-v1" ]; then
+        ssh "${PI_USER}@${PI_HOST}" "mkdir -p ${REMOTE_DIR}/src/drivers/camera/config"
+        rsync -avz --delete "${WORKSPACE_DIR}/src/drivers/camera/config/" \
+            "${PI_USER}@${PI_HOST}:${REMOTE_DIR}/src/drivers/camera/config/"
+    fi
     if [ "$TARGET_SERVICE" = "edge-vision-v1" ]; then
         # vision_v1 deliberately reuses the existing model asset instead of duplicating it.
         # A targeted deploy therefore has to ship that bind-mounted runtime asset as well.

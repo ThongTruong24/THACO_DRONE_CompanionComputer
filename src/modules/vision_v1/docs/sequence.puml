@@ -28,11 +28,13 @@ Node -> RTSP : start GStreamer source worker
 par Video path
   loop each newest decoded frame
     RTSP -> Video : latest frame (older pending frame replaced)
+    Video -> Video : skip early frames; next deadline = processing start + interval\nlate frame rebases schedule, no catch-up burst or sleep
     Video -> Store : latest(max_age), non-blocking
     Store --> Video : snapshot or None
     Video -> ControlStore : latest immutable flags + selected ID
-    Video -> Video : resize; bbox OFF hides all; selected ID uses orange highlight
-    Video -> Out : push frame to leaky appsrc
+    Video -> Video : fit RTSP aspect ratio in bounds; rebuild output caps on size change\nselected ID yellow, normal green; draw selected last
+    Video -> Out : push frame to leaky appsrc (2 buffers, max-bytes=0)
+    Video -> Video : accumulate resize / overlay / push timing and outcome counters
   end
 else Inference path
   loop rate limited by inference_fps
@@ -40,15 +42,19 @@ else Inference path
     Pool -> Infer : latest color/depth frame
     Infer -> Infer : YOLO track(persist=True) + metadata/depth only
     Infer -> Store : immutable DetectionSnapshot with Optional track_id
+    Infer -> ControlStore : retry pending click; match toggles once, expiry keeps ID
   end
 end
+
+Node -> Video : read counters + stage seconds every ~1s
+Node -> Node : log input / accepted / skipped FPS, failures and stage averages
 
 group AI control (independent from video and inference)
   Receiver -> Receiver : decode generated CC_AI_VISION_CONTROL (42015)
   Receiver -> Receiver : normalize bytes; bounding_box=0 clears tracking/following
   Receiver -> ControlTopic : publish state (no COMMAND_ACK)
   ControlTopic -> Node : _on_ai_vision_control(message)
-  Node -> ControlStore : atomic flags; OFF clears selected ID; workers continue
+  Node -> ControlStore : atomic flags; OFF clears selected ID + pending; workers continue
 end
 
 group Track point selection
@@ -58,8 +64,8 @@ group Track point selection
   Node -> Store : latest(detection_max_age)
   Store --> Node : snapshot or None
   Node -> ControlStore : select point using source dimensions
-  ControlStore -> ControlStore : require bbox/tracking; fresh snapshot; bbox + radius; track_id
-  ControlStore -> ControlStore : nearest center, smaller ID tie-break; failed click keeps ID
+  ControlStore -> ControlStore : require bbox/tracking; fresh snapshot; point inside finite bbox; track_id; no radius gate
+  ControlStore -> ControlStore : nearest normalized center, smaller ID tie-break\nmatch toggles ID once; otherwise pending deadline = monotonic + 1s
   note right of ControlStore : Geometry outside lock; revision check before commit\nLoss/stale does not clear selection\nFollowing has no behavior
 end
 

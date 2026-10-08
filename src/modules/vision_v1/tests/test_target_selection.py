@@ -29,13 +29,13 @@ def select(store, detections, radius=0.02):
 
 @pytest.fixture
 def store():
-    control = AiVisionControlStore()
+    control = AiVisionControlStore(clock_ns=lambda: NOW)
     control.update(True, True, False)
     assert select(control, [bbox(490, 290, 510, 310, 7)])
     return control
 
 
-def test_point_inside_bbox_and_radius_selects_new_target(store):
+def test_point_inside_bbox_selects_new_target(store):
     assert select(store, [bbox(490, 290, 520, 310, 8)])
     assert store.latest().selected_track_id == 8
     assert select(store, [bbox(480, 280, 520, 320, 9)])
@@ -44,8 +44,6 @@ def test_point_inside_bbox_and_radius_selects_new_target(store):
 
 @pytest.mark.parametrize("detections,radius", [
     ([bbox(501, 290, 503, 310, 8)], 0.02),  # close center, point outside bbox
-    ([bbox(490, 290, 540, 310, 8)], 0.005),  # point inside, center outside radius
-    ([bbox(499, 299, 503.02, 301, 8)], 0.0),  # center > 1 px away
     ([bbox(490, 290, 510, 310, None)], 0.02),
     ([], 0.02),
 ])
@@ -72,8 +70,8 @@ def test_closest_bbox_without_track_id_is_skipped(store):
     assert store.latest().selected_track_id == 8
 
 
-def test_zero_radius_accepts_center_within_one_pixel(store):
-    assert select(store, [bbox(499, 299, 503, 301, 8)], radius=0.0)
+def test_zero_radius_accepts_point_far_from_center(store):
+    assert select(store, [bbox(499, 299, 900, 590, 8)], radius=0.0)
     assert store.latest().selected_track_id == 8
 
 
@@ -81,8 +79,8 @@ def test_zero_radius_accepts_center_within_one_pixel(store):
     (500, 300, 520, 320), (480, 280, 500, 300),
     (500, 280, 520, 300), (480, 300, 500, 320),
 ])
-def test_bbox_edges_are_inclusive_and_radius_scales_by_source_width(store, coordinates):
-    assert select(store, [bbox(*coordinates, 8)], radius=0.02)
+def test_bbox_edges_are_inclusive_without_radius_restriction(store, coordinates):
+    assert select(store, [bbox(*coordinates, 8)], radius=0)
     assert store.latest().selected_track_id == 8
 
 
@@ -142,3 +140,28 @@ def test_control_change_during_selection_cannot_restore_cleared_target(store, mo
     monkeypatch.setattr("vision_v1.ai_vision_control.math.hypot", change_control)
     assert not select(store, [bbox(490, 290, 510, 310, 8)])
     assert store.latest().selected_track_id is None
+
+
+@pytest.mark.parametrize("x,y", [(110, 110), (100, 100), (300, 300), (299, 101)])
+def test_any_point_inside_requested_bbox_selects(store, x, y):
+    assert store.select_track_point(x / 1000, y / 600, 0,
+                                   snapshot([bbox(100, 100, 300, 300, 8)]),
+                                   max_age_seconds=0.5, now_ns=NOW)
+    assert store.latest().selected_track_id == 8
+
+
+def test_overlap_distance_is_normalized_not_source_pixels(store):
+    # Horizontal 20px/1000 is nearer than vertical 15px/600.
+    horizontal = bbox(480, 270, 560, 330, 8)
+    vertical = bbox(480, 290, 520, 340, 9)
+    assert select(store, [vertical, horizontal], radius=0)
+    assert store.latest().selected_track_id == 8
+
+
+@pytest.mark.parametrize("coordinates", [
+    (100, 100, 100, 300), (300, 300, 100, 100),
+    (math.nan, 100, 600, 400), (100, 100, math.inf, 400),
+])
+def test_invalid_bbox_is_not_selectable(store, coordinates):
+    assert not select(store, [bbox(*coordinates, 8)])
+    assert store.latest().selected_track_id == 7

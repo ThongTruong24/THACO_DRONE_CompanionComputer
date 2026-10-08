@@ -35,12 +35,22 @@ import MAVLink. Timestamp là local monotonic microseconds. `COMMAND_LONG /`
 `MAV_CMD_CAMERA_TRACK_POINT` (2004) được receiver map param1/2/3 sang ROS
 `/cc/ai_vision_track_point` (`AiVisionTrackPoint`, RELIABLE + VOLATILE, depth 1),
 không ACK hoặc generic VehicleCommand. Vision chọn từ snapshot mới theo
-`detection_max_age`, point trong bbox và center trong `max(1, radius*width)`;
-nearest center thắng, tie theo track_id nhỏ hơn. Inference worker gọi YOLO
+`detection_max_age`; point trong bbox hợp lệ là đủ, không radius gate.
+Nearest center trong normalized space thắng, tie theo track_id nhỏ hơn.
+Click chưa match lưu pending event 1 giây monotonic, thử lại trên mỗi snapshot;
+match tiêu thụ event đúng một lần, timeout giữ target. Click lại selected ID
+toggle deselect. OFF clear selected/pending; revision + event ID chặn race/newer
+click. Inference worker gọi YOLO
 `track(persist=True, tracker="bytetrack.yaml")`, lưu `Detection.track_id: Optional[int]`.
-Overlay ẩn mọi box khi bbox OFF; highlight selected ID khi tracking ON.
-Selected ID giữ khi target mất/stale, chỉ clear khi bbox/tracking OFF. Video và
+Overlay ẩn mọi box khi bbox OFF; selected ID khi tracking ON luôn vàng
+BGR (0,255,255), nét 3, SELECTED #id, vẽ sau normal boxes xanh nét 2.
+Selected ID giữ khi target mất/stale, chỉ clear khi bbox/tracking OFF hoặc click
+lại cùng ID. Video và
 inference vẫn độc lập; following chỉ lưu state, chưa có flight behavior.
+Video output fit theo dimensions RTSP thực tế trong bounds width/height,
+không upscale/crop/stretch (1280×720 → 640×360); publisher rebuild khi size đổi.
+Camera/v1 mount config bằng file, camera profiles sibling; dùng entrypoint trong
+image. Targeted deploy ship camera profiles; không cần mkdir/chmod trên Pi.
 
 ---
 

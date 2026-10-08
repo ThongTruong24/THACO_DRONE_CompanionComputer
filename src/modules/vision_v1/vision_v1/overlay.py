@@ -4,7 +4,7 @@ from __future__ import annotations
 import time
 from typing import Optional, Tuple
 
-from .detection_types import DetectionSnapshot
+from .detection_types import DetectionSnapshot, clipped_bbox
 from .ai_vision_control import AiVisionControlState
 
 
@@ -37,11 +37,19 @@ class OverlayRenderer:
         height, width = output.shape[:2]
         scale_x = width / snapshot.source_width
         scale_y = height / snapshot.source_height
-        for detection in snapshot.detections:
-            x1 = _clamp(round(detection.x1 * scale_x), 0, max(0, width - 1))
-            y1 = _clamp(round(detection.y1 * scale_y), 0, max(0, height - 1))
-            x2 = _clamp(round(detection.x2 * scale_x), 0, max(0, width - 1))
-            y2 = _clamp(round(detection.y2 * scale_y), 0, max(0, height - 1))
+        # Draw selected boxes last so overlapping normal boxes cannot paint them green.
+        detections = sorted(snapshot.detections, key=lambda item: (
+            control.tracking and control.selected_track_id is not None
+            and item.track_id == control.selected_track_id
+        ))
+        for detection in detections:
+            bounds = clipped_bbox(detection, snapshot.source_width, snapshot.source_height)
+            if bounds is None:
+                continue
+            x1 = _clamp(round(bounds[0] * scale_x), 0, max(0, width - 1))
+            y1 = _clamp(round(bounds[1] * scale_y), 0, max(0, height - 1))
+            x2 = _clamp(round(bounds[2] * scale_x), 0, max(0, width - 1))
+            y2 = _clamp(round(bounds[3] * scale_y), 0, max(0, height - 1))
             if x2 <= x1 or y2 <= y1:
                 continue
 
@@ -51,7 +59,7 @@ class OverlayRenderer:
                 and control.selected_track_id is not None
                 and detection.track_id == control.selected_track_id
             )
-            color = (0, 165, 255) if selected else (0, 255, 0)
+            color = (0, 255, 255) if selected else (0, 255, 0)
             thickness = 3 if selected else 2
             if selected:
                 label = f"SELECTED #{detection.track_id} {label}"

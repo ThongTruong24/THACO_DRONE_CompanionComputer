@@ -237,6 +237,9 @@ make doctor
 `vision_v1` đọc RTSP `/camera` vào latest video mailbox, render overlay và publish
 RTMP `:1935/yolo`; YOLO chạy trên worker độc lập, đọc FramePool và cập nhật
 immutable `DetectionSnapshot`. MediaMTX phục vụ kết quả tại RTSP `:8554/yolo`.
+Output suy ra từ frame RTSP thực tế, giữ aspect ratio và FOV trong bounds
+`width/height`, không upscale: `1280×720 → 640×360` với bounds `640×480`.
+Publisher rebuild caps khi resolution thay đổi; bbox scale từ kích thước snapshot.
 Các lệnh start/restart và targeted deploy chỉ bật implementation được chọn sau
 khi đã dừng implementation còn lại thành công. Nếu tự chạy Compose trực tiếp,
 hãy dừng vision còn lại trước; profiles không tự bảo đảm mutual exclusion.
@@ -252,10 +255,16 @@ selected target, không dừng video/inference. `COMMAND_LONG / MAV_CMD_CAMERA_T
 (2004) đi qua receiver tới `/cc/ai_vision_track_point`
 (`cc_msgs/msg/AiVisionTrackPoint`, RELIABLE + VOLATILE, depth 1), không ACK.
 Vision chỉ chọn target khi bbox/tracking bật, từ snapshot chưa stale theo
-`detection_max_age`; point phải nằm trong bbox và center phải nằm trong radius.
+`detection_max_age`; mọi điểm trong bbox hợp lệ có track ID đều chọn được, không
+giới hạn khoảng cách tới tâm theo radius. Overlap chọn tâm gần nhất trong tọa độ
+normalized, tie theo track ID nhỏ hơn. Click chưa match được giữ tối đa 1 giây
+theo monotonic clock và thử lại trên mỗi snapshot mới; timeout giữ target hiện tại.
 Inference worker dùng YOLO `track(persist=True)`; overlay highlight theo
-`Detection.track_id`. Selected ID được giữ khi target tạm mất, chỉ clear khi
-bbox/tracking tắt. Following chỉ lưu state, chưa có flight behavior;
+`Detection.track_id` với bbox vàng `(0,255,255)`, nét 3 và nhãn `SELECTED #id`.
+Selected ID được giữ khi target di chuyển/tạm mất, chỉ clear khi bbox/tracking
+tắt hoặc click lại cùng ID. OFF clear cả pending click; repeated control hoặc
+Following thay đổi giữ selection. Mount config camera/v1 là file và camera
+profiles là mount sibling; entrypoint dùng bản COPY + chmod trong image. Following chỉ lưu state, chưa có flight behavior;
 MAVLink ownership vẫn ở agent. Xem
 [`src/modules/vision_v1/README.md`](src/modules/vision_v1/README.md#ai-vision-control-state).
 

@@ -116,7 +116,7 @@ def test_target_highlight_follows_id_through_motion_loss_and_reappearance(monkey
     for index, detections in enumerate(frames):
         calls.clear()
         renderer.render(FakeFrame(), make_snapshot(detections), now_ns=1_100_000_000, control=store.latest())
-        highlighted = [call for call in calls if call[0] == "rect" and call[3] == (0, 165, 255)]
+        highlighted = [call for call in calls if call[0] == "rect" and call[3] == (0, 255, 255)]
         assert len(highlighted) == (0 if index == 2 else 1)
         if index == 1:
             assert highlighted[0][1:3] == ((10, 20), (60, 120))
@@ -130,3 +130,39 @@ def test_detection_without_id_still_renders_normally(monkeypatch):
         now_ns=1_100_000_000, control=AiVisionControlState(True, True, True),
     )
     assert calls[0][3:] == ((0, 255, 0), 2)
+
+
+def test_bbox_maps_from_inference_to_widescreen_video(monkeypatch):
+    calls = draw_calls(monkeypatch)
+
+    class WideFrame:
+        shape = (360, 640, 3)
+
+    value = make_snapshot([Detection(100, 100, 300, 300, 1, "plant", 0.9, track_id=7)])
+    store = AiVisionControlStore()
+    store.update(True, True, False)
+    assert store.select_track_point(110 / 640, 110 / 480, 0, value,
+                                   max_age_seconds=0.5, now_ns=1_100_000_000)
+    renderer = OverlayRenderer()
+    renderer.render(WideFrame(), value, now_ns=1_100_000_000, control=store.latest())
+    assert calls[0] == ("rect", (100, 75), (300, 225), (0, 255, 255), 3)
+    assert calls[1][1].startswith("SELECTED #7")
+    calls.clear()
+    assert store.select_track_point(110 / 640, 110 / 480, 0, value,
+                                   max_age_seconds=0.5, now_ns=1_100_000_000)
+    renderer.render(WideFrame(), value, now_ns=1_100_000_000, control=store.latest())
+    assert calls[0][3:] == ((0, 255, 0), 2)
+
+
+def test_selected_border_draws_last_for_overlapping_detections(monkeypatch):
+    calls = draw_calls(monkeypatch)
+    selected = Detection(10, 20, 110, 220, 1, "plant", 0.9, track_id=7)
+    normal = Detection(10, 20, 110, 220, 1, "plant", 0.9, track_id=8)
+    for detections in ([selected, normal], [normal, selected]):
+        calls.clear()
+        OverlayRenderer().render(
+            FakeFrame(), make_snapshot(detections), now_ns=1_100_000_000,
+            control=AiVisionControlState(True, True, False, 7),
+        )
+        rectangles = [call for call in calls if call[0] == "rect"]
+        assert rectangles[-1][3:] == ((0, 255, 255), 3)

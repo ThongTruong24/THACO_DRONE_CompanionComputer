@@ -36,7 +36,7 @@ CAMERA_MODEL="${CAMERA_MODEL:-realsense_d435i}"
 CAMERA_PARAM_ARGS=()
 if [ -f "/app/config/cameras/${CAMERA_MODEL}.yaml" ]; then
     echo "   ✓ Nạp hồ sơ camera: /app/config/cameras/${CAMERA_MODEL}.yaml"
-    CAMERA_PARAM_ARGS=("--params-file" "/app/config/cameras/${CAMERA_MODEL}.yaml")
+    CAMERA_PARAM_ARGS=("--ros-args" "--params-file" "/app/config/cameras/${CAMERA_MODEL}.yaml" "--")
 else
     echo "   ℹ Không tìm thấy /app/config/cameras/${CAMERA_MODEL}.yaml, dùng tham số mặc định của node"
 fi

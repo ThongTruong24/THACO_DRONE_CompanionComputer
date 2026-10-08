@@ -37,7 +37,7 @@ ENV YOLO_CONFIG_DIR=/tmp/ultralytics
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-jazzy-sensor-msgs ros-jazzy-std-srvs \
-    python3-gi gir1.2-gstreamer-1.0 \
+    python3-gi gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 \
     gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
     gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav \
     libssl3 bash \
@@ -45,7 +45,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY --from=builder /opt/cc /opt/cc
 COPY src/modules/vision_v1/entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+RUN chmod 0755 /app/entrypoint.sh && mkdir -p /app/config
 
 WORKDIR /app/models
 ENTRYPOINT ["/ros_entrypoint.sh", "/app/entrypoint.sh"]

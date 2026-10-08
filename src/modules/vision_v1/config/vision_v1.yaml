@@ -9,9 +9,13 @@
     imgsz: 320
     inference_fps: 5
     fps: 30
+    # Maximum output bounds; actual size follows decoded RTSP aspect ratio, no upscale.
     width: 640
     height: 480
-    bitrate_kbps: 1000
+    bitrate_kbps: 2000
+    # Encoder options are startup-only; restart vision_v1 to apply changes.
+    encoder_preset: "ultrafast"
+    key_int_max: 30
     output_url: "rtmp://127.0.0.1:1935/yolo"
     stale_seconds: 2.0
     detection_max_age: 0.5

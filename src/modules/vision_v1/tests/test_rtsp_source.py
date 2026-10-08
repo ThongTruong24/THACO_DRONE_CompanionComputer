@@ -61,3 +61,12 @@ def test_rtsp_source_reconnects_after_backend_failure():
     source.signal_stop()
     source.join(1.0)
     assert not source.is_alive
+
+
+def test_decode_handles_bgr_row_padding():
+    from vision_v1.rtsp_source import copy_bgr_frame
+
+    data = bytes([1, 2, 3, 4, 5, 6, 99, 99, 7, 8, 9, 10, 11, 12, 99, 99])
+    frame = copy_bgr_frame(data, 2, 2, stride=8)
+    assert frame.tolist() == [[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]]
+    assert frame.flags.c_contiguous
